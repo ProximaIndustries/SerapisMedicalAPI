@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace SerapisMedicalAPI.Model
+namespace SerapisMedicalAPI.Core.Dto
 {
     public class Practice
     {
@@ -25,10 +25,7 @@ namespace SerapisMedicalAPI.Model
         public List<Doc> DoctorAvaliable { get; set; }
 
         [BsonElement("appointments")]
-        public List<Appointment> appointments { get; set; }
-
-        [BsonElement("Appointments")]
-        public List<Appointment> Appointments2 { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
     public partial class Doc
     {

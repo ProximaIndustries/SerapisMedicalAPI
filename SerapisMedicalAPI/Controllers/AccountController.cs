@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using System.Collections.Generic;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -16,38 +17,35 @@ namespace SerapisMedicalAPI.Controllers
             _accountRepository = accountRepository;
         }
 
-
-        //POST:api/Account/post
-        [HttpPost]
-        [Route("post")]
-        public async Task<IActionResult> Post([FromBody]PatientUser user)
+        // GET: api/Account
+        [HttpGet]
+        public async Task<IEnumerable<PatientUser>> Get()
         {
-            
-            //await _accountRepository.AddAccount(new PatientUser
-            //{
-            //    Email = user.Email,
-            //    PrivateId= user.PrivateId,
-            //    Token = user.Token,
-            //    Password= user.Password,
-            //    FirstName= user.FirstName,
-            //    Surname = user.Surname,
-            //    Age= user.Age
-                
-            //});
-            
-            await _accountRepository.AddAccount(user);
-            return new OkObjectResult(user);
-
+            return await _accountRepository.GetAllRegisteredUsers();
         }
 
-        //POST:api/Account/
+        //POST: api/Account/
         [HttpPost]
-        [Route("post")]
-        public async Task<IActionResult> FacebookLogin([FromBody] PatientUser user)
+        public async Task<IActionResult> Post([FromBody]PatientUser patient)
         {
 
-            await _accountRepository.AddAccount(user);
-            return new OkObjectResult(user);
+            //Find if user exists first
+            //if exists return profile info
+            //else create new user
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+            
+            await _accountRepository.RegisterSocialUser(new PatientUser
+            {
+                Email = patient.Email,
+                FirstName = patient.FirstName,
+                Surname = patient.Surname,
+                Age = patient.Age       
+            });
+
+            //await _accountRepository.RegisterSocialUser(patient);
+            return new OkObjectResult(patient);
         }
     }
 }

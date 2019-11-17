@@ -8,12 +8,9 @@ namespace SerapisMedicalAPI.Interfaces
 {
     public interface IAccountRepository
     {
-        Task<IEnumerable<PatientUser>> GetAllRegisteredUsers();
         Task EditUser(PatientUser userwithToken);
 
         Task AddAccount(PatientUser user);
-
-        Task RegisterSocialUser(PatientUser patient);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 
         Task<PatientUser> GetUser(string privateid);

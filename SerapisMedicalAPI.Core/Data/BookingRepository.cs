@@ -27,13 +27,13 @@ namespace SerapisMedicalAPI.Data
         {
             List<Appointment> _medicalibuilding = new List<Appointment>();
             //
-            _medicalibuilding.AddRange(practice.appointments);
+            _medicalibuilding.AddRange(practice.Appointments);
             _medicalibuilding.Add(booking);
 
             var filter = Builders<Practice>.Filter
                                     .Eq(x => x.Id, practice.Id);
             var update = Builders<Practice>.Update
-                                    .Set(s => s.appointments, _medicalibuilding);
+                                    .Set(s => s.Appointments, _medicalibuilding);
 
             try
             {
@@ -89,7 +89,7 @@ namespace SerapisMedicalAPI.Data
             var filter = Builders<Practice>.Filter
                                     .Eq(x => x.Id, practice.Id);
             var update = Builders<Practice>.Update
-                                    .Set(s => s.appointments,practice.appointments );
+                                    .Set(s => s.Appointments,practice.Appointments );
 
             try
             {

@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerapisMedicalAPI", "SerapisMedicalAPI\SerapisMedicalAPI.csproj", "{BBAC2F95-686B-45DB-986F-8511ACDF6D79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerapisMedicalAPI.Tests", "SerapisMedicalAPI.Tests\SerapisMedicalAPI.Tests.csproj", "{0510E66D-5E44-4117-85EC-4340BCD4D0E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerapisMedicalAPI.Tests", "SerapisMedicalAPI.Tests\SerapisMedicalAPI.Tests.csproj", "{0510E66D-5E44-4117-85EC-4340BCD4D0E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{279F1312-8E99-4A18-817F-37FEA958F223}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

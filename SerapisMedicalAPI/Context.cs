@@ -27,37 +27,15 @@ namespace SerapisMedicalAPI
                 Exception ex = new Exception();
                 throw ex;
             }
-             
-
-                
-
-
         }
 
-        public IMongoCollection<Doctor> DoctorCollection
-        {
-            get
-            {
-                return _database.GetCollection<Doctor>("MedicalProfessionals");
-            }
-        }
-
+        public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("MedicalProfessionals");
         //lambda way to do it
         public IMongoCollection<Appointment> BookingsCollection => _database.GetCollection<Appointment>("PatientBookings");
 
-        public IMongoCollection<Practice> PracticeCollection
-        {
-            get
-            {
-                return _database.GetCollection<Practice>("MedicalPractices");
-            }
-        }
-        public IMongoCollection<PatientUser> PatientCollection
-        {
-            get
-            {
-                return _database.GetCollection<PatientUser>("Patients");
-            }
-        }
+        public IMongoCollection<Practice> PracticeCollection => _database.GetCollection<Practice>("MedicalPractices");
+
+        public IMongoCollection<PatientUser> PatientCollection => _database.GetCollection<PatientUser>("Patients");
+
     }
 }

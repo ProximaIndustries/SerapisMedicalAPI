@@ -66,7 +66,7 @@ namespace SerapisMedicalAPI.Controllers
 
         }
 
-        // PUT: api/Booking/
+        // PUT: api/Booking/id
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, [FromBody]Practice practice)
         {

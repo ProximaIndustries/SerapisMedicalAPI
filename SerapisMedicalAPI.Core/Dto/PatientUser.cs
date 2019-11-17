@@ -1,11 +1,10 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-namespace SerapisMedicalAPI.Model
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+namespace SerapisMedicalAPI.Core.Dto
 {
     [BsonIgnoreExtraElements]
     public partial class PatientUser
@@ -18,9 +17,6 @@ namespace SerapisMedicalAPI.Model
 
         [BsonElement("privateid")]
         public int PrivateId { get; set; }
-
-        [BsonElement("socialid")]
-        public string socialId { get; set; }
 
 
         [BsonElement("token")]

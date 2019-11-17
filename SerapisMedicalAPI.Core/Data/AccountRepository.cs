@@ -59,34 +59,15 @@ namespace SerapisMedicalAPI.Data
             return user;
         }
 
-        public async Task<IEnumerable<PatientUser>> GetAllRegisteredUsers()
-        {
-            try
-            {
-                var result = await _context.PatientCollection
-                    .Find(_ => true)
-                    .ToListAsync();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                // log or manage the exception
-                throw ex;
-            }
-
-        }
         /// <summary>
         /// Register
         /// </summary>
         /// <returns></returns>
-        public async Task RegisterSocialUser(PatientUser patient)
+       public async Task RegisterSocialUser(PatientUser patient)
        {
             try
             {
-                await _context
-                    .PatientCollection
-                    .InsertOneAsync(patient);
+                await _context.PatientCollection.InsertOneAsync(patient);
             }
             catch (Exception ex)
             {
