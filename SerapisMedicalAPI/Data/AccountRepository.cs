@@ -94,7 +94,17 @@ namespace SerapisMedicalAPI.Data
             }  
        }
 
-        
+        public Task<PatientUser> LoginSocialUser(PatientUser patient)
+        {
+            //FilterDefinition<Game> filter = Builders<Game>.Filter.Eq(m => m.Name, name);
+            var filter = Builders<PatientUser>.Filter
+                                    .Eq(x => x.SocialId, patient.SocialId);
+            return _context
+                .PatientCollection
+                .Find(filter)
+                .FirstOrDefaultAsync(); 
+        }
+
 
         public async Task EditUser(PatientUser userwithToken)
         {
@@ -126,10 +136,7 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-        public Task LoginFacebookUser()
-        {
-            throw new NotImplementedException();
-        }
+       
         public Task<PatientUser> GetUser(string privateid)
         {
             throw new NotImplementedException();

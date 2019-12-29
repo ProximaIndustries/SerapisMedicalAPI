@@ -20,7 +20,7 @@ namespace SerapisMedicalAPI.Model
         public int PrivateId { get; set; }
 
         [BsonElement("socialid")]
-        public string socialId { get; set; }
+        public string SocialId { get; set; }
 
 
         [BsonElement("token")]

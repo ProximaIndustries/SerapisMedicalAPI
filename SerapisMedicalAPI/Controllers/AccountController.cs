@@ -19,9 +19,11 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public async Task<IEnumerable<PatientUser>> Get()
+        public async Task<PatientUser> GetRegisteredUser(PatientUser patient)
         {
-            return await _accountRepository.GetAllRegisteredUsers();
+            //return await _accountRepository.GetAllRegisteredUsers();  <-- this is for testing purporses
+
+            return await _accountRepository.LoginSocialUser(patient);
         }
 
         //POST: api/Account/
@@ -41,7 +43,8 @@ namespace SerapisMedicalAPI.Controllers
                 Email = patient.Email,
                 FirstName = patient.FirstName,
                 Surname = patient.Surname,
-                Age = patient.Age       
+                Age = patient.Age,
+                SocialId = patient.SocialId
             });
 
             //await _accountRepository.RegisterSocialUser(patient);
