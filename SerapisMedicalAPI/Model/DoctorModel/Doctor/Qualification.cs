@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SerapisMedicalAPI.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
         public string Degree { get; set; }
 
 
-        public long Graduated { get; set; }
+        public DateTime Graduated { get; set; }
 
 
         public string University { get; set; }
