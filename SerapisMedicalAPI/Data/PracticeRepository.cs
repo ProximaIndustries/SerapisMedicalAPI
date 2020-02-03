@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,11 @@ namespace SerapisMedicalAPI.Data
         }
 
         public Task<Practice> RemovePractice(object _id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<PracticeInformation> IPracticeRepository.GetPracticeById(ObjectId _id)
         {
             throw new NotImplementedException();
         }

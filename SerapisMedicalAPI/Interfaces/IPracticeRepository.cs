@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace SerapisMedicalAPI
 
         Task<IEnumerable<Practice>> GetPractices(object _id, double maxDistance);
 
-        Task<Practice> GetPracticeById(ObjectId _id);
+        Task<PracticeInformation> GetPracticeById(ObjectId _id);
         //Get practice details (used in the patient application)
         Task<Practice> GetPracticeDetails(object _id);
 
