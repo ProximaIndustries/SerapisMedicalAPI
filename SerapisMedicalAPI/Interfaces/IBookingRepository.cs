@@ -1,4 +1,5 @@
 ﻿using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace SerapisMedicalAPI.Interfaces
     public interface IBookingRepository
     {
         //Create-- Patient uses this method
-        Task<bool> MakeBooking(Practice practice);
+        Task<bool> MakeBooking(PracticeInformation practice);
         //Create-- Make a booking for the patient
-        Task<bool> AddBooking(Practice practice, Appointment appointmentBooking);
+        Task<bool> AddBooking(PracticeInformation practice, Appointment appointmentBooking);
 
         //Read-- Get availiable bookings
         Task<IEnumerable<Appointment>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance);

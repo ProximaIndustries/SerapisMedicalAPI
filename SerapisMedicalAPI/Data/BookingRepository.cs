@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -53,6 +54,11 @@ namespace SerapisMedicalAPI.Data
                 //log or manage the exception
                 throw ex;
             }
+        }
+
+        public Task<bool> AddBooking(PracticeInformation practice, Appointment appointmentBooking)
+        {
+            throw new NotImplementedException();
         }
 
         public Task CancelBooking(object _id)
@@ -113,6 +119,11 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
             }
 
+        }
+
+        public Task<bool> MakeBooking(PracticeInformation practice)
+        {
+            throw new NotImplementedException();
         }
 
         public Task PostponeBooking(object _id)

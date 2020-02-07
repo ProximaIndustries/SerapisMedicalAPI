@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using System;
 using System.Collections.Generic;
@@ -68,11 +69,11 @@ namespace SerapisMedicalAPI.Controllers
 
         // PUT: api/Booking/id
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody]Practice practice)
+        public async Task<IActionResult> Put(string id, [FromBody]PracticeInformation practice)
         {
             
 
-            Practice p1 = new Practice();
+            PracticeInformation p1 = new PracticeInformation();
             p1.Id = ObjectId.Parse(id);
                 
            
@@ -90,7 +91,7 @@ namespace SerapisMedicalAPI.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(string id, [FromBody]Appointment booking)
         {
-            Practice practice = new Practice();
+            PracticeInformation practice = new PracticeInformation();
 
             Practice p1 = new Practice();
             p1.Id = ObjectId.Parse(id);
