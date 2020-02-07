@@ -94,15 +94,35 @@ namespace SerapisMedicalAPI.Data
             }  
        }
 
-        public Task<PatientUser> LoginSocialUser(PatientUser patient)
+        public async Task<PatientUser> FacebookLogin(PatientUser patient)
         {
-            //FilterDefinition<Game> filter = Builders<Game>.Filter.Eq(m => m.Name, name);
-            var filter = Builders<PatientUser>.Filter
-                                    .Eq(x => x.SocialId, patient.SocialId);
-            return _context
-                .PatientCollection
-                .Find(filter)
-                .FirstOrDefaultAsync(); 
+
+            var filter = Builders<PatientUser>
+                .Filter
+                .Eq(user => user.SocialId, patient.SocialId);
+            //check if user exists
+            try
+            {
+
+                var RegisteredUser = await _context.PatientCollection
+                         .Find(filter)
+                         .FirstOrDefaultAsync();
+
+                return await _context
+                    .PatientCollection
+                    .Find(filter)
+                    .FirstOrDefaultAsync();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            //if user exists login him in 
+
+            //else register the user and sign him in
+
+            return null;
+           
         }
 
 

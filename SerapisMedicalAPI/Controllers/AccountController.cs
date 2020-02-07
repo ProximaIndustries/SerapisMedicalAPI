@@ -23,7 +23,7 @@ namespace SerapisMedicalAPI.Controllers
         {
             //return await _accountRepository.GetAllRegisteredUsers();  <-- this is for testing purporses
 
-            return await _accountRepository.LoginSocialUser(patient);
+            return await _accountRepository.FacebookLogin(patient);
         }
 
         //POST: api/Account/
