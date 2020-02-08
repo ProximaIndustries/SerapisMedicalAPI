@@ -37,17 +37,9 @@ namespace SerapisMedicalAPI.Controllers
 
             if (!ModelState.IsValid)
                 return BadRequest();
-            
-            await _accountRepository.RegisterSocialUser(new PatientUser
-            {
-                Email = patient.Email,
-                FirstName = patient.FirstName,
-                Surname = patient.Surname,
-                Age = patient.Age,
-                SocialId = patient.SocialId
-            });
 
-            //await _accountRepository.RegisterSocialUser(patient);
+            await _accountRepository.FacebookLogin(patient);
+            
             return new OkObjectResult(patient);
         }
     }
