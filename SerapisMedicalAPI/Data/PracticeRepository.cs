@@ -1,7 +1,10 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.GeoJsonObjectModel;
+using SerapisMedicalAPI.Helpers;
 using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using SerapisMedicalAPI.Model.PracticeModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +16,31 @@ namespace SerapisMedicalAPI.Data
     {
         private readonly Context _context = null;
 
+        private List<PracticeDto> practiceDtoList = new List<PracticeDto>();
+
         public PracticeRepository() 
         {
             _context = new Context();
         }
 
-        public Task AddPractice(Practice practice)
+        public Task AddPractice(PracticeInformation practice)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Practice> EditPracticeInfo(object _id)
+        public Task<PracticeInformation> EditPracticeInfo(object _id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Practice> GetPracticeById(ObjectId _id)
+        public Task<PracticeInformation> EditPracticeInfo(ObjectId _id)
         {
-            var filter = Builders<Practice>.Filter.Eq(z => z.Id, _id);
+            throw new NotImplementedException();
+        }
+
+        public async Task<PracticeInformation> GetPracticeById(ObjectId _id)
+        {
+            var filter = Builders<PracticeInformation>.Filter.Eq(z => z.Id, _id);
 
             try
             {
@@ -46,35 +56,70 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public Task<Practice> GetPracticeDetails(object _id)
+        public Task<PracticeInformation> GetPracticeDetails(object _id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Practice>> GetPractices()
+        public Task<PracticeInformation> GetPracticeDetails(ObjectId _id)
+        {
+            PracticeInformation practiceInformation = new PracticeInformation();
+
+            var builder = Builders<PracticeInformation>.Filter;
+
+            //var filter = builder.Eq<PracticeInformation>(x=>x.Id, _id);
+
+            //practiceInformation = _context.PracticeCollection.Find(filter).FirstOrDefault();
+
+            return Task.FromResult(practiceInformation);
+        }
+
+        public async Task<IEnumerable<PracticeDto>> GetPractices()
         {
             //var filter = Builders<Practice>.Filter.AnyEq("DoctorAvaliable", new ObjectId ( "5bc8f2c21c9d440000a98282" ));
             //var result = await _context.PracticeCollection
             //    .Find(filter)
             //    .ToListAsync();
 
+            practiceDtoList.Clear();
+
             var result = await _context.PracticeCollection
                 .Find(_ => true).ToListAsync();
 
-            return result;
+            foreach (var _practice in result)
+            {
+                practiceDtoList.Add(DtoCreator.CreatePracticeDto(_practice));
+            }
+
+            return practiceDtoList;
         }
 
-        public Task<IEnumerable<Practice>> GetPractices(object _id, double maxDistance)
+        public Task<IEnumerable<PracticeDto>> GetPractices(double lat, double lon, double maxDistance)
+        {
+            practiceDtoList.Clear();
+
+            var point = GeoJson.Point(GeoJson.Geographic(lon, lat));
+
+            FieldDefinition<PracticeInformation> fieldDefinition;
+
+            //THE COMMENTED CODE IS TO FILTER BY CO-ORDINATES, YOU MULTIPLY BY 1000 TO CONVERT TO KILOMETERS
+
+            //var filter = Builders<PracticeInformation>.Filter.Near(fieldDefinition, point, maxDistance*1000, 1000);
+
+            //practiceDtoList=_context.AnyEq<>()
+
+            //return Task.FromResult(practiceDtoList);
+
+            throw new NotImplementedException();
+        }
+
+
+        public Task<PracticeInformation> RemovePractice(ObjectId _id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Practice> RemovePractice(object _id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<PracticeInformation> IPracticeRepository.GetPracticeById(ObjectId _id)
+        Task<IEnumerable<PracticeInformation>> IPracticeRepository.GetPractices()
         {
             throw new NotImplementedException();
         }

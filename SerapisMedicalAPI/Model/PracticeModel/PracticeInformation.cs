@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using SerapisMedicalAPI.Model.AppointmentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Practice
 
         public string PracticePicture { get; set; }
 
-        public double Latitude { get; set; }
-
-        public double Longitude { get; set; }
+        public Location GPSCoordinates { get; set; }
 
         public string PracticeName { get; set; }
 
@@ -29,5 +28,9 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Practice
         public string OperatingTime { get; set; }
 
         public PracticeContact ContactPractice { get; set; }
+
+        public Appointment Appointment { get; set; }
+
+
     }
 }

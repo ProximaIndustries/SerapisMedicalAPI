@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using SerapisMedicalAPI.Model.AppointmentModel;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -24,17 +25,16 @@ namespace SerapisMedicalAPI.Data
             _context = new Context();
         }
 
-        public async Task<bool> AddBooking(Practice practice, Appointment booking)
+        public async Task<bool> AddBooking(PracticeInformation practice, Appointment booking)
         {
             List<Appointment> _medicalibuilding = new List<Appointment>();
-            //
-            _medicalibuilding.AddRange(practice.appointments);
+            // _medicalibuilding.AddRange(practice.Appointment);
             _medicalibuilding.Add(booking);
 
-            var filter = Builders<Practice>.Filter
+            var filter = Builders<PracticeInformation>.Filter
                                     .Eq(x => x.Id, practice.Id);
-            var update = Builders<Practice>.Update
-                                    .Set(s => s.appointments, _medicalibuilding);
+            var update = Builders<PracticeInformation>.Update
+                                    .Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
 
             try
             {
@@ -56,11 +56,7 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public Task<bool> AddBooking(PracticeInformation practice, Appointment appointmentBooking)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public Task CancelBooking(object _id)
         {
             throw new NotImplementedException();
@@ -85,17 +81,17 @@ namespace SerapisMedicalAPI.Data
         }
 
 
-        public async Task<bool> MakeBooking(Practice practice)
+        public async Task<bool> MakeBooking(PracticeInformation practice)
         {
           //Doesnt update
           //Dont use this method for making an appointment -in the app
           //TODO: Post data to Appointments Collection 
 
 
-            var filter = Builders<Practice>.Filter
+            var filter = Builders<PracticeInformation>.Filter
                                     .Eq(x => x.Id, practice.Id);
-            var update = Builders<Practice>.Update
-                                    .Set(s => s.appointments,practice.appointments );
+            var update = Builders<PracticeInformation>.Update
+                                    .Set(s => s.Appointment,practice.Appointment);
 
             try
             {
@@ -119,11 +115,6 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
             }
 
-        }
-
-        public Task<bool> MakeBooking(PracticeInformation practice)
-        {
-            throw new NotImplementedException();
         }
 
         public Task PostponeBooking(object _id)

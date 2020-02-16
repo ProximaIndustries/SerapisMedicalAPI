@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SerapisMedicalAPI.Model.PracticeModel;
+using SerapisMedicalAPI.Model.AppointmentModel;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 
 namespace SerapisMedicalAPI
 {
@@ -33,7 +36,7 @@ namespace SerapisMedicalAPI
         //lambda way to do it
         public IMongoCollection<Appointment> BookingsCollection => _database.GetCollection<Appointment>("PatientBookings");
 
-        public IMongoCollection<Practice> PracticeCollection => _database.GetCollection<Practice>("MedicalPractices");
+        public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 
         public IMongoCollection<PatientUser> PatientCollection => _database.GetCollection<PatientUser>("Patients");
 

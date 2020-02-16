@@ -1,4 +1,5 @@
 ﻿using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.AppointmentModel;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using System;
