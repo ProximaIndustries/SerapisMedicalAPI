@@ -28,13 +28,14 @@ namespace SerapisMedicalAPI.Data
         public async Task<bool> AddBooking(PracticeInformation practice, Appointment booking)
         {
             List<Appointment> _medicalibuilding = new List<Appointment>();
-            // _medicalibuilding.AddRange(practice.Appointment);
+            // _medicalibuilding.AddRange(practice.Appointment); // <- Please explain to me why was this commented out
             _medicalibuilding.Add(booking);
 
             var filter = Builders<PracticeInformation>.Filter
                                     .Eq(x => x.Id, practice.Id);
             var update = Builders<PracticeInformation>.Update
                                     .Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
+            //var updatev2 = Builders<PracticeInformation>.Update.Push<Appointment>(e => e.Appointment, booking); <-- we might as well do it this way, and Appointment has to be a list
 
             try
             {
@@ -45,9 +46,19 @@ namespace SerapisMedicalAPI.Data
                                         filter: filter,
                                         update: update,
                                         options: new UpdateOptions { IsUpsert = true });
+                if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)// if modifed document is equal to 1 or more then that means the document was updated
+                {
+                    return true; //This will trigger an success message on the Client device
+                }
+                else
+                {
+                    return false; //This will trigger an unsuccesful message on the Client device
+                }
 
-                return updateResult.IsAcknowledged &&
-                updateResult.ModifiedCount > 0;
+                //return updateResult.IsAcknowledged &&
+                //updateResult.ModifiedCount > 0;
+
+
             }
             catch (Exception ex)
             {
