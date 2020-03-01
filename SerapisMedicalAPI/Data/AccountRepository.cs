@@ -93,7 +93,7 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
             }  
        }
-
+        
         public async Task<PatientUser> FacebookLogin(PatientUser patient)
         {
 
@@ -111,14 +111,15 @@ namespace SerapisMedicalAPI.Data
                 //else register the user and sign him in
                 if (RegisteredUser == null)
                 {
+                    //we need to add a field that keeps record if this is a new user or not.
                     await _context.PatientCollection
-                                  .InsertOneAsync(patient);
+                                  .InsertOneAsync(patient);                                                                                                                                                                                                                                                                                         
                     
                 }
                 else
                 {
                     //user already exists so return user
-                    return RegisteredUser;
+                    return RegisteredUser; //needs to return a success method rather
                 }
                 return patient;
             }

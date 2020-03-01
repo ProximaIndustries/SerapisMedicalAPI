@@ -19,21 +19,27 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public async Task<PatientUser> GetRegisteredUser(PatientUser patient)
+        public async Task<IEnumerable<PatientUser>> GetAllRegisteredUser(PatientUser patient)
         {
-            //return await _accountRepository.GetAllRegisteredUsers();  <-- this is for testing purporses
+            return await _accountRepository.GetAllRegisteredUsers();  //<-- this is for testing purporses
 
-            return await _accountRepository.FacebookLogin(patient);
+            //return await _accountRepository.FacebookLogin(patient);
         }
+
+        //[HttpGet]
+        //public async Task<PatientUser> GetRegisteredUser(PatientUser patient)
+        //{
+
+        //    return await _accountRepository.FacebookLogin(patient);
+        //}
+
 
         //POST: api/Account/
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]PatientUser patient)
         {
 
-            //Find if user exists first
-            //if exists return profile info
-            //else create new user
+            //Register the user
 
             if (!ModelState.IsValid)
                 return BadRequest();
