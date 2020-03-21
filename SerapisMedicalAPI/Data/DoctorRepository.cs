@@ -68,7 +68,7 @@ namespace SerapisMedicalAPI.Data
                 ObjectId Id = GetId(privateid);
                 var result = await _context.DoctorCollection
                     .Find(doctor => doctor.PrivateId == privateid 
-                    || doctor.Id == Id)
+                    || doctor.PrivateId ==Convert.ToString(Id))
                     .FirstOrDefaultAsync();
 
                 return result;
@@ -94,7 +94,7 @@ namespace SerapisMedicalAPI.Data
         {
             ReplaceOneResult replaceOne =
                await _context.DoctorCollection.ReplaceOneAsync(
-                    filter: d => d.Id == doctor.Id,
+                    filter: d => d.User.UserId == doctor.User.UserId,
                     replacement: doctor
                     );
 

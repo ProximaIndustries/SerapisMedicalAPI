@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SerapisMedicalAPI
 {
@@ -43,6 +44,10 @@ namespace SerapisMedicalAPI
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API",  Version="v1"} );
+            });
             services.AddTransient<IDoctorRepository, DoctorRepository>();
             services.AddTransient<IPracticeRepository, PracticeRepository>();
             services.AddTransient<IPatientRepository, PatientRepository>();
@@ -54,7 +59,11 @@ namespace SerapisMedicalAPI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors("CorsPolicy");
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API version 2");
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

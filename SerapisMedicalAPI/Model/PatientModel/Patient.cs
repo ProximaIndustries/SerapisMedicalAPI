@@ -8,6 +8,7 @@ namespace SerapisMedicalAPI.Model.PatientModel
 {
     public class Patient
     {
+        public string SocialID {get; set;}
         public string PatientFirstName { get; set; }
         public string PatientLastName { get; set; }
         public string PatientMedicalAid { get; set; }
@@ -22,5 +23,8 @@ namespace SerapisMedicalAPI.Model.PatientModel
         public List<string> MedicalHistoryRecord { get; set; }
         public string PatientProfilePicture { get; set; }
         public Genders Gender { get; set; }
+        public bool isGoogle {get; set;}
+        public bool isFacebook {get; set;}
+
     }
 }

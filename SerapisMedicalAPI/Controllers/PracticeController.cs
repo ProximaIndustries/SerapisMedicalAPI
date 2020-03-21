@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using SerapisMedicalAPI.Helpers;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using SerapisMedicalAPI.Model.PracticeModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +15,30 @@ namespace SerapisMedicalAPI.Controllers
     [Route("api/[controller]")]
     public class PracticeController : Controller
     {
-       
+
+        List<PracticeDto> practiceDtoList = new List<PracticeDto>();
+
         private readonly IPracticeRepository _practiceRepository;
         public PracticeController(IPracticeRepository practiceRepository)
         {
             _practiceRepository = practiceRepository;
         }
 
-        // GET: api/Practice
+        // GET: api/Practices
         [HttpGet]
-        //[Route("api/Practice")]
-        public async Task<IEnumerable<Practice>> Get()
+        [Route("api/Practices")]
+        public async Task<IEnumerable<PracticeDto>> Get(ObjectId _id, double _maxDistance)
         {
             // -/api/practice
-            
-            return await _practiceRepository.GetPractices();
+
+            //clear list first
+            practiceDtoList.Clear();
+
+            await _practiceRepository.GetPractices();
+
+            return practiceDtoList;
         }
+
 
         // GET: api/Practice/5bc9bd861c9d4400001badf1
         [HttpGet("{id}", Name = "GetPractice")]

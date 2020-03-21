@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.AppointmentModel;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using System;
 using System.Collections.Generic;
@@ -59,20 +62,24 @@ namespace SerapisMedicalAPI.Controllers
             }
         }
 
-        // POST: api/Booking
+        // POST: api/Booking/id
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async void Post([FromBody] string value)
         {
+            PracticeInformation practice = new PracticeInformation();
 
+            Appointment appointment = new Appointment();
+
+            var appointmentMade = await _bookingRepository.AddBooking(practice, appointment);
         }
 
         // PUT: api/Booking/id
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody]Practice practice)
+        public async Task<IActionResult> Put(string id, [FromBody]PracticeInformation practice)
         {
             
 
-            Practice p1 = new Practice();
+            PracticeInformation p1 = new PracticeInformation();
             p1.Id = ObjectId.Parse(id);
                 
            
@@ -90,9 +97,9 @@ namespace SerapisMedicalAPI.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(string id, [FromBody]Appointment booking)
         {
-            Practice practice = new Practice();
+            PracticeInformation practice = new PracticeInformation();
 
-            Practice p1 = new Practice();
+            PracticeInformation p1 = new PracticeInformation();
             p1.Id = ObjectId.Parse(id);
 
 

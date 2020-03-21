@@ -93,16 +93,42 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
             }  
        }
-
-        public Task<PatientUser> LoginSocialUser(PatientUser patient)
+        
+        public async Task<PatientUser> FacebookLogin(PatientUser patient)
         {
-            //FilterDefinition<Game> filter = Builders<Game>.Filter.Eq(m => m.Name, name);
-            var filter = Builders<PatientUser>.Filter
-                                    .Eq(x => x.SocialId, patient.SocialId);
-            return _context
-                .PatientCollection
-                .Find(filter)
-                .FirstOrDefaultAsync(); 
+
+            //check if user exists
+            try
+            {
+                var filter = Builders<PatientUser>
+                .Filter
+                .Eq(user => user.SocialId, patient.SocialId);
+
+                var RegisteredUser = await _context.PatientCollection
+                                                   .Find(filter)
+                                                   .FirstOrDefaultAsync();
+                //if user exists login him in 
+                //else register the user and sign him in
+                if (RegisteredUser == null)
+                {
+                    //we need to add a field that keeps record if this is a new user or not.
+                    await _context.PatientCollection
+                                  .InsertOneAsync(patient);                                                                                                                                                                                                                                                                                         
+                    
+                }
+                else
+                {
+                    //user already exists so return user
+                    return RegisteredUser; //needs to return a success method rather
+                }
+                return patient;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.ToString());
+                //add notification service
+            }
+           
         }
 
 
@@ -129,11 +155,6 @@ namespace SerapisMedicalAPI.Data
 
             }
            
-        }
-
-        public Task RegisterFacebookUser()
-        {
-            throw new NotImplementedException();
         }
 
        
