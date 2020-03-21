@@ -19,11 +19,11 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public async Task<PatientUser> GetRegisteredUser(PatientUser patient)
+        public async Task<IEnumerable<PatientUser>> GetRegisteredUser(PatientUser patient)
         {
-            //return await _accountRepository.GetAllRegisteredUsers();  <-- this is for testing purporses
+            return await _accountRepository.GetAllRegisteredUsers(); // <-- this is for testing purporses
 
-            return await _accountRepository.LoginSocialUser(patient);
+            //return await _accountRepository.LoginSocialUser(patient);
         }
 
         //POST: api/Account/
