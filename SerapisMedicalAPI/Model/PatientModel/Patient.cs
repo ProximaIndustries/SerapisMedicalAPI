@@ -8,6 +8,7 @@ namespace SerapisMedicalAPI.Model.PatientModel
 {
     public class Patient
     {
+        
         public string SocialID {get; set;}
         public string PatientFirstName { get; set; }
         public string PatientLastName { get; set; }
