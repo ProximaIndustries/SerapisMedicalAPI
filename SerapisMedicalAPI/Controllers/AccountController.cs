@@ -36,7 +36,7 @@ namespace SerapisMedicalAPI.Controllers
 
         //POST: api/Account/
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]PatientUser patient)
+        public async Task<IActionResult> Post( [FromBody]PatientUser patient)   
         {
 
             //Register the user
