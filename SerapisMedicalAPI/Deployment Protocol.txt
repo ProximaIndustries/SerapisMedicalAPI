@@ -1,0 +1,23 @@
+#Docker deployment tasks to Heroku
+Author: Bonga Ngcobo
+
+1. Ensure Docker & Heroku is installed by running the command "docker -v" & "Heroku -v"
+
+2. Navigate to the dir of the Serapismedical solution
+
+3. Run the command  "dotnet publish -c Release" 
+
+4. login to Heroku containerized apps using CMD "heroku login " & then "heroku container:login"
+
+5. run --> docker build -t serapismedicalapi <APP PATH OF PUBLIS FOLDER>
+	*remember "\\"
+
+eg. docker build -t serapismedicalapi C:\\Users\\Bonga\\source\\repos\\ProximaIndustries\\SerapisMedicalAPI\\SerapisMedicalAPI\\bin\\Release\\netcoreapp2.1\\publish
+
+6. docker tag serapismedicalapi registry.heroku.com/serapismedicalapi/web
+
+7. docker push registry.heroku.com/serapismedicalapi/web
+
+8. heroku container:release web --app serapismedicalapi
+
+sorry to bother you(2018)
