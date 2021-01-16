@@ -12,16 +12,18 @@ namespace SerapisMedicalAPI.Model
 {
     public class Doctor
     {
-        public ObjectId id { get; set; }
-        public DoctorUser User { get; set; }
 
+        
+        public ObjectId id { get; set; }
+        
         public string PrivateId { get; set; }
 
+        [BsonElement("firstName")]
+        public string firstName { get; set; }
         public Genders Gender { get; set; }
 
         public DateTime BirthDate { get; set; }
 
-        public string firstName { get; set; }
 
         public string lastName { get; set; }
 
@@ -40,5 +42,7 @@ namespace SerapisMedicalAPI.Model
         public List<PracticeInformation> PracticesOwnedOrWorksAt { get; set; }
 
         public List<AppointmentModel.Appointment> ListOfAppointments { get; set; }
+
+        public DoctorUser User { get; set; }
     }
 }

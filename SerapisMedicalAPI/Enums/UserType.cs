@@ -7,5 +7,9 @@ namespace SerapisMedicalAPI.Enums
 {
     public enum UserType
     {
+        admin,
+        nurse,
+        doctor,
+        manager
     }
 }

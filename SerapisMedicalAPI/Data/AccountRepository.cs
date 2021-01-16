@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
 using MongoDB.Driver;
+using SerapisMedicalAPI.Model.PatientModel;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -18,14 +19,14 @@ namespace SerapisMedicalAPI.Data
     {
         private readonly Context _context = null;
 
-        public PatientUser user = new PatientUser();
+        public Patient user = new Patient();
 
         public AccountRepository()
         {
             _context = new Context();
             // _appSettings = appSettings.Value;
         }
-        public PatientUser RegisterandAuthenticateAsync(PatientUser user)
+        public Patient RegisterandAuthenticateAsync(Patient user)
         {
 
              
@@ -40,7 +41,7 @@ namespace SerapisMedicalAPI.Data
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString() )
+                   // new Claim(ClaimTypes.Name, user.Id.ToString() )
                 }),
                 //sets token expiry date to 7 days
                 Expires = DateTime.UtcNow.AddDays(7),
@@ -55,11 +56,11 @@ namespace SerapisMedicalAPI.Data
             _context.PatientCollection.InsertOne(user);
            
             // remove password before returning
-            user.Password = null;
+            //user.Password = null;
             return user;
         }
 
-        public async Task<IEnumerable<PatientUser>> GetAllRegisteredUsers()
+        public async Task<IEnumerable<Patient>> GetAllRegisteredUsers()
         {
             try
             {
@@ -80,7 +81,7 @@ namespace SerapisMedicalAPI.Data
         /// Register
         /// </summary>
         /// <returns></returns>
-        public async Task RegisterSocialUser(PatientUser patient)
+        public async Task RegisterSocialUser(Patient patient)
        {
             try
             {
@@ -94,15 +95,15 @@ namespace SerapisMedicalAPI.Data
             }  
        }
         
-        public async Task<PatientUser> FacebookLogin(PatientUser patient)
+        public async Task<Patient> SocialLogin(Patient patient)
         {
 
             //check if user exists
             try
             {
-                var filter = Builders<PatientUser>
+                var filter = Builders<Patient>
                 .Filter
-                .Eq(user => user.SocialId, patient.SocialId);
+                .Eq(user => user.SocialID, patient.SocialID);
 
                 var RegisteredUser = await _context.PatientCollection
                                                    .Find(filter)
@@ -132,17 +133,17 @@ namespace SerapisMedicalAPI.Data
         }
 
 
-        public async Task EditUser(PatientUser userwithToken)
+        public async Task EditUser(Patient userwithToken)
         {
             ReplaceOneResult updateResult =
                     await _context
             .PatientCollection
             .ReplaceOneAsync(
-                filter: g => g.PrivateId == userwithToken.PrivateId,
+                filter: g => g.id == userwithToken.id,
                 replacement: userwithToken);
         }
 
-        public async Task AddAccount(PatientUser user)
+        public async Task AddAccount(Patient user)
         {
             try
             {
@@ -158,12 +159,12 @@ namespace SerapisMedicalAPI.Data
         }
 
        
-        public Task<PatientUser> GetUser(string privateid)
+        public Task<Patient> GetUser(string privateid)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateUser(PatientUser doctor)
+        public Task<bool> UpdateUser(Patient doctor)
         {
             throw new NotImplementedException();
         }
@@ -173,6 +174,9 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-       
+        PatientUser IAccountRepository.RegisterandAuthenticateAsync(Patient user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

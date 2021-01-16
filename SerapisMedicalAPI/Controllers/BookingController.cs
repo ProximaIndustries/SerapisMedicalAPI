@@ -41,7 +41,7 @@ namespace SerapisMedicalAPI.Controllers
         // GET: api/Booking/_id
         [HttpGet("{id}", Name = "GetBookedPatientFile")]
         [Route("api/[controller]/_id")]
-        public Task<PatientUser> GetBookedPatientFile(ObjectId id)
+        public Task<Patient> GetBookedPatientFile(ObjectId id)
         {
             if (id != null)
             {
@@ -75,7 +75,7 @@ namespace SerapisMedicalAPI.Controllers
 
         // PUT: api/Booking/id
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody]PracticeInformation practice)
+        public async Task<IActionResult> Put(string id, [FromBody] PracticeInformation practice)
         {
             
 

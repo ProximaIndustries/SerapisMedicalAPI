@@ -41,7 +41,7 @@ namespace SerapisMedicalAPI
 
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 
-        public IMongoCollection<PatientUser> PatientCollection => _database.GetCollection<PatientUser>("Patients");
+        public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");
 
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
+using SerapisMedicalAPI.Model.PatientModel;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -26,7 +27,7 @@ namespace SerapisMedicalAPI.Data
             return internalId;
         }
 
-        public async Task<IEnumerable<PatientUser>> GetAllPatients()
+        public async Task<IEnumerable<Patient>> GetAllPatients()
         {
             try
             {
@@ -43,7 +44,7 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Add patient to the platform
-        public async Task AddPatient(PatientUser _patientUser)
+        public async Task AddPatient(Patient _patientUser)
         {
             try
             {
@@ -56,13 +57,13 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Remove patient from the platform
-        public async Task RemovePatient(PatientUser _id)
+        public async Task RemovePatient(Patient _id)
         {
             try
             {
                 if (_id != null)
                 {
-                    var filter = Builders<PatientUser>
+                    var filter = Builders<Patient>
                         .Filter
                         .Eq("_id", _id);
 
@@ -89,14 +90,14 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Edit patients file/information
-        public async Task EditPatientUser(PatientUser _id)
+        public async Task EditPatientUser(Patient _id)
         {
             try
             {
                 if (_id != null)
                 {
                     //Specifiy the filter 
-                    var filter = Builders<PatientUser>
+                    var filter = Builders<Patient>
                         .Filter
                         .Eq("_id", _id);
 
@@ -116,7 +117,7 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Get a particular patient info
-        public async Task<PatientUser> GetPatientDetails(ObjectId _id)
+        public async Task<Patient> GetPatientDetails(ObjectId _id)
         {
             //5c0ef23c1c9d440000eee9ae
 
@@ -124,7 +125,7 @@ namespace SerapisMedicalAPI.Data
             {
                 if (_id != null)
                 {
-                    var filter = Builders<PatientUser>
+                    var filter = Builders<Patient>
                          .Filter
                          .Eq("firstName", _id);
 
