@@ -1,4 +1,7 @@
-﻿using SerapisMedicalAPI.Enums;
+﻿using MongoDB.Bson;
+using SerapisMedicalAPI.Enums;
+using SerapisMedicalAPI.Model.AppointmentModel;
+using SerapisMedicalAPI.Model.MedicalDetails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +11,8 @@ namespace SerapisMedicalAPI.Model.PatientModel
 {
     public class Patient
     {
+        public ObjectId id { get; set; }
+
         public string SocialID {get; set;}
         public string PatientFirstName { get; set; }
         public string PatientLastName { get; set; }
@@ -17,14 +22,34 @@ namespace SerapisMedicalAPI.Model.PatientModel
         public int PatientAge { get; set; }
         public bool HasBloodPressure { get; set; }
         public bool IsDepenedent { get; set; }
-        public List<string> ListOfChronicDisease { get; set; }
-        public List<string> ListOfMedication { get; set; }
-        public List<string> ListOfAllergies { get; set; }
-        public List<string> MedicalHistoryRecord { get; set; }
+        public List<ChronicDisease> ListOfChronicDisease { get; set; }
+        public List<Medication> ListOfMedication { get; set; }
+        public List<Allergies> ListOfAllergies { get; set; }
+        public List<MedicalFile> MedicalRecords { get; set; }
+
+        private string patientProfilePicture;
+
+        public string GetPatientProfilePicture()
+        {
+            return patientProfilePicture;
+        }
+
+        public void SetPatientProfilePicture(string value)
+        {
+            patientProfilePicture = value;
+        }
+
+        public List<BookedAppointment> PastBookedAppointments { get; set; }
         public string PatientProfilePicture { get; set; }
+
         public Genders Gender { get; set; }
-        public bool isGoogle {get; set;}
-        public bool isFacebook {get; set;}
+
+        public DateTime BirthDate { get; set; }
+
+        public PatientContact PatientContactDetails { get; set; }
+
+        public bool IsGoogle {get; set;}
+        public bool IsFacebook {get; set;}
 
     }
 }

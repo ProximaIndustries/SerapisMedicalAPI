@@ -12,6 +12,7 @@ namespace SerapisMedicalAPI.Model
 {
     public class Doctor
     {
+        public ObjectId id { get; set; }
         public DoctorUser User { get; set; }
 
         public string PrivateId { get; set; }
@@ -20,9 +21,9 @@ namespace SerapisMedicalAPI.Model
 
         public DateTime BirthDate { get; set; }
 
-        public string FirstName { get; set; }
+        public string firstName { get; set; }
 
-        public string LastName { get; set; }
+        public string lastName { get; set; }
 
         public int YearsOfExp { get; set; }
 

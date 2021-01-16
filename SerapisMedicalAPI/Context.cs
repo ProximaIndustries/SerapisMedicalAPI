@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SerapisMedicalAPI.Model.PracticeModel;
 using SerapisMedicalAPI.Model.AppointmentModel;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using System.Diagnostics;
 
 namespace SerapisMedicalAPI
 {
@@ -28,7 +29,9 @@ namespace SerapisMedicalAPI
             else
             {
                 Exception ex = new Exception();
+                Debug.WriteLine(ex.ToString());
                 throw ex;
+               
             }
         }
 

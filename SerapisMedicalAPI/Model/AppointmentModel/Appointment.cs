@@ -12,8 +12,7 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
         //Using int for now, need to use mongoId
         public ObjectId BookingId { get; set; }
         public int LineNumber { get; set; }
-        public string DateBooked { get; set; }
-        public string TimeBooked { get; set; }
+        public DateTime DateAndTimeOfAppointment { get; set; }
         public bool HasSeenGP { get; set; }
         public bool IsSerapisBooking { get; set; }
         public TimeSpan Duration { get; set; }
