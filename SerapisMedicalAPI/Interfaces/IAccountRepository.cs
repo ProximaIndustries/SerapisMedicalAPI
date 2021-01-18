@@ -15,6 +15,8 @@ namespace SerapisMedicalAPI.Interfaces
 
         Task RegisterSocialUser(PatientUser patient);
 
+        Task<PatientUser> FBLogin(string socialID, string FirstName,string LastName, string emailaddress);
+
         Task<PatientUser> FacebookLogin(PatientUser patient);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 

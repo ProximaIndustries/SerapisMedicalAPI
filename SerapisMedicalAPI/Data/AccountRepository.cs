@@ -94,6 +94,48 @@ namespace SerapisMedicalAPI.Data
             }  
        }
         
+        public async Task<PatientUser> FBLogin(string socialID, string FirstName, string LastName, string emailaddress)
+        {
+
+            var patient = new PatientUser
+            {
+                SocialId = socialID,
+                FirstName = FirstName,
+                LastName = LastName,
+                Email = emailaddress
+            };
+            try
+            {
+                var filter = Builders<PatientUser>
+                .Filter
+                .Eq(user => user.SocialId, patient.SocialId);
+
+                var RegisteredUser = await _context.PatientCollection
+                                                   .Find(filter)
+                                                   .FirstOrDefaultAsync();
+                //if user exists login him in 
+                //else register the user and sign him in
+                if (RegisteredUser == null)
+                {
+                    //we need to add a field that keeps record if this is a new user or not.
+                    await _context.PatientCollection
+                                  .InsertOneAsync(patient);
+
+                }
+                else
+                {
+                    //user already exists so return user
+                    return RegisteredUser; //needs to return a success method rather
+                }
+                return patient;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+                //add notification service
+            }
+        }
+
         public async Task<PatientUser> FacebookLogin(PatientUser patient)
         {
 
