@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SerapisMedicalAPI.Model.PracticeModel;
 using SerapisMedicalAPI.Model.AppointmentModel;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using System.Diagnostics;
 
 namespace SerapisMedicalAPI
 {
@@ -28,7 +29,9 @@ namespace SerapisMedicalAPI
             else
             {
                 Exception ex = new Exception();
+                Debug.WriteLine(ex.ToString());
                 throw ex;
+               
             }
         }
 
@@ -38,7 +41,7 @@ namespace SerapisMedicalAPI
 
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 
-        public IMongoCollection<PatientUser> PatientCollection => _database.GetCollection<PatientUser>("Patients");
+        public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");
 
     }
 }

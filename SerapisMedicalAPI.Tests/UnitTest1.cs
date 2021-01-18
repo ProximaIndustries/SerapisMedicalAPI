@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using SerapisMedicalAPI;
 
 namespace SerapisMedicalAPI.Tests
 {
@@ -9,7 +10,7 @@ namespace SerapisMedicalAPI.Tests
         public async void Can_Register_User()
         {
             //arrange
-          
+            
             //act
             
             //assert

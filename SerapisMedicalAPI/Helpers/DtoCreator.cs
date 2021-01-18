@@ -34,9 +34,9 @@ namespace SerapisMedicalAPI.Helpers
             DoctorDto newDocDto = new DoctorDto()
             {
                 DoctorId = doctor.User.UserId,
-                FullName = string.Format(doctor.FirstName + " " + doctor.LastName),
+                FullName = string.Format(doctor.firstName + " " + doctor.lastName),
                 ProfilePicture=doctor.ProfilePicture,
-                TimeAvailable=doctor.ListOfAppointments.FirstOrDefault().TimeBooked,
+                //TimeAvailable=doctor.ListOfAppointments.FirstOrDefault().TimeBooked,
                 University=doctor.Qualifications.FirstOrDefault().University
             };
 
@@ -51,7 +51,7 @@ namespace SerapisMedicalAPI.Helpers
                   MedicalAidPatient=patient.MedicalAidPatient,
                   PatientId=ObjectId.Parse(patient.SocialID),
                   //AppointmentSet=GetAppointment(objectId id);
-                  ProfilePicture=patient.PatientProfilePicture
+                  ProfilePicture=patient.GetPatientProfilePicture()
             };
 
             return newPatientDto;
@@ -62,8 +62,9 @@ namespace SerapisMedicalAPI.Helpers
             AppointmentDto newAppointmentDto = new AppointmentDto()
             {
                  AppointmentId=appointment.BookingId,
-                 DateBooked=DateTime.Parse(appointment.DateBooked),
-                 TimeBooked=DateTime.Parse(appointment.TimeBooked)
+                 
+                 //DateBooked=DateTime.Parse(appointment.DateBooked),
+                 //TimeBooked=DateTime.Parse(appointment.TimeBooked)
             };
 
             return newAppointmentDto;

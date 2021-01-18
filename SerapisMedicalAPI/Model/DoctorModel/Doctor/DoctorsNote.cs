@@ -7,10 +7,8 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
 {
     public class DoctorsNote
     {
-        public string DoctorsName { get; set; }
+        public DateTime NoteISsueDateTime{ get; set; }
 
-        public string DateOfNote { get; set; }
-
-        public string Note { get; set; }
+        public string Notes { get; set; }
     }
 }

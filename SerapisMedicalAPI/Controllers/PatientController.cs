@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using SerapisMedicalAPI.Model.PatientModel;
 
 namespace SerapisMedicalAPI
 {
@@ -24,7 +25,7 @@ namespace SerapisMedicalAPI
 
         // GET: api/patient
         [HttpGet]
-        public async Task<IEnumerable<PatientUser>> Get()
+        public async Task<IEnumerable<Patient>> Get()
         {
             return await _patientRepository.GetAllPatients();
         }

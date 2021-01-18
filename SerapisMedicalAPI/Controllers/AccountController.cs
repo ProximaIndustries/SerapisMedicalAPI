@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using System.Collections.Generic;
+using SerapisMedicalAPI.Model.PatientModel;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -19,7 +20,7 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public async Task<IEnumerable<PatientUser>> GetAllRegisteredUser(PatientUser patient)
+        public async Task<IEnumerable<Patient>> GetAllRegisteredUser(Patient patient)
         {
             return await _accountRepository.GetAllRegisteredUsers();  //<-- this is for testing purporses
 
@@ -51,7 +52,7 @@ namespace SerapisMedicalAPI.Controllers
 
         //POST: api/Account?SocialID&Firstname&emailaddress
         [HttpPost]
-        public async Task<IActionResult> Facebooklogin([FromQuery]string SocialID,string FirstName, string LastName, string emailaddress)
+        public async Task<IActionResult> Post([FromBody]Patient patient)
         {
 
             //Register the user
@@ -59,6 +60,7 @@ namespace SerapisMedicalAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
+            await _accountRepository.SocialLogin(patient);
             
             var patient = await _accountRepository.FBLogin(SocialID, FirstName, LastName, emailaddress);
            
