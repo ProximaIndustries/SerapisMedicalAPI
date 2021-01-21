@@ -17,8 +17,10 @@ namespace SerapisMedicalAPI.Model.PatientModel
         public string SocialID {get; set;}
         [BsonElement("patientfirstname")]
         public string PatientFirstName { get; set; }
+
         [BsonElement("email")]
         public string Email { get; set; }
+
         [BsonElement("patientlastname")]
         public string PatientLastName { get; set; }
         [BsonElement("patientmedicalaid")]

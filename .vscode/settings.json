@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/992e841e-42ac-4760-975b-dee45bc2bffb/resourceGroups/kbalpha/providers/Microsoft.Web/sites/serapismedicalapi",
+    "appService.deploySubpath": "."
+}

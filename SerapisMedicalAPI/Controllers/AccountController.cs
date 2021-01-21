@@ -35,22 +35,22 @@ namespace SerapisMedicalAPI.Controllers
 
 
         //POST: api/Account/
-        //[HttpPost]
-        //public async Task<IActionResult> Post( [FromBody]PatientUser patient)   
-        //{
+        [HttpPost]
+        public async Task<IActionResult> Test( [FromBody]Patient patient)   
+        {
 
-        //    //Register the user
+            //Register the user
 
-        //    if (!ModelState.IsValid)
-        //        return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-        //    await _accountRepository.FacebookLogin(patient);
+            await _accountRepository.RegisterSocialUser(patient);
             
-        //    return new OkObjectResult(patient);
-        //}
+            return new OkObjectResult(patient);
+        }
 
         //POST: api/Account?SocialID&Firstname&emailaddress
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> Post([FromBody]Patient patient)
         {
 
@@ -61,7 +61,7 @@ namespace SerapisMedicalAPI.Controllers
 
             await _accountRepository.SocialLogin(patient);
             
-            var patient = await _accountRepository.FBLogin(SocialID, FirstName, LastName, emailaddress);
+            //var patient = await _accountRepository.FBLogin(SocialID, FirstName, LastName, emailaddress);
            
             return new OkObjectResult(patient);
         }

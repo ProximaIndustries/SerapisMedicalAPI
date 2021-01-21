@@ -51,7 +51,7 @@ namespace SerapisMedicalAPI.Helpers
                   MedicalAidPatient=patient.MedicalAidPatient,
                   PatientId=ObjectId.Parse(patient.SocialID),
                   //AppointmentSet=GetAppointment(objectId id);
-                  ProfilePicture=patient.GetPatientProfilePicture()
+                  //ProfilePicture=patient.GetPatientProfilePicture()
             };
 
             return newPatientDto;
