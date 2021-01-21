@@ -1,4 +1,5 @@
-﻿using SerapisMedicalAPI.Model.DoctorModel.Doctor;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using SerapisMedicalAPI.Model.DoctorModel.Doctor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,11 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
 {
     public class Session
     {
-        public TimeSpan Duration { get; set; }
+
+        [BsonElement("duration")]
+        public string Duration { get; set; }
+
+        [BsonElement("doctornote")]
         public DoctorsNote DoctorNote { get; set; }
 
     }

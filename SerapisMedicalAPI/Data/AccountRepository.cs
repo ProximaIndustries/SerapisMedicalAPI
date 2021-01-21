@@ -12,6 +12,7 @@ using System.Text;
 using System.Security.Claims;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Model.PatientModel;
+using MongoDB.Bson;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -77,6 +78,7 @@ namespace SerapisMedicalAPI.Data
             }
 
         }
+        
         /// <summary>
         /// Register
         /// </summary>
@@ -101,6 +103,8 @@ namespace SerapisMedicalAPI.Data
             //check if user exists
             try
             {
+
+
                 var filter = Builders<Patient>
                 .Filter
                 .Eq(user => user.SocialID, patient.SocialID);
@@ -131,8 +135,6 @@ namespace SerapisMedicalAPI.Data
             }
            
         }
-
-
         public async Task EditUser(Patient userwithToken)
         {
             ReplaceOneResult updateResult =
@@ -159,9 +161,24 @@ namespace SerapisMedicalAPI.Data
         }
 
        
-        public Task<Patient> GetUser(string privateid)
+        public Patient GetUserById(string privateid)
         {
-            throw new NotImplementedException();
+            Patient _patient = new Patient();
+            _patient.id = ObjectId.Parse(privateid);
+            var filter = Builders<Patient>.Filter.Eq(user => user.id, _patient.id);
+            try
+            {
+                Patient user =  _context.PatientCollection.Find(filter).SingleOrDefault();
+
+                return user;
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return null;
         }
 
         public Task<bool> UpdateUser(Patient doctor)

@@ -19,7 +19,7 @@ namespace SerapisMedicalAPI.Interfaces
         Task<Patient> SocialLogin(Patient patient);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 
-        Task<Patient> GetUser(string privateid);
+        Patient GetUserById(string privateid);
 
         //Delete-- Doctor from platform (doctor app uses this method)
         

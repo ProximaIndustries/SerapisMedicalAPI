@@ -23,15 +23,14 @@ namespace SerapisMedicalAPI.Controllers
         public async Task<IEnumerable<Patient>> GetAllRegisteredUser(Patient patient)
         {
             return await _accountRepository.GetAllRegisteredUsers();  //<-- this is for testing purporses
-            
+
         }
 
-        //[HttpGet]
-        //public async Task<PatientUser> GetRegisteredUser(PatientUser patient)
-        //{
-        //
-        //    return await _accountRepository.FacebookLogin(patient);
-        //}
+        [HttpGet("{id}")]
+        public Patient GetRegisteredUser(string id)
+        {
+            return  _accountRepository.GetUserById(id);
+        }
 
 
         //POST: api/Account/
