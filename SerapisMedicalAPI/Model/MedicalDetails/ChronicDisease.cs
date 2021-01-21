@@ -12,6 +12,7 @@ namespace SerapisMedicalAPI.Model.MedicalDetails
     {
         [BsonElement("chronicid")]
         public string chronicId { get; set; }
+
         [BsonElement("chronicdiseasename")]
         public string ChronicDiseaseName { get; set; }
     }

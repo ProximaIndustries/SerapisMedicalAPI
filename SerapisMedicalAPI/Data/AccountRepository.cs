@@ -104,6 +104,7 @@ namespace SerapisMedicalAPI.Data
             try
             {
 
+                //if facebook || google
 
                 var filter = Builders<Patient>
                 .Filter
@@ -123,8 +124,12 @@ namespace SerapisMedicalAPI.Data
                 }
                 else
                 {
-                    //user already exists so return user
+                    // user already exists so return user
+                    // grab the token
+                    // checked if valid
+
                     return RegisteredUser; //needs to return a success method rather
+
                 }
                 return patient;
             }
