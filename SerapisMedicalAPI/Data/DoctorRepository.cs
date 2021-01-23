@@ -80,9 +80,19 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public Task<Doctor> GetDoctor(ObjectId _id)
+        public Task<T> AuthenticateDoctor(string _id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //Get Health ID from department of Health
+                //
+
+            }catch(Exception ex)
+            {
+
+            }
+
+            return null;
         }
 
         //the IsAcknowledged and ModifiedCount properties, this is how MongoDB keep track of changes.

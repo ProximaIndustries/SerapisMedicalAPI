@@ -32,14 +32,7 @@ namespace SerapisMedicalAPI.Controllers
         [HttpGet("{id}", Name = "GetDoctor")]
         public string Get([FromBody]int id)
         {
-            if (id != null)
-            {
-                return "value";
-            }
-            else
-            {
-                return null;
-            }
+            return "";
         }
 
         // POST: api/Doctor
