@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
-
+using SerapisMedicalAPI.Helpers;
 namespace SerapisMedicalAPI.Data
 {
     public class DoctorRepository : IDoctorRepository
@@ -80,12 +80,33 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public Task<T> AuthenticateDoctor(string _id)
+        public async Task<Doctor> AuthenticateDoctor(string _id, string password)
         {
             try
             {
-                //Get Health ID from department of Health
-                //
+                // Validate Health ID from department of Health
+
+                //hash password
+                EncryptService _securehash = new EncryptService();
+                string asa = _securehash.DecryptCipherTextToPlainText(password);
+                
+                
+                // Check if doctor exists
+                var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.HealthId, _id);
+
+                var RegisteredDoctor = await _context.DoctorCollection
+                                                      .Find(filter)
+                                                      .FirstOrDefaultAsync();
+                if (RegisteredDoctor == null)
+                    return null;
+
+                //Password check
+                var filter2 = Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
+
+                return RegisteredDoctor;
+                //Send SMS
+
+
 
             }catch(Exception ex)
             {
@@ -104,7 +125,7 @@ namespace SerapisMedicalAPI.Data
         {
             ReplaceOneResult replaceOne =
                await _context.DoctorCollection.ReplaceOneAsync(
-                    filter: d => d.User.UserId == doctor.User.UserId,
+                    filter: d => d.User.HealthId == doctor.User.HealthId,
                     replacement: doctor
                     );
 

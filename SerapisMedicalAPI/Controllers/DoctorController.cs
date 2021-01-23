@@ -52,7 +52,7 @@ namespace SerapisMedicalAPI.Controllers
             if (doctorFromDb == null)
                 return new NotFoundResult();
 
-            doctor.User.UserId = doctorFromDb.User.UserId;
+            doctor.User.HealthId = doctorFromDb.User.HealthId;
 
             await _doctorRepository.EditDoctor(doctor);
 

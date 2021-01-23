@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Model.DoctorModel.Doctor;
@@ -15,34 +16,51 @@ namespace SerapisMedicalAPI.Model
 
         
         public ObjectId id { get; set; }
-        
+
+        [BsonElement("firstName")]
         public string PrivateId { get; set; }
 
         [BsonElement("firstName")]
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
+        
+        [BsonElement("lastName")]
+        public string LastName { get; set; }
+
+        [DefaultValue("Other")]
+        [BsonElement("gender")]
         public Genders Gender { get; set; }
 
+        [BsonElement("birthdate")]
         public DateTime BirthDate { get; set; }
 
+        //[DefaultValue(10)]
+        //[BsonElement("yearsofexp")]
+        //public int YearsOfExp { get; set; }
 
-        public string lastName { get; set; }
-
-        public int YearsOfExp { get; set; }
-
+        [BsonElement("profileImageUrl")]
         public string ProfilePicture { get; set; }
 
+        [BsonElement("qualifications")]
         public List<Qualification> Qualifications { get; set; }
 
+        [BsonElement("specialization")]
         public Specilization Specialization { get; set; }
 
-        public DoctorsNote Note { get; set; }
+        //[BsonElement("note")]
+        //public DoctorsNote Note { get; set; }
 
-        public DoctorPrescription Prescription { get; set; }
+        //[BsonElement("Prescription")]
+        //public DoctorPrescription Prescription { get; set; }
 
-        public List<PracticeInformation> PracticesOwnedOrWorksAt { get; set; }
+        [BsonElement("practicesownedOrworksat")]
+        //public List<PracticeInformation> PracticesOwnedOrWorksAt { get; set; }
+        public List<ObjectId> PracticesOwnedOrWorksAt { get; set; }
 
-        public List<AppointmentModel.Appointment> ListOfAppointments { get; set; }
+        [BsonElement("listofappointments")]
+        //public List<AppointmentModel.Appointment> ListOfAppointments { get; set; }
+        public List<ObjectId> ListOfAppointments { get; set; }
 
+        [BsonElement("user")]
         public DoctorUser User { get; set; }
     }
 }
