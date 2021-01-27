@@ -26,5 +26,7 @@ namespace SerapisMedicalAPI.Interfaces
 
         //if doctor needs to edit his information use this method
         Task<bool> EditDoctor(Doctor doctor);
+
+        Task<Doctor> AuthenticateDoctor(string _id, string password);
     }
 }

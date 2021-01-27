@@ -88,7 +88,7 @@ namespace SerapisMedicalAPI.Data
 
                 //hash password
                 EncryptService _securehash = new EncryptService();
-                string asa = _securehash.DecryptCipherTextToPlainText(password);
+               // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
                 
                 
                 // Check if doctor exists
@@ -97,13 +97,23 @@ namespace SerapisMedicalAPI.Data
                 var RegisteredDoctor = await _context.DoctorCollection
                                                       .Find(filter)
                                                       .FirstOrDefaultAsync();
+                //Return null if the doctor isnt registered with us
+                //we need to handle this null return
                 if (RegisteredDoctor == null)
                     return null;
 
-                //Password check
+
+                //if doctor pass "exist check"
+                //Password check if correct
                 var filter2 = Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
 
-                return RegisteredDoctor;
+                var AuthenticatedRegisteredDoctor = await _context.DoctorCollection
+                                                                  .Find(filter)
+                                                                  .FirstOrDefaultAsync();
+                //Need to set token to expire after 12 hours
+
+                //return the registered user
+                return AuthenticatedRegisteredDoctor;
                 //Send SMS
 
 

@@ -32,12 +32,6 @@ namespace SerapisMedicalAPI.Controllers
             return  _accountRepository.GetUserById(id);
         }
 
-        [HttpGet("{}")]
-        public void test2 ()
-        {
-
-        }
-
 
         //POST: api/Account/
         [HttpPost]

@@ -39,28 +39,28 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         // GET: api/Booking/_id
-        [HttpGet("{id}", Name = "GetBookedPatientFile")]
-        [Route("api/[controller]/_id")]
-        public Task<Patient> GetBookedPatientFile(ObjectId id)
-        {
-            if (id != null)
-            {
-                try
-                {
-                    var file = _patientRepository.GetPatientDetails(id);
+        //[HttpGet("{id}", Name = "GetBookedPatientFile")]
+        //[Route("api/[controller]/_id")]
+        //public Task<Patient> GetBookedPatientFile(ObjectId id)
+        //{
+        //    if (id != null)
+        //    {
+        //        try
+        //        {
+        //            var file = _patientRepository.GetPatientDetails(id);
 
-                    return file;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //            return file;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw ex;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
         // POST: api/Booking/id
         [HttpPost]

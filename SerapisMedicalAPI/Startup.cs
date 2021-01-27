@@ -64,6 +64,7 @@ namespace SerapisMedicalAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API version 2");
             });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

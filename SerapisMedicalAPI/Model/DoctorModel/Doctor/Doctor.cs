@@ -17,13 +17,13 @@ namespace SerapisMedicalAPI.Model
         
         public ObjectId id { get; set; }
 
-        [BsonElement("firstName")]
+        [BsonElement("privateId")]
         public string PrivateId { get; set; }
 
-        [BsonElement("firstName")]
+        [BsonElement("firstname")]
         public string FirstName { get; set; }
         
-        [BsonElement("lastName")]
+        [BsonElement("lastname")]
         public string LastName { get; set; }
 
         [DefaultValue("Other")]

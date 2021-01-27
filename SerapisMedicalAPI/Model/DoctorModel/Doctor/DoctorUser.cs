@@ -8,22 +8,22 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
 {
     public partial class DoctorUser
     {
-        [BsonElement("birthdate")]
+        [BsonElement("healthid")]
         public string HealthId { get; set; }
 
-        [BsonElement("birthdate")]
+        [BsonElement("password")]
         public string Password { get; set; }
         
-        [BsonElement("birthdate")]
+        [BsonElement("email")]
         public string Email { get; set; }
 
-        [BsonElement("birthdate")]
+        [BsonElement("givencode")]
         public string GivenCode { get; set; }
 
-        [BsonElement("birthdate")]
-        public string LastLogin { get; set; }
+        [BsonElement("lastlogin")]
+        public DateTime LastLogin { get; set; }
 
-        [BsonElement("birthdate")]
+        [BsonElement("hasbeenvalidated")]
         public bool HasbeenValidated { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using MongoDB.Bson;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using System.Text.Encodings.Web;
+using SerapisMedicalAPI.Helpers;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -22,17 +24,35 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         // GET: api/Doctor
-        [HttpGet]        
+        [HttpGet(Name = "GetAllDoctors")]
+        
         public async Task<IEnumerable<Doctor>> Get()
         {
             return await _doctorRepository.GetAllDoctor();
         }
 
         // GET: api/Doctor/5
-        [HttpGet("{id}", Name = "GetDoctor")]
-        public string Get([FromBody]int id)
+        
+        [HttpGet]
+        [QueryStringContraint("id",true)]
+
+        public async Task<IActionResult> AutenticateUser(string id, string password)
         {
-            return "";
+            
+
+            Doctor doc = await _doctorRepository.AuthenticateDoctor(id, password);
+            
+            if(doc == null)
+            {
+
+                return BadRequest(doc);
+            }
+            return new OkObjectResult(doc)
+            //response.DidError = true;
+            //response.ErrorMessage = "There was an internal error, please contact to technical support."
+            // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);
+
+            ;
         }
 
         // POST: api/Doctor

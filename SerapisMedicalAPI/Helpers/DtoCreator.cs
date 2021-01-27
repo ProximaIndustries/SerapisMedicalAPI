@@ -31,10 +31,12 @@ namespace SerapisMedicalAPI.Helpers
 
         public static DoctorDto CreateDoctorDto(Doctor doctor)
         {
+            
             DoctorDto newDocDto = new DoctorDto()
             {
-                DoctorId = doctor.User.UserId,
-                FullName = string.Format(doctor.firstName + " " + doctor.lastName),
+                
+                DoctorId = ObjectId.Parse(doctor.User.HealthId),
+                FullName = string.Format(doctor.FirstName+ " " + doctor.LastName),
                 ProfilePicture=doctor.ProfilePicture,
                 //TimeAvailable=doctor.ListOfAppointments.FirstOrDefault().TimeBooked,
                 University=doctor.Qualifications.FirstOrDefault().University
