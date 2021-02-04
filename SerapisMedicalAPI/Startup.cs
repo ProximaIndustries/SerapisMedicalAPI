@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
@@ -26,6 +27,11 @@ namespace SerapisMedicalAPI
 
         public IConfiguration Configuration { get; }
 
+        //THIS IS FOR CLICKATELL
+        //API KEY : AfMDkjnITRaKOQKiV6mN_g==
+        //https://localhost:44371/api/communication/callback
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -37,6 +43,20 @@ namespace SerapisMedicalAPI
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
+
+            //services.AddSingleton<IMongoClient>(c =>
+            //{
+            //    var login = "";
+            //    var password = Uri.EscapeDataString("");
+            //    var server = "";
+
+            //    return new MongoClient(
+            //        string.Format("mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority", login, password, server));
+            //});
+
+            //services.AddScoped(c =>
+            //    c.GetService<IMongoClient>().StartSession());
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.Configure<Settings>(options =>
             {

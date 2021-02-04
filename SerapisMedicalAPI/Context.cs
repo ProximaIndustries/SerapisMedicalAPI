@@ -19,7 +19,9 @@ namespace SerapisMedicalAPI
 
         public string OtherConnectionString = "mongodb+srv://KhanyiTheGreat:Langelihle1!@cluster0-i3gjx.azure.mongodb.net/SerapisMedical?retryWrites=true";
         public string ConnectionString = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
-										
+		
+        
+
 
         public Context()
         {
@@ -35,6 +37,8 @@ namespace SerapisMedicalAPI
                 throw ex;
                
             }
+
+            
         }
 
         public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("MedicalProfessionals");
