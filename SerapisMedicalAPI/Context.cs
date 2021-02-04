@@ -41,6 +41,8 @@ namespace SerapisMedicalAPI
         //lambda way to do it
         public IMongoCollection<Appointment> BookingsCollection => _database.GetCollection<Appointment>("PatientBookings");
 
+        public IMongoCollection<Appointment> BookingsCollection_1 => _database.GetCollection<Appointment>("Appointment");
+
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 
         public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");

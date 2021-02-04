@@ -7,12 +7,13 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Helpers;
+using SerapisMedicalAPI.Helpers.Validations;
 namespace SerapisMedicalAPI.Data
 {
     public class DoctorRepository : IDoctorRepository
     {
         private readonly Context _context = null;
-
+        DoctorValidation _doctorValidation = new DoctorValidation();
         public DoctorRepository()
         {
             _context = new Context();
@@ -85,7 +86,9 @@ namespace SerapisMedicalAPI.Data
             try
             {
                 // Validate Health ID from department of Health
-
+               
+                if (!_doctorValidation.isValidMPNumber(_id))
+                    return null;
                 //hash password
                 EncryptService _securehash = new EncryptService();
                // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
