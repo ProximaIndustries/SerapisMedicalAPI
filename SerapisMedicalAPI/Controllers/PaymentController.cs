@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SerapisMedicalAPI.Model.PatientModel;
+using SerapisMedicalAPI.Services;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -11,6 +12,8 @@ namespace SerapisMedicalAPI.Controllers
     [Route("api/Payment")]
     public class PaymentController : Controller
     {
+        PaymentManager payment = new PaymentManager();
+
         // GET: api/Payment
         [HttpGet]
         public IEnumerable<string> Get()
@@ -22,7 +25,7 @@ namespace SerapisMedicalAPI.Controllers
         [HttpGet("{id}", Name = "GetPayment")]
         public string Get(int id)
         {
-            return "value";
+            return payment.BillClient().Result.ToString();
         }
 
         // POST: api/Payment

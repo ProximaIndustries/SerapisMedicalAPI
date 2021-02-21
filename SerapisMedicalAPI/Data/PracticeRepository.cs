@@ -15,7 +15,7 @@ namespace SerapisMedicalAPI.Data
 {
     public class PracticeRepository : IPracticeRepository
     {
-        private int attempt {get;set}
+        private int attempt { get; set; }
         private const int  RETRY_VALUE = 3;
 
         private readonly Context _context = null;
