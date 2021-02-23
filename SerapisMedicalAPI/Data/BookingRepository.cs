@@ -46,7 +46,8 @@ namespace SerapisMedicalAPI.Data
                                         filter: filter,
                                         update: update,
                                         options: new UpdateOptions { IsUpsert = true });
-                if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)// if modifed document is equal to 1 or more then that means the document was updated
+                // if modifed document is equal to 1 or more then that means the document was updated
+                if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                 {
                     return true; //This will trigger an success message on the Client device
                 }

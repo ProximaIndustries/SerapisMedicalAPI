@@ -17,9 +17,11 @@ namespace SerapisMedicalAPI
     {
         private readonly IMongoDatabase _database;
 
-        public string OtherConnectionString = "mongodb+srv://KhanyiTheGreat:Langelihle1!@cluster0-i3gjx.azure.mongodb.net/SerapisMedical?retryWrites=true";
-        public string ConnectionString = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
-										
+        public const string OtherConnectionString = "mongodb+srv://KhanyiTheGreat:Langelihle1!@cluster0-i3gjx.azure.mongodb.net/SerapisMedical?retryWrites=true";
+        public const string ConnectionString = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
+
+        public const string ClickATell_APIKEY = "AfMDkjnITRaKOQKiV6mN_g==";
+        public const string ClickATell_APIID = "ff8080817764737801776b66883b1230";								
 
         public Context()
         {
@@ -46,6 +48,7 @@ namespace SerapisMedicalAPI
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 
         public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");
+        public IMongoCollection<Patient> SMSCollection => _database.GetCollection<Patient>("SMS");
 
     }
 }
