@@ -18,6 +18,7 @@ namespace SerapisMedicalAPI.Controllers
     public class DoctorController : Controller
     {
         private readonly IDoctorRepository _doctorRepository;
+        
         public DoctorController(IDoctorRepository doctorRepository)
         {
             _doctorRepository = doctorRepository;
@@ -32,27 +33,29 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         // GET: api/Doctor/5
-        
         [HttpGet]
         [QueryStringContraint("id",true)]
 
         public async Task<IActionResult> AutenticateUser(string id, string password)
         {
-            
+            // Verify Credentials and retrieve user
 
             Doctor doc = await _doctorRepository.AuthenticateDoctor(id, password);
-            
             if(doc == null)
-            {
-
                 return BadRequest(doc);
-            }
-            return new OkObjectResult(doc)
+            
+            // Send OTP
+
+            // Verify OTP
+
+            // Send Doctor all his User Payload only
+
+            return new OkObjectResult(doc);
             //response.DidError = true;
             //response.ErrorMessage = "There was an internal error, please contact to technical support."
             // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);
 
-            ;
+            
         }
 
         // POST: api/Doctor

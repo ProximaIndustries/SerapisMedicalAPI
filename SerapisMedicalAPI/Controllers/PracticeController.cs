@@ -53,6 +53,21 @@ namespace SerapisMedicalAPI.Controllers
             return new ObjectResult(practice);
 
         }
+        // GET: api/Practice/5bc9bd861c9d4400001badf1
+        [HttpGet("{id}", Name = "GetPracticeIfDoctorWorksThere")]
+        public async Task<IActionResult> GetPracticeIfDoctorWorksThere(string id)
+        {
+            // Parse Doctors Objectid from string to ObejctID
+            ObjectId parm = ObjectId.Parse(id);
+
+            var practice = await _practiceRepository.GetPracticeIfDoctorWorksThere(parm);
+
+            if (practice == null)
+                return new NotFoundResult();
+
+            return new ObjectResult(practice);
+
+        }
 
         // POST: api/Practice
         [HttpPost]

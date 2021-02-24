@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Reflection.Metadata;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.GeoJsonObjectModel;
 using SerapisMedicalAPI.Helpers;
@@ -14,6 +15,9 @@ namespace SerapisMedicalAPI.Data
 {
     public class PracticeRepository : IPracticeRepository
     {
+        private int attempt {get;set}
+        private const int  RETRY_VALUE = 3;
+
         private readonly Context _context = null;
 
         private List<PracticeDto> practiceDtoList = new List<PracticeDto>();
@@ -41,19 +45,54 @@ namespace SerapisMedicalAPI.Data
         public async Task<PracticeInformation> GetPracticeById(ObjectId _id)
         {
             var filter = Builders<PracticeInformation>.Filter.Eq(z => z.Id, _id);
-
+            PracticeInformation _practiceinfo = new PracticeInformation();
             try
-            {
-                return await _context
-                                .PracticeCollection
-                                .Find(filter)
-                                .FirstOrDefaultAsync();
+            { 
+                _practiceinfo = await _context
+                            .PracticeCollection
+                            .Find(filter)
+                            .FirstOrDefaultAsync();
+
+                if(_practiceinfo == null)
+                {
+                    
+                }
+                  
             }
             catch(Exception ex)
             {
                 // log or manage the exception
-                throw ex;
+                 throw new Exception("Failed to Pull Practice Info: " + 
+                        new{ _id, _practiceinfo }, ex);
             }
+            return _practiceinfo;
+        }
+        public async Task<PracticeInformation> GetPracticeIfDoctorWorksThere(ObjectId _id)
+        {
+            var filter = Builders<PracticeInformation>.Filter.Eq(z => z.Id, _id);
+            PracticeInformation _practiceinfo = new PracticeInformation();
+            try
+            { 
+                _practiceinfo = await _context
+                            .PracticeCollection
+                            .Find(filter)
+                            .FirstOrDefaultAsync();
+
+                if(_practiceinfo == null)
+                    return _practiceinfo;
+                
+                
+                
+            }
+            catch(Exception ex)
+            {
+                // log Ex
+                
+                // Manage the exception
+                 throw new Exception("Failed to Pull Doctors Info: " + 
+                        new{ _id, _practiceinfo }, ex);
+            }
+            return _practiceinfo;
         }
 
         public Task<PracticeInformation> GetPracticeDetails(object _id)
