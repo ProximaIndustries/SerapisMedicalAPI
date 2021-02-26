@@ -32,7 +32,7 @@ namespace SerapisMedicalAPI.Controllers
             return await _doctorRepository.GetAllDoctor();
         }
 
-        // GET: api/Doctor/5
+        // GET: api/Doctor?id
         [HttpGet]
         [QueryStringContraint("id",true)]
 

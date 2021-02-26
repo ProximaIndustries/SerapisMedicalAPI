@@ -91,28 +91,23 @@ namespace SerapisMedicalAPI.Data
                     return null;
                 //hash password
                 EncryptService _securehash = new EncryptService();
-               // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
-                
-                
-                // Check if doctor exists
-                var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.HealthId, _id);
+                // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
 
-                var RegisteredDoctor = await _context.DoctorCollection
+
+                // Check if doctor exists
+                var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.HealthId, _id) & Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
+
+                var AuthenticatedRegisteredDoctor = await _context.DoctorCollection
                                                       .Find(filter)
                                                       .FirstOrDefaultAsync();
                 //Return null if the doctor isnt registered with us
                 //we need to handle this null return
-                if (RegisteredDoctor == null)
+                if (AuthenticatedRegisteredDoctor == null)
                     return null;
 
 
                 //if doctor pass "exist check"
                 //Password check if correct
-                var filter2 = Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
-
-                var AuthenticatedRegisteredDoctor = await _context.DoctorCollection
-                                                                  .Find(filter)
-                                                                  .FirstOrDefaultAsync();
                 //Need to set token to expire after 12 hours
 
                 //return the registered user
@@ -124,7 +119,7 @@ namespace SerapisMedicalAPI.Data
             }catch(Exception ex)
             {
 
-            }
+                }
 
             return null;
         }

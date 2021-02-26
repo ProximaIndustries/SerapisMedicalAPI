@@ -22,7 +22,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
         public string Abbr { get; set; }
 
         [BsonElement("specilization")]
-        public Specilization Specilization { get; set; }
+        public Specilization Specialization { get; set; }
 
         [BsonElement("specilizationabbr")]
         public string Specilizationabbr { get; set; }
