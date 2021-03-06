@@ -63,7 +63,7 @@ namespace SerapisMedicalAPI.Helpers
         {
             AppointmentDto newAppointmentDto = new AppointmentDto()
             {
-                 AppointmentId=appointment.BookingId,
+                 //AppointmentId=appointment.BookingId,
                  
                  //DateBooked=DateTime.Parse(appointment.DateBooked),
                  //TimeBooked=DateTime.Parse(appointment.TimeBooked)

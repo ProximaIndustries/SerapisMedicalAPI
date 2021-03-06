@@ -9,6 +9,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.AppointmentModel;
+using System.Diagnostics;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -25,26 +26,37 @@ namespace SerapisMedicalAPI.Data
             _context = new Context();
         }
 
-        public async Task<bool> AddBooking(PracticeInformation practice, Appointment booking)
+        public async Task<bool> AddBooking(PracticeInformation practice, AppointmentDto booking)
         {
-            List<Appointment> _medicalibuilding = new List<Appointment>();
-            // _medicalibuilding.AddRange(practice.Appointment); // <- Please explain to me why was this commented out
-            _medicalibuilding.Add(booking);
-
-            var filter = Builders<PracticeInformation>.Filter
-                                    .Eq(x => x.Id, practice.Id);
-            var update = Builders<PracticeInformation>.Update
-                                    .Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
-            //var updatev2 = Builders<PracticeInformation>.Update.Push<Appointment>(e => e.Appointment, booking); <-- we might as well do it this way, and Appointment has to be a list
 
             try
             {
+                Appointment _appointment = new Appointment
+                {
+                    BookingId = ObjectId.Parse(booking.BookingId),
+                    LineNumber = booking.LineNumber,
+                    PatientID = ObjectId.Parse(booking.PatientID),
+                    DateAndTimeOfAppointment = booking.DateAndTimeOfAppointment,
+                    HasSeenGP = booking.HasSeenGP,
+                    IsSerapisBooking = booking.IsSerapisBooking,
+                    HasBeenToThisPractice = booking.HasBeenToThisPractice,
+                    DoctorsId = ObjectId.Parse(booking.DoctorsId),
+                    PracticeID = ObjectId.Parse(booking.PracticeID)
+                };
+
+                //_appointments.Add(booking);
+
+                var filter = Builders<PracticeInformation>.Filter
+                                        .Eq(x => x.Id, practice.Id);
+                //var update = Builders<PracticeInformation>.Update
+                //.Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
+                var updatev2 = Builders<PracticeInformation>.Update.Push<Appointment>(e => e.Appointment, _appointment);
                 UpdateResult updateResult
                     = await _context
                                 .PracticeCollection
                                 .UpdateOneAsync(
                                         filter: filter,
-                                        update: update,
+                                        update: updatev2,
                                         options: new UpdateOptions { IsUpsert = true });
                 // if modifed document is equal to 1 or more then that means the document was updated
                 if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
@@ -64,7 +76,9 @@ namespace SerapisMedicalAPI.Data
             catch (Exception ex)
             {
                 //log or manage the exception
+                Debug.WriteLine(ex);
                 throw ex;
+                
             }
         }
 

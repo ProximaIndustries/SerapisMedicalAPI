@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,26 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
 {
     public class AppointmentDto
     {
-        public ObjectId AppointmentId { get; set; }
+        //Using int for now, need to use mongoId
+        public string BookingId { get; set; }
 
-        public DateTime DateBooked { get; set; }
+        public int LineNumber { get; set; }
 
-        public DateTime TimeBooked { get; set; }
+        public string PatientID { get; set; }
+
+        public DateTime DateAndTimeOfAppointment { get; set; }
+
+        public bool HasSeenGP { get; set; }
+
+        public bool IsSerapisBooking { get; set; }
+
+        public string Duration { get; set; }
+
+
+        public bool HasBeenToThisPractice { get; set; }
+
+        public string DoctorsId { get; set; }
+    
+        public string PracticeID { get; set; }
     }
 }

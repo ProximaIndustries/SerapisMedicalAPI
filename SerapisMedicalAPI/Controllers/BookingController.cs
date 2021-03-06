@@ -38,29 +38,6 @@ namespace SerapisMedicalAPI.Controllers
             return appointmentForToday;
         }
 
-        // GET: api/Booking/_id
-        //[HttpGet("{id}", Name = "GetBookedPatientFile")]
-        //[Route("api/[controller]/_id")]
-        //public Task<Patient> GetBookedPatientFile(ObjectId id)
-        //{
-        //    if (id != null)
-        //    {
-        //        try
-        //        {
-        //            var file = _patientRepository.GetPatientDetails(id);
-
-        //            return file;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
 
         // POST: api/Booking/id
         [HttpPost]
@@ -68,22 +45,28 @@ namespace SerapisMedicalAPI.Controllers
         {
             PracticeInformation practice = new PracticeInformation();
 
-            Appointment appointment = new Appointment();
+            AppointmentDto appointment = new AppointmentDto();
 
             var appointmentMade = await _bookingRepository.AddBooking(practice, appointment);
         }
 
+        /// <summary>
+        /// DONT USE THIS METHOD
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="booking"></param>
+        /// <returns></returns>
         // PUT: api/Booking/id
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] PracticeInformation practice)
+        [HttpPut]
+        public async Task<IActionResult> Put([FromQuery] string id, [FromBody] Appointment booking)
         {
             
 
             PracticeInformation p1 = new PracticeInformation();
             p1.Id = ObjectId.Parse(id);
-                
-           
-            practice = await _practiceRepository.GetPracticeById(p1.Id);
+
+
+            PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
 
             if (practice == null)
                 return new NotFoundResult();
@@ -94,16 +77,19 @@ namespace SerapisMedicalAPI.Controllers
             return new OkObjectResult(practice);
         }
 
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(string id, [FromBody]Appointment booking)
+
+
+        //[HttpPatch("{id}")]
+        [HttpPatch]
+        public async Task<IActionResult> Patch([FromQuery]string id,[FromBody] AppointmentDto booking) 
         {
-            PracticeInformation practice = new PracticeInformation();
+            //PracticeInformation practice = new PracticeInformation();
 
             PracticeInformation p1 = new PracticeInformation();
             p1.Id = ObjectId.Parse(id);
 
 
-            practice = await _practiceRepository.GetPracticeById(p1.Id);
+            PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
 
             if (practice == null)
                 return new NotFoundResult();

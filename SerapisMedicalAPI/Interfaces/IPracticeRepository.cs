@@ -14,7 +14,8 @@ namespace SerapisMedicalAPI
         //Get all the practices (Used in the patient application)
         //max distance is the radius from whicih to pick from (user settings)
         //using geospatial in mongo to query and leave out practices that are out of the radius
-        Task<IEnumerable<PracticeInformation>> GetPractices();
+        Task<IEnumerable<PracticeInformation>> GetAllPractices();
+        //Task<IEnumerable<PracticeInformation>> GetPractices();
 
         //Get the practice dtos
         Task<IEnumerable<PracticeDto>> GetPractices(double lat, double lon, double maxDistance);

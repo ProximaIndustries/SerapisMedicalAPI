@@ -14,7 +14,7 @@ namespace SerapisMedicalAPI.Interfaces
         //Create-- Patient uses this method
         Task<bool> MakeBooking(PracticeInformation practice);
         //Create-- Make a booking for the patient
-        Task<bool> AddBooking(PracticeInformation practice, Appointment appointmentBooking);
+        Task<bool> AddBooking(PracticeInformation practice, AppointmentDto appointmentBooking);
 
         //Read-- Get availiable bookings
         Task<IEnumerable<Appointment>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance);

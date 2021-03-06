@@ -16,7 +16,6 @@ namespace SerapisMedicalAPI.Controllers
     public class PracticeController : Controller
     {
 
-        List<PracticeDto> practiceDtoList = new List<PracticeDto>();
 
         private readonly IPracticeRepository _practiceRepository;
         public PracticeController(IPracticeRepository practiceRepository)
@@ -26,17 +25,12 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Practices
         [HttpGet]
-        [Route("api/Practices")]
-        public async Task<IEnumerable<PracticeDto>> Get(ObjectId _id, double _maxDistance)
+        //[Route("api/Practices")]
+        public async Task<IEnumerable<PracticeInformation>> Get()
         {
-            // -/api/practice
 
-            //clear list first
-            practiceDtoList.Clear();
+            return await _practiceRepository.GetAllPractices();
 
-            await _practiceRepository.GetPractices();
-
-            return practiceDtoList;
         }
 
 
@@ -54,20 +48,20 @@ namespace SerapisMedicalAPI.Controllers
 
         }
         // GET: api/Practice/5bc9bd861c9d4400001badf1
-        [HttpGet("{id}", Name = "GetPracticeIfDoctorWorksThere")]
-        public async Task<IActionResult> GetPracticeIfDoctorWorksThere(string id)
-        {
-            // Parse Doctors Objectid from string to ObejctID
-            ObjectId parm = ObjectId.Parse(id);
+        //[HttpGet("{id}", Name = "GetPracticeIfDoctorWorksThere")]
+        //public async Task<IActionResult> GetPracticeIfDoctorWorksThere(string id)
+        //{
+        //    // Parse Doctors Objectid from string to ObejctID
+        //    ObjectId parm = ObjectId.Parse(id);
 
-            var practice = await _practiceRepository.GetPracticeIfDoctorWorksThere(parm);
+        //    var practice = await _practiceRepository.GetPracticeIfDoctorWorksThere(parm);
 
-            if (practice == null)
-                return new NotFoundResult();
+        //    if (practice == null)
+        //        return new NotFoundResult();
 
-            return new ObjectResult(practice);
+        //    return new ObjectResult(practice);
 
-        }
+        //}
 
         // POST: api/Practice
         [HttpPost]

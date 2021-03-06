@@ -158,9 +158,22 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<PracticeInformation>> IPracticeRepository.GetPractices()
+        public async Task<IEnumerable<PracticeInformation>> GetAllPractices()
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var result = await _context.PracticeCollection
+                    .Find(_ => true)
+                    .ToListAsync();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                // log or manage the exception
+                throw ex;
+            }
         }
     }
 }
