@@ -97,9 +97,8 @@ namespace SerapisMedicalAPI.Data
             }  
        }
         
-        public async Task<Patient> SocialLogin(Patient patient)
+        public async Task<Patient> SocialLogin(string socialid, string firstname, string lastname)
         {
-
             //check if user exists
             try
             {
@@ -108,7 +107,7 @@ namespace SerapisMedicalAPI.Data
 
                 var filter = Builders<Patient>
                 .Filter
-                .Eq(user => user.SocialID, patient.SocialID);
+                .Eq(user => user.SocialID, socialid);
 
                 var RegisteredUser = await _context.PatientCollection
                                                    .Find(filter)
@@ -117,21 +116,18 @@ namespace SerapisMedicalAPI.Data
                 //else register the user and sign him in
                 if (RegisteredUser == null)
                 {
+                    Patient patient = new Patient
+                    {
+                        SocialID = socialid,
+                        PatientFirstName = firstname,
+                        PatientLastName = lastname
+                    };
                     //we need to add a field that keeps record if this is a new user or not.
                     await _context.PatientCollection
-                                  .InsertOneAsync(patient);                                                                                                                                                                                                                                                                                         
-                    
+                                  .InsertOneAsync(patient);
+                    return patient;   
                 }
-                else
-                {
-                    // user already exists so return user
-                    // grab the token
-                    // checked if valid
-
-                    return RegisteredUser; //needs to return a success method rather
-
-                }
-                return patient;
+                return RegisteredUser;
             }
             catch(Exception ex)
             {

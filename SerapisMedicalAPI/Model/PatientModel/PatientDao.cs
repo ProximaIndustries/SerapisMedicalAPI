@@ -10,10 +10,9 @@ using System.Threading.Tasks;
 
 namespace SerapisMedicalAPI.Model.PatientModel
 {
-    public class Patient
+    public class PatientDao
     {
-        public ObjectId id { get; set; }
-
+        public string id { get; set; }
         [BsonElement("socialid")]
         public string SocialID {get; set;}
         [BsonElement("patientfirstname")]

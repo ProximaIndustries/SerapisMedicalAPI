@@ -59,7 +59,7 @@ namespace SerapisMedicalAPI.Helpers
             return newPatientDto;
         }
 
-        public static AppointmentDto CreateAppointmentDto(Appointment appointment)
+        public static AppointmentDto CreateAppointmentDto(AppointmentDao appointment)
         {
             AppointmentDto newAppointmentDto = new AppointmentDto()
             {

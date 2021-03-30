@@ -18,34 +18,24 @@ namespace SerapisMedicalAPI.Controllers
             _accountRepository = accountRepository;
         }
 
-        // GET: api/Account
+        //api/account?socialid=MP0703150&firstname=bonga&lastname=ngcobo    
         [HttpGet]
-        public async Task<IEnumerable<Patient>> GetAllRegisteredUser(Patient patient)
-        {
-            return await _accountRepository.GetAllRegisteredUsers();  //<-- this is for testing purporses
-
-        }
-
-        [HttpGet("{id}")]
-        public Patient GetRegisteredUser(string id)
-        {
-            return  _accountRepository.GetUserById(id);
-        }
-
-
-        //POST: api/Account/
-        [HttpPost]
-        public async Task<IActionResult> Test( [FromBody]Patient patient)   
+        public async Task<IActionResult> AutenticateSocialUser(string socialid, string firstname, string lastname)
         {
 
-            //Register the user
+            Patient _patient = await _accountRepository.SocialLogin(socialid, firstname, lastname);
+            if (_patient == null)
+                return BadRequest(_patient);
 
-            if (!ModelState.IsValid)
-                return BadRequest();
 
-            await _accountRepository.RegisterSocialUser(patient);
-            
-            return new OkObjectResult(patient);
+            PatientDao patientDao = new PatientDao
+            {
+                id = _patient.id.ToString()
+            };
+            //return new OkObjectResult(_patient);
+            //response.ErrorMessage = "There was an internal error, please contact to technical support."
+            // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);
+            return new OkObjectResult(patientDao);
         }
 
         //POST: api/Account?SocialID&Firstname&emailaddress
@@ -58,11 +48,14 @@ namespace SerapisMedicalAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            await _accountRepository.SocialLogin(patient);
+            //await _accountRepository.SocialLogin(patient);
             
             //var patient = await _accountRepository.FBLogin(SocialID, FirstName, LastName, emailaddress);
            
             return new OkObjectResult(patient);
         }
+
+
+
     }
 }

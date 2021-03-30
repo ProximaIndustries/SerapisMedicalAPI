@@ -16,7 +16,7 @@ namespace SerapisMedicalAPI.Interfaces
 
         Task RegisterSocialUser(Patient patient);
 
-        Task<Patient> SocialLogin(Patient patient);
+        Task<Patient> SocialLogin(string socialid, string firstname, string lastname);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 
         Patient GetUserById(string privateid);

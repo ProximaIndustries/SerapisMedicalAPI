@@ -8,6 +8,7 @@ using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace SerapisMedicalAPI.Controllers
         //eg. http://localhost:53617/api/Booking/date/2018-01-01
         // GET: api/Booking/date
         [HttpGet(template: "{date}")]
-        public async Task<IEnumerable<Appointment>> GetPatientsBookedForTheDay(DateTime date)
+        public async Task<IEnumerable<AppointmentDao>> GetPatientsBookedForTheDay(DateTime date)
         {
             //rather past through a string then convert it to a DateTime object here. 
             var appointmentForToday = await _bookingRepository.GetBookedPatientsAsync(date);
@@ -47,7 +48,7 @@ namespace SerapisMedicalAPI.Controllers
 
             AppointmentDto appointment = new AppointmentDto();
 
-            var appointmentMade = await _bookingRepository.AddBooking(practice, appointment);
+            //var appointmentMade = await _bookingRepository.AddBooking(practice, appointment);
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace SerapisMedicalAPI.Controllers
         /// <returns></returns>
         // PUT: api/Booking/id
         [HttpPut]
-        public async Task<IActionResult> Put([FromQuery] string id, [FromBody] Appointment booking)
+        public async Task<IActionResult> Put([FromQuery] string id, [FromBody] AppointmentDao booking)
         {
             
 
@@ -72,32 +73,38 @@ namespace SerapisMedicalAPI.Controllers
                 return new NotFoundResult();
 
             //practice.Appointments.Add(practice.Appointments);
-            await _bookingRepository.MakeBooking(practice);
+            //await _bookingRepository.MakeBooking(practice);
 
             return new OkObjectResult(practice);
         }
 
 
 
+
+        //Use this one for booking Please (30/03/2021)
         //[HttpPatch("{id}")]
         [HttpPatch]
         public async Task<IActionResult> Patch([FromQuery]string id,[FromBody] AppointmentDto booking) 
         {
             //PracticeInformation practice = new PracticeInformation();
 
-            PracticeInformation p1 = new PracticeInformation();
-            p1.Id = ObjectId.Parse(id);
+            
+            ObjectId p1 = ObjectId.Parse(id);
 
 
-            PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
+            /*PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
 
             if (practice == null)
-                return new NotFoundResult();
+                return new NotFoundResult();*/
 
             //practice.Appointments.Add(practice.Appointments);
-            await _bookingRepository.AddBooking(practice, booking);
-
-            return new OkObjectResult(practice);
+            bool response = await _bookingRepository.AddBooking(p1, booking);
+            Debug.WriteLine(" Booking Creation Response =>[" + response + "]");
+            if (response == true)
+            {
+                return StatusCode(201);
+            }
+            return StatusCode(400);
         }
 
         // DELETE: api/ApiWithActions/5

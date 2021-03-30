@@ -42,7 +42,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Practice
         public PracticeContact ContactPractice { get; set; }
 
         [BsonElement("appointments")]
-        public List<Appointment> Appointment { get; set; }
+        public List<AppointmentDao> Appointment { get; set; }
 
 
     }

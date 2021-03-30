@@ -16,7 +16,7 @@ namespace SerapisMedicalAPI.Data
     public class BookingRepository : IBookingRepository
     {
         private readonly Context _context = null;
-        public List<Appointment> Updatelist = new List<Appointment>();
+        public List<AppointmentDao> Updatelist = new List<AppointmentDao>();
 
         //I think it's better if you work with 'BsonDocument' instead of MyType/object. 
         //If MyType has BsonIgnoreExtraFields flag, the document will ignore fields that are not represented in MyType class. In insert method,
@@ -26,12 +26,12 @@ namespace SerapisMedicalAPI.Data
             _context = new Context();
         }
 
-        public async Task<bool> AddBooking(PracticeInformation practice, AppointmentDto booking)
+        public async Task<bool> AddBooking(ObjectId practiceid, AppointmentDto booking)
         {
 
             try
             {
-                Appointment _appointment = new Appointment
+                AppointmentDao _appointment = new AppointmentDao
                 {
                     BookingId = ObjectId.Parse(booking.BookingId),
                     LineNumber = booking.LineNumber,
@@ -46,11 +46,11 @@ namespace SerapisMedicalAPI.Data
 
                 //_appointments.Add(booking);
 
-                var filter = Builders<PracticeInformation>.Filter
-                                        .Eq(x => x.Id, practice.Id);
+                    var filter = Builders<PracticeInformation>.Filter
+                                        .Eq(x => x.Id, practiceid);
                 //var update = Builders<PracticeInformation>.Update
                 //.Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
-                var updatev2 = Builders<PracticeInformation>.Update.Push<Appointment>(e => e.Appointment, _appointment);
+                var updatev2 = Builders<PracticeInformation>.Update.Push<AppointmentDao>(e => e.Appointment, _appointment);
                 UpdateResult updateResult
                     = await _context
                                 .PracticeCollection
@@ -61,10 +61,12 @@ namespace SerapisMedicalAPI.Data
                 // if modifed document is equal to 1 or more then that means the document was updated
                 if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                 {
+                    Debug.WriteLine("Did DB update? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
                     return true; //This will trigger an success message on the Client device
                 }
                 else
                 {
+                    Debug.WriteLine("DB update NO? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
                     return false; //This will trigger an unsuccesful message on the Client device
                 }
 
@@ -88,15 +90,15 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Appointment>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance)
+        public Task<IEnumerable<AppointmentDao>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Appointment>> GetBookedPatientsAsync(DateTime date)
+        public async Task<IEnumerable<AppointmentDao>> GetBookedPatientsAsync(DateTime date)
         {
 
-            var filter = Builders<Appointment>
+            var filter = Builders<AppointmentDao>
                         .Filter
                         .Eq("DateBooked", date);
 

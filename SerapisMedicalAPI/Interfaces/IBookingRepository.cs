@@ -1,4 +1,5 @@
-﻿using SerapisMedicalAPI.Model;
+﻿using MongoDB.Bson;
+using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.AppointmentModel;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
@@ -14,10 +15,10 @@ namespace SerapisMedicalAPI.Interfaces
         //Create-- Patient uses this method
         Task<bool> MakeBooking(PracticeInformation practice);
         //Create-- Make a booking for the patient
-        Task<bool> AddBooking(PracticeInformation practice, AppointmentDto appointmentBooking);
+        Task<bool> AddBooking(ObjectId practiceid, AppointmentDto appointmentBooking);
 
         //Read-- Get availiable bookings
-        Task<IEnumerable<Appointment>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance);
+        Task<IEnumerable<AppointmentDao>> GetAllAvaliableBookings(IPracticeRepository maxPracticeDistance);
 
         //Delete-- Remove booking
         //This comes with fees, will add logic later on so leave for now
@@ -27,6 +28,6 @@ namespace SerapisMedicalAPI.Interfaces
         Task PostponeBooking(object _id);
 
         //Create-- Get bookings for today
-        Task<IEnumerable<Appointment>> GetBookedPatientsAsync(DateTime date);
+        Task<IEnumerable<AppointmentDao>> GetBookedPatientsAsync(DateTime date);
     }
 }

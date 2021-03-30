@@ -31,50 +31,27 @@ namespace SerapisMedicalAPI
         }
 
         // GET: api/Patient/5
-        [HttpGet("{id}", Name = "Get")]
-        public async Task<PatientUser> GetPatientMedicalInformation(ObjectId _id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPatientMedicalInformation(string id)
         {
 
-            if (_id != null)
+            if (id != null)
             {
-                try
-                {
-                    //Try get the patients information
-                    //var predicateFilter=filter
-                    //var patientsFile=_context.PatientCollection.FindAsync(predicateFilter);
-                    return null;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                ObjectId parm = ObjectId.Parse(id);
+                var _patient = await _patientRepository.GetPatientById(parm);
+
+                if (_patient == null)
+                    return new NotFoundResult();
+
+                return new ObjectResult(_patient);
             }
             else
             {
                 //Return some error message
-                return null;
+                return new NotFoundResult();
             }
         }
 
-        //RegisterController
-        //      [Route("api/Patient/Register")]
-        //public async Task<IHttpActionResult> Register(RegisterBindingModel model)
-        //      {
-        //          if(!ModelState.IsValid)
-        //          {
-        //              return BadRequest(ModelState);
-        //          }
-        //          var user = new PatientUser() {
-        //              //add attributes here
-        //          };
-        //          IdentityResult result = await userManager.CreateAsync(user,model.Password);
-
-        //          if(!result.Succeeded)
-        //          {
-        //              return GetErrorResult(result);
-        //          }
-        //          return Ok();
-        //      }
 
 
         // POST: api/Patient
@@ -88,6 +65,7 @@ namespace SerapisMedicalAPI
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/ApiWithActions/5

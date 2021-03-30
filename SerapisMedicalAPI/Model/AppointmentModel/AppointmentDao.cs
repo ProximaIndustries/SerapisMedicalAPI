@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SerapisMedicalAPI.Model.AppointmentModel
 {
-    public class Appointment
+    public class AppointmentDao
     {
         //Using int for now, need to use mongoId
         public ObjectId BookingId { get; set; }

@@ -148,5 +148,32 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
             }
         }
+
+        public async Task<Patient> GetPatientById(ObjectId _id)
+        {
+           
+                var filter = Builders<Patient>.Filter.Eq(z => z.id, _id);
+                Patient _patientinfo = new Patient();
+                try
+                {
+                    _patientinfo = await _context
+                                .PatientCollection
+                                .Find(filter)
+                                .FirstOrDefaultAsync();
+
+                    if (_patientinfo == null)
+                    {
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    // log or manage the exception
+                    throw new Exception("Failed to Pull Practice Info: " +
+                           new { _id, _patientinfo }, ex);
+                }
+                return _patientinfo;
+        }
     }
 }
