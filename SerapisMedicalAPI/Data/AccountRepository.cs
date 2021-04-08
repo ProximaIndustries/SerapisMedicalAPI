@@ -97,6 +97,7 @@ namespace SerapisMedicalAPI.Data
             }  
        }
         
+        //In Production
         public async Task<Patient> SocialLogin(string socialid, string firstname, string lastname)
         {
             //check if user exists
@@ -165,7 +166,7 @@ namespace SerapisMedicalAPI.Data
         public Patient GetUserById(string privateid)
         {
             Patient _patient = new Patient();
-            _patient.id = ObjectId.Parse(privateid);
+            //_patient.id = ObjectId.Parse(privateid);
             var filter = Builders<Patient>.Filter.Eq(user => user.id, _patient.id);
             try
             {

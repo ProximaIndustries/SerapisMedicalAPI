@@ -37,8 +37,8 @@ namespace SerapisMedicalAPI
 
             if (id != null)
             {
-                ObjectId parm = ObjectId.Parse(id);
-                var _patient = await _patientRepository.GetPatientById(parm);
+                //ObjectId parm = ObjectId.Parse(id);
+                var _patient = await _patientRepository.GetPatientById(id);
 
                 if (_patient == null)
                     return new NotFoundResult();
@@ -63,9 +63,9 @@ namespace SerapisMedicalAPI
 
         // PUT: api/Patient/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(string id, [FromBody] Patient value)
         {
-
+            _patientRepository.EditPatientUser(id,value);
         }
 
         // DELETE: api/ApiWithActions/5

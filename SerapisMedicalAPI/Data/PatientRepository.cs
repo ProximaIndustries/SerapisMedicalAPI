@@ -90,7 +90,7 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Edit patients file/information
-        public async Task EditPatientUser(Patient _id)
+        public async Task<ReplaceOneResult> EditPatientUser(string _id,Patient patient)
         {
             try
             {
@@ -101,13 +101,12 @@ namespace SerapisMedicalAPI.Data
                         .Filter
                         .Eq("_id", _id);
 
-                    //Get the information in the Mongo database
-                    //Need to add another parameter to the method up top
-                    var result = await _context.PatientCollection.UpdateOneAsync(filter, "Changed info object here");
+                        return await _context.PatientCollection.ReplaceOneAsync(w => w.id.Equals(patient.id),
+                            patient, new UpdateOptions { IsUpsert = true });
                 }
                 else
                 {
-
+                    return null;
                 }
             }
             catch (Exception ex)
@@ -149,7 +148,7 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public async Task<Patient> GetPatientById(ObjectId _id)
+        public async Task<Patient> GetPatientById(string _id)
         {
            
                 var filter = Builders<Patient>.Filter.Eq(z => z.id, _id);

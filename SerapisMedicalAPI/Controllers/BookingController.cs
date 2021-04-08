@@ -51,39 +51,10 @@ namespace SerapisMedicalAPI.Controllers
             //var appointmentMade = await _bookingRepository.AddBooking(practice, appointment);
         }
 
-        /// <summary>
-        /// DONT USE THIS METHOD
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="booking"></param>
-        /// <returns></returns>
-        // PUT: api/Booking/id
-        [HttpPut]
-        public async Task<IActionResult> Put([FromQuery] string id, [FromBody] AppointmentDao booking)
-        {
-            
-
-            PracticeInformation p1 = new PracticeInformation();
-            p1.Id = ObjectId.Parse(id);
-
-
-            PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
-
-            if (practice == null)
-                return new NotFoundResult();
-
-            //practice.Appointments.Add(practice.Appointments);
-            //await _bookingRepository.MakeBooking(practice);
-
-            return new OkObjectResult(practice);
-        }
-
-
-
 
         //Use this one for booking Please (30/03/2021)
         //[HttpPatch("{id}")]
-        [HttpPatch]
+        [HttpPut]
         public async Task<IActionResult> Patch([FromQuery]string id,[FromBody] AppointmentDto booking) 
         {
             //PracticeInformation practice = new PracticeInformation();
@@ -97,7 +68,6 @@ namespace SerapisMedicalAPI.Controllers
             if (practice == null)
                 return new NotFoundResult();*/
 
-            //practice.Appointments.Add(practice.Appointments);
             bool response = await _bookingRepository.AddBooking(p1, booking);
             Debug.WriteLine(" Booking Creation Response =>[" + response + "]");
             if (response == true)

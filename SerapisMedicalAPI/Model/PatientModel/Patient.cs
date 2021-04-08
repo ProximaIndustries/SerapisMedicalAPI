@@ -12,7 +12,9 @@ namespace SerapisMedicalAPI.Model.PatientModel
 {
     public class Patient
     {
-        public ObjectId id { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
 
         [BsonElement("socialid")]
         public string SocialID {get; set;}
