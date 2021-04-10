@@ -27,17 +27,6 @@ namespace SerapisMedicalAPI.Controllers
             if (_patient == null)
                 return BadRequest(_patient);
 
-
-            /*PatientDao patientDao = new PatientDao
-            {
-                id = _patient.id.ToString(),
-                SocialID = _patient.SocialID,
-                Email = _patient.Email,
-                PatientLastName = _patient.PatientLastName
-                PatientMedicalAid
-                MedicalAidPatient
-                PatientAge
-            };*/
             //return new OkObjectResult(_patient);
             //response.ErrorMessage = "There was an internal error, please contact to technical support."
             // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);

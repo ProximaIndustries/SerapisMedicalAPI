@@ -3,9 +3,12 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+
 namespace SerapisMedicalAPI.Services
 {
-    public class APIConector
+    public class APIConector<T>
     {
         //Need to create a mapping for responses
         public bool Connector(ref object _object,string _url, string _data )
@@ -26,6 +29,47 @@ namespace SerapisMedicalAPI.Services
 
 
             return false;
+        }
+
+        public static HttpResponseMessage GetExternalAPIData(string endpoint)
+        {
+            var query = string.Format("", endpoint);
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                client.BaseAddress = new Uri(query);
+
+                HttpResponseMessage response = client.GetAsync(query).GetAwaiter().GetResult();
+
+                return response;
+            }
+        }
+        public async static Task<HttpResponseMessage> PostExternalAPIData(string endpoint, T content, string ApiKey)
+        {
+            var postUrl = string.Format(endpoint);
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                if (ApiKey != "-1")
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",ApiKey);
+
+                client.BaseAddress = new Uri(postUrl);
+
+                var json = JsonConvert.SerializeObject(content);
+
+                HttpContent objectConent = new StringContent(json);
+
+                var message = await client.PostAsync(postUrl, objectConent);
+
+                return message;
+            }
         }
     }
 }

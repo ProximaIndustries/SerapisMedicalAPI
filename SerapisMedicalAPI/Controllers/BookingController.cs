@@ -69,7 +69,7 @@ namespace SerapisMedicalAPI.Controllers
                 return new NotFoundResult();*/
 
             bool response = await _bookingRepository.AddBooking(p1, booking);
-            Debug.WriteLine(" Booking Creation Response =>[" + response + "]");
+            Debug.WriteLine(" Booking Creation Response =>[" + response + "]"); 
             if (response == true)
             {
                 return StatusCode(201);
