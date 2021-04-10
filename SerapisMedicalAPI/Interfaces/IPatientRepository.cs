@@ -23,7 +23,7 @@ namespace SerapisMedicalAPI.Interfaces
         //Update-- Edit patient information (used both in the doctor app and patient)
         //The doctor uses it to add information and edit incorrect medical information
         //The patient can add more information about themeselves
-        Task<ReplaceOneResult> EditPatientUser(string _id, Patient user);
+        Task<ReplaceOneResult> EditPatientUser(Patient user);
 
         //Delete-- the patient from the platfom (used in the patient application)
         Task RemovePatient(Patient _id);

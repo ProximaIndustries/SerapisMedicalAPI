@@ -44,12 +44,10 @@ namespace SerapisMedicalAPI.Data
                     PracticeID = ObjectId.Parse(booking.PracticeID)
                 };
 
-                //_appointments.Add(booking);
 
                     var filter = Builders<PracticeInformation>.Filter
                                         .Eq(x => x.Id, practiceid);
-                //var update = Builders<PracticeInformation>.Update
-                //.Set(s => s.Appointment, _medicalibuilding.FirstOrDefault());
+
                 var updatev2 = Builders<PracticeInformation>.Update.Push<AppointmentDao>(e => e.Appointment, _appointment);
                 UpdateResult updateResult
                     = await _context
@@ -58,6 +56,7 @@ namespace SerapisMedicalAPI.Data
                                         filter: filter,
                                         update: updatev2,
                                         options: new UpdateOptions { IsUpsert = true });
+                                        
                 // if modifed document is equal to 1 or more then that means the document was updated
                 if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                 {
@@ -70,8 +69,6 @@ namespace SerapisMedicalAPI.Data
                     return false; //This will trigger an unsuccesful message on the Client device
                 }
 
-                //return updateResult.IsAcknowledged &&
-                //updateResult.ModifiedCount > 0;
 
 
             }
