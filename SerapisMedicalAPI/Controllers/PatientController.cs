@@ -62,10 +62,10 @@ namespace SerapisMedicalAPI
         }
 
         // PUT: api/Patient/5
-        [HttpPut("{id}")]
-        public void Put(string id, [FromBody] Patient value)
+        [HttpPut]
+        public void Put( [FromBody] Patient value)
         {
-            _patientRepository.EditPatientUser(id,value);
+            _patientRepository.EditPatientUser(value);
         }
 
         // DELETE: api/ApiWithActions/5

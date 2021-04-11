@@ -90,16 +90,16 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Edit patients file/information
-        public async Task<ReplaceOneResult> EditPatientUser(string _id,Patient patient)
+        public async Task<ReplaceOneResult> EditPatientUser(Patient patient)
         {
             try
             {
-                if (_id != null)
+                if (patient != null)
                 {
                     //Specifiy the filter 
                     var filter = Builders<Patient>
                         .Filter
-                        .Eq("_id", _id);
+                        .Eq(x => x.id,patient.id);
 
                         return await _context.PatientCollection.ReplaceOneAsync(w => w.id.Equals(patient.id),
                             patient, new UpdateOptions { IsUpsert = true });
