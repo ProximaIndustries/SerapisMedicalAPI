@@ -7,6 +7,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model.PatientModel;
+using System.Diagnostics;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -90,7 +91,7 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Edit patients file/information
-        public async Task<ReplaceOneResult> EditPatientUser(Patient patient)
+        public async Task<bool> EditPatientUser(Patient patient)
         {
             try
             {
@@ -99,20 +100,27 @@ namespace SerapisMedicalAPI.Data
                     //Specifiy the filter 
                     var filter = Builders<Patient>
                         .Filter
-                        .Eq(x => x.id,patient.id);
+                        .Eq(x => x.id, patient.id);
 
-                        return await _context.PatientCollection.ReplaceOneAsync(w => w.id.Equals(patient.id),
+                    ReplaceOneResult updateResult = await _context.PatientCollection.ReplaceOneAsync(w => w.id.Equals(patient.id),
                             patient, new UpdateOptions { IsUpsert = true });
-                }
-                else
-                {
-                    return null;
+                    if (updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
+                    {
+                        Debug.WriteLine("Did DB update? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                        return true; //This will trigger an success message on the Client device
+                    }
+                    else
+                    {
+                        Debug.WriteLine("DB update NO? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                        return false; //This will trigger an unsuccesful message on the Client device
+                    }
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return false;
         }
 
         //Get a particular patient info

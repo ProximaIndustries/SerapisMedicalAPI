@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using SerapisMedicalAPI.Model.PatientModel;
+using System.Diagnostics;
 
 namespace SerapisMedicalAPI
 {
@@ -61,11 +62,14 @@ namespace SerapisMedicalAPI
            
         }
 
-        // PUT: api/Patient/5
+        // PUT: api/Patient/
         [HttpPut]
-        public void Put( [FromBody] Patient value)
+        public async Task<bool> Put( [FromBody] Patient patient)
         {
-            _patientRepository.EditPatientUser(value);
+            bool data = await _patientRepository.EditPatientUser(patient);
+
+            return data;
+            
         }
 
         // DELETE: api/ApiWithActions/5
