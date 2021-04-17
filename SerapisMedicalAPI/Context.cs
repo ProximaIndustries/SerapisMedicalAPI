@@ -29,6 +29,7 @@ namespace SerapisMedicalAPI
             if (client != null)
             {
                 _database = client.GetDatabase("SerapisMedical");
+                
             }
             else
             {
@@ -39,11 +40,13 @@ namespace SerapisMedicalAPI
             }
         }
 
+        public IMongoClient MongoClient;
         public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("MedicalProfessionals");
+        
         //lambda way to do it
         public IMongoCollection<AppointmentDao> BookingsCollection => _database.GetCollection<AppointmentDao>("PatientBookings");
 
-        public IMongoCollection<AppointmentDao> BookingsCollection_1 => _database.GetCollection<AppointmentDao>("Appointment");
+        public IMongoCollection<AppointmentDao> ApppointmentCollection => _database.GetCollection<AppointmentDao>("Appointments");
 
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
 

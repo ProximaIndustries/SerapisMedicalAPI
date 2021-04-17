@@ -14,9 +14,9 @@ namespace SerapisMedicalAPI.Utils
         {
             const string url = "https://platform.clickatell.com/v1/message";
 
-            var response = await Task.FromResult(APIConector<Messaging>.PostExternalAPIData(url,messageToSend, "AfMDkjnITRaKOQKiV6mN_g=="));
+            var response = await Task.FromResult(APIConector<Messaging>.PostExternalAPIData(url,messageToSend,"S35NTjL3TC2uECNu5033mw"));
             
-            return true;
+                return true;
         }
     }
 }

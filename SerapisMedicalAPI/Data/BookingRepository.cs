@@ -25,10 +25,11 @@ namespace SerapisMedicalAPI.Data
         {
             _context = new Context();
         }
-
+         //using (var session = mongoClient.StartSession())
         public async Task<bool> AddBooking(ObjectId practiceid, AppointmentDto booking)
         {
-
+            
+            
             try
             {
                 AppointmentDao _appointment = new AppointmentDao
@@ -81,7 +82,63 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-       
+        public async Task<bool> AddBookingv2(ObjectId practiceid, AppointmentDto booking)
+        {
+
+
+            try
+            {
+                using( var session = _context.MongoClient.StartSession())
+                {
+                    //AUTOMAPPER REQUIRED
+                    AppointmentDao _appointment = new AppointmentDao
+                    {
+                        BookingId = ObjectId.Parse(booking.BookingId),
+                        LineNumber = booking.LineNumber,
+                        PatientID = ObjectId.Parse(booking.PatientID),
+                        DateAndTimeOfAppointment = booking.DateAndTimeOfAppointment,
+                        HasSeenGP = booking.HasSeenGP,
+                        IsSerapisBooking = booking.IsSerapisBooking,
+                        HasBeenToThisPractice = booking.HasBeenToThisPractice,
+                        DoctorsId = ObjectId.Parse(booking.DoctorsId),
+                        PracticeID = ObjectId.Parse(booking.PracticeID)
+                    };
+
+                    session.StartTransaction();
+
+                    //Make First Update
+                    var filter = Builders<PracticeInformation>.Filter
+                                        .Eq(x => x.Id, practiceid);
+                    var updatev2 = Builders<PracticeInformation>
+                                        .Update.Push<AppointmentDao>(e => e.Appointment, _appointment);
+                    UpdateResult updateResult
+                            = await _context
+                                        .PracticeCollection
+                                        .UpdateOneAsync(session,
+                                                filter: filter,
+                                                update: updatev2,
+                                                options: new UpdateOptions { IsUpsert = true });
+                    //Make Second Update
+                    var filter2 = Builders<PracticeInformation>.Filter
+                                        .Eq(x => x.Id, ObjectId.Parse(booking.PatientID));
+                    /*var update2 = Builders<AppointmentDao>
+                                        .Update.Push(booking);*/
+
+                    // This step will be skipped if we throw an exception
+                    session.CommitTransaction();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //log or manage the exception
+                Debug.WriteLine(ex);
+                throw ex;
+
+            }
+        }
+
+
         public Task CancelBooking(object _id)
         {
             throw new NotImplementedException();

@@ -3,7 +3,7 @@ Author: Bonga Ngcobo
 
 1. Ensure Docker & Heroku is installed by running the command "docker -v" & "Heroku -v"
 
-2. Navigate to the dir of the Serapismedical solution
+2. Navigate to the dir of the <Project Solution> solution
 
 3. Run the command  "dotnet publish -c Release" 
 

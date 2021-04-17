@@ -51,14 +51,14 @@ namespace SerapisMedicalAPI.Services
         public async static Task<HttpResponseMessage> PostExternalAPIData(string endpoint, T content, string ApiKey)
         {
             var postUrl = string.Format(endpoint);
-
+            var apikey = string.Format("WrYHp6KKSRW0mdq8kVc4rw== ");
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 if (ApiKey != "-1")
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",ApiKey);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apikey);
 
                 client.BaseAddress = new Uri(postUrl);
 
