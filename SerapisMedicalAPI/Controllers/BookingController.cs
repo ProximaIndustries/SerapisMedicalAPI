@@ -63,10 +63,10 @@ namespace SerapisMedicalAPI.Controllers
             ObjectId p1 = ObjectId.Parse(id);
 
 
-            /*PracticeInformation practice = await _practiceRepository.GetPracticeById(p1.Id);
+            
 
-            if (practice == null)
-                return new NotFoundResult();*/
+            if (booking == null)
+                return new NotFoundResult();
 
             bool response = await _bookingRepository.AddBooking(p1, booking);
             Debug.WriteLine(" Booking Creation Response =>[" + response + "]"); 

@@ -61,12 +61,12 @@ namespace SerapisMedicalAPI.Data
                 // if modifed document is equal to 1 or more then that means the document was updated
                 if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                 {
-                    Debug.WriteLine("Did DB update? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                    Debug.WriteLine("Did DB update? [" + updateResult.IsAcknowledged + "]+ How many Documents updated [" + updateResult.ModifiedCount + "]");
                     return true; //This will trigger an success message on the Client device
                 }
                 else
                 {
-                    Debug.WriteLine("DB update NO? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                    Debug.WriteLine("DB Didn't update  updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
                     return false; //This will trigger an unsuccesful message on the Client device
                 }
 
@@ -84,7 +84,6 @@ namespace SerapisMedicalAPI.Data
 
         public async Task<bool> AddBookingv2(ObjectId practiceid, AppointmentDto booking)
         {
-
 
             try
             {
@@ -136,6 +135,7 @@ namespace SerapisMedicalAPI.Data
                 throw ex;
 
             }
+            return false;
         }
 
 

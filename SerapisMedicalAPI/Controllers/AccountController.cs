@@ -27,7 +27,6 @@ namespace SerapisMedicalAPI.Controllers
             if (_patient == null)
                 return BadRequest(_patient);
 
-            //return new OkObjectResult(_patient);
             //response.ErrorMessage = "There was an internal error, please contact to technical support."
             // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);
             return new OkObjectResult(_patient);
@@ -43,7 +42,7 @@ namespace SerapisMedicalAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            //await _accountRepository.SocialLogin(patient);
+            _ = await _accountRepository.SocialLogin(null,patient.PatientFirstName,patient.PatientLastName);
             
             //var patient = await _accountRepository.FBLogin(SocialID, FirstName, LastName, emailaddress);
            
@@ -51,6 +50,6 @@ namespace SerapisMedicalAPI.Controllers
         }
 
 
-
+            
     }
 }

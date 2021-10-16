@@ -8,12 +8,14 @@ using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Helpers;
 using SerapisMedicalAPI.Helpers.Validations;
+using SerapisMedicalAPI.Utils;
+using System.Diagnostics;
+
 namespace SerapisMedicalAPI.Data
 {
     public class DoctorRepository : IDoctorRepository
     {
         private readonly Context _context = null;
-        DoctorValidation _doctorValidation = new DoctorValidation();
         public DoctorRepository()
         {
             _context = new Context();
@@ -82,44 +84,70 @@ namespace SerapisMedicalAPI.Data
         }
 
         public async Task<Doctor> AuthenticateDoctor(string _id, string password)
-        {
+        {   
+            // _id can either be an email address or and MP number
+            Doctor AuthenticatedRegisteredDoctor;
             try
             {
                 // Validate Health ID from department of Health
-               
-                if (!_doctorValidation.isValidMPNumber(_id))
-                    return null;
-                //hash password
+                 
                 EncryptService _securehash = new EncryptService();
                 // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
+                if (!StringUtils.IsValidEmail(_id))
+                {
+                    if (!DoctorValidation.isValidMPNumber(_id))
+                        return null;
+                    //hash password
+                   
 
 
-                // Check if doctor exists
-                var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.HealthId, _id) & Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
+                    // Check if doctor exists
+                    var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.HealthId, _id) & Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
 
-                var AuthenticatedRegisteredDoctor = await _context.DoctorCollection
-                                                      .Find(filter)
-                                                      .FirstOrDefaultAsync();
-                //Return null if the doctor isnt registered with us
-                //we need to handle this null return
-                if (AuthenticatedRegisteredDoctor == null)
-                    return null;
+                    AuthenticatedRegisteredDoctor = await _context.DoctorCollection
+                                                          .Find(filter)
+                                                          .FirstOrDefaultAsync();
+                    //Return null if the doctor isnt registered with us
+                    //we need to handle this null return
+                    if (AuthenticatedRegisteredDoctor == null)
+                        return null;
 
 
-                //if doctor pass "exist check"
-                //Password check if correct
-                //Need to set token to expire after 12 hours
+                    //if doctor pass "exist check"
+                    //Password check if correct
+                    //Need to set token to expire after 12 hours
 
-                //return the registered user
-                return AuthenticatedRegisteredDoctor;
+                    //return the registered user
+                    return AuthenticatedRegisteredDoctor;
+                }
+                else
+                {
+                    var filter = Builders<Doctor>.Filter.Eq(doc => doc.User.Email, _id) & Builders<Doctor>.Filter.Eq(doc => doc.User.Password, password);
+
+                    AuthenticatedRegisteredDoctor = await _context.DoctorCollection
+                                                          .Find(filter)
+                                                          .FirstOrDefaultAsync();
+                    //Return null if the doctor isnt registered with us
+                    //we need to handle this null return
+                    if (AuthenticatedRegisteredDoctor == null)
+                        return null;
+
+
+                    //if doctor pass "exist check"
+                    //Password check if correct
+                    //Need to set token to expire after 12 hours
+
+                    //return the registered user
+                    return AuthenticatedRegisteredDoctor;
+                }
+                
                 //Send SMS
-
 
 
             }catch(Exception ex)
             {
-
-                }
+                Debug.WriteLine(ex);            
+            }
 
             return null;
         }
