@@ -35,14 +35,14 @@ namespace SerapisMedicalAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
+            /*services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
-            });
+            });*/
 
             //services.AddSingleton<IMongoClient>(c =>
             //{
@@ -75,6 +75,7 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,7 +98,13 @@ namespace SerapisMedicalAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            //app.UseMvc();
         }
     }
 }
