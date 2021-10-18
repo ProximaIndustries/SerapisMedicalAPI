@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SerapisMedicalAPI.Interfaces;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
 using MongoDB.Driver;
@@ -32,7 +30,7 @@ namespace SerapisMedicalAPI.Data
 
              
             // Creating JWT token
-            var tokenHandler = new JwtSecurityTokenHandler();
+           /* var tokenHandler = new JwtSecurityTokenHandler();
             //Encodes a secret key
            
             var key = Encoding.ASCII.GetBytes(" ");
@@ -51,7 +49,7 @@ namespace SerapisMedicalAPI.Data
             
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.Token = tokenHandler.WriteToken(token);
+            user.Token = tokenHandler.WriteToken(token);*/
 
             
             _context.PatientCollection.InsertOne(user);
