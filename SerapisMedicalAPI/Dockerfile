@@ -9,8 +9,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /build
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
-RUN apt-get install -y nodejs
+#RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
+#RUN apt-get install -y nodejs
 
 # copy csproj and restore as distinct layers
 COPY ./*.csproj .
@@ -25,4 +25,4 @@ RUN dotnet publish -c release -o published --no-cache
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /app
 COPY --from=build /build/published ./
-ENTRYPOINT ["dotnet", "SoLawyer.dll"]
+ENTRYPOINT ["dotnet", "SerapisMedicalAPI.dll"]
