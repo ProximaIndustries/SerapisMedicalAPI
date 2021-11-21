@@ -14,8 +14,10 @@ namespace SerapisMedicalAPI.Model
     public class Doctor
     {
 
-        
-        public ObjectId id { get; set; }
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
 
         [BsonElement("privateId")]
         public string PrivateId { get; set; }

@@ -32,7 +32,15 @@ namespace SerapisMedicalAPI.Controllers
             return await _doctorRepository.GetAllDoctor();
         }
 
-        
+        [HttpGet("action1")]
+
+        public IActionResult Get2()
+        {
+            return RedirectToAction("Get");
+            //return await _doctorRepository.GetAllDoctor();
+        }
+
+
 
         // POST: api/Doctor
         [HttpPost]

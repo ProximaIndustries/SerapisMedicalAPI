@@ -40,6 +40,7 @@ namespace SerapisMedicalAPI.Controllers
             //Register the user
 
             if (!ModelState.IsValid)
+                
                 return BadRequest();
 
             _ = await _accountRepository.SocialLogin(null,patient.PatientFirstName,patient.PatientLastName);

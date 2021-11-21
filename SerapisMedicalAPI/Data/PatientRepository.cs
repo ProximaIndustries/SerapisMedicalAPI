@@ -177,7 +177,7 @@ namespace SerapisMedicalAPI.Data
                 catch (Exception ex)
                 {
                     // log or manage the exception
-                    throw new Exception("Failed to Pull Practice Info: " +
+                    throw new Exception("Failed to Pull Patient Info: " +
                            new { _id, _patientinfo }, ex);
                 }
                 return _patientinfo;

@@ -54,28 +54,14 @@ namespace SerapisMedicalAPI
         }
 
 
-
-        // POST: api/Patient
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-           
-        }
-
         // PUT: api/Patient/
         [HttpPut]
-        public async Task<bool> Put( [FromBody] Patient patient)
+        public async Task<bool> Put([FromBody] Patient patient)
         {
             bool data = await _patientRepository.EditPatientUser(patient);
 
             return data;
-            
-        }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
