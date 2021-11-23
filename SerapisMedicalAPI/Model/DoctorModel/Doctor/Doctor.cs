@@ -54,13 +54,17 @@ namespace SerapisMedicalAPI.Model
         //[BsonElement("Prescription")]
         //public DoctorPrescription Prescription { get; set; }
 
+        
+        
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("practicesownedOrworksat")]
-        //public List<PracticeInformation> PracticesOwnedOrWorksAt { get; set; }
-        public List<ObjectId> PracticesOwnedOrWorksAt { get; set; }
+        public List<string> PracticesOwnedOrWorksAt { get; set; }
 
+        
+        
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("listofappointments")]
-        //public List<AppointmentModel.Appointment> ListOfAppointments { get; set; }
-        public List<ObjectId> ListOfAppointments { get; set; }
+        public List<string> ListOfAppointments { get; set; }
 
         [BsonElement("user")]
         public DoctorUser User { get; set; }
