@@ -10,15 +10,19 @@ using SerapisMedicalAPI.Helpers;
 using SerapisMedicalAPI.Helpers.Validations;
 using SerapisMedicalAPI.Utils;
 using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI.Data
 {
     public class DoctorRepository : IDoctorRepository
     {
-        private readonly Context _context = null;
-        public DoctorRepository()
+        private readonly Context _context;
+        private Stopwatch timer = new Stopwatch();
+        private readonly ILogger<DoctorRepository> _logger;
+        public DoctorRepository(Context context, ILogger<DoctorRepository> logger)
         {
-            _context = new Context();
+            _context = context;
+            _logger = logger;
         }
 
         private ObjectId GetId(string id)
@@ -35,10 +39,15 @@ namespace SerapisMedicalAPI.Data
         {
             try
             {
+                timer.Start();
+                
                 var result = await _context.DoctorCollection
                     .Find(_ => true)
                     .ToListAsync();
 
+                timer.Stop();
+                _logger?.LogInformation("The Response Time of MongoDriver call took [ " + timer.ElapsedMilliseconds + "ms" + " ]");
+                timer.Reset();
                 return result;
             }
             catch (Exception ex)
@@ -53,9 +62,13 @@ namespace SerapisMedicalAPI.Data
         {
             try
             {
+                timer.Start();
                 await _context
                     .DoctorCollection
                     .InsertOneAsync(doc);
+                timer.Stop();
+                _logger?.LogInformation("The Response Time of MongoDriver call took [ " + timer.ElapsedMilliseconds + "ms" + " ]");
+                timer.Reset();
             }
             catch (Exception ex)
             {
@@ -68,12 +81,15 @@ namespace SerapisMedicalAPI.Data
         {
             try
             {
+                timer.Start();
                 ObjectId Id = GetId(privateid);
                 var result = await _context.DoctorCollection
                     .Find(doctor => doctor.PrivateId == privateid 
                     || doctor.PrivateId ==Convert.ToString(Id))
                     .FirstOrDefaultAsync();
-
+                timer.Stop();
+                _logger?.LogInformation("The Response Time of MongoDriver call took [ " + timer.ElapsedMilliseconds + "ms" + " ]");
+                timer.Reset();
                 return result;
             }
             catch (Exception ex)

@@ -11,18 +11,20 @@ using System.Security.Claims;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Model.PatientModel;
 using MongoDB.Bson;
+using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI.Data
 {
     public class AccountRepository : IAccountRepository
     {
         private readonly Context _context = null;
+        private readonly ILogger<AccountRepository> _logger;
 
         public Patient user = new Patient();
 
-        public AccountRepository()
+        public AccountRepository(Context context)
         {
-            _context = new Context();
+            _context = context;
             // _appSettings = appSettings.Value;
         }
         public Patient RegisterandAuthenticateAsync(Patient user)
@@ -108,7 +110,7 @@ namespace SerapisMedicalAPI.Data
                 .Filter
                 .Eq(user => user.SocialID, socialid);
 
-                var RegisteredUser = await _context.PatientCollection
+                var RegisteredUser = await _context?.PatientCollection
                                                    .Find(filter)
                                                    .FirstOrDefaultAsync();
                 //if user exists login him in 

@@ -10,6 +10,7 @@ using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using System.Text.Encodings.Web;
 using SerapisMedicalAPI.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -18,10 +19,12 @@ namespace SerapisMedicalAPI.Controllers
     public class DoctorController : Controller
     {
         private readonly IDoctorRepository _doctorRepository;
-        
-        public DoctorController(IDoctorRepository doctorRepository)
+        private readonly ILogger<DoctorController> _logger;
+
+        public DoctorController(IDoctorRepository doctorRepository, ILogger<DoctorController> logger)
         {
             _doctorRepository = doctorRepository;
+            _logger = logger;
         }
 
         // GET: api/Doctor
@@ -29,7 +32,12 @@ namespace SerapisMedicalAPI.Controllers
         
         public async Task<IEnumerable<Doctor>> Get()
         {
-            return await _doctorRepository.GetAllDoctor();
+            IEnumerable<Doctor> allDoctors = await _doctorRepository.GetAllDoctor();
+
+            _logger?.LogInformation("The number of doctors being returned is: "+ allDoctors.ToList().Count);
+            _logger?.LogInformation("The number of doctors being returned is: {@allDoctors} ",allDoctors);
+
+            return allDoctors;
         }
 
         [HttpGet("action1")]

@@ -14,6 +14,7 @@ using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Services.SymptomsChecker;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace SerapisMedicalAPI
@@ -44,18 +45,18 @@ namespace SerapisMedicalAPI
                     .AllowCredentials());
             });*/
 
-            //services.AddSingleton<IMongoClient>(c =>
-            //{
-            //    var login = "";
-            //    var password = Uri.EscapeDataString("");
-            //    var server = "";
+            services.AddSingleton<IMongoClient>(c =>
+            {
+                var login = "";
+                var password = Uri.EscapeDataString("");
+                var server = "";
 
-            //    return new MongoClient(
-            //        string.Format("mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority", login, password, server));
-            //});
+                return new MongoClient(
+                    string.Format("mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority", login, password, server));
+            });
 
-            //services.AddScoped(c =>
-            //    c.GetService<IMongoClient>().StartSession());
+            services.AddScoped(c =>
+                c.GetService<IMongoClient>().StartSession());
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.Configure<Settings>(options =>
@@ -75,6 +76,8 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();
+            services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
+            services.AddSingleton<Context>();
             services.AddControllers();
         }
 
@@ -102,6 +105,11 @@ namespace SerapisMedicalAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.Run(async (context) =>
+            {
+                //Run DB service here
             });
 
             //app.UseMvc();

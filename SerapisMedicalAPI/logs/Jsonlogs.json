@@ -1,0 +1,498 @@
+{
+    "@t": "2021-11-26T11:09:24.8162952Z",
+    "@mt": "Starting web host",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:40.7239549Z",
+    "@mt": "Starting web host",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:41.7971900Z",
+    "@mt": "User profile is available. Using '{FullName}' as key repository and Windows DPAPI to encrypt keys at rest.",
+    "FullName": "C:\\Users\\Bonga\\AppData\\Local\\ASP.NET\\DataProtection-Keys",
+    "SourceContext": "Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:42.1911346Z",
+    "@mt": "Application started. Press Ctrl+C to shut down.",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:42.1915336Z",
+    "@mt": "Hosting environment: {envName}",
+    "envName": "Development",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:42.1916168Z",
+    "@mt": "Content root path: {contentRoot}",
+    "contentRoot": "C:\\Users\\Bonga\\Source\\Repos\\ProximaIndustries\\SerapisMedicalAPI\\SerapisMedicalAPI",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "ThreadId": 1
+}
+{
+    "@t": "2021-11-26T11:09:42.2290912Z",
+    "@mt": "{HostingRequestStartingLog:l}",
+    "@r": [
+        "Request starting HTTP/2.0 GET https://localhost:44371/api/values  "
+    ],
+    "Protocol": "HTTP/2.0",
+    "Method": "GET",
+    "ContentType": null,
+    "ContentLength": null,
+    "Scheme": "https",
+    "Host": "localhost:44371",
+    "PathBase": "",
+    "Path": "/api/values",
+    "QueryString": "",
+    "HostingRequestStartingLog": "Request starting HTTP/2.0 GET https://localhost:44371/api/values  ",
+    "EventId": {
+        "Id": 1
+    },
+    "SourceContext": "Microsoft.AspNetCore.Hosting.Diagnostics",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.2718638Z",
+    "@mt": "Executing endpoint '{EndpointName}'",
+    "EndpointName": "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)",
+    "EventId": {
+        "Name": "ExecutingEndpoint"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Routing.EndpointMiddleware",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.3028290Z",
+    "@mt": "Route matched with {RouteData}. Executing controller action with signature {MethodInfo} on controller {Controller} ({AssemblyName}).",
+    "RouteData": "{action = \"Get\", controller = \"Values\"}",
+    "MethodInfo": "Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get()",
+    "Controller": "SerapisMedicalAPI.Controllers.ValuesController",
+    "AssemblyName": "SerapisMedicalAPI",
+    "EventId": {
+        "Id": 3,
+        "Name": "ControllerActionExecuting"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker",
+    "ActionId": "463d852d-f1a7-4662-bf1a-0e2528f5ec65",
+    "ActionName": "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.3076853Z",
+    "@mt": "Executing ObjectResult, writing value of type '{Type}'.",
+    "Type": "System.String[]",
+    "EventId": {
+        "Id": 1,
+        "Name": "ObjectResultExecuting"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor",
+    "ActionId": "463d852d-f1a7-4662-bf1a-0e2528f5ec65",
+    "ActionName": "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.3346071Z",
+    "@mt": "Executed action {ActionName} in {ElapsedMilliseconds}ms",
+    "ActionName": "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)",
+    "ElapsedMilliseconds": 26.3055,
+    "EventId": {
+        "Id": 2,
+        "Name": "ActionExecuted"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker",
+    "ActionId": "463d852d-f1a7-4662-bf1a-0e2528f5ec65",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.3374491Z",
+    "@mt": "Executed endpoint '{EndpointName}'",
+    "EndpointName": "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)",
+    "EventId": {
+        "Id": 1,
+        "Name": "ExecutedEndpoint"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Routing.EndpointMiddleware",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:42.3390528Z",
+    "@mt": "{HostingRequestFinishedLog:l}",
+    "@r": [
+        "Request finished in 112.8359ms 200 application/json; charset=utf-8"
+    ],
+    "ElapsedMilliseconds": 112.8359,
+    "StatusCode": 200,
+    "ContentType": "application/json; charset=utf-8",
+    "HostingRequestFinishedLog": "Request finished in 112.8359ms 200 application/json; charset=utf-8",
+    "EventId": {
+        "Id": 2
+    },
+    "SourceContext": "Microsoft.AspNetCore.Hosting.Diagnostics",
+    "RequestId": "80000012-0002-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/values",
+    "SpanId": "|86cbc61-43dfed5957543604.",
+    "TraceId": "86cbc61-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 4
+}
+{
+    "@t": "2021-11-26T11:09:48.5536781Z",
+    "@mt": "{HostingRequestStartingLog:l}",
+    "@r": [
+        "Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  "
+    ],
+    "Protocol": "HTTP/2.0",
+    "Method": "GET",
+    "ContentType": null,
+    "ContentLength": null,
+    "Scheme": "https",
+    "Host": "localhost:44371",
+    "PathBase": "",
+    "Path": "/api/doctor",
+    "QueryString": "",
+    "HostingRequestStartingLog": "Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  ",
+    "EventId": {
+        "Id": 1
+    },
+    "SourceContext": "Microsoft.AspNetCore.Hosting.Diagnostics",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:48.5630000Z",
+    "@mt": "Executing endpoint '{EndpointName}'",
+    "EndpointName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "EventId": {
+        "Name": "ExecutingEndpoint"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Routing.EndpointMiddleware",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:48.5794995Z",
+    "@mt": "Route matched with {RouteData}. Executing controller action with signature {MethodInfo} on controller {Controller} ({AssemblyName}).",
+    "RouteData": "{action = \"Get\", controller = \"Doctor\"}",
+    "MethodInfo": "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get()",
+    "Controller": "SerapisMedicalAPI.Controllers.DoctorController",
+    "AssemblyName": "SerapisMedicalAPI",
+    "EventId": {
+        "Id": 3,
+        "Name": "ControllerActionExecuting"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0627568Z",
+    "@mt": "Attempting to connect to the Database",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0630554Z",
+    "@mt": "Pool of Servers avaliable:  0",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0635774Z",
+    "@mt": "Server State:  Disconnected",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0636728Z",
+    "@mt": "Attempting to connect to the Database",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0669934Z",
+    "@mt": "Server State:  Disconnected",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:49.0671282Z",
+    "@mt": "Database Connected To :SerapisMedical",
+    "SourceContext": "SerapisMedicalAPI.Context",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 5
+}
+{
+    "@t": "2021-11-26T11:09:58.9385444Z",
+    "@mt": "The number of doctors being returned is: 2",
+    "SourceContext": "SerapisMedicalAPI.Controllers.DoctorController",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}
+{
+    "@t": "2021-11-26T11:09:58.9460663Z",
+    "@mt": "The number of doctors being returned is: {@allDoctors} ",
+    "allDoctors": [
+        {
+            "id": "5bc8f2c21c9d440000a98282",
+            "PrivateId": null,
+            "FirstName": "Themba",
+            "LastName": "Duma",
+            "Gender": "Male",
+            "BirthDate": "1985-10-14T22:00:00.0000000Z",
+            "ProfilePicture": "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing",
+            "Qualifications": [
+                {
+                    "Degree": "MBCHB(Surgery)",
+                    "Graduated": "2007-01-23T22:00:00.0000000Z",
+                    "University": "The University of Kwazulu-Natal",
+                    "Abbr": "UKZN",
+                    "Specialization": "OrthopaedicSurgeon",
+                    "Specilizationabbr": "OS",
+                    "$type": "Qualification"
+                },
+                {
+                    "Degree": "Mmed Othro(Natal)",
+                    "Graduated": "2016-01-23T22:00:00.0000000Z",
+                    "University": "The University of Kwazulu-Natal",
+                    "Abbr": null,
+                    "Specialization": "OrthopaedicSurgeon",
+                    "Specilizationabbr": "Othep",
+                    "$type": "Qualification"
+                }
+            ],
+            "Specialization": "OrthopaedicSurgeon",
+            "PracticesOwnedOrWorksAt": [
+                "600c5c844cd42342b907f375"
+            ],
+            "ListOfAppointments": [
+                "600c5da24cd42342b907f376"
+            ],
+            "User": {
+                "HealthId": "MP0703150",
+                "Password": "1234",
+                "Email": "thembaduma@hpcsa.co.za",
+                "GivenCode": "4321",
+                "LastLogin": "2020-09-01T22:00:00.0000000Z",
+                "HasbeenValidated": true,
+                "$type": "DoctorUser"
+            },
+            "$type": "Doctor"
+        },
+        {
+            "id": "600d5fba8272da24513c8697",
+            "PrivateId": null,
+            "FirstName": "Phumzile",
+            "LastName": "Ngcobo",
+            "Gender": "Female",
+            "BirthDate": "1987-10-14T22:00:00.0000000Z",
+            "ProfilePicture": "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing",
+            "Qualifications": [
+                {
+                    "Degree": "MBCHB(Medcine)",
+                    "Graduated": "2008-01-23T22:00:00.0000000Z",
+                    "University": "The University of Kwazulu-Natal",
+                    "Abbr": "UKZN",
+                    "Specialization": "Paediatrician",
+                    "Specilizationabbr": "GP",
+                    "$type": "Qualification"
+                }
+            ],
+            "Specialization": "Paediatrician",
+            "PracticesOwnedOrWorksAt": [
+                "600c5c844cd42342b907f375"
+            ],
+            "ListOfAppointments": [
+                "600c5da24cd42342b907f376"
+            ],
+            "User": {
+                "HealthId": "MP0703150",
+                "Password": "5678",
+                "Email": "phumzilengcobo@hpcsa.co.za",
+                "GivenCode": "5321",
+                "LastLogin": "2020-09-01T22:00:00.0000000Z",
+                "HasbeenValidated": true,
+                "$type": "DoctorUser"
+            },
+            "$type": "Doctor"
+        }
+    ],
+    "SourceContext": "SerapisMedicalAPI.Controllers.DoctorController",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}
+{
+    "@t": "2021-11-26T11:09:58.9564829Z",
+    "@mt": "Executing ObjectResult, writing value of type '{Type}'.",
+    "Type": "System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Doctor, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "EventId": {
+        "Id": 1,
+        "Name": "ObjectResultExecuting"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}
+{
+    "@t": "2021-11-26T11:09:58.9740279Z",
+    "@mt": "Executed action {ActionName} in {ElapsedMilliseconds}ms",
+    "ActionName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "ElapsedMilliseconds": 10394.3018,
+    "EventId": {
+        "Id": 2,
+        "Name": "ActionExecuted"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker",
+    "ActionId": "e15fc25f-6527-4702-a1a6-c70bd57eac56",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}
+{
+    "@t": "2021-11-26T11:09:58.9746692Z",
+    "@mt": "Executed endpoint '{EndpointName}'",
+    "EndpointName": "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)",
+    "EventId": {
+        "Id": 1,
+        "Name": "ExecutedEndpoint"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Routing.EndpointMiddleware",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}
+{
+    "@t": "2021-11-26T11:09:58.9769244Z",
+    "@mt": "{HostingRequestFinishedLog:l}",
+    "@r": [
+        "Request finished in 10423.8258ms 200 application/json; charset=utf-8"
+    ],
+    "ElapsedMilliseconds": 10423.8258,
+    "StatusCode": 200,
+    "ContentType": "application/json; charset=utf-8",
+    "HostingRequestFinishedLog": "Request finished in 10423.8258ms 200 application/json; charset=utf-8",
+    "EventId": {
+        "Id": 2
+    },
+    "SourceContext": "Microsoft.AspNetCore.Hosting.Diagnostics",
+    "RequestId": "80000090-0008-ff00-b63f-84710c7967bb",
+    "RequestPath": "/api/doctor",
+    "SpanId": "|86cbc62-43dfed5957543604.",
+    "TraceId": "86cbc62-43dfed5957543604",
+    "ParentId": "",
+    "ThreadId": 6
+}

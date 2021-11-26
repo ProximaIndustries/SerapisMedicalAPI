@@ -21,9 +21,9 @@ namespace SerapisMedicalAPI.Data
         //I think it's better if you work with 'BsonDocument' instead of MyType/object. 
         //If MyType has BsonIgnoreExtraFields flag, the document will ignore fields that are not represented in MyType class. In insert method,
         //   method will only insert fields that exists in class and you will lose all other nonrepresented fields.
-        public BookingRepository()
+        public BookingRepository(Context context)
         {
-            _context = new Context();
+            _context = context;
         }
          //using (var session = mongoClient.StartSession())
         public async Task<bool> AddBooking(ObjectId practiceid, AppointmentDto booking)

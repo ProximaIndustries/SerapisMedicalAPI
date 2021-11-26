@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using SerapisMedicalAPI.Model.Symptoms;
+using SerapisMedicalAPI.Services.SymptomsChecker;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -10,11 +13,24 @@ namespace SerapisMedicalAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ISymptomsCheckerService _symptomsCheckerService;
+        private readonly ILogger<ValuesController> _logger;
+
+        public ValuesController(ISymptomsCheckerService symptomsCheckerService, ILogger<ValuesController> logger)
+        {
+            _symptomsCheckerService = symptomsCheckerService;
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Symptoms> Get()
         {
-            return new string[] { "value1", "value2" };
+            
+            IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
+            _logger?.LogInformation("The number of Symptoms being returned is: " + symptoms.ToList().Count);
+            return symptoms;
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5

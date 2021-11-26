@@ -4,6 +4,7 @@ using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using System.Collections.Generic;
 using SerapisMedicalAPI.Model.PatientModel;
+using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -13,9 +14,12 @@ namespace SerapisMedicalAPI.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountRepository _accountRepository;
-        public AccountController(IAccountRepository accountRepository)
+        private readonly ILogger<AccountController> _logger;
+        public AccountController(IAccountRepository accountRepository, ILogger<AccountController> logger)
         {
             _accountRepository = accountRepository;
+            _logger = logger;
+
         }
 
         //api/account?socialid=MP0703150&firstname=bonga&lastname=ngcobo    
@@ -28,7 +32,7 @@ namespace SerapisMedicalAPI.Controllers
                 return BadRequest(_patient);
 
             //response.ErrorMessage = "There was an internal error, please contact to technical support."
-            // Logger?.LogCritical("There was an error on '{0}' invocation: {1}", nameof(GetStockItemAsync), ex);
+            _logger?.LogCritical("There was an error on '{0}' invocation: {1}");
             return new OkObjectResult(_patient);
         }
 

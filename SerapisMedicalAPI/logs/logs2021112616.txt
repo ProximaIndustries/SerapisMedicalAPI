@@ -1,0 +1,9 @@
+16:59 [Information] (1) Starting web host
+16:59 [Information] (1) User profile is available. Using '"C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+16:59 [Information] (1) Application started. Press Ctrl+C to shut down.
+16:59 [Information] (1) Hosting environment: "Development"
+16:59 [Information] (1) Content root path: "C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI"
+16:59 [Information] (9) Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+16:59 [Information] (9) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+16:59 [Information] (9) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+16:59 [Information] (9) URL being Requested: 

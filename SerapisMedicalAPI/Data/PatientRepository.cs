@@ -13,10 +13,10 @@ namespace SerapisMedicalAPI.Data
 {
     public class PatientRepository : IPatientRepository
     {
-        private readonly Context _context = null;
-        public PatientRepository()
+        private readonly Context _context;
+        public PatientRepository(Context context)
         {
-            _context = new Context();
+            _context = context;
         }
 
         private ObjectId GetInternalId(string id)

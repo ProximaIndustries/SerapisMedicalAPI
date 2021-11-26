@@ -22,9 +22,9 @@ namespace SerapisMedicalAPI.Data
 
         private List<PracticeDto> practiceDtoList = new List<PracticeDto>();
 
-        public PracticeRepository() 
+        public PracticeRepository(Context context) 
         {
-            _context = new Context();
+            _context = context;
         }
 
         public Task AddPractice(PracticeInformation practice)

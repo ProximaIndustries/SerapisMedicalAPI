@@ -1,0 +1,170 @@
+2021-11-26 12:01:07.125 +02:00 [INF] Starting web host
+2021-11-26 12:01:08.267 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:01:08.641 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:01:08.641 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:01:08.641 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:01:08.684 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:01:08.733 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:01:08.771 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:01:08.778 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:01:08.804 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 27.6774ms
+2021-11-26 12:01:08.807 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:01:08.809 +02:00 [INF] Request finished in 127.5858ms 200 application/json; charset=utf-8
+2021-11-26 12:01:11.842 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:01:11.847 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:01:11.860 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:01:12.471 +02:00 [INF] Attempting to connect to the Database
+2021-11-26 12:01:17.244 +02:00 [INF] Pool of databases avaliable:  MongoDB.Driver.BatchTransformingAsyncCursor`2[MongoDB.Bson.BsonDocument,System.String]
+2021-11-26 12:01:17.476 +02:00 [INF] Pool of Collections avaliable:{ "_t" : "AsyncCursor`1" }
+2021-11-26 12:01:17.781 +02:00 [INF] The number of doctors being returned is: 2
+2021-11-26 12:01:17.788 +02:00 [INF] The number of doctors being returned is: [{"id":"5bc8f2c21c9d440000a98282","PrivateId":null,"FirstName":"Themba","LastName":"Duma","Gender":"Male","BirthDate":"1985-10-14T22:00:00.0000000Z","ProfilePicture":"https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing","Qualifications":[{"Degree":"MBCHB(Surgery)","Graduated":"2007-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":"UKZN","Specialization":"OrthopaedicSurgeon","Specilizationabbr":"OS","$type":"Qualification"},{"Degree":"Mmed Othro(Natal)","Graduated":"2016-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":null,"Specialization":"OrthopaedicSurgeon","Specilizationabbr":"Othep","$type":"Qualification"}],"Specialization":"OrthopaedicSurgeon","PracticesOwnedOrWorksAt":["600c5c844cd42342b907f375"],"ListOfAppointments":["600c5da24cd42342b907f376"],"User":{"HealthId":"MP0703150","Password":"1234","Email":"thembaduma@hpcsa.co.za","GivenCode":"4321","LastLogin":"2020-09-01T22:00:00.0000000Z","HasbeenValidated":true,"$type":"DoctorUser"},"$type":"Doctor"},{"id":"600d5fba8272da24513c8697","PrivateId":null,"FirstName":"Phumzile","LastName":"Ngcobo","Gender":"Female","BirthDate":"1987-10-14T22:00:00.0000000Z","ProfilePicture":"https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing","Qualifications":[{"Degree":"MBCHB(Medcine)","Graduated":"2008-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":"UKZN","Specialization":"Paediatrician","Specilizationabbr":"GP","$type":"Qualification"}],"Specialization":"Paediatrician","PracticesOwnedOrWorksAt":["600c5c844cd42342b907f375"],"ListOfAppointments":["600c5da24cd42342b907f376"],"User":{"HealthId":"MP0703150","Password":"5678","Email":"phumzilengcobo@hpcsa.co.za","GivenCode":"5321","LastLogin":"2020-09-01T22:00:00.0000000Z","HasbeenValidated":true,"$type":"DoctorUser"},"$type":"Doctor"}] 
+2021-11-26 12:01:17.798 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Doctor, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-26 12:01:17.815 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI) in 5954.1602ms
+2021-11-26 12:01:17.815 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:01:17.817 +02:00 [INF] Request finished in 5974.993ms 200 application/json; charset=utf-8
+2021-11-26 12:02:08.697 +02:00 [INF] Starting web host
+2021-11-26 12:02:09.683 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:02:10.040 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:02:10.040 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:02:10.040 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:02:10.083 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:02:10.140 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:02:10.177 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:02:10.183 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:02:10.210 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 28.8888ms
+2021-11-26 12:02:10.213 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:02:10.216 +02:00 [INF] Request finished in 135.2553ms 200 application/json; charset=utf-8
+2021-11-26 12:02:16.939 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:02:16.943 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:02:16.960 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:02:17.606 +02:00 [INF] Attempting to connect to the Database
+2021-11-26 12:02:27.648 +02:00 [INF] Pool of databases avaliable:  MongoDB.Driver.BatchTransformingAsyncCursor`2[MongoDB.Bson.BsonDocument,System.String]
+2021-11-26 12:15:55.638 +02:00 [INF] Starting web host
+2021-11-26 12:15:56.688 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:15:57.005 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:15:57.006 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:15:57.006 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:15:57.041 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:15:57.088 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:15:57.122 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:15:57.130 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:15:57.159 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 32.0402ms
+2021-11-26 12:15:57.163 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:15:57.164 +02:00 [INF] Request finished in 125.9192ms 200 application/json; charset=utf-8
+2021-11-26 12:16:07.034 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:16:07.038 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:16:07.052 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:16:07.662 +02:00 [INF] Attempting to connect to the Database
+2021-11-26 12:16:07.663 +02:00 [INF] Pool of Servers avaliable:  0
+2021-11-26 12:16:07.663 +02:00 [INF] Server State:  Disconnected
+2021-11-26 12:18:58.804 +02:00 [INF] Starting web host
+2021-11-26 12:18:59.840 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:19:00.210 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:19:00.210 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:19:00.210 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:19:00.257 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:19:00.314 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:19:00.346 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:19:00.353 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:19:00.379 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 27.9106ms
+2021-11-26 12:19:00.383 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:19:00.385 +02:00 [INF] Request finished in 132.3737ms 200 application/json; charset=utf-8
+2021-11-26 12:19:04.748 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:19:04.752 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:19:04.767 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:19:05.534 +02:00 [INF] Attempting to connect to the Database
+2021-11-26 12:19:05.535 +02:00 [INF] Pool of Servers avaliable:  0
+2021-11-26 12:19:05.535 +02:00 [INF] Server State:  Disconnected
+2021-11-26 12:19:56.516 +02:00 [INF] Starting web host
+2021-11-26 12:19:57.544 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:19:57.910 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:19:57.911 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:19:57.911 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:19:57.950 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:19:58.012 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:19:58.052 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:19:58.058 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:19:58.088 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 31.3604ms
+2021-11-26 12:19:58.091 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:19:58.093 +02:00 [INF] Request finished in 147.8913ms 200 application/json; charset=utf-8
+2021-11-26 12:20:03.307 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:20:03.311 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:20:03.324 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:20:03.806 +02:00 [INF] Attempting to connect to the Database
+2021-11-26 12:20:03.806 +02:00 [INF] Pool of Servers avaliable:  0
+2021-11-26 12:20:03.807 +02:00 [INF] Server State:  Disconnected
+2021-11-26 12:20:32.594 +02:00 [INF] Starting web host
+2021-11-26 12:20:33.583 +02:00 [INF] User profile is available. Using 'C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-26 12:20:33.986 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-26 12:20:33.986 +02:00 [INF] Hosting environment: Development
+2021-11-26 12:20:33.986 +02:00 [INF] Content root path: C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI
+2021-11-26 12:20:34.023 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+2021-11-26 12:20:34.071 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:20:34.099 +02:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SerapisMedicalAPI.Controllers.ValuesController (SerapisMedicalAPI).
+2021-11-26 12:20:34.103 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2021-11-26 12:20:34.134 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI) in 30.2447ms
+2021-11-26 12:20:34.137 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)'
+2021-11-26 12:20:34.138 +02:00 [INF] Request finished in 118.1429ms 200 application/json; charset=utf-8
+2021-11-26 12:20:38.691 +02:00 [INF] Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+2021-11-26 12:20:38.694 +02:00 [INF] Executing endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:20:38.709 +02:00 [INF] Route matched with {action = "Get", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get() on controller SerapisMedicalAPI.Controllers.DoctorController (SerapisMedicalAPI).
+2021-11-26 12:20:39.362 +02:00 [INF] Database Connected To :SerapisMedical
+2021-11-26 12:20:43.992 +02:00 [INF] The number of doctors being returned is: 2
+2021-11-26 12:20:43.998 +02:00 [INF] The number of doctors being returned is: [{"id":"5bc8f2c21c9d440000a98282","PrivateId":null,"FirstName":"Themba","LastName":"Duma","Gender":"Male","BirthDate":"1985-10-14T22:00:00.0000000Z","ProfilePicture":"https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing","Qualifications":[{"Degree":"MBCHB(Surgery)","Graduated":"2007-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":"UKZN","Specialization":"OrthopaedicSurgeon","Specilizationabbr":"OS","$type":"Qualification"},{"Degree":"Mmed Othro(Natal)","Graduated":"2016-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":null,"Specialization":"OrthopaedicSurgeon","Specilizationabbr":"Othep","$type":"Qualification"}],"Specialization":"OrthopaedicSurgeon","PracticesOwnedOrWorksAt":["600c5c844cd42342b907f375"],"ListOfAppointments":["600c5da24cd42342b907f376"],"User":{"HealthId":"MP0703150","Password":"1234","Email":"thembaduma@hpcsa.co.za","GivenCode":"4321","LastLogin":"2020-09-01T22:00:00.0000000Z","HasbeenValidated":true,"$type":"DoctorUser"},"$type":"Doctor"},{"id":"600d5fba8272da24513c8697","PrivateId":null,"FirstName":"Phumzile","LastName":"Ngcobo","Gender":"Female","BirthDate":"1987-10-14T22:00:00.0000000Z","ProfilePicture":"https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing","Qualifications":[{"Degree":"MBCHB(Medcine)","Graduated":"2008-01-23T22:00:00.0000000Z","University":"The University of Kwazulu-Natal","Abbr":"UKZN","Specialization":"Paediatrician","Specilizationabbr":"GP","$type":"Qualification"}],"Specialization":"Paediatrician","PracticesOwnedOrWorksAt":["600c5c844cd42342b907f375"],"ListOfAppointments":["600c5da24cd42342b907f376"],"User":{"HealthId":"MP0703150","Password":"5678","Email":"phumzilengcobo@hpcsa.co.za","GivenCode":"5321","LastLogin":"2020-09-01T22:00:00.0000000Z","HasbeenValidated":true,"$type":"DoctorUser"},"$type":"Doctor"}] 
+2021-11-26 12:20:44.007 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Doctor, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-11-26 12:20:44.022 +02:00 [INF] Executed action SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI) in 5312.8828ms
+2021-11-26 12:20:44.023 +02:00 [INF] Executed endpoint 'SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)'
+2021-11-26 12:20:44.024 +02:00 [INF] Request finished in 5334.3175ms 200 application/json; charset=utf-8
+12:52 [Information] (1) Starting web host
+12:52 [Information] (1) User profile is available. Using '"C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+12:52 [Information] (1) Application started. Press Ctrl+C to shut down.
+12:52 [Information] (1) Hosting environment: "Development"
+12:52 [Information] (1) Content root path: "C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI"
+12:52 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+12:52 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+12:52 [Information] (4) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+12:52 [Information] (4) Executing ObjectResult, writing value of type '"System.String[]"'.
+12:52 [Information] (4) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 24.3033ms
+12:52 [Information] (4) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+12:52 [Information] (4) Request finished in 108.178ms 200 application/json; charset=utf-8
+12:52 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+12:52 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)"'
+12:52 [Information] (4) Route matched with "{action = \"Get\", controller = \"Doctor\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get()" on controller "SerapisMedicalAPI.Controllers.DoctorController" ("SerapisMedicalAPI").
+12:52 [Information] (4) Attempting to connect to the Database
+12:52 [Information] (4) Pool of Servers avaliable:  0
+12:52 [Information] (4) Server State:  Disconnected
+12:52 [Information] (4) Attempting to connect to the Database
+12:52 [Information] (4) Database Connected To :SerapisMedical
+12:52 [Information] (5) The number of doctors being returned is: 2
+12:52 [Information] (5) The number of doctors being returned is: [Doctor { id: "5bc8f2c21c9d440000a98282", PrivateId: null, FirstName: "Themba", LastName: "Duma", Gender: Male, BirthDate: 10/14/1985 22:00:00, ProfilePicture: "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing", Qualifications: [Qualification { Degree: "MBCHB(Surgery)", Graduated: 01/23/2007 22:00:00, University: "The University of Kwazulu-Natal", Abbr: "UKZN", Specialization: OrthopaedicSurgeon, Specilizationabbr: "OS" }, Qualification { Degree: "Mmed Othro(Natal)", Graduated: 01/23/2016 22:00:00, University: "The University of Kwazulu-Natal", Abbr: null, Specialization: OrthopaedicSurgeon, Specilizationabbr: "Othep" }], Specialization: OrthopaedicSurgeon, PracticesOwnedOrWorksAt: ["600c5c844cd42342b907f375"], ListOfAppointments: ["600c5da24cd42342b907f376"], User: DoctorUser { HealthId: "MP0703150", Password: "1234", Email: "thembaduma@hpcsa.co.za", GivenCode: "4321", LastLogin: 09/01/2020 22:00:00, HasbeenValidated: True } }, Doctor { id: "600d5fba8272da24513c8697", PrivateId: null, FirstName: "Phumzile", LastName: "Ngcobo", Gender: Female, BirthDate: 10/14/1987 22:00:00, ProfilePicture: "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing", Qualifications: [Qualification { Degree: "MBCHB(Medcine)", Graduated: 01/23/2008 22:00:00, University: "The University of Kwazulu-Natal", Abbr: "UKZN", Specialization: Paediatrician, Specilizationabbr: "GP" }], Specialization: Paediatrician, PracticesOwnedOrWorksAt: ["600c5c844cd42342b907f375"], ListOfAppointments: ["600c5da24cd42342b907f376"], User: DoctorUser { HealthId: "MP0703150", Password: "5678", Email: "phumzilengcobo@hpcsa.co.za", GivenCode: "5321", LastLogin: 09/01/2020 22:00:00, HasbeenValidated: True } }] 
+12:52 [Information] (5) Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Doctor, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+12:52 [Information] (5) Executed action "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)" in 5128.9471ms
+12:52 [Information] (5) Executed endpoint '"SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)"'
+12:52 [Information] (5) Request finished in 5150.2409ms 200 application/json; charset=utf-8
+12:53 [Information] (1) Starting web host
+12:53 [Information] (1) User profile is available. Using '"C:\Users\Bonga\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+12:53 [Information] (1) Application started. Press Ctrl+C to shut down.
+12:53 [Information] (1) Hosting environment: "Development"
+12:53 [Information] (1) Content root path: "C:\Users\Bonga\Source\Repos\ProximaIndustries\SerapisMedicalAPI\SerapisMedicalAPI"
+12:53 [Information] (7) Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+12:53 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+12:53 [Information] (7) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+12:53 [Information] (7) Executing ObjectResult, writing value of type '"System.String[]"'.
+12:53 [Information] (7) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 23.745ms
+12:53 [Information] (7) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+12:53 [Information] (7) Request finished in 117.7023ms 200 application/json; charset=utf-8
+12:53 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/api/doctor  
+12:53 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)"'
+12:53 [Information] (8) Route matched with "{action = \"Get\", controller = \"Doctor\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Doctor]] Get()" on controller "SerapisMedicalAPI.Controllers.DoctorController" ("SerapisMedicalAPI").
+12:53 [Information] (8) Attempting to connect to the Database
+12:53 [Information] (8) Pool of Servers avaliable:  0
+12:53 [Information] (8) Server State:  Disconnected
+12:53 [Information] (8) Attempting to connect to the Database
+12:53 [Information] (8) Server State:  Disconnected
+12:53 [Information] (8) Database Connected To :SerapisMedical
+12:53 [Information] (20) The number of doctors being returned is: 2
+12:53 [Information] (20) The number of doctors being returned is: [Doctor { id: "5bc8f2c21c9d440000a98282", PrivateId: null, FirstName: "Themba", LastName: "Duma", Gender: Male, BirthDate: 10/14/1985 22:00:00, ProfilePicture: "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing", Qualifications: [Qualification { Degree: "MBCHB(Surgery)", Graduated: 01/23/2007 22:00:00, University: "The University of Kwazulu-Natal", Abbr: "UKZN", Specialization: OrthopaedicSurgeon, Specilizationabbr: "OS" }, Qualification { Degree: "Mmed Othro(Natal)", Graduated: 01/23/2016 22:00:00, University: "The University of Kwazulu-Natal", Abbr: null, Specialization: OrthopaedicSurgeon, Specilizationabbr: "Othep" }], Specialization: OrthopaedicSurgeon, PracticesOwnedOrWorksAt: ["600c5c844cd42342b907f375"], ListOfAppointments: ["600c5da24cd42342b907f376"], User: DoctorUser { HealthId: "MP0703150", Password: "1234", Email: "thembaduma@hpcsa.co.za", GivenCode: "4321", LastLogin: 09/01/2020 22:00:00, HasbeenValidated: True } }, Doctor { id: "600d5fba8272da24513c8697", PrivateId: null, FirstName: "Phumzile", LastName: "Ngcobo", Gender: Female, BirthDate: 10/14/1987 22:00:00, ProfilePicture: "https://drive.google.com/file/d/1ljisUuH2Wk9XNbSDAOaON9SOvtStVJv8/view?usp=sharing", Qualifications: [Qualification { Degree: "MBCHB(Medcine)", Graduated: 01/23/2008 22:00:00, University: "The University of Kwazulu-Natal", Abbr: "UKZN", Specialization: Paediatrician, Specilizationabbr: "GP" }], Specialization: Paediatrician, PracticesOwnedOrWorksAt: ["600c5c844cd42342b907f375"], ListOfAppointments: ["600c5da24cd42342b907f376"], User: DoctorUser { HealthId: "MP0703150", Password: "5678", Email: "phumzilengcobo@hpcsa.co.za", GivenCode: "5321", LastLogin: 09/01/2020 22:00:00, HasbeenValidated: True } }] 
+12:53 [Information] (20) Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Doctor, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+12:53 [Information] (20) Executed action "SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)" in 5193.9767ms
+12:53 [Information] (20) Executed endpoint '"SerapisMedicalAPI.Controllers.DoctorController.Get (SerapisMedicalAPI)"'
+12:53 [Information] (20) Request finished in 5215.2722ms 200 application/json; charset=utf-8

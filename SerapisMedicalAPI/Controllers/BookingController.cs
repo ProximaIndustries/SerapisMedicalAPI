@@ -61,10 +61,7 @@ namespace SerapisMedicalAPI.Controllers
 
             
             ObjectId p1 = ObjectId.Parse(id);
-
-
             
-
             if (booking == null)
                 return new NotFoundResult();
 

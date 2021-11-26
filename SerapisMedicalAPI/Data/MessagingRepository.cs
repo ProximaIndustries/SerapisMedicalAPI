@@ -10,7 +10,7 @@ namespace SerapisMedicalAPI.Data
         private readonly Context _context = null;
         public MessagingRepository()
         {
-            _context = new Context();
+            _context = null; // new Context();
         }
 
 
