@@ -17,7 +17,7 @@ namespace SerapisMedicalAPI.Data
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly Context _context = null;
+        private readonly Context _context;
         private readonly ILogger<AccountRepository> _logger;
 
         public Patient user = new Patient();

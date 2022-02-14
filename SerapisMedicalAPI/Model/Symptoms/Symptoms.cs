@@ -8,7 +8,7 @@ namespace SerapisMedicalAPI.Model.Symptoms
 {
     public class Symptoms
     {
-        [JsonPropertyName("addressLineone")]
+        //[JsonPropertyName("addressLineone")]
         public string ID { get; set; }
         public string Name { get; set; }
     }

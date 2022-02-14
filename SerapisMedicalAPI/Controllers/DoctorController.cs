@@ -1,15 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Driver;
-using MongoDB.Bson;
-using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
-using System.Text.Encodings.Web;
-using SerapisMedicalAPI.Helpers;
 using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI.Controllers
@@ -78,10 +72,7 @@ namespace SerapisMedicalAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete([FromBody]int id)
         {
-            if (id != null)
-            {
 
-            }
 
         }
     }

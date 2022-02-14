@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
@@ -11,13 +12,16 @@ namespace SerapisMedicalAPI.Services
 {
     public class APIConector<T>
     {
-        /*private readonly ILogger<APIConector<T>> _logger;
-        public APIConector(ILogger<APIConector<T> logger)
+        private static ILogger<APIConector<T>> _logger;
+        public APIConector(ILogger<APIConector<T>> logger)
         {
             _logger = logger;
 
-        }*/
+        }
         //Need to create a mapping for responses
+        private static Stopwatch timer = new Stopwatch();
+
+
         public bool Connector(ref object _object,string _url, string _data )
         {
             using( HttpClient _httpClient = new HttpClient() )
@@ -41,6 +45,7 @@ namespace SerapisMedicalAPI.Services
         public static HttpResponseMessage GetExternalAPIData(string endpoint, Dictionary<string, string> headers)
         {
             var query =endpoint;
+            timer.Start();
 
             using (HttpClient client = new HttpClient())
             {
@@ -69,7 +74,11 @@ namespace SerapisMedicalAPI.Services
                 client.BaseAddress = new Uri(query);
 
                 HttpResponseMessage response = client.GetAsync(query).GetAwaiter().GetResult();
-               
+                
+                timer.Stop();
+                
+                _logger?.LogInformation("The Response Time of REST call[ "+timer.ElapsedMilliseconds+"ms"+" ] for response code ["+response.StatusCode+"]");
+                timer.Reset();
                 return response;
             }
         }

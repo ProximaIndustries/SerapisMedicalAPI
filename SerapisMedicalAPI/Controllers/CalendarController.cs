@@ -12,19 +12,19 @@ namespace SerapisMedicalAPI.Controllers
         // GET: Calendar
         public ActionResult Index()
         {
-            return View();
+            return null;
         }
 
         // GET: Calendar/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return null;
         }
 
         // GET: Calendar/Create
         public ActionResult Create()
         {
-            return View();
+            return null;
         }
 
         // POST: Calendar/Create
@@ -40,14 +40,14 @@ namespace SerapisMedicalAPI.Controllers
             }
             catch
             {
-                return View();
+                return null;
             }
         }
 
         // GET: Calendar/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return null;
         }
 
         // POST: Calendar/Edit/5
@@ -63,14 +63,14 @@ namespace SerapisMedicalAPI.Controllers
             }
             catch
             {
-                return View();
+                return null;
             }
         }
 
         // GET: Calendar/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return null;
         }
 
         // POST: Calendar/Delete/5
@@ -86,7 +86,7 @@ namespace SerapisMedicalAPI.Controllers
             }
             catch
             {
-                return View();
+                return null;
             }
         }
     }

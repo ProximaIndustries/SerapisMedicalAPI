@@ -11,7 +11,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
         IEnumerable<Symptoms> GetInstanceAllSymptoms();
         IEnumerable<Symptoms> GetAllSymptoms();
         Task GetSymptomsBySublocations();
-        Task GetProposedDiagnosisBySymptoms();
+        IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender ,string age,int[] ids);
         Task GetSepecialistionsBasedOnDiagnosis();
     }
 }
