@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Interfaces;
+using SerapisMedicalAPI.Model.Symptoms;
 
 namespace SerapisMedicalAPI.Controllers
 {
@@ -20,9 +21,11 @@ namespace SerapisMedicalAPI.Controllers
         
         // GET: api/SymptomChecker
         [HttpGet(Name = "Get")]
-        public void Get()
+        public Symptoms Get()
         {
-            
+            var result = _symptomCheckerRepository.GetSymptomById();
+
+            return result;
         }
         
         

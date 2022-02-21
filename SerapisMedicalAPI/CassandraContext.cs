@@ -10,8 +10,7 @@ namespace SerapisMedicalAPI
     public class CassandraContext
     {
         private ILogger<CassandraContext> _logger;
-        private readonly ISession _session;
-        
+
         public CassandraContext(ILogger<CassandraContext> logger)
         {
             _logger = logger;
@@ -31,10 +30,10 @@ namespace SerapisMedicalAPI
             _logger?.LogInformation("Server Replica's :  "+ session.Cluster.Metadata.AllReplicas());
             _logger?.LogInformation("Session Name:  "+ session.SessionName); ;
             
-            _session = session;
+            GetDatabaseSession = session;
 
         }
 
-        public ISession GetDatabaseSession => _session;
+        public ISession GetDatabaseSession { get; }
     }
 }

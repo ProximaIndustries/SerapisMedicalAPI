@@ -65,6 +65,7 @@ namespace SerapisMedicalAPI.Data
         {
             try
             {
+                
                 var result = await _context.PatientCollection
                     .Find(_ => true)
                     .ToListAsync();

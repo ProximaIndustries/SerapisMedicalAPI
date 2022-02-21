@@ -69,6 +69,9 @@ namespace SerapisMedicalAPI
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API",  Version="v1"} );
             });
+            
+            
+            //Transients
             services.AddTransient<IDoctorRepository, DoctorRepository>();
             services.AddTransient<IPracticeRepository, PracticeRepository>();
             services.AddTransient<IPatientRepository, PatientRepository>();
@@ -76,8 +79,13 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();
+            services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
+            
+            
+            //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
             services.AddSingleton<Context>();
+            services.AddSingleton<CassandraContext>();
             services.AddControllers();
         }
 
