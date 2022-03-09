@@ -31,7 +31,7 @@ namespace SerapisMedicalAPI.Controllers
             return result;
         }
         // GET: api/SymptomChecker/5
-        [HttpGet("v1/symptoms/{billerId}")]
+        [HttpGet("v1/symptoms/{id}")]
         public Symptoms GetDiagnosisBySymptoms()
         {
             var result = _symptomCheckerRepository.GetSymptomById();

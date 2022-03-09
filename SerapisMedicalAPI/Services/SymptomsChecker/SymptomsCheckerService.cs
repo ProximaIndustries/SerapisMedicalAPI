@@ -16,7 +16,6 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
     public class SymptomsCheckerService : ISymptomsCheckerService
     {
         private readonly ILogger<SymptomsCheckerService> _logger;
-        private Stopwatch timer = new Stopwatch();
         IEnumerable<Symptoms> cachedSymptoms =null;
         public SymptomsCheckerService(ILogger<SymptomsCheckerService> logger)
         {
@@ -42,16 +41,15 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
                 Debug.WriteLine("URL THAT WILL BE USED " + url.ToString());
                 _logger?.LogInformation("URL being Requested: "+ url.ToString());
-
-                timer.Start();
-                var responseMessage = APIConector<Symptoms>.GetExternalAPIData(url, headers);
-                timer.Stop();
-                _logger?.LogInformation("The Response Time of REST call[ "+timer.ElapsedMilliseconds+"ms"+" ] for response code ["+responseMessage.StatusCode+"]");
-                timer.Reset();
                 
+                var responseMessage = APIConector<Symptoms>.GetExternalAPIData(url, headers);
+
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    var stringResponse = responseMessage.Content.ReadAsStringAsync().Result;
+                    var stringResponse = responseMessage.Content.ReadAsStringAsync()
+                        .ConfigureAwait(false)
+                        .GetAwaiter()
+                        .GetResult();
                     Debug.WriteLine("Final Response message" + stringResponse);
                     
                     list = JsonConvert.DeserializeObject<IEnumerable<Symptoms>>(stringResponse);
@@ -95,11 +93,8 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             sb.Append("&gender=" + gender);
             string url = sb.ToString();
             _logger?.LogInformation("URL being requested:" + url);
-            timer.Start();
+ 
             var responseMessage = APIConector<Symptoms>.GetExternalAPIData(url, headers);
-            timer.Stop();
-            _logger?.LogInformation("The Response Time of REST call[ "+timer.ElapsedMilliseconds+"ms"+" ] for response code ["+responseMessage.StatusCode+"]");
-            timer.Reset();
             if (responseMessage.IsSuccessStatusCode)
             {
                 var stringResponse = responseMessage.Content.ReadAsStringAsync().Result;
