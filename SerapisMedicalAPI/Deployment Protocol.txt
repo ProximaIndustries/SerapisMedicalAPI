@@ -14,9 +14,13 @@ Author: Bonga Ngcobo
 
 eg. docker build -t serapismedicalapi C:\\Users\\Bonga\\source\\repos\\ProximaIndustries\\SerapisMedicalAPI\\SerapisMedicalAPI\\bin\\Release\\netcoreapp2.1\\publish
 
+eg. docker build -t serapismedicalapi C:\\Users\\Bustech\\Documents\\Bonga\\SerapisMedicalAPI\\bin\\Release\\netcoreapp3.1\\publish
+
+
 6. docker tag serapismedicalapi registry.heroku.com/serapismedicalapi/web
 
 7. docker push registry.heroku.com/serapismedicalapi/web
+
 
 8. heroku container:release web --app serapismedicalapi
 

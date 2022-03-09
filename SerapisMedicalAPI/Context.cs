@@ -10,6 +10,7 @@ using SerapisMedicalAPI.Model.PracticeModel;
 using SerapisMedicalAPI.Model.AppointmentModel;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace SerapisMedicalAPI
@@ -17,18 +18,24 @@ namespace SerapisMedicalAPI
     public class Context
     {
         private readonly IMongoDatabase _database;
-        private readonly ILogger<Context> _logger;
-
+        private readonly ILogger<Context> _logger; 
+        private readonly IConfiguration _config;
+        
+        
+        
         public const string OtherConnectionString = "mongodb+srv://KhanyiTheGreat:Langelihle1!@cluster0-i3gjx.azure.mongodb.net/SerapisMedical?retryWrites=true";
         public const string ConnectionString = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
 
         public const string ClickATell_APIKEY = "AfMDkjnITRaKOQKiV6mN_g==";
         public const string ClickATell_APIID = "ff8080817764737801776b66883b1230";								
 
-        public Context(ILogger<Context> logger)
+        public Context(ILogger<Context> logger, IConfiguration config )
         { 
             _logger = logger;
-
+            _config = config;
+            
+            //var client = new MongoClient(_config.GetValue<string>("MongoConnection:ConnectionString"));
+            
             var client = new MongoClient(ConnectionString);
             if (client != null)
             {

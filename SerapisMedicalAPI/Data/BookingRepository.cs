@@ -50,6 +50,7 @@ namespace SerapisMedicalAPI.Data
                                         .Eq(x => x.Id, practiceid);
 
                 var updatev2 = Builders<PracticeInformation>.Update.Push<AppointmentDao>(e => e.Appointment, _appointment);
+
                 UpdateResult updateResult
                     = await _context
                                 .PracticeCollection

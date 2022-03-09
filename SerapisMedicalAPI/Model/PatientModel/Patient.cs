@@ -14,7 +14,7 @@ namespace SerapisMedicalAPI.Model.PatientModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
+        public string id  { get; set; }
 
         [BsonElement("socialid")]
         public string SocialID {get; set;}

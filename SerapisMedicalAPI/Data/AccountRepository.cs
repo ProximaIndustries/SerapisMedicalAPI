@@ -50,8 +50,9 @@ namespace SerapisMedicalAPI.Data
             };
             
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.Token = tokenHandler.WriteToken(token);*/
+            var token = tokenHandler.CreateToken(tokenDescriptor);*/
+           AuthHelper authHelper = new AuthHelper();
+           user.Token = authHelper.GenerateJWTTokenV2();
 
             
             _context.PatientCollection.InsertOne(user);

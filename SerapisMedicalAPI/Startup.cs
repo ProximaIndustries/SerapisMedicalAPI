@@ -87,6 +87,9 @@ namespace SerapisMedicalAPI
             services.AddSingleton<Context>();
             services.AddSingleton<CassandraContext>();
             services.AddControllers();
+            
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

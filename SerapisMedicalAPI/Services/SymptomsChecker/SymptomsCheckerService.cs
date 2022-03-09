@@ -21,7 +21,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
         public SymptomsCheckerService(ILogger<SymptomsCheckerService> logger)
         {
             _logger = logger;
-            cachedSymptoms = GetInstanceAllSymptoms();
+            //cachedSymptoms = GetInstanceAllSymptoms();
 
         }
 
@@ -73,7 +73,8 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
         public IEnumerable<Symptoms> GetAllSymptoms()
         {
-            return cachedSymptoms;
+            return GetInstanceAllSymptoms();
+            //return cachedSymptoms;
         }
 
         public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender ,string yob,int[] ids)

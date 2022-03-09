@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
@@ -23,7 +24,9 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/Doctor
         [HttpGet(Name = "GetAllDoctors")]
-        
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Doctor>))]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(Doctor))]
+        [ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(Doctor))]
         public async Task<IEnumerable<Doctor>> Get()
         {
             IEnumerable<Doctor> allDoctors = await _doctorRepository.GetAllDoctor();

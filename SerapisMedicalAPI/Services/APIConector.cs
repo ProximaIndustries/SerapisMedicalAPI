@@ -121,5 +121,32 @@ namespace SerapisMedicalAPI.Services
                 return message;
             }
         }
+        
+        /*public async Task<IRestResponse>MakeHttpRequestWithRestSharp(object requestModel, string baseAddress, string requestUri, RestSharp.Method method, Dictionary<string, string> headers = null)
+        {
+            try
+            {
+                var client = new RestClient(baseAddress);
+                var request = new RestRequest(requestUri, method);
+                var requestBody = JsonConvert.SerializeObject(requestModel);
+                request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
+
+                if (headers != null)
+                {
+                    foreach (KeyValuePair<string, string> header in headers)
+                    {
+                        request.AddHeader(header.Key, header.Value);
+                    }
+                }
+
+                return await client.ExecuteAsync(request);
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("MakeHttpRequestWithRestSharp", ex.ToString());
+                return null;
+            }
+        }*/
     }
 }
