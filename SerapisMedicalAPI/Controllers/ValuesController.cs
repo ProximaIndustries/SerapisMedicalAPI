@@ -35,12 +35,12 @@ namespace SerapisMedicalAPI.Controllers
         {
             
             int[] arr = new[] {234, 11, 16};
-            IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
+            //IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
             //var valueEnum = value.ToList();
             //_logger?.LogInformation("The number of Symptoms being returned is: " + value.ToList().Count);
             
-            //IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
-           
+            IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
+            var x = _symptomCheckerRepository.GetSymptomById();
            // var symptomsEnumerable = symptoms.ToList();
             //_logger?.LogInformation("The number of Symptoms being returned is: " + symptomsEnumerable.ToList().Count);
             //_logger?.LogInformation("Populating Symptoms into Cassandra ");

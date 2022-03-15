@@ -82,6 +82,7 @@ namespace SerapisMedicalAPI.Services
                 return response;
             }
         }
+        [Obsolete("This method will be removed soon in favour of the proper async call")]
         public async static Task<HttpResponseMessage> PostExternalAPIData(string endpoint, T content, Dictionary<string,string> headers)
         {
             var postUrl = string.Format(endpoint);

@@ -20,6 +20,6 @@ namespace SerapisMedicalAPI.Helpers
         
 
 
-        public readonly static string Cassandra_Diagnosis_By_Symptoms = "CREATE TABLE diagnosis_by_symptoms(diagnosis_id varint PRIMARY KEY, diagnosis_description text, diagnosis_count int);";
+        public readonly static string Cassandra_Diagnosis_By_Symptoms = "CREATE TABLE diagnosis_by_symptoms(diagnosis_id string PRIMARY KEY, diagnosis_description text, diagnosis_count int);";
     }
 }

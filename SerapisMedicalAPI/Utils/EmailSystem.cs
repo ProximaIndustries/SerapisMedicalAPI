@@ -24,6 +24,8 @@ namespace SerapisMedicalAPI.Utils
         
         public static string GenerateSession()
         {
+            
+            //sessionID: IP:randomGeneratedNumber:timestamp
             DateTime t = DateTime.Now;
 
             return "011" + new Random().Next(100, 999) +

@@ -5,10 +5,14 @@ using Cassandra;
 using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Interfaces;
 using Cassandra.Data.Linq;
+using Cassandra.Mapping;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
 using Newtonsoft.Json;
+using SerapisMedicalAPI.Model.DAO;
 using SerapisMedicalAPI.Model.Symptoms;
 using SerapisMedicalAPI.Services.SymptomsChecker;
+using Serilog;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -62,7 +66,7 @@ namespace SerapisMedicalAPI.Data
             //var keyspaceNames = session
             //    .Execute("SELECT * FROM system_schema.keyspaces")
             //    .Select(row => row.GetValue<string>("keyspace_name"));
-            return null;
+            return thelist[0];
         }
         public void PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable)
         {
@@ -114,30 +118,35 @@ namespace SerapisMedicalAPI.Data
 
         public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id)
         {
-            //_logger?.LogInformation("Populating Diagnosis"+id+"  into Cassandra ");
             try
             {
                 var session = _cassandraContext.GetDatabaseSession;
-                string CqlQuery = $"SELECT * FROM symptoms.symptoms WHERE id={id}";
-            
-                var rowSet = session.Execute(CqlQuery);
-
-                if (!rowSet.IsNullOrEmpty())
+                IMapper mapper = new Mapper(session);
+                string CqlQuery = $"SELECT * FROM serapismedical.diagnosis_by_symptoms WHERE diagnosis_id=\'{id}\'";
+                var obj = mapper.Single<DiagnosisDAO>(CqlQuery);
+                _logger.LogInformation("Prepared statement  :{0}",CqlQuery);
+                if ( obj != null)
                 {
-                    _logger?.LogInformation("ID: "+id+" was found in Cassandra");
-                    int count = rowSet.First().GetValue<int>("count");
-                
-                    string CqlQuery3 = $"UPDATE serapismedical.diagnosis_by_symptoms SET count = WHERE count ={++count} ";
-                    session.Execute(CqlQuery3);
-                    var desc = rowSet.FirstOrDefault().GetValue<string>("diagnosis_description");
-                    var jsonObject = JsonConvert.DeserializeObject<IEnumerable<DiagnosisResponse>>(desc);
+                    _logger.LogInformation("ID: "+id+" was found in Cassandra");
+                    
+                    int count;
+
+                    count = obj.diagnosis_count + 1;
+                    var ps = session.Prepare( "UPDATE serapismedical.diagnosis_by_symptoms SET diagnosis_count =? WHERE diagnosis_id =? ");
+                    var statement = ps.Bind(count, "id");
+                    session.Execute(statement);
+                    Log.Information("Incremented Count of Diagnosis to :{0}",count);
+                    
+                    var jsonObject = JsonConvert.DeserializeObject<IEnumerable<DiagnosisResponse>>(obj.diagnosis_description);
+                    
                     return jsonObject;
                 }
+                
             
                 _logger?.LogInformation("ID: "+id+" was not found, calling Symptoms Checker API");
                 //5-2-1
                 var strings = id.Split("-").ToArray();
-                var arr = Array.ConvertAll(strings, s => int.Parse(s));
+                var arr = Array.ConvertAll(strings, int.Parse);
                 var diagnosisResponse = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
            
                 //var ps = session.Prepare("UPDATE user_profiles SET birth=? WHERE key=?");
@@ -145,7 +154,6 @@ namespace SerapisMedicalAPI.Data
                 var boundStatement = session.Prepare(CqlQuery2).Bind(id,JsonConvert.SerializeObject( diagnosisResponse),1);
             
                 var rowSet2 = session.Execute(boundStatement);
-                _ = rowSet2.IsNullOrEmpty();
                 _logger?.LogInformation("Insertion Complete!!");
                 return diagnosisResponse;
             }

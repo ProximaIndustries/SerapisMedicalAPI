@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Serilog;
 
 namespace SerapisMedicalAPI.Services.SymptomsChecker
 {
@@ -77,6 +78,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
         public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender ,string yob,int[] ids)
         {
+            //Log.
             StringBuilder sb = new StringBuilder();
             IEnumerable<DiagnosisResponse> list = null;
             //build headers

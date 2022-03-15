@@ -30,7 +30,7 @@ namespace SerapisMedicalAPI.Controllers
 
             return result;
         }
-        // GET: api/SymptomChecker/5
+        // GET: api/SymptomChecker/v1/symptoms/5-21-13
         [HttpGet("v1/symptoms/{id}")]
         public Symptoms GetDiagnosisBySymptoms()
         {
@@ -44,12 +44,16 @@ namespace SerapisMedicalAPI.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(DiagnosisResponse))]
         // GET: api/SymptomChecker/5-2-1
         [HttpGet("v1/diagnosis-by-symptoms/{id}")]
-        public Task<IActionResult> GetDiagnosisBySymptoms(string id)
+        public Task<IActionResult> GetDiagnosisBySymptomsById(string id)
         {
             var result = _symptomCheckerRepository.GetProposedDiagnosisBySymptoms(id);
             
             //IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
 
+            if (result == null)
+            {
+                return Task.FromResult<IActionResult>(BadRequest(result));
+            }
             return Task.FromResult<IActionResult>(Ok(result));
         }
     }
