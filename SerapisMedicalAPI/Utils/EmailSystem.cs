@@ -3,6 +3,7 @@ using SerapisMedicalAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
@@ -14,7 +15,7 @@ namespace SerapisMedicalAPI.Utils
     public static class EmailSystem
     {
         
-        public static async Task<bool> SendSMSbyClickATell(Messaging messageToSend)
+        public static async Task<bool> SendSMSWithClickATell(Messaging messageToSend)
         {
             const string url = "https://platform.clickatell.com/v1/message";
             var headers = new Dictionary<string, string>();
@@ -24,15 +25,17 @@ namespace SerapisMedicalAPI.Utils
                 return true;
         }
         
-        public static async Task<Task<HttpResponseMessage>> SendSMSbyClickATell(ClickATellMessage messageToSend)
+        public static async Task<bool> SendSMSbyClickATell(ClickATellMessage messageToSend)
         {
             const string url = "https://platform.clickatell.com/v1/message";
             var headers = new Dictionary<string, string>();
             headers.Add("Authorization","CGAmhjXETkq4ZP7DVPkxQQ==");
-            var response =
-                await Task.FromResult(APIConector<ClickATellMessage>.PostExternalAPIData(url, messageToSend, headers));
-            
-            return response;
+            var response = await APIConector<ClickATellMessage>.PostExternalAPIData(url, messageToSend, headers);
+            if (response.StatusCode == HttpStatusCode.Accepted)
+            {
+                return true;
+            }
+            return false;
         }
         
         public static string GenerateSession()
@@ -58,14 +61,7 @@ namespace SerapisMedicalAPI.Utils
             }
         }
         
-        public static string GenerateRandomCode(int length)
-        {
-            var sufficientBufferSizeInBytes = (length * 6 + 7) / 8;
-            var buffer = new byte[sufficientBufferSizeInBytes];
-            RandomNumberGenerator.Create().GetBytes(buffer);
-            var result = Convert.ToBase64String(buffer).Substring(0, length);
-            return Regex.Replace(result, "[^A-Za-z0-9]", "");
-        }
+      
         
 
     }

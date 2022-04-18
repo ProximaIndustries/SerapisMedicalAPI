@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
 namespace SerapisMedicalAPI.Utils
@@ -48,6 +49,15 @@ namespace SerapisMedicalAPI.Utils
             {
                 return false;
             }
+        }
+        
+        public static string GenerateRandomCode(int length)
+        {
+            var sufficientBufferSizeInBytes = (length * 6 + 7) / 8;
+            var buffer = new byte[sufficientBufferSizeInBytes];
+            RandomNumberGenerator.Create().GetBytes(buffer);
+            var result = Convert.ToBase64String(buffer).Substring(0, length);
+            return Regex.Replace(result, "[^A-Za-z0-9]", "");
         }
     }
 }
