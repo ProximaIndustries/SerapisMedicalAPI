@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace SerapisMedicalAPI.Services
 {
@@ -68,6 +69,8 @@ namespace SerapisMedicalAPI.Services
                         if (val.Value != "-1")
                             client.DefaultRequestHeaders.Add(val.Key, val.Value);
                     }
+                    //add anyways
+                    client.DefaultRequestHeaders.Add(val.Key,val.Value);
                 }
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 
@@ -77,7 +80,7 @@ namespace SerapisMedicalAPI.Services
                 
                 timer.Stop();
                 
-                _logger?.LogInformation("The Response Time of REST call[ "+timer.ElapsedMilliseconds+"ms"+" ] for response code ["+response.StatusCode+"]");
+                Log.Information("The Response Time of REST call[ "+timer.ElapsedMilliseconds+"ms"+" ] for response code ["+response.StatusCode+"]");
                 timer.Reset();
                 return response;
             }
@@ -90,7 +93,7 @@ namespace SerapisMedicalAPI.Services
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
-
+                
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 foreach(var val in headers)
                 {
@@ -103,20 +106,20 @@ namespace SerapisMedicalAPI.Services
                         if (val.Value != "-1")
                             client.DefaultRequestHeaders.Add(val.Key, val.Value);
                     }
-                    else if (val.Key == "")
+                    else if (val.Key == "Authorization")
                     {
                         if (val.Value != "-1")
-                            client.DefaultRequestHeaders.Add(val.Key, val.Value);
+                            client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",val.Value.ToString());
                     }
+                    //client .DefaultRequestHeaders.Add(val.Key,val.Value);
                 }
-               
 
                 client.BaseAddress = new Uri(postUrl);
 
                 var json = JsonConvert.SerializeObject(content);
 
                 HttpContent objectConent = new StringContent(json);
-
+                objectConent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var message = await client.PostAsync(postUrl, objectConent);
 
                 return message;

@@ -9,6 +9,6 @@ namespace SerapisMedicalAPI.Model
     public class Messaging
     {
         [BsonElement("messages")]
-        public List<ClickATellMessage> Messages { get; set; }
+        public List<ClickATellMessage> messages { get; set; }
     }
 }

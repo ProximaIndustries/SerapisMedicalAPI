@@ -116,16 +116,21 @@ namespace SerapisMedicalAPI.Data
         }
 
 
-        public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id)
+        public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id,string age, string sex)
         {
             try
             {
                 var session = _cassandraContext.GetDatabaseSession;
                 IMapper mapper = new Mapper(session);
-                string CqlQuery = $"SELECT * FROM serapismedical.diagnosis_by_symptoms WHERE diagnosis_id=\'{id}\'";
-                var obj = mapper.Single<DiagnosisDAO>(CqlQuery);
+                var YearOfBirth = DateTime.Today.Year - Int32.Parse(age);
+                var queryId = sex + "/" + id + "/" + age;
+                string CqlQuery = $"SELECT * FROM serapismedical.diagnosis_by_symptoms WHERE diagnosis_id=\'{queryId}\'";
                 _logger.LogInformation("Prepared statement  :{0}",CqlQuery);
-                if ( obj != null)
+                var obj = mapper.FirstOrDefault<DiagnosisDAO>(CqlQuery);
+                
+
+
+                if (obj is null)
                 {
                     _logger.LogInformation("ID: "+id+" was found in Cassandra");
                     
@@ -143,11 +148,13 @@ namespace SerapisMedicalAPI.Data
                 }
                 
             
-                _logger?.LogInformation("ID: "+id+" was not found, calling Symptoms Checker API");
+                _logger?.LogInformation("ID: "+queryId+" was not found, calling Symptoms Checker API");
                 //5-2-1
-                var strings = id.Split("-").ToArray();
+                var arrStrings = id.Split("/");
+                var strings = arrStrings[0].Split("-").ToArray();
+                
                 var arr = Array.ConvertAll(strings, int.Parse);
-                var diagnosisResponse = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
+                var diagnosisResponse = _symptomsCheckerService.GetProposedDiagnosisBySymptoms(sex, YearOfBirth.ToString(), arr);
            
                 //var ps = session.Prepare("UPDATE user_profiles SET birth=? WHERE key=?");
                 string CqlQuery2 = "INSERT into serapismedical.diagnosis_by_symptoms (diagnosis_id,diagnosis_description,diagnosis_count) values (?,?,?) ";

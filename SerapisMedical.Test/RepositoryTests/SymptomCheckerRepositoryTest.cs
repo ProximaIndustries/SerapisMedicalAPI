@@ -33,9 +33,9 @@ namespace SerapisMedical.Test.RepositoryTests
         {
             _SymptomCheckerRepository = symptomCheckerRepository;
 
-            IEnumerable<DiagnosisResponse> x = _SymptomCheckerRepository.GetProposedDiagnosisBySymptoms("234-11-16");
+            //IEnumerable<DiagnosisResponse> x = _SymptomCheckerRepository.GetProposedDiagnosisBySymptoms("234-11-16");
             
-            Console.WriteLine(x);
+            //Console.WriteLine(x);
         }
     }
 }

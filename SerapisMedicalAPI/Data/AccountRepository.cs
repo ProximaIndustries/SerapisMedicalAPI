@@ -12,6 +12,7 @@ using MongoDB.Driver;
 using SerapisMedicalAPI.Model.PatientModel;
 using MongoDB.Bson;
 using Microsoft.Extensions.Logging;
+using SerapisMedicalAPI.Data.Base;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -66,7 +67,7 @@ namespace SerapisMedicalAPI.Data
         {
             try
             {
-                
+               
                 var result = await _context.PatientCollection
                     .Find(_ => true)
                     .ToListAsync();

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Interfaces;
+using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.Symptoms;
 using SerapisMedicalAPI.Services.SymptomsChecker;
 
@@ -17,30 +18,32 @@ namespace SerapisMedicalAPI.Controllers
         private readonly ISymptomsCheckerService _symptomsCheckerService;
         private readonly ISymptomCheckerRepository _symptomCheckerRepository;
         private readonly ILogger<ValuesController> _logger;
+        private readonly IMessagingRepository _messagingRepository;
 
         public ValuesController(
             ISymptomsCheckerService symptomsCheckerService,
             ILogger<ValuesController> logger,
-            ISymptomCheckerRepository symptomCheckerRepository
+            ISymptomCheckerRepository symptomCheckerRepository,
+            IMessagingRepository messagingRepository
             )
         {
             _symptomsCheckerService = symptomsCheckerService;
             _logger = logger;
             _symptomCheckerRepository = symptomCheckerRepository;
+            _messagingRepository = messagingRepository;
         }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<DiagnosisResponse> Get()
         {
-            
             int[] arr = new[] {234, 11, 16};
             //IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
             //var valueEnum = value.ToList();
             //_logger?.LogInformation("The number of Symptoms being returned is: " + value.ToList().Count);
             
-            IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
-            var x = _symptomCheckerRepository.GetSymptomById();
+            //IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
+            //var x = _symptomCheckerRepository.GetSymptomById();
            // var symptomsEnumerable = symptoms.ToList();
             //_logger?.LogInformation("The number of Symptoms being returned is: " + symptomsEnumerable.ToList().Count);
             //_logger?.LogInformation("Populating Symptoms into Cassandra ");

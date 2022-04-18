@@ -3,6 +3,7 @@ using SerapisMedicalAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,16 +11,28 @@ using System.Threading.Tasks;
 
 namespace SerapisMedicalAPI.Utils
 {
-    public class EmailSystem
+    public static class EmailSystem
     {
         
-        public async Task<bool> SendSMSbyClickATell(Messaging messageToSend)
+        public static async Task<bool> SendSMSbyClickATell(Messaging messageToSend)
         {
             const string url = "https://platform.clickatell.com/v1/message";
-
-            var response = await Task.FromResult(APIConector<Messaging>.PostExternalAPIData(url,messageToSend,null));
+            var headers = new Dictionary<string, string>();
+            headers.Add("Authorization","CGAmhjXETkq4ZP7DVPkxQQ==");
+            var response = await Task.FromResult(APIConector<Messaging>.PostExternalAPIData(url,messageToSend,headers));
             
                 return true;
+        }
+        
+        public static async Task<Task<HttpResponseMessage>> SendSMSbyClickATell(ClickATellMessage messageToSend)
+        {
+            const string url = "https://platform.clickatell.com/v1/message";
+            var headers = new Dictionary<string, string>();
+            headers.Add("Authorization","CGAmhjXETkq4ZP7DVPkxQQ==");
+            var response =
+                await Task.FromResult(APIConector<ClickATellMessage>.PostExternalAPIData(url, messageToSend, headers));
+            
+            return response;
         }
         
         public static string GenerateSession()
@@ -33,7 +46,7 @@ namespace SerapisMedicalAPI.Utils
                    t.Ticks.ToString().Substring(t.Ticks.ToString().Length - 12);
         }
         
-        public string Sha256Hash(string data)
+        public static string Sha256Hash(string data)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -45,7 +58,7 @@ namespace SerapisMedicalAPI.Utils
             }
         }
         
-        public string GenerateRandomCode(int length)
+        public static string GenerateRandomCode(int length)
         {
             var sufficientBufferSizeInBytes = (length * 6 + 7) / 8;
             var buffer = new byte[sufficientBufferSizeInBytes];

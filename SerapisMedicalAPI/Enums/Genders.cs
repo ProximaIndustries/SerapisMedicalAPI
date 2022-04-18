@@ -7,7 +7,7 @@ namespace SerapisMedicalAPI.Enums
 {
     public enum Genders
     {
-        Male,
+        Male = 1,
         Female,
         Other
     }

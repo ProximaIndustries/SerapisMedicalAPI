@@ -24,7 +24,28 @@ namespace SerapisMedicalAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Messaging messaging)
         {
+            var message = new ClickATellMessage
+            {
+                channel = "sms",
+                to = "27817004798",
+                //Content = "Serapis Medical: `\n` Your OTP is 8211"
+                content = "Serapis Medical: Your OTP is 8211"
+            };
+            var list = new List<ClickATellMessage>()
+            {
+                message,
+            };
+            
+            Messaging messaging1 = new Messaging()
+            {
+                messages = list
 
+            };
+  
+            
+            //message.Messages.Add();
+            _messagingRepository.SendSms(messaging);
+            
             await _messagingRepository.SendSms(messaging);
 
             return StatusCode(200);

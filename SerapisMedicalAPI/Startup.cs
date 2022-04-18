@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Honeycomb.OpenTelemetry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +15,9 @@ using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
+using SerapisMedicalAPI.Model.DoctorModel.Practice;
+using SerapisMedicalAPI.Model.PatientModel;
+using SerapisMedicalAPI.Model.PracticeModel;
 using SerapisMedicalAPI.Services.SymptomsChecker;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -84,8 +88,8 @@ namespace SerapisMedicalAPI
             
             //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
-            services.AddSingleton<Context>();
-            services.AddSingleton<CassandraContext>();
+            services.AddTransient<Context>();
+            services.AddTransient<CassandraContext>();
             services.AddControllers();
             
             

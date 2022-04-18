@@ -15,6 +15,6 @@ namespace SerapisMedicalAPI.Interfaces
         /// <returns></returns>
         void PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable);
 
-        IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id);
+        IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id, string age,string sex);
     }
 }

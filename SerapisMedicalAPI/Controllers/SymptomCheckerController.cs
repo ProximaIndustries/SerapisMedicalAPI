@@ -42,11 +42,11 @@ namespace SerapisMedicalAPI.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<DiagnosisResponse>))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(DiagnosisResponse))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(DiagnosisResponse))]
-        // GET: api/SymptomChecker/5-2-1
-        [HttpGet("v1/diagnosis-by-symptoms/{id}")]
-        public Task<IActionResult> GetDiagnosisBySymptomsById(string id)
+        // GET: api/SymptomChecker/v1/diagnosis-by-symptoms?id= &age= &sex=
+        [HttpGet("v1/diagnosis-by-symptoms")]
+        public Task<IActionResult> GetDiagnosisBySymptomsIdAgeGender([FromQuery]string id, string age, string sex)
         {
-            var result = _symptomCheckerRepository.GetProposedDiagnosisBySymptoms(id);
+            var result = _symptomCheckerRepository.GetProposedDiagnosisBySymptoms(id,age,sex);
             
             //IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
 

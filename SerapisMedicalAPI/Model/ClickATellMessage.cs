@@ -12,9 +12,9 @@ namespace SerapisMedicalAPI.Model
         public string channel { get; set; }
 
         [BsonElement("to")]
-        public string To { get; set; }
+        public string to { get; set; }
 
         [BsonElement("content")]
-        public string Content { get; set; } 
+        public string content { get; set; } 
     }
 }
