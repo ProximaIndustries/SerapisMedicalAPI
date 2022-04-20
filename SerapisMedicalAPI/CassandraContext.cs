@@ -21,7 +21,7 @@ namespace SerapisMedicalAPI
             {
                 var session =
                     Cluster.Builder()
-                        .WithCloudSecureConnectionBundle(@"C:\secure-connect-serapismedical.zip")
+                        .WithCloudSecureConnectionBundle(@"\secure-connect-serapismedical.zip")
                         //or if on linux .WithCloudSecureConnectionBundle(@"/PATH/TO/>>secure-connect-serapismedical.zip")
                         .WithCredentials("ueIbwWaQCLecvNQwBNuvlbbE",
                             "UbyEl3OeSrHsmQNIJQZSKmujJ_dDKcQnmz-9XSYcxOztbIZ2fcrmqQrTmrfZ3Fmwjx-BN-lSR-cpwIf6x1gX4ZJ7sZLLieqwv6rLPDE3SDs.l,_Z86gku3aOeaIHuRPW")
