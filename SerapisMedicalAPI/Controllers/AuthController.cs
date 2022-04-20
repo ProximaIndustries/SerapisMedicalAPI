@@ -28,7 +28,7 @@ namespace SerapisMedicalAPI.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
         public async Task<IActionResult>  RegisterUser([FromBody] Patient patient)
         {
-            Log.Information($"Request:{patient}");
+            Log.Information($"Request:{patient?.ToJson()}");
             var response = await _supabaseRepository.RegisterUser(patient);
             
             return new OkObjectResult(response);
@@ -40,11 +40,13 @@ namespace SerapisMedicalAPI.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
         public async Task<IActionResult>  LoginUser([FromBody] SupabaseAuth patient)
         {
+            Log.Information($"Request:{patient?.ToJson()}");
             var response = await _supabaseRepository.LoginUser(patient);
             var encrypt = EncryptService.EncryptPlainTextToCipherText(response.ToJson().ToString());
             var decrypt = EncryptService.DecryptCipherTextToPlainText(encrypt);
             Log.Information(encrypt);
             Log.Information(decrypt);
+            Log.Information($"Request:{response?.ToJson()}");
             return new OkObjectResult(response);
         }
         
