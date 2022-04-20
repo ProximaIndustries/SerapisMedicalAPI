@@ -130,7 +130,7 @@ namespace SerapisMedicalAPI.Data
                 
 
 
-                if (obj is not null)
+                if (obj != null)
                 {
                     _logger.LogInformation("ID: "+id+" was found in Cassandra");
                     
