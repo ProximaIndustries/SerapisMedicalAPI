@@ -107,7 +107,7 @@ namespace SerapisMedicalAPI.Data
             {
                 // Validate Health ID from department of Health
                  
-                EncryptService _securehash = new EncryptService();
+                //EncryptService _securehash = new EncryptService();
                 // string SecurePassword = _securehash.DecryptCipherTextToPlainText(password);
                 if (!StringUtils.IsValidEmail(_id))
                 {

@@ -13,11 +13,12 @@ using SerapisMedicalAPI.Model.PatientModel;
 using MongoDB.Bson;
 using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Data.Base;
+using Serilog;
 
 namespace SerapisMedicalAPI.Data
 {
     public class AccountRepository : IAccountRepository
-    {
+        {
         private readonly Context _context;
         private readonly ILogger<AccountRepository> _logger;
 
@@ -150,32 +151,55 @@ namespace SerapisMedicalAPI.Data
                 replacement: userwithToken);
         }
 
-        public async Task AddAccount(Patient user)
+        public BaseResponse<Patient> AddAccount(Patient user)
+        {
+            try
+            {
+                 _context
+               .PatientCollection
+               .InsertOne(user);
+                 Log.Information("Created Document in PatientCollection for ID:"+user.id);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed tp Create Document in PatientCollection for ID:"+user.id);
+                return new BaseResponse<Patient>() {status = false, message = "Failed", data=user};
+            }
+            
+            return new BaseResponse<Patient>{status = true, message = "Success", data=user};;
+           
+        }
+        
+        public async Task<BaseResponse<Patient>> AddAccountAsync(Patient user)
         {
             try
             {
                 await _context
-               .PatientCollection
-               .InsertOneAsync(user);
+                    .PatientCollection
+                    .InsertOneAsync(user);
+                
             }
             catch (Exception ex)
             {
 
             }
+            
+            return new BaseResponse<Patient>{};
            
         }
 
        
-        public Patient GetUserById(string privateid)
+        public async Task<BaseResponse<Patient>> GetUserById(string privateid)
         {
             Patient _patient = new Patient();
             //_patient.id = ObjectId.Parse(privateid);
-            var filter = Builders<Patient>.Filter.Eq(user => user.id, _patient.id);
+            var filter = Builders<Patient>.Filter.Eq(user => user.SocialID, privateid);
             try
             {
-                Patient user =  _context.PatientCollection.Find(filter).SingleOrDefault();
+                var response = await _context.PatientCollection.FindAsync(filter);
 
-                return user;
+                var SinglePatient = response.FirstOrDefault();
+                return new BaseResponse<Patient>{data = SinglePatient};
                 
             }
             catch (Exception ex)

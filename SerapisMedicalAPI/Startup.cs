@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
+using SerapisMedicalAPI.Data.Supabase;
+using SerapisMedicalAPI.Helpers.Config;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
@@ -84,6 +86,7 @@ namespace SerapisMedicalAPI
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();
             services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
+            services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             
             
             //Singletons
@@ -92,8 +95,10 @@ namespace SerapisMedicalAPI
             services.AddTransient<CassandraContext>();
             services.AddControllers();
             
-            
-            
+            //
+            services.Configure<SupabaseConfig>(Configuration.GetSection("Supabase"));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

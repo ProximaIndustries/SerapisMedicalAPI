@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SerapisMedicalAPI.Helpers
 {
-    public class EncryptService
+    public static class EncryptService
     {
         //This security key should be very complex and Random for encrypting the text.
         private const string SecurityKey = "ComplexKeyHere_12121";
 
-        public string EncryptPlainTextToCipherText(string PlainText)
+        public static string EncryptPlainTextToCipherText(string PlainText)
         {
             // Getting the bytes of Input String.
             byte[] toEncryptedArray = UTF8Encoding.UTF8.GetBytes(PlainText);
@@ -40,7 +40,7 @@ namespace SerapisMedicalAPI.Helpers
         }
 
         //This method is used to convert the Encrypted/Un-Readable Text back to readable  format.
-        public string DecryptCipherTextToPlainText(string CipherText)
+        public static string DecryptCipherTextToPlainText(string CipherText)
         {
             byte[] toEncryptArray = Convert.FromBase64String(CipherText);
             MD5CryptoServiceProvider objMD5CryptoService = new MD5CryptoServiceProvider();

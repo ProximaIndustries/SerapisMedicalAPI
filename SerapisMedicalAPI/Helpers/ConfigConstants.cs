@@ -16,10 +16,7 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string X_RAPIDAPI_KEY_KEY = "X-RapidAPI-Key";
         public readonly static string Firebase_BASE_URL = "https://firebasestorage.googleapis.com";
         public readonly static string Firebase_OAUTH_CREDENTIAL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=[API_KEY]";
-
         
-
-
         public readonly static string Cassandra_Diagnosis_By_Symptoms = "CREATE TABLE diagnosis_by_symptoms(diagnosis_id string PRIMARY KEY, diagnosis_description text, diagnosis_count int);";
     }
 }

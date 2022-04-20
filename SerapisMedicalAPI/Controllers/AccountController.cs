@@ -3,14 +3,18 @@ using System.Threading.Tasks;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using System.Collections.Generic;
+using System.Net;
 using SerapisMedicalAPI.Model.PatientModel;
 using Microsoft.Extensions.Logging;
+using SerapisMedicalAPI.Data.Base;
+using SerapisMedicalAPI.Data.Supabase;
+using Serilog;
 
 namespace SerapisMedicalAPI.Controllers
 {
     //[Authorize]
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class AccountController : Controller
     {
         private readonly IAccountRepository _accountRepository;
@@ -26,6 +30,7 @@ namespace SerapisMedicalAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> AutenticateSocialUser(string socialid, string firstname, string lastname)
         {
+           
 
             Patient _patient = await _accountRepository.SocialLogin(socialid, firstname, lastname);
             if (_patient == null)
@@ -35,11 +40,11 @@ namespace SerapisMedicalAPI.Controllers
             _logger?.LogCritical("There was an error on '{0}' invocation: {1}");
             return new OkObjectResult(_patient);
         }
-
+        
         //POST: api/Account?SocialID&Firstname&emailaddress
         [HttpPut]
         public async Task<IActionResult> Post([FromBody]Patient patient)
-            {
+        {
 
             //Register the user
 
@@ -53,6 +58,7 @@ namespace SerapisMedicalAPI.Controllers
            
             return new OkObjectResult(patient);
         }
+
 
 
             

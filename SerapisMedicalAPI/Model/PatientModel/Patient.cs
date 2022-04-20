@@ -16,6 +16,9 @@ namespace SerapisMedicalAPI.Model.PatientModel
         [BsonRepresentation(BsonType.ObjectId)]
         public string id  { get; set; }
 
+        /// <summary>
+        /// This will be used by supabase in the mean time
+        /// </summary>
         [BsonElement("socialid")]
         public string SocialID {get; set;}
         [BsonElement("patientfirstname")]

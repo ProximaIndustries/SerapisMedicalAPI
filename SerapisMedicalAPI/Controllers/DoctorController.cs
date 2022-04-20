@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace SerapisMedicalAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class DoctorController : Controller
     {
         private readonly IDoctorRepository _doctorRepository;

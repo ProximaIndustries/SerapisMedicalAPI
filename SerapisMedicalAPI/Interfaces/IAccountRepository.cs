@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SerapisMedicalAPI.Data.Base;
 
 namespace SerapisMedicalAPI.Interfaces
 {
@@ -12,18 +13,18 @@ namespace SerapisMedicalAPI.Interfaces
         Task<IEnumerable<Patient>> GetAllRegisteredUsers();
         Task EditUser(Patient userwithToken);
 
-        Task AddAccount(Patient user);
+        BaseResponse<Patient> AddAccount(Patient user);
+        Task<BaseResponse<Patient>> AddAccountAsync(Patient user);
 
         Task RegisterSocialUser(Patient patient);
 
         Task<Patient> SocialLogin(string socialid, string firstname, string lastname);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 
-        Patient GetUserById(string privateid);
+        Task<BaseResponse<Patient>> GetUserById(string privateid);
 
         //Delete-- Doctor from platform (doctor app uses this method)
         
-
         //Put--Edit doctors informatiion. We must confirm before any changes are made (leave for now)
         Task<bool> UpdateUser(Patient doctor);
 
