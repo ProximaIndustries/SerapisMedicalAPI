@@ -23,11 +23,13 @@ namespace SerapisMedicalAPI.Data.Supabase
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IOptions<SupabaseConfig> _options;
+        private readonly IMessagingRepository _messagingRepository;
         
-        public AccountSupabaseRepository(IAccountRepository accountRepository, IOptions<SupabaseConfig> options)
+        public AccountSupabaseRepository(IAccountRepository accountRepository, IOptions<SupabaseConfig> options, IMessagingRepository messagingRepository)
         {
             _accountRepository = accountRepository;
             _options = options;
+            _messagingRepository = messagingRepository;
         }
         public async Task<BaseResponse<Patient>> RegisterUser(Patient patient)
         {
@@ -80,12 +82,32 @@ namespace SerapisMedicalAPI.Data.Supabase
                 user.password = string.Empty;
                 var mongodbResponse = await  _accountRepository.GetUserById(userId);
                 
+                var otp = OtpHelper.GenerateNewOTP(5);
                 
+                var message = new ClickATellMessage
+                {
+                    to = mongodbResponse.data.PatientContactDetails.CellphoneNumber,
+                    channel = "sms",
+                    content = $"Serapis Medical: \n Your OTP is {otp}"
+                };
+
+                var  messaging = new Messaging()
+                {
+                    messages = new List<ClickATellMessage>()
+                };
+                messaging.messages.Add(message);
+                bool isMessageSuccessful = await _messagingRepository.SendSms(messaging);
+                Log.Information($"Was OTP: {otp} sent out to {message.to} : {isMessageSuccessful} ");
                 return new BaseResponse<PatientAuthResponse>()
                 {
                     status = true,
                     StatusCode = StatusCodes.Successful,
-                    data = new PatientAuthResponse(){ PatientData = mongodbResponse.data, SupabaseData = response.data}
+                    data = new PatientAuthResponse()
+                    {
+                        PatientData = mongodbResponse.data,
+                        SupabaseData = response.data,
+                        Otp = otp
+                    }
                 };
             }
             catch (Exception e)

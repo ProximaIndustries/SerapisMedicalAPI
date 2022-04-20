@@ -17,9 +17,9 @@ namespace SerapisMedicalAPI.Data
         }
 
 
-        public async Task SendSms(Messaging messaging)
+        public async Task<bool> SendSms(Messaging messaging)
         {
-            var data = await EmailSystem.SendSMSWithClickATell(messaging);
+            return  await EmailSystem.SendSMSWithClickATell(messaging);
         }
         
         

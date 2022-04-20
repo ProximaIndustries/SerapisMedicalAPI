@@ -6,5 +6,6 @@ namespace SerapisMedicalAPI.Model.PatientModel
     {
         public Patient PatientData { get; set; }
         public Session SupabaseData { get; set; }
+        public string Otp { get; set; }
     }
 }
