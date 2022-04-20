@@ -39,7 +39,7 @@ namespace SerapisMedicalAPI.Data.Supabase
                 var response = await service.RegisterUser(patient, _options.Value.Url,_options.Value.Key);
                 if (!response.status)
                 {
-                    return  new BaseResponse<Patient>() { status = false, message = "failed to register on supabase",StatusCode = "1"};
+                    return  new BaseResponse<Patient>() { status = false, message = $"failed to register on supabase: {response.message}",StatusCode = "1"};
                 }
                 //Update MongoDB
                 var userId = response.data.User.Id;
