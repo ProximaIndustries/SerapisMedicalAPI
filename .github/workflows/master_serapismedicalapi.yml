@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: serapismedicalapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_75ccc20fa1a54120a096c7c90c09e5e4 }}/serapismedicalapi:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./SerapisMedicalAPI/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
