@@ -47,14 +47,8 @@ namespace SerapisMedicalAPI.Data.Supabase
                 patient.Token = string.Empty;
                 var mongodbResponse =  _accountRepository.AddAccount(patient);
 
-                if (!mongodbResponse.status)
-                {
-                    //if mongodb update fails put it under a table called "Account-Reconcilition" 
-                    return  new BaseResponse<Patient>() { status = false, message = "mongodb failed"};
-                
-                }
-
-                return new BaseResponse<Patient>() { data = mongodbResponse.data, status = true, message = "mongo success"};
+                return !mongodbResponse.status ?
+                    new BaseResponse<Patient>() { status = false, message = "mongodb failed"} : new BaseResponse<Patient>() { data = mongodbResponse.data, status = true, message = "mongo success"};
             }
             catch (Exception e)
             {
@@ -102,6 +96,7 @@ namespace SerapisMedicalAPI.Data.Supabase
                 {
                     status = true,
                     StatusCode = StatusCodes.Successful,
+                    message = "Success on Supabase and Mongodb ",
                     data = new PatientAuthResponse()
                     {
                         PatientData = mongodbResponse.data,
