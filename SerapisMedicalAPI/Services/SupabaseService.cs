@@ -40,7 +40,7 @@ namespace SerapisMedicalAPI.Services
                 {
                     //User already registered
                     Log.Error($"User already exists {ex.Content}");
-                    return new BaseResponse<Session> {StatusCode = StatusCodes.AuthenticonError, status = false, message = $"User already registered on supabase : {ex.Content}"};
+                    return new BaseResponse<Session> {StatusCode = StatusCodes.AuthenticonError, status = false, message = "User already registered on supabase "};
                 }      
                 Log.Error(ex.Content);
                 return new BaseResponse<Session> {StatusCode = "0", status = false, message = $"supabase has issues {ex.ToString()}"};
@@ -61,12 +61,23 @@ namespace SerapisMedicalAPI.Services
                 
                 var Session = await instance.Auth.SignIn(Client.SignInType.Phone,patient.phone,patient.password );
                 
-                return new BaseResponse<Session>{ data = Session, status = true, StatusCode = "200"};
+                return new BaseResponse<Session>{ data = Session, status = true, StatusCode = "200", message = ""};
+            }
+            catch (BadRequestException ex)
+            {
+                if (ex.Response.StatusCode == HttpStatusCode.BadRequest)
+                {
+                    //User already registered
+                    Log.Error($"User already exists {ex.Content}");
+                    return new BaseResponse<Session> {StatusCode = StatusCodes.AuthenticonError, status = false, message = $"supabase has issues {ex.Content.ToString()} "};
+                }      
+                Log.Error(ex.Content);
+                return new BaseResponse<Session> {StatusCode = "0", status = false, message = $"supabase has issues {ex.Content.ToString()}"};
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                return new BaseResponse<Session> {StatusCode = "0", status = false, data = null, message = e.ToString()};
+                Log.Error(e.ToString());
+                return new BaseResponse<Session> {StatusCode = StatusCodes.DatabaseError, status = false, data = null, message = e.Message};
             }
         }
         
