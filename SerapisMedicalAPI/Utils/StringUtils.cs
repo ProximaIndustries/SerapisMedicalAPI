@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using Serilog;
 
 namespace SerapisMedicalAPI.Utils
 {
@@ -32,6 +33,7 @@ namespace SerapisMedicalAPI.Utils
             }
             catch (RegexMatchTimeoutException e)
             {
+                Log.Warning("RegexMatchTimeoutException"+e.ToString());
                 return false;
             }
             catch (ArgumentException e)

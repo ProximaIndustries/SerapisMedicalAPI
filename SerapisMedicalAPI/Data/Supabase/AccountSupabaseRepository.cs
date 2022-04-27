@@ -118,7 +118,7 @@ namespace SerapisMedicalAPI.Data.Supabase
             throw new System.NotImplementedException();
         }
 
-        public async Task<BaseResponse<Patient>> AddAccount(Patient user)
+        public Task<BaseResponse<Patient>> AddAccount(Patient user)
         {
             throw new System.NotImplementedException();
         }
@@ -128,7 +128,7 @@ namespace SerapisMedicalAPI.Data.Supabase
             throw new System.NotImplementedException();
         }
 
-        public async Task<bool> UpdateUser(Patient doctor)
+        public Task<bool> UpdateUser(Patient doctor)
         {
             throw new System.NotImplementedException();
         }
