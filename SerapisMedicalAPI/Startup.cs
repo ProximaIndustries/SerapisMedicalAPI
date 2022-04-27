@@ -50,16 +50,7 @@ namespace SerapisMedicalAPI
                     .AllowAnyHeader()
                     .AllowCredentials());
             });*/
-
-            services.AddSingleton<IMongoClient>(c =>
-            {
-                var login = "";
-                var password = Uri.EscapeDataString("");
-                var server = "";
-
-                return new MongoClient(
-                    string.Format("mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority", login, password, server));
-            });
+            
 
             services.AddScoped(c =>
                 c.GetService<IMongoClient>().StartSession());
