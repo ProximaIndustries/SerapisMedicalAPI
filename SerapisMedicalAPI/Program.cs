@@ -60,7 +60,7 @@ namespace SerapisMedicalAPI
                 {
                     webBuilder.UseStartup<Startup>();
 
-                    //webBuilder.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
+                    webBuilder.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
                 });
         //.UseStartup<Startup>();
     }
