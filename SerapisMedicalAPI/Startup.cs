@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Honeycomb.OpenTelemetry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -85,7 +86,11 @@ namespace SerapisMedicalAPI
             services.AddTransient<Context>();
             //services.AddTransient<CassandraContext>();
             services.AddControllers();
-            
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
             //
             services.Configure<SupabaseConfig>(Configuration.GetSection("Supabase"));
 
@@ -95,13 +100,14 @@ namespace SerapisMedicalAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            
             app.UseCors("CorsPolicy");
             app.UseSwagger();
             app.UseSwaggerUI(c => 
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API version 2");
             });
-
+            app.UseForwardedHeaders();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
