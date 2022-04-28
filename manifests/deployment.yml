@@ -15,5 +15,9 @@ spec:
       containers:
         - name: "kbaalphaclusterqa-22d4"
           image: "serapismedicalapi.azurecr.io/kbaalphaclusterqa"
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
           - containerPort: 80
