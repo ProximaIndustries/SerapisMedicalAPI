@@ -8,3 +8,6 @@ Need to rerun action
 
 
 [![Heroku Awake](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/main.yml/badge.svg)](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/main.yml)
+
+
+[![.github/workflows/AksCluster.yml](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/AksCluster.yml/badge.svg)](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/AksCluster.yml)
