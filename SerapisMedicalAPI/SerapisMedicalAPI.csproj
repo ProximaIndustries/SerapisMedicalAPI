@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="CassandraCSharpDriver" Version="3.17.1" />
+    <PackageReference Include="DnsClient" Version="1.6.0" />
     <PackageReference Include="Google.Cloud.Firestore" Version="2.5.0" />
     <PackageReference Include="Google.Cloud.Storage.V1" Version="3.7.0" />
     <PackageReference Include="Honeycomb.OpenTelemetry" Version="0.20.0-beta" />
@@ -18,8 +19,8 @@
     <PackageReference Include="Microsoft.Graph.Core" Version="1.20.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.16.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
-    <PackageReference Include="MongoDB.Bson" Version="2.9.1" />
-    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.15.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
     <PackageReference Include="RestSharp" Version="107.3.1-alpha.0.5" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.1.0" />
     <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
