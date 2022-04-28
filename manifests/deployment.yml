@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "kbaalphaclusterqa-22d4"
+  name: "serapismedicalapi-22d4"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "kbaalphaclusterqa-22d4"
+      app: "serapismedicalapi-22d44"
   template:
     metadata:
       labels:
-        app: "kbaalphaclusterqa-22d4"
+        app: "serapismedicalapi-22d4"
     spec:
       containers:
-        - name: "kbaalphaclusterqa-22d4"
+        - name: "serapismedicalapi-22d4"
           image: "serapismedicalapi.azurecr.io/kbaalphaclusterqa"
           resources:
             limits:
