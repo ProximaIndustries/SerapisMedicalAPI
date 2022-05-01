@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: "kbaalphaclusterqa-22d4"
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: "kbaalphaclusterqa-22d4"
+      app: "kbaalphaclusterqa-22d44"
   template:
     metadata:
       labels:
@@ -15,5 +15,9 @@ spec:
       containers:
         - name: "kbaalphaclusterqa-22d4"
           image: "serapismedicalapi.azurecr.io/kbaalphaclusterqa"
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
           - containerPort: 80
