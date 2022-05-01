@@ -77,14 +77,15 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();
-            //services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
+            services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
+            services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             
             
             //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
             services.AddTransient<Context>();
-            //services.AddTransient<CassandraContext>();
+            services.AddTransient<CassandraContext>();
             services.AddControllers();
             services.Configure<ForwardedHeadersOptions>(options =>
             {

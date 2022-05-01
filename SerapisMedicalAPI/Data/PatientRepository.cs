@@ -8,6 +8,7 @@ using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model.PatientModel;
 using System.Diagnostics;
+using Serilog;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -156,7 +157,7 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public async Task<Patient> GetPatientById(string _id)
+        public async Task<BaseResponse<Patient>> GetPatientById(string _id)
         {
            
                 var filter = Builders<Patient>.Filter.Eq(z => z.id, _id);
@@ -170,17 +171,17 @@ namespace SerapisMedicalAPI.Data
 
                     if (_patientinfo == null)
                     {
-
+                        return new BaseResponse<Patient>() {status = false, message = "id returned no user"};
                     }
 
                 }
                 catch (Exception ex)
                 {
                     // log or manage the exception
-                    throw new Exception("Failed to Pull Patient Info: " +
-                           new { _id, _patientinfo }, ex);
+                    Log.Information("Failed to Pull Patient Info: "+_id);
                 }
-                return _patientinfo;
+
+                return new BaseResponse<Patient>() {status = true,data = _patientinfo, message ="All good"};
         }
     }
 }

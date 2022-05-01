@@ -14,7 +14,7 @@ namespace SerapisMedicalAPI.Interfaces
         //Create-- a new patient to the platform (used for the patient applcation)
         Task AddPatient(Patient newPatientToPlatform);
 
-        Task<Patient> GetPatientById(string _id);
+        Task<BaseResponse<Patient>> GetPatientById(string _id);
         //Read-- Get a patients details
         Task<Patient> GetPatientDetails(ObjectId _id);
 

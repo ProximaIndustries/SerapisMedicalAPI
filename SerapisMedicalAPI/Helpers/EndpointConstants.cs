@@ -9,6 +9,12 @@ namespace SerapisMedicalAPI.Helpers
     {
         public readonly static string PRIAID_SYMPTOM_CHECKER = "https://priaid-symptom-checker-v1.p.rapidapi.com";
         
+        //APIMEDIC
+        public readonly static string APIMEDIC_AUTHBASE_ENDPOINT = "https://sandbox-authservice.priaid.ch/login";
+        //public readonly static string APIMEDIC_AUTHBASE_ENDPOINT = "https://sandbox-authservice.priaid.ch/login";
+        public readonly static string APIMEDIC_BASE_ENDPOINT = "https://healthservice.priaid.ch";
+        public readonly static string APIMEDIC_SANDBOX_BASE_ENDPOINT = "https://sandbox-healthservice.priaid.ch";
+        
         
         //Supabase
         public readonly static string SUPABASE_BASE_URL = "https://cgwlfswslvrkhvrrxckz.supabase.co";

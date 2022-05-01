@@ -76,7 +76,7 @@ namespace SerapisMedicalAPI.Services
                 
                 client.BaseAddress = new Uri(query);
 
-                HttpResponseMessage response = client.GetAsync(query).GetAwaiter().GetResult();
+                var response = client.GetAsync(query).GetAwaiter().GetResult();
                 
                 timer.Stop();
                 

@@ -8,8 +8,9 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 {
     public interface ISymptomsCheckerService
     {
+        SymptomToken GetToken();
         IEnumerable<Symptoms> GetInstanceAllSymptoms();
-        IEnumerable<Symptoms> GetAllSymptoms();
+        Task<IEnumerable<Symptoms>> GetAllSymptoms();
         Task GetSymptomsBySublocations();
         IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender ,string age,int[] ids);
         Task GetSepecialistionsBasedOnDiagnosis();

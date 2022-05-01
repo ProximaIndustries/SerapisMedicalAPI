@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cassandra;
 using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Interfaces;
@@ -21,30 +22,38 @@ namespace SerapisMedicalAPI.Data
         private readonly CassandraContext _cassandraContext;
         private readonly ILogger<SymptomCheckerRepository> _logger;
         private readonly ISymptomsCheckerService _symptomsCheckerService;
+        private Apimedic apimedic = new Apimedic();
 
         public SymptomCheckerRepository(
             CassandraContext context,
             ILogger<SymptomCheckerRepository> logger,
             ISymptomsCheckerService symptomsCheckerService
-            )
+        )
         {
             _logger = logger;
             _cassandraContext = context;
             _symptomsCheckerService = symptomsCheckerService;
+            _symptomsCheckerService = apimedic;
 
         }
 
-        public IEnumerable<Symptoms> GetAllSymptoms()
+        public async Task<IEnumerable<Symptoms>> GetAllSymptoms()
         {
             var session = _cassandraContext.GetDatabaseSession;
 
-            var rowSet = session.Execute("select * from symptoms.symptoms").AsEnumerable();
+            /*var rowSet = session.Execute("select * from symptoms.symptoms").AsEnumerable();
             //var rows = rowSet.AsEnumerable();
             foreach (var row in rowSet)
             {
                 Console.WriteLine("ID: "+row.GetColumn("id") + " Name: " +row.GetColumn("name") );
-            }
-            return null;
+            }*/
+            
+            _logger?.LogInformation("Grabbing Symptoms from APIMEDIC ");
+
+
+            var listOfSymptoms = await _symptomsCheckerService.GetAllSymptoms();
+            await PopulateSymptoms(listOfSymptoms);
+            return listOfSymptoms;
         }
         
 
@@ -53,28 +62,22 @@ namespace SerapisMedicalAPI.Data
             var session =  _cassandraContext.GetDatabaseSession;
             
             var rowSet = session.Execute("select * from symptoms.symptoms");
-
+            if (!rowSet.Any()) return new Symptoms();
             Console.WriteLine(rowSet.First().GetValue<int>("id"));
             var rows = rowSet.AsEnumerable();
-            var thelist = new List<Symptoms>();
-            foreach (var cRow in rows)
-            {
-                var id = (cRow.GetValue<int>("id"));
-                var name  = cRow.GetValue<string>("name");
-                thelist.Add(new Symptoms(){ID = id.ToString(), Name = name});
-            }
-            //var keyspaceNames = session
-            //    .Execute("SELECT * FROM system_schema.keyspaces")
-            //    .Select(row => row.GetValue<string>("keyspace_name"));
+            var thelist = (from cRow in rows let id = cRow.GetValue<int>("id") 
+                let name = cRow.GetValue<string>("name") 
+                select new Symptoms() {ID = id.ToString(), Name = name}).ToList();
+
             return thelist[0];
         }
-        public void PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable)
+        public async Task PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable)
         {
             try
             {
                 _logger?.LogInformation("Populating "+ symptomsEnumerable.ToList().Count +" Symptoms into Cassandra ");
                 var session = _cassandraContext.GetDatabaseSession;
-                const string CqlQuery = "INSERT into symptoms.symptoms (id,name) values (?,?) ";
+                const string CqlQuery = "INSERT into serapismedical.symptoms (id,name) values (?,?) ";
                 var preparedStatement = session.Prepare(CqlQuery);
                 foreach (var symptom in symptomsEnumerable)
                 {
@@ -85,7 +88,7 @@ namespace SerapisMedicalAPI.Data
                 
                 _logger?.LogInformation("Done Populating Symptoms into Cassandra ");
                 
-                var rowSet3 = session.Execute("select * from symptoms.symptoms");
+                var rowSet3 = session.Execute("select * from serapismedical.symptoms");
             
                 var rows = rowSet3.AsEnumerable();
                 var thelist = new List<Symptoms>();

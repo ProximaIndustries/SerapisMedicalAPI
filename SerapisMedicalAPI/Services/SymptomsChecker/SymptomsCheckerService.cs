@@ -25,6 +25,11 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
         }
 
+        public SymptomToken GetToken()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Symptoms> GetInstanceAllSymptoms()
         {
             IEnumerable<Symptoms> list = null;
@@ -70,7 +75,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             return list;
         }
 
-        public IEnumerable<Symptoms> GetAllSymptoms()
+        public async Task<IEnumerable<Symptoms>> GetAllSymptoms()
         {
             return GetInstanceAllSymptoms();
             //return cachedSymptoms;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using SerapisMedicalAPI.Model.Symptoms;
 
 namespace SerapisMedicalAPI.Interfaces
@@ -6,14 +7,10 @@ namespace SerapisMedicalAPI.Interfaces
     public interface ISymptomCheckerRepository
     {
 
+        Task<IEnumerable<Symptoms>> GetAllSymptoms();
         Symptoms GetSymptomById();
         
-        /// <summary>
-        /// Service to get billers by bill type id
-        /// </summary>
-        /// <param name="billTypeId"></param>
-        /// <returns></returns>
-        void PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable);
+        Task PopulateSymptoms(IEnumerable<Symptoms> symptomsEnumerable);
 
         IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string id, string age,string sex);
     }

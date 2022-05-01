@@ -35,7 +35,7 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<DiagnosisResponse> Get()
+        public async Task<IEnumerable<Symptoms>> Get()
         {
             int[] arr = new[] {234, 11, 16};
             //IEnumerable<DiagnosisResponse> value = _symptomsCheckerService.GetProposedDiagnosisBySymptoms("male", "1984", arr);
@@ -43,7 +43,7 @@ namespace SerapisMedicalAPI.Controllers
             //_logger?.LogInformation("The number of Symptoms being returned is: " + value.ToList().Count);
             
             //IEnumerable<Symptoms> symptoms = (IEnumerable<Symptoms>)_symptomsCheckerService.GetAllSymptoms();
-            //var x = _symptomCheckerRepository.GetSymptomById();
+            var x = await _symptomCheckerRepository.GetAllSymptoms();
             //var symptomsEnumerable = symptoms.ToList();
             //_logger?.LogInformation("The number of Symptoms being returned is: " + symptomsEnumerable.ToList().Count);
             //_logger?.LogInformation("Populating Symptoms into Cassandra ");
@@ -52,7 +52,7 @@ namespace SerapisMedicalAPI.Controllers
             
             //return symptomsEnumerable;
             //return valueEnum;
-            return null;
+            return x;
         }
 
         // GET api/values/24
