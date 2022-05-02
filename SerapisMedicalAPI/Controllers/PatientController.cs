@@ -46,21 +46,18 @@ namespace SerapisMedicalAPI
 
                 return new ObjectResult(_patient);
             }
-            else
-            {
-                //Return some error message
-                return new NotFoundResult();
-            }
+            //Return some error message
+            return new NotFoundResult();
         }
 
 
         // PUT: api/Patient/
         [HttpPut]
-        public async Task<bool> Put([FromBody] Patient patient)
+        public async Task<BaseResponse<Patient>> Put([FromBody] Patient patient)
         {
-            bool data = await _patientRepository.EditPatientUser(patient);
+            var response = await _patientRepository.EditPatientUser(patient);
 
-            return data;
+            return response;
 
         }
     }

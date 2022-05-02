@@ -8,6 +8,7 @@ using MongoDB.Bson;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model.PatientModel;
 using System.Diagnostics;
+using SerapisMedicalAPI.Data.Base;
 using Serilog;
 
 namespace SerapisMedicalAPI.Data
@@ -15,6 +16,7 @@ namespace SerapisMedicalAPI.Data
     public class PatientRepository : IPatientRepository
     {
         private readonly Context _context;
+
         public PatientRepository(Context context)
         {
             _context = context;
@@ -36,7 +38,7 @@ namespace SerapisMedicalAPI.Data
                 var result = await _context.PatientCollection
                     .Find(_ => true)
                     .ToListAsync();
-                
+
                 return result;
             }
             catch (Exception ex)
@@ -92,7 +94,7 @@ namespace SerapisMedicalAPI.Data
         }
 
         //Edit patients file/information
-        public async Task<bool> EditPatientUser(Patient patient)
+        public async Task<BaseResponse<Patient>> EditPatientUser(Patient patient)
         {
             try
             {
@@ -103,25 +105,35 @@ namespace SerapisMedicalAPI.Data
                         .Filter
                         .Eq(x => x.id, patient.id);
 
-                    ReplaceOneResult updateResult = await _context.PatientCollection.ReplaceOneAsync(w => w.id.Equals(patient.id),
-                            patient, new UpdateOptions { IsUpsert = true });
+                    ReplaceOneResult updateResult = await _context.PatientCollection.ReplaceOneAsync(
+                        w => w.id.Equals(patient.id),
+                        patient, new UpdateOptions {IsUpsert = true});
                     if (updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                     {
-                        Debug.WriteLine("Did DB update? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
-                        return true; //This will trigger an success message on the Client device
+                        Log.Information("Did DB update? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged +
+                                        "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                        return new BaseResponse<Patient>()
+                        {
+                            status = true, message = "Successfully update document", data = patient
+                        }; //This will trigger an success message on the Client device
                     }
-                    else
+                    Log.Warning("DB update NO? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged +
+                                    "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                    return new BaseResponse<Patient>()
                     {
-                        Debug.WriteLine("DB update NO? updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
-                        return false; //This will trigger an unsuccesful message on the Client device
-                    }
+                        status = false, message = "Successfully update document", data = patient
+                    }; //This will trigger an unsuccesful message on the Client device
                 }
+
+                return new BaseResponse<Patient>() {status = false, message = "Patient object is null"};
             }
             catch (Exception ex)
             {
-                throw ex;
+                Log.Error(ex.ToString());
+                return new BaseResponse<Patient>()
+                    {status = false, message = "Error Occured while updating"};
             }
-            return false;
+            
         }
 
         //Get a particular patient info
