@@ -46,7 +46,7 @@ namespace SerapisMedicalAPI
                 _logger?.LogInformation("Server State:  " + client.Cluster.Description.State );
                 if(!"Disconnected".Equals (client.Cluster.Description.State.ToString()))
                 {
-                    _logger?.LogInformation("Server Region [" + client.Cluster.Description.Servers[0].Tags.Tags[0] + "] Server Provider [" + client.Cluster.Description.Servers[0].Tags.Tags[1] + "]"); //0 == region 1 == provider
+                    _logger?.LogInformation("Server Region [" + client?.Cluster?.Description?.Servers[0].Tags?.Tags[0] + "] Server Provider [" + client.Cluster?.Description?.Servers?[0].Tags?.Tags[1] + "]"); //0 == region 1 == provider
                 }
                 _logger?.LogInformation("Attempting to connect to the Database");
                 _database = client.GetDatabase("SerapisMedical");
