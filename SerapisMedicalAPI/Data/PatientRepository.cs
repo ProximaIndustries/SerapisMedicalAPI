@@ -104,7 +104,9 @@ namespace SerapisMedicalAPI.Data
                     var filter = Builders<Patient>
                         .Filter
                         .Eq(x => x.id, patient.id);
-
+                    
+                    //Need to calculate the Patient's Age
+                    patient.PatientAge = ((DateTime.Now.Year - patient.BirthDate.Year) * 372 + (DateTime.Now.Month - patient.BirthDate.Month) * 31 + (DateTime.Now.Day - patient.BirthDate.Day)) / 372;
                     ReplaceOneResult updateResult = await _context.PatientCollection.ReplaceOneAsync(
                         w => w.id.Equals(patient.id),
                         patient, new UpdateOptions {IsUpsert = true});
