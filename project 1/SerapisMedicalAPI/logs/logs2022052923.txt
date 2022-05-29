@@ -1,0 +1,40 @@
+23:15 [Information] (1) Starting web host
+23:15 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+23:16 [Information] (1) Application started. Press Ctrl+C to shut down.
+23:16 [Information] (1) Hosting environment: "Development"
+23:16 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\project 1\SerapisMedicalAPI"
+23:16 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+23:16 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+23:16 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+23:16 [Information] (8) Attempting to connect to the Cassandra Cluster
+23:16 [Information] (8) Server Name:  "CosmosProd"
+23:16 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+23:16 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+23:16 [Information] (8) Session Name:  s0
+23:16 [Information] (8) Grabbing Symptoms from APIMEDIC 
+23:16 [Information] (8) URL being Requested: https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1Mzg2NjE3NCwibmJmIjoxNjUzODU4OTc0fQ.1APjpuBC61kbgmsC8H0Afor0kf7kCWxZw62OoiKC6J0&language=en-gb
+23:16 [Information] (8) The Response Time of REST call[ 2783ms ] for response code [OK]
+23:16 [Information] (8) Populating 63 Symptoms into Cassandra 
+23:16 [Information] (8) Done Populating Symptoms into Cassandra 
+23:16 [Information] (8)  Symptoms being returned is: [Symptoms { ID: "124", Name: "Skin rash" }, Symptoms { ID: "15", Name: "Cough" }, Symptoms { ID: "76", Name: "Feeling of foreign body in the eye" }, Symptoms { ID: "23", Name: "Weight gain" }, Symptoms { ID: "57", Name: "Going black before the eyes" }, Symptoms { ID: "273", Name: "Dry eyes" }, Symptoms { ID: "104", Name: "Back pain" }, Symptoms { ID: "139", Name: "Cold sweats" }, Symptoms { ID: "175", Name: "Chills" }, Symptoms { ID: "35", Name: "Lip swelling" }, Symptoms { ID: "207", Name: "Dizziness" }, Symptoms { ID: "169", Name: "Swollen glands on the neck" }, Symptoms { ID: "56", Name: "weakness" }, Symptoms { ID: "122", Name: "Hiccups" }, Symptoms { ID: "92", Name: "Early satiety" }, Symptoms { ID: "13", Name: "Sore throat" }, Symptoms { ID: "46", Name: "Burning in the throat" }, Symptoms { ID: "238", Name: "Anxiety" }, Symptoms { ID: "29", Name: "Shortness of breath" }, Symptoms { ID: "37", Name: "Palpitations" }, Symptoms { ID: "40", Name: "Increased thirst" }, Symptoms { ID: "244", Name: "Drooping eyelid" }, Symptoms { ID: "133", Name: "Night cough" }, Symptoms { ID: "31", Name: "Chest tightness" }, Symptoms { ID: "235", Name: "Memory gap" }, Symptoms { ID: "52", Name: "Sleeplessness" }, Symptoms { ID: "9", Name: "Headache" }, Symptoms { ID: "149", Name: "Hot flushes" }, Symptoms { ID: "73", Name: "Itching eyes" }, Symptoms { ID: "140", Name: "Paralysis" }, Symptoms { ID: "153", Name: "Fast, deepened breathing" }, Symptoms { ID: "181", Name: "Vomiting blood" }, Symptoms { ID: "115", Name: "Tremor at rest" }, Symptoms { ID: "96", Name: "Itching in the nose" }, Symptoms { ID: "87", Name: "Earache" }, Symptoms { ID: "75", Name: "Burning eyes" }, Symptoms { ID: "136", Name: "Neck pain" }, Symptoms { ID: "123", Name: "Missed period" }, Symptoms { ID: "287", Name: "Eye pain" }, Symptoms { ID: "144", Name: "Unconsciousness, short" }, Symptoms { ID: "14", Name: "Runny nose" }, Symptoms { ID: "12", Name: "Pain in the limbs" }, Symptoms { ID: "170", Name: "Cheek swelling" }, Symptoms { ID: "101", Name: "Vomiting" }, Symptoms { ID: "33", Name: "Eye redness" }, Symptoms { ID: "28", Name: "Stuffy nose" }, Symptoms { ID: "112", Name: "Menstruation disorder" }, Symptoms { ID: "248", Name: "Swollen glands in the armpits" }, Symptoms { ID: "95", Name: "Sneezing" }, Symptoms { ID: "44", Name: "Nausea" }, Symptoms { ID: "30", Name: "Wheezing" }, Symptoms { ID: "138", Name: "Sweating" }, Symptoms { ID: "179", Name: "Stomach burning" }, Symptoms { ID: "203", Name: "Pain on swallowing" }, Symptoms { ID: "11", Name: "Fever" }, Symptoms { ID: "10", Name: "Abdominal pain" }, Symptoms { ID: "17", Name: "Chest pain" }, Symptoms { ID: "114", Name: "Nervousness" }, Symptoms { ID: "54", Name: "Reduced appetite" }, Symptoms { ID: "45", Name: "Heartburn" }, Symptoms { ID: "16", Name: "Tiredness" }, Symptoms { ID: "64", Name: "Sputum" }, Symptoms { ID: "211", Name: "Tears" }] 
+23:16 [Information] (8) Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[SerapisMedicalAPI.Model.Symptoms.Symptoms, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+23:16 [Information] (8) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 50954.8282ms
+23:16 [Information] (8) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+23:16 [Information] (8) Request finished in 51135.3861ms 200 application/json; charset=utf-8
+23:16 [Information] (14) Request starting HTTP/2.0 GET https://localhost:44371/favicon.ico  
+23:16 [Information] (14) Request finished in 2.2216ms 200 
+23:17 [Information] (15) Request starting HTTP/2.0 GET https://localhost:44371/api/patient/6007625d2945842b60c4ed06  
+23:17 [Information] (15) Executing endpoint '"SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)"'
+23:17 [Information] (15) Route matched with "{action = \"GetPatientMedicalInformation\", controller = \"Patient\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientMedicalInformation(System.String)" on controller "SerapisMedicalAPI.PatientController" ("SerapisMedicalAPI").
+23:17 [Information] (15) Attempting to connect to the Database
+23:17 [Information] (15) Pool of Servers avaliable:  0
+23:17 [Information] (15) Server State:  Disconnected
+23:17 [Information] (15) Attempting to connect to the Database
+23:17 [Information] (15) Server State:  Disconnected
+23:17 [Information] (15) Database Connected To :SerapisMedical
+23:17 [Information] (27) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.BaseResponse`1[[SerapisMedicalAPI.Model.PatientModel.Patient, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+23:17 [Information] (27) Executed action "SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)" in 10331.0756ms
+23:17 [Information] (27) Executed endpoint '"SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)"'
+23:17 [Information] (27) Request finished in 10364.7893ms 200 application/json; charset=utf-8
+23:17 [Information] (15) Request starting HTTP/2.0 GET https://localhost:44371/favicon.ico  
+23:17 [Information] (15) Request finished in 2.1096ms 200 

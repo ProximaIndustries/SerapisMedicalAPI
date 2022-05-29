@@ -1,0 +1,9 @@
+11:00 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/values  
+11:00 [Warning] (8) Failed to determine the https port for redirect.
+11:00 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+11:00 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.DiagnosisResponse] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:00 [Information] (8) Attempting to connect to the Cassandra Cluster
+11:00 [Information] (8) Server Name:  "CosmosProd"
+11:00 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:00 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+11:00 [Information] (8) Session Name:  s0

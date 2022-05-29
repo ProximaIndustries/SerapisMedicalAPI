@@ -1,0 +1,227 @@
+14:29 [Information] (1) Starting web host
+14:29 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:29 [Information] (1) Now listening on: "http://[::]:80"
+14:29 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:29 [Information] (1) Hosting environment: "Development"
+14:29 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:29 [Information] (13) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:29 [Warning] (13) Failed to determine the https port for redirect.
+14:29 [Information] (13) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:29 [Information] (13) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:29 [Information] (13) Attempting to connect to the Cassandra Cluster
+14:30 [Information] (13) Server Name:  "CosmosProd"
+14:30 [Information] (13) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:30 [Information] (13) Server Replica's :  ["40.112.241.114:10350"]
+14:30 [Information] (13) Session Name:  s0
+14:31 [Information] (1) Starting web host
+14:31 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:31 [Information] (1) Now listening on: "http://[::]:80"
+14:31 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:31 [Information] (1) Hosting environment: "Development"
+14:31 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:31 [Information] (7) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:31 [Warning] (7) Failed to determine the https port for redirect.
+14:31 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:31 [Information] (7) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:31 [Information] (7) Attempting to connect to the Cassandra Cluster
+14:31 [Information] (7) Server Name:  "CosmosProd"
+14:31 [Information] (7) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:31 [Information] (7) Server Replica's :  ["40.112.241.114:10350"]
+14:31 [Information] (7) Session Name:  s0
+14:32 [Information] (7) Grabbing Symptoms from APIMEDIC 
+14:33 [Information] (7) URL being Requested: https://sandbox-authservice.priaid.ch/loginsymptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTE2MiwibmJmIjoxNjUxMzIxOTYyfQ.VVK8ztXgq5lt7q7Wr5rgih7Fd0G6SuuayrcMfyQM4rk&language=en-gb
+14:33 [Information] (7) The Response Time of REST call[ 640ms ] for response code [NotFound]
+14:33 [Information] (1) Starting web host
+14:34 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:34 [Information] (1) Now listening on: "http://[::]:80"
+14:34 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:34 [Information] (1) Hosting environment: "Development"
+14:34 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:35 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:35 [Warning] (8) Failed to determine the https port for redirect.
+14:35 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:35 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:35 [Information] (8) Attempting to connect to the Cassandra Cluster
+14:35 [Information] (8) Server Name:  "CosmosProd"
+14:35 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:35 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+14:35 [Information] (8) Session Name:  s0
+14:35 [Information] (8) Grabbing Symptoms from APIMEDIC 
+14:35 [Information] (8) URL being Requested: https://healthservice.priaid.chsymptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTMyOSwibmJmIjoxNjUxMzIyMTI5fQ.vGgC39g_qeB2iYZTH59m2PLcYrBn5Eca9H5tPlpzbWk&language=en-gb
+14:35 [Information] (8) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 56641.4196ms
+14:35 [Information] (8) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:35 [Error] (8) An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogError(ILogger logger, Exception exception, String message, Object[] args)
+   at SerapisMedicalAPI.Services.SymptomsChecker.Apimedic.GetAllSymptoms() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Services\SymptomsChecker\Apimedic.cs:line 92
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.GetAllSymptoms() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 54
+   at SerapisMedicalAPI.Controllers.ValuesController.Get() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Controllers\ValuesController.cs:line 46
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+14:35 [Information] (8) Request finished in 56826.8818ms 500 text/html; charset=utf-8
+14:35 [Information] (19) Request starting HTTP/1.1 GET http://localhost/favicon.ico  
+14:35 [Information] (19) Request finished in 4.0223ms 200 
+14:36 [Information] (1) Starting web host
+14:36 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:36 [Information] (1) Now listening on: "http://[::]:80"
+14:36 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:36 [Information] (1) Hosting environment: "Development"
+14:36 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:36 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:36 [Warning] (8) Failed to determine the https port for redirect.
+14:36 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:36 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:36 [Information] (8) Attempting to connect to the Cassandra Cluster
+14:36 [Information] (8) Server Name:  "CosmosProd"
+14:36 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:36 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+14:36 [Information] (8) Session Name:  s0
+14:36 [Information] (8) Grabbing Symptoms from APIMEDIC 
+14:36 [Information] (8) URL being Requested: https://healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTQyMCwibmJmIjoxNjUxMzIyMjIwfQ.2LbYEzGJF5ubi0hiCMxFEDTmuoAroI2lgwPt9rRaemg&language=en-gb
+14:36 [Information] (8) The Response Time of REST call[ 1274ms ] for response code [BadRequest]
+14:39 [Information] (1) Starting web host
+14:39 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:39 [Information] (1) Now listening on: "http://[::]:80"
+14:39 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:39 [Information] (1) Hosting environment: "Development"
+14:39 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:39 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:39 [Warning] (8) Failed to determine the https port for redirect.
+14:39 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:39 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:39 [Information] (8) Attempting to connect to the Cassandra Cluster
+14:39 [Information] (8) Server Name:  "CosmosProd"
+14:39 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:39 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+14:39 [Information] (8) Session Name:  s0
+14:39 [Information] (8) Grabbing Symptoms from APIMEDIC 
+14:39 [Information] (8) URL being Requested: https://healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTU3MSwibmJmIjoxNjUxMzIyMzcxfQ.IPy3HdGbVKLXDe5WBRkwTUVxSfTZHUzD7M7d-9fm-Qc&language=en-gb
+14:39 [Information] (8) The Response Time of REST call[ 1252ms ] for response code [BadRequest]
+14:40 [Information] (1) Starting web host
+14:40 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:40 [Information] (1) Now listening on: "http://[::]:80"
+14:40 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:40 [Information] (1) Hosting environment: "Development"
+14:40 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:40 [Information] (7) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:40 [Warning] (7) Failed to determine the https port for redirect.
+14:40 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:40 [Information] (7) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:40 [Information] (7) Attempting to connect to the Cassandra Cluster
+14:40 [Information] (7) Server Name:  "CosmosProd"
+14:40 [Information] (7) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:40 [Information] (7) Server Replica's :  ["40.112.241.114:10350"]
+14:40 [Information] (7) Session Name:  s0
+14:40 [Information] (7) Grabbing Symptoms from APIMEDIC 
+14:40 [Information] (7) URL being Requested: https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTYzMCwibmJmIjoxNjUxMzIyNDMwfQ.X_2X0VPaEoMdQicmTa08oYx-c0NzCoKozkDY2vCwnBE&language=en-gb
+14:40 [Information] (7) The Response Time of REST call[ 1376ms ] for response code [OK]
+14:40 [Information] (7) Populating 63 Symptoms into Cassandra 
+14:40 [Error] (7) Running Insert Statement Cassandra.InvalidConfigurationInQueryException: Keyspace symptoms doesn't exist
+   at Cassandra.Requests.PrepareHandler.SendRequestToOneNode(IInternalSession session, IEnumerator`1 queryPlan, PrepareRequest request)
+   at Cassandra.Requests.PrepareHandler.Prepare(PrepareRequest request, IInternalSession session, IEnumerator`1 queryPlan)
+   at Cassandra.Cluster.Cassandra.SessionManagement.IInternalCluster.Prepare(IInternalSession session, ISerializerManager serializerManager, PrepareRequest request)
+   at Cassandra.Session.PrepareAsync(String cqlQuery, String keyspace, IDictionary`2 customPayload)
+   at Cassandra.Tasks.TaskHelper.WaitToComplete(Task task, Int32 timeout)
+   at Cassandra.Tasks.TaskHelper.WaitToCompleteWithMetrics(IMetricsManager manager, Task task, Int32 timeout)
+   at Cassandra.Tasks.TaskHelper.WaitToCompleteWithMetrics[T](IMetricsManager manager, Task`1 task, Int32 timeout)
+   at Cassandra.Session.Prepare(String cqlQuery, String keyspace, IDictionary`2 customPayload)
+   at Cassandra.Session.Prepare(String cqlQuery)
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.PopulateSymptoms(IEnumerable`1 symptomsEnumerable) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 88
+14:40 [Information] (7) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 34012.1718ms
+14:40 [Information] (7) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:40 [Error] (7) An unhandled exception has occurred while executing the request.
+Cassandra.InvalidConfigurationInQueryException: Keyspace symptoms doesn't exist
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.PopulateSymptoms(IEnumerable`1 symptomsEnumerable) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 115
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.GetAllSymptoms() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 55
+   at SerapisMedicalAPI.Controllers.ValuesController.Get() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Controllers\ValuesController.cs:line 46
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+14:40 [Information] (7) Request finished in 34218.8712ms 500 text/html; charset=utf-8
+14:40 [Information] (7) Request starting HTTP/1.1 GET http://localhost/favicon.ico  
+14:40 [Information] (7) Request finished in 4.638ms 200 
+14:42 [Information] (1) Starting web host
+14:42 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:42 [Information] (1) Now listening on: "http://[::]:80"
+14:42 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:42 [Information] (1) Hosting environment: "Development"
+14:42 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
+14:42 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/values  
+14:42 [Warning] (8) Failed to determine the https port for redirect.
+14:42 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:42 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:42 [Information] (8) Attempting to connect to the Cassandra Cluster
+14:42 [Information] (8) Server Name:  "CosmosProd"
+14:42 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:42 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+14:42 [Information] (8) Session Name:  s0
+14:42 [Information] (8) Grabbing Symptoms from APIMEDIC 
+14:42 [Information] (8) URL being Requested: https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1MTMyOTc3MCwibmJmIjoxNjUxMzIyNTcwfQ.88fWJK91ntQupGT3vz67jZjPoxDuytsRuxBkKPW7zzI&language=en-gb
+14:42 [Information] (8) The Response Time of REST call[ 1034ms ] for response code [OK]
+14:42 [Information] (8) Populating 63 Symptoms into Cassandra 
+14:43 [Information] (8) Done Populating Symptoms into Cassandra 
+14:43 [Error] (8) Running Insert Statement Cassandra.InvalidConfigurationInQueryException: Keyspace symptoms doesn't exist
+   at Cassandra.Tasks.TaskHelper.WaitToComplete(Task task, Int32 timeout)
+   at Cassandra.Tasks.TaskHelper.WaitToCompleteWithMetrics(IMetricsManager manager, Task task, Int32 timeout)
+   at Cassandra.Tasks.TaskHelper.WaitToCompleteWithMetrics[T](IMetricsManager manager, Task`1 task, Int32 timeout)
+   at Cassandra.Session.Execute(IStatement statement, String executionProfileName)
+   at Cassandra.Session.Execute(IStatement statement)
+   at Cassandra.Session.Execute(String cqlQuery)
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.PopulateSymptoms(IEnumerable`1 symptomsEnumerable) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 98
+14:43 [Information] (8) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 36369.5506ms
+14:43 [Information] (8) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:43 [Error] (8) An unhandled exception has occurred while executing the request.
+Cassandra.InvalidConfigurationInQueryException: Keyspace symptoms doesn't exist
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.PopulateSymptoms(IEnumerable`1 symptomsEnumerable) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 115
+   at SerapisMedicalAPI.Data.SymptomCheckerRepository.GetAllSymptoms() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Data\SymptomCheckerRepository.cs:line 55
+   at SerapisMedicalAPI.Controllers.ValuesController.Get() in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Controllers\ValuesController.cs:line 46
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+14:43 [Information] (8) Request finished in 36550.0794ms 500 text/html; charset=utf-8
+14:43 [Information] (8) Request starting HTTP/1.1 GET http://localhost/favicon.ico  
+14:43 [Information] (8) Request finished in 4.4788ms 200 

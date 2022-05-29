@@ -56,7 +56,7 @@ namespace SerapisMedicalAPI
             services.AddScoped(c =>
                 c.GetService<IMongoClient>().StartSession());
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.Configure<Settings>(options =>
             {
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
