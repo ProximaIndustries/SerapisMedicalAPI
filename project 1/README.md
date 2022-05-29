@@ -10,3 +10,6 @@ WEB API FOR SERAPIS MEDICAL
 
 
 [![.github/workflows/AksCluster.yml](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/AksCluster.yml/badge.svg)](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/AksCluster.yml)
+
+
+[![Build and deploy container app to Azure Web App - serapismedicalapi](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/master_serapismedicalapi.yml/badge.svg)](https://github.com/ProximaIndustries/SerapisMedicalAPI/actions/workflows/master_serapismedicalapi.yml)
