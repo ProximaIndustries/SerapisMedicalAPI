@@ -82,7 +82,7 @@ namespace SerapisMedicalAPI.Data
                 foreach (var symptom in symptomsEnumerable)
                 {
                     var boundStatement = preparedStatement.Bind(Int32.Parse(symptom.ID), symptom.Name);
-                    //_logger?.LogInformation("Running Insert Statement "+boundStatement.PreparedStatement);
+                    _logger?.LogInformation("Inserting "+symptom.ID+" : "+ symptom.Name);
                     session.Execute(boundStatement);
                 }
                 

@@ -52,7 +52,7 @@ namespace SerapisMedicalAPI.Data.Supabase
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Log.Information(e.ToJson());
                 return  new BaseResponse<Patient>() { status = false, message = $"something went wrong {e.ToString()}"};
             }
             
@@ -91,7 +91,7 @@ namespace SerapisMedicalAPI.Data.Supabase
                 };
                 messaging.messages.Add(message);
                 bool isMessageSuccessful = await _messagingRepository.SendSms(messaging);
-                Log.Information($"Was OTP: {otp} sent out to {message.to} : {isMessageSuccessful} ");
+                Log.Information($"Was OTP: {otp} sent out to {message.to} ? : {isMessageSuccessful} ");
                 return new BaseResponse<PatientAuthResponse>()
                 {
                     status = true,

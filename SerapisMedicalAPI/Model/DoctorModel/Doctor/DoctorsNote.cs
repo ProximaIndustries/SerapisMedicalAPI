@@ -9,7 +9,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
     public class DoctorsNote
     {
         
-           [BsonElement("noteissuedatetime")]
+        [BsonElement("noteissuedatetime")]
         public DateTime NoteIssueDateTime{ get; set; }
 
         [BsonElement("notes")]

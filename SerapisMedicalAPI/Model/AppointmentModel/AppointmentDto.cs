@@ -36,6 +36,7 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
 
         [BsonElement("doctorsId")]
         public string DoctorsId { get; set; }
+        
         [BsonElement("practiceid")] 
         public string PracticeID { get; set; }
     }

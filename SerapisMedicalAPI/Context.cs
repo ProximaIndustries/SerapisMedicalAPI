@@ -12,6 +12,7 @@ using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using SerapisMedicalAPI.Model.Bookings;
 using Serilog;
 
 namespace SerapisMedicalAPI
@@ -68,10 +69,11 @@ namespace SerapisMedicalAPI
         public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("MedicalProfessionals");
         
         //lambda way to do it
-        public IMongoCollection<AppointmentDao> BookingsCollection => _database.GetCollection<AppointmentDao>("PatientBookings");
+        //public IMongoCollection<AppointmentDao> BookingsCollection => _database.GetCollection<AppointmentDao>("PatientBookings");
 
         public IMongoCollection<AppointmentDao> ApppointmentCollection => _database.GetCollection<AppointmentDao>("Appointments");
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
+        public IMongoCollection<Booking> BookingsCollection => _database.GetCollection<Booking>("Bookings");
 
         public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");
         public IMongoCollection<Patient> SMSCollection => _database.GetCollection<Patient>("SMS");

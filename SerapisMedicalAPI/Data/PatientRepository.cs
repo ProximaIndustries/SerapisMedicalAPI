@@ -123,7 +123,7 @@ namespace SerapisMedicalAPI.Data
                                     "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
                     return new BaseResponse<Patient>()
                     {
-                        status = false, message = "Successfully update document", data = patient
+                        status = false, message = "Updating document was unsuccessful", data = patient
                     }; //This will trigger an unsuccesful message on the Client device
                 }
 

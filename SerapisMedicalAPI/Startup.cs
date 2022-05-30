@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
+using SerapisMedicalAPI.Data.Base;
 using SerapisMedicalAPI.Data.Supabase;
 using SerapisMedicalAPI.Helpers.Config;
 using SerapisMedicalAPI.Interfaces;
@@ -74,6 +75,7 @@ namespace SerapisMedicalAPI
             services.AddTransient<IPracticeRepository, PracticeRepository>();
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddTransient<IBookingRepository, BookingRepository>();
+            services.AddTransient<IBookingRepositoryV2, BookingRepositoryV2>();
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IMailing, MailRepository>();
             services.AddTransient<IMessagingRepository, MessagingRepository>();

@@ -10,6 +10,7 @@ using MongoDB.Bson;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.AppointmentModel;
 using System.Diagnostics;
+using Serilog;
 
 namespace SerapisMedicalAPI.Data
 {
@@ -62,16 +63,14 @@ namespace SerapisMedicalAPI.Data
                 // if modifed document is equal to 1 or more then that means the document was updated
                 if( updateResult.IsAcknowledged && updateResult.ModifiedCount > 0)
                 {
-                    Debug.WriteLine("Did DB update? [" + updateResult.IsAcknowledged + "]+ How many Documents updated [" + updateResult.ModifiedCount + "]");
+                    Log.Information("Did DB update? [" + updateResult.IsAcknowledged + "]+ How many Documents updated [" + updateResult.ModifiedCount + "]");
+                    
                     return true; //This will trigger an success message on the Client device
                 }
-                else
-                {
-                    Debug.WriteLine("DB Didn't update  updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
-                    return false; //This will trigger an unsuccesful message on the Client device
-                }
 
-
+                Log.Information("DB Didn't update  updateResult.IsAcknowledged[ " + updateResult.IsAcknowledged + "]+updateResult.ModifiedCount[" + updateResult.ModifiedCount + "]");
+                return false; //This will trigger an unsuccesful message on the Client device
+                
 
             }
             catch (Exception ex)
@@ -158,9 +157,9 @@ namespace SerapisMedicalAPI.Data
                         .Filter
                         .Eq("DateBooked", date);
 
-            var result = await _context.BookingsCollection.Find(filter).ToListAsync();
+            //var result = await _context.BookingsCollection.Find(filter).ToListAsync();
 
-            return result;
+            return null;
             
         }
 
