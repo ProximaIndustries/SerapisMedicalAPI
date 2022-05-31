@@ -115,7 +115,7 @@ namespace SerapisMedicalAPI.Services
                 }
 
                 client.BaseAddress = new Uri(postUrl);
-
+                
                 var json = JsonConvert.SerializeObject(content);
 
                 HttpContent objectConent = new StringContent(json);

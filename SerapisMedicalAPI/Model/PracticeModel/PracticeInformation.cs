@@ -10,7 +10,9 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Practice
 {
     public class PracticeInformation
     {
-        public ObjectId Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
 
         [BsonElement("practicename")]
         public string PracticeName { get; set; }

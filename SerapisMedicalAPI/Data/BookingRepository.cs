@@ -27,7 +27,7 @@ namespace SerapisMedicalAPI.Data
             _context = context;
         }
          //using (var session = mongoClient.StartSession())
-        public async Task<bool> AddBooking(ObjectId practiceid, AppointmentDto booking)
+        public async Task<bool> AddBooking(string practiceid, AppointmentDto booking)
         {
             
             
@@ -82,7 +82,7 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public async Task<bool> AddBookingv2(ObjectId practiceid, AppointmentDto booking)
+        public async Task<bool> AddBookingv2(string practiceid, AppointmentDto booking)
         {
 
             try
@@ -120,7 +120,7 @@ namespace SerapisMedicalAPI.Data
                                                 options: new UpdateOptions { IsUpsert = true });
                     //Make Second Update
                     var filter2 = Builders<PracticeInformation>.Filter
-                                        .Eq(x => x.Id, ObjectId.Parse(booking.PatientID));
+                                        .Eq(x => x.Id, booking.PatientID);
                     /*var update2 = Builders<AppointmentDao>
                                         .Update.Push(booking);*/
 
