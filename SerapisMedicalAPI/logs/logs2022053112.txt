@@ -1,0 +1,34 @@
+12:10 [Information] (1) Starting web host
+12:10 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+12:10 [Information] (1) Application started. Press Ctrl+C to shut down.
+12:10 [Information] (1) Hosting environment: "Development"
+12:10 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+12:10 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/api/values  
+12:10 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+12:10 [Information] (8) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Symptoms.Symptoms]] Get()" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+12:10 [Information] (8) Attempting to connect to the Cassandra Cluster
+12:10 [Information] (8) Server Name:  "CosmosProd"
+12:10 [Information] (8) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+12:10 [Information] (8) Server Replica's :  ["40.112.241.114:10350"]
+12:10 [Information] (8) Session Name:  s0
+12:10 [Information] (8) Grabbing Symptoms from APIMEDIC 
+12:10 [Information] (8) URL being Requested: https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNlcmFwaXNtZWRpY2FsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTA0NTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjItMDMtMTgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTY1Mzk5OTAzOSwibmJmIjoxNjUzOTkxODM5fQ.q1-g7EU02Bpw-udNTxR-bm6sjbCOysPre0JW9RbSHDk&language=en-gb
+12:10 [Information] (8) The Response Time of REST call[ 4239ms ] for response code [OK]
+12:10 [Information] (8) Populating 63 Symptoms into Cassandra 
+12:10 [Information] (8) Inserting 10 : Abdominal pain
+12:10 [Information] (8) Inserting 238 : Anxiety
+12:10 [Information] (8) Inserting 104 : Back pain
+12:10 [Information] (8) Inserting 75 : Burning eyes
+12:10 [Information] (8) Inserting 46 : Burning in the throat
+12:10 [Information] (8) Inserting 170 : Cheek swelling
+12:10 [Information] (8) Inserting 17 : Chest pain
+12:10 [Information] (8) Inserting 31 : Chest tightness
+12:10 [Information] (8) Inserting 175 : Chills
+12:10 [Information] (8) Inserting 139 : Cold sweats
+12:10 [Information] (8) Inserting 15 : Cough
+12:10 [Information] (8) Inserting 207 : Dizziness
+12:10 [Information] (8) Inserting 244 : Drooping eyelid
+12:10 [Information] (8) Inserting 273 : Dry eyes
+12:10 [Information] (8) Inserting 87 : Earache
+12:10 [Information] (8) Inserting 92 : Early satiety
+12:10 [Information] (8) Inserting 287 : Eye pain

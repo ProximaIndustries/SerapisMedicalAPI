@@ -1,0 +1,148 @@
+21:00 [Information] (1) Starting web host
+21:00 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+21:00 [Information] (1) Now listening on: "http://[::]:80"
+21:00 [Information] (1) Application started. Press Ctrl+C to shut down.
+21:00 [Information] (1) Hosting environment: "Development"
+21:00 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+21:00 [Information] (7) Request starting HTTP/1.1 POST http://localhost/api/Booking application/json 624
+21:00 [Warning] (7) Failed to determine the https port for redirect.
+21:00 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Post (SerapisMedicalAPI)"'
+21:00 [Information] (7) Route matched with "{action = \"Post\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[SerapisMedicalAPI.Model.BaseResponse`1[SerapisMedicalAPI.Model.Bookings.Booking]] Post(SerapisMedicalAPI.Model.Bookings.Booking)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Pool of Servers avaliable:  0
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Database Connected To :SerapisMedical
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Pool of Servers avaliable:  0
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Database Connected To :SerapisMedical
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Pool of Servers avaliable:  0
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Database Connected To :SerapisMedical
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Pool of Servers avaliable:  0
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Attempting to connect to the Database
+21:00 [Information] (7) Server State:  Disconnected
+21:00 [Information] (7) Database Connected To :SerapisMedical
+21:00 [Warning] (7) Request: { "_id" : ObjectId("5bc8f2c21c9d440000a98282"), "bookingid" : "5bc8f2c21c9d440000a98283", "practiceid" : "5bc9bd861c9d4400001badf1", "doctorsid" : "5bc8f2c21c9d440000a98282", "bookedappointment" : { "bookedpatientid" : "6007625d2945842b60c4ed06", "appointmentsession" : { "duration" : "32", "doctornote" : { "noteissuedatetime" : ISODate("2021-04-11T19:30:00Z"), "notes" : "These are dummy nptes for the doctors appointment" } } }, "appointmentdatetime" : ISODate("2022-06-11T03:30:00Z"), "hasseengp" : false, "createdDate" : ISODate("0001-01-01T00:00:00Z") }
+21:00 [Warning] (10) Response: { "status" : false, "isSuccesful" : true, "message" : "Success", "data" : { "_id" : ObjectId("5bc8f2c21c9d440000a98282"), "bookingid" : "5bc8f2c21c9d440000a98283", "practiceid" : "5bc9bd861c9d4400001badf1", "doctorsid" : "5bc8f2c21c9d440000a98282", "bookedappointment" : { "bookedpatientid" : "6007625d2945842b60c4ed06", "appointmentsession" : { "duration" : "32", "doctornote" : { "noteissuedatetime" : ISODate("2021-04-11T19:30:00Z"), "notes" : "These are dummy nptes for the doctors appointment" } } }, "appointmentdatetime" : ISODate("2022-06-11T03:30:00Z"), "hasseengp" : false, "createdDate" : ISODate("0001-01-01T00:00:00Z") }, "StatusCode" : "SM00" }
+21:00 [Information] (10) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.BaseResponse`1[[SerapisMedicalAPI.Model.Bookings.Booking, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+21:00 [Information] (10) Executed action "SerapisMedicalAPI.Controllers.BookingController.Post (SerapisMedicalAPI)" in 3044.5289ms
+21:00 [Information] (10) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.Post (SerapisMedicalAPI)"'
+21:00 [Information] (10) Request finished in 3132.9879ms 200 application/json; charset=utf-8
+21:02 [Information] (22) Request starting HTTP/1.1 GET http://localhost/api/Booking  
+21:02 [Information] (22) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)"'
+21:02 [Information] (22) Route matched with "{action = \"GetBookings\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[SerapisMedicalAPI.Model.BaseResponse`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Bookings.Booking]]] GetBookings()" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Pool of Servers avaliable:  3
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Database Connected To :SerapisMedical
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Pool of Servers avaliable:  3
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Database Connected To :SerapisMedical
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Pool of Servers avaliable:  3
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Database Connected To :SerapisMedical
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Pool of Servers avaliable:  3
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+21:02 [Information] (22) Attempting to connect to the Database
+21:02 [Information] (22) Server State:  Connected
+21:02 [Information] (22) Database Connected To :SerapisMedical
+21:02 [Information] (24) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.BaseResponse`1[[System.Collections.Generic.IEnumerable`1[[SerapisMedicalAPI.Model.Bookings.Booking, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+21:02 [Information] (24) Executed action "SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)" in 10696.6926ms
+21:02 [Information] (24) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)"'
+21:02 [Information] (24) Request finished in 10725.1722ms 200 application/json; charset=utf-8
+21:03 [Information] (1) Starting web host
+21:03 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+21:03 [Information] (1) Now listening on: "http://[::]:80"
+21:03 [Information] (1) Application started. Press Ctrl+C to shut down.
+21:03 [Information] (1) Hosting environment: "Development"
+21:03 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+21:03 [Information] (4) Request starting HTTP/1.1 GET http://localhost/api/Booking  
+21:03 [Warning] (4) Failed to determine the https port for redirect.
+21:03 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)"'
+21:03 [Information] (4) Route matched with "{action = \"GetBookings\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[SerapisMedicalAPI.Model.BaseResponse`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Bookings.Booking]]] GetBookings()" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Pool of Servers avaliable:  0
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Database Connected To :SerapisMedical
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Pool of Servers avaliable:  0
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Database Connected To :SerapisMedical
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Pool of Servers avaliable:  0
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Database Connected To :SerapisMedical
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Pool of Servers avaliable:  0
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Attempting to connect to the Database
+21:03 [Information] (4) Server State:  Disconnected
+21:03 [Information] (4) Database Connected To :SerapisMedical
+21:04 [Information] (1) Starting web host
+21:04 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+21:04 [Information] (1) Now listening on: "http://[::]:80"
+21:04 [Information] (1) Application started. Press Ctrl+C to shut down.
+21:04 [Information] (1) Hosting environment: "Development"
+21:04 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+21:04 [Information] (8) Request starting HTTP/1.1 GET http://localhost/api/Booking  
+21:04 [Warning] (8) Failed to determine the https port for redirect.
+21:04 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)"'
+21:04 [Information] (8) Route matched with "{action = \"GetBookings\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[SerapisMedicalAPI.Model.BaseResponse`1[System.Collections.Generic.IEnumerable`1[SerapisMedicalAPI.Model.Bookings.Booking]]] GetBookings()" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Pool of Servers avaliable:  0
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Database Connected To :SerapisMedical
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Pool of Servers avaliable:  0
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Database Connected To :SerapisMedical
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Pool of Servers avaliable:  0
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Database Connected To :SerapisMedical
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Pool of Servers avaliable:  0
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Attempting to connect to the Database
+21:04 [Information] (8) Server State:  Disconnected
+21:04 [Information] (8) Database Connected To :SerapisMedical
+21:04 [Warning] (9) Response: { "status" : false, "isSuccesful" : true, "message" : "Successful", "data" : [{ "_id" : ObjectId("629511a1a56296c5f10b74d6"), "bookingid" : "5bc8f2c21c9d440000a98283", "practiceid" : "5bc9bd861c9d4400001badf1", "doctorsid" : "5bc8f2c21c9d440000a98282", "bookedappointment" : { "bookedpatientid" : "6007625d2945842b60c4ed06", "appointmentsession" : { "duration" : "32", "doctornote" : { "noteissuedatetime" : ISODate("2021-04-11T19:30:00Z"), "notes" : "These are dummy nptes for the doctors appointment" } } }, "appointmentdatetime" : ISODate("0001-01-01T00:00:00Z"), "hasseengp" : false, "createdDate" : ISODate("2022-05-30T18:49:03.942Z") }, { "_id" : ObjectId("5bc8f2c21c9d440000a98282"), "bookingid" : "5bc8f2c21c9d440000a98283", "practiceid" : "5bc9bd861c9d4400001badf1", "doctorsid" : "5bc8f2c21c9d440000a98282", "bookedappointment" : { "bookedpatientid" : "6007625d2945842b60c4ed06", "appointmentsession" : { "duration" : "32", "doctornote" : { "noteissuedatetime" : ISODate("2021-04-11T19:30:00Z"), "notes" : "These are dummy nptes for the doctors appointment" } } }, "appointmentdatetime" : ISODate("2022-06-11T03:30:00Z"), "hasseengp" : false, "createdDate" : ISODate("2022-05-30T19:00:51.45Z") }], "StatusCode" : "SM00" }
+21:04 [Information] (9) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.BaseResponse`1[[System.Collections.Generic.IEnumerable`1[[SerapisMedicalAPI.Model.Bookings.Booking, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+21:04 [Information] (9) Executed action "SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)" in 4041.8655ms
+21:04 [Information] (9) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.GetBookings (SerapisMedicalAPI)"'
+21:04 [Information] (9) Request finished in 4166.3829ms 200 application/json; charset=utf-8

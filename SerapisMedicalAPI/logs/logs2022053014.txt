@@ -1,0 +1,357 @@
+14:00 [Information] (26) Request starting HTTP/1.1 PATCH http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 382
+14:00 [Information] (26) Executing endpoint '"405 HTTP Method Not Supported"'
+14:00 [Information] (26) Executed endpoint '"405 HTTP Method Not Supported"'
+14:00 [Information] (26) Request finished in 7.815ms 405 
+14:00 [Information] (33) Request starting HTTP/1.1 PUT http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 382
+14:00 [Information] (33) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:00 [Information] (33) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Pool of Servers avaliable:  0
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Database Connected To :SerapisMedical
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Pool of Servers avaliable:  0
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Database Connected To :SerapisMedical
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Pool of Servers avaliable:  0
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Attempting to connect to the Database
+14:00 [Information] (33) Server State:  Disconnected
+14:00 [Information] (33) Database Connected To :SerapisMedical
+14:05 [Information] (1) Starting web host
+14:05 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:05 [Information] (1) Now listening on: "http://[::]:80"
+14:05 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:05 [Information] (1) Hosting environment: "Development"
+14:05 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:06 [Information] (6) Request starting HTTP/1.1 PUT http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 382
+14:06 [Warning] (6) Failed to determine the https port for redirect.
+14:06 [Information] (6) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:06 [Information] (6) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Pool of Servers avaliable:  0
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Database Connected To :SerapisMedical
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Pool of Servers avaliable:  0
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Database Connected To :SerapisMedical
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Pool of Servers avaliable:  0
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Attempting to connect to the Database
+14:06 [Information] (6) Server State:  Disconnected
+14:06 [Information] (6) Database Connected To :SerapisMedical
+14:10 [Information] (1) Starting web host
+14:10 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:10 [Information] (1) Now listening on: "http://[::]:80"
+14:10 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:10 [Information] (1) Hosting environment: "Development"
+14:10 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:10 [Information] (6) Request starting HTTP/1.1 PUT http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 382
+14:10 [Warning] (6) Failed to determine the https port for redirect.
+14:10 [Information] (6) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:10 [Information] (6) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Pool of Servers avaliable:  0
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Database Connected To :SerapisMedical
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Pool of Servers avaliable:  0
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Database Connected To :SerapisMedical
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Pool of Servers avaliable:  0
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Attempting to connect to the Database
+14:10 [Information] (6) Server State:  Disconnected
+14:10 [Information] (6) Database Connected To :SerapisMedical
+14:13 [Information] (1) Starting web host
+14:13 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:13 [Information] (1) Now listening on: "http://[::]:80"
+14:13 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:13 [Information] (1) Hosting environment: "Development"
+14:13 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:13 [Information] (7) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 377
+14:13 [Warning] (7) Failed to determine the https port for redirect.
+14:13 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:13 [Information] (7) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Pool of Servers avaliable:  0
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Database Connected To :SerapisMedical
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Pool of Servers avaliable:  0
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Database Connected To :SerapisMedical
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Pool of Servers avaliable:  0
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Attempting to connect to the Database
+14:13 [Information] (7) Server State:  Disconnected
+14:13 [Information] (7) Database Connected To :SerapisMedical
+14:14 [Information] (1) Starting web host
+14:14 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:14 [Information] (1) Now listening on: "http://[::]:80"
+14:14 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:14 [Information] (1) Hosting environment: "Development"
+14:14 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:14 [Information] (4) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 377
+14:14 [Warning] (4) Failed to determine the https port for redirect.
+14:14 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:14 [Information] (4) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.Object)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Pool of Servers avaliable:  0
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Database Connected To :SerapisMedical
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Pool of Servers avaliable:  0
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Database Connected To :SerapisMedical
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Pool of Servers avaliable:  0
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Attempting to connect to the Database
+14:14 [Information] (4) Server State:  Disconnected
+14:14 [Information] (4) Database Connected To :SerapisMedical
+14:18 [Information] (1) Starting web host
+14:18 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:18 [Information] (1) Now listening on: "http://[::]:80"
+14:18 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:18 [Information] (1) Hosting environment: "Development"
+14:18 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:18 [Information] (7) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 377
+14:18 [Warning] (7) Failed to determine the https port for redirect.
+14:18 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:18 [Information] (7) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Pool of Servers avaliable:  0
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Database Connected To :SerapisMedical
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Pool of Servers avaliable:  0
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Database Connected To :SerapisMedical
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Pool of Servers avaliable:  0
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Attempting to connect to the Database
+14:18 [Information] (7) Server State:  Disconnected
+14:18 [Information] (7) Database Connected To :SerapisMedical
+14:19 [Information] (1) Starting web host
+14:19 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:19 [Information] (1) Now listening on: "http://[::]:80"
+14:19 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:19 [Information] (1) Hosting environment: "Development"
+14:19 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:19 [Information] (4) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 375
+14:19 [Warning] (4) Failed to determine the https port for redirect.
+14:19 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:19 [Information] (4) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Pool of Servers avaliable:  0
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Database Connected To :SerapisMedical
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Pool of Servers avaliable:  0
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Database Connected To :SerapisMedical
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Pool of Servers avaliable:  0
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Attempting to connect to the Database
+14:19 [Information] (4) Server State:  Disconnected
+14:19 [Information] (4) Database Connected To :SerapisMedical
+14:20 [Information] (1) Starting web host
+14:20 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:20 [Information] (1) Now listening on: "http://[::]:80"
+14:20 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:20 [Information] (1) Hosting environment: "Development"
+14:20 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:20 [Information] (7) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 375
+14:20 [Warning] (7) Failed to determine the https port for redirect.
+14:20 [Information] (7) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:20 [Information] (7) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Pool of Servers avaliable:  0
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Database Connected To :SerapisMedical
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Pool of Servers avaliable:  0
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Database Connected To :SerapisMedical
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Pool of Servers avaliable:  0
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Attempting to connect to the Database
+14:20 [Information] (7) Server State:  Disconnected
+14:20 [Information] (7) Database Connected To :SerapisMedical
+14:20 [Information] (7) Executed action "SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)" in 12490.9685ms
+14:20 [Information] (7) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:20 [Error] (7) An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 's')
+   at MongoDB.Bson.ObjectId.Parse(String s)
+   at SerapisMedicalAPI.Controllers.BookingController.Patch(String id, AppointmentDto booking) in C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI\Controllers\BookingController.cs:line 64
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+14:20 [Information] (7) Request finished in 12606.9682ms 500 text/plain
+14:21 [Information] (6) Request starting HTTP/1.1 PUT http://localhost/api/Booking application/json 375
+14:21 [Information] (6) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:21 [Information] (6) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Pool of Servers avaliable:  3
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Database Connected To :SerapisMedical
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Pool of Servers avaliable:  3
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Database Connected To :SerapisMedical
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Pool of Servers avaliable:  3
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Server Region [region : EU_CENTRAL_1] Server Provider [workloadType : OPERATIONAL]
+14:21 [Information] (6) Attempting to connect to the Database
+14:21 [Information] (6) Server State:  Connected
+14:21 [Information] (6) Database Connected To :SerapisMedical
+14:21 [Information] (1) Starting web host
+14:21 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:21 [Information] (1) Now listening on: "http://[::]:80"
+14:21 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:21 [Information] (1) Hosting environment: "Development"
+14:21 [Information] (1) Content root path: "C:\Users\Bustech\RiderProjects\SerapisMedicalAPI\SerapisMedicalAPI"
+14:21 [Information] (8) Request starting HTTP/1.1 PUT http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 375
+14:21 [Warning] (8) Failed to determine the https port for redirect.
+14:21 [Information] (8) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:21 [Information] (8) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Pool of Servers avaliable:  0
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Database Connected To :SerapisMedical
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Pool of Servers avaliable:  0
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Database Connected To :SerapisMedical
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Pool of Servers avaliable:  0
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Attempting to connect to the Database
+14:21 [Information] (8) Server State:  Disconnected
+14:21 [Information] (8) Database Connected To :SerapisMedical
+14:22 [Information] (10)  Booking Creation Response =>[False]
+14:22 [Information] (10) Executing HttpStatusCodeResult, setting HTTP status code 400
+14:22 [Information] (10) Executed action "SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)" in 40990.7256ms
+14:22 [Information] (10) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:22 [Information] (10) Request finished in 41080.4804ms 400 
+14:22 [Information] (29) Request starting HTTP/1.1 PUT http://localhost/api/Booking?id=5bc9bd861c9d4400001badf1 application/json 375
+14:22 [Information] (29) Executing endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:22 [Information] (29) Route matched with "{action = \"Patch\", controller = \"Booking\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Patch(System.String, SerapisMedicalAPI.Model.AppointmentModel.AppointmentDto)" on controller "SerapisMedicalAPI.Controllers.BookingController" ("SerapisMedicalAPI").
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Pool of Servers avaliable:  3
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Server Region [workloadType : OPERATIONAL] Server Provider [provider : AWS]
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Database Connected To :SerapisMedical
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Pool of Servers avaliable:  3
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Server Region [workloadType : OPERATIONAL] Server Provider [provider : AWS]
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Database Connected To :SerapisMedical
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Pool of Servers avaliable:  3
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Server Region [workloadType : OPERATIONAL] Server Provider [provider : AWS]
+14:22 [Information] (29) Attempting to connect to the Database
+14:22 [Information] (29) Server State:  Connected
+14:22 [Information] (29) Database Connected To :SerapisMedical
+14:23 [Information] (23)  Booking Creation Response =>[True]
+14:23 [Information] (23) Executing HttpStatusCodeResult, setting HTTP status code 201
+14:23 [Information] (23) Executed action "SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)" in 76480.05ms
+14:23 [Information] (23) Executed endpoint '"SerapisMedicalAPI.Controllers.BookingController.Patch (SerapisMedicalAPI)"'
+14:23 [Information] (23) Request finished in 76490.046ms 201 
+14:32 [Information] (32) Request starting HTTP/1.1 GET http://localhost/api/patient/6007625d2945842b60c4ed06  
+14:32 [Information] (32) Executing endpoint '"SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)"'
+14:32 [Information] (32) Route matched with "{action = \"GetPatientMedicalInformation\", controller = \"Patient\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientMedicalInformation(System.String)" on controller "SerapisMedicalAPI.PatientController" ("SerapisMedicalAPI").
+14:32 [Information] (32) Attempting to connect to the Database
+14:32 [Information] (32) Pool of Servers avaliable:  3
+14:32 [Information] (32) Server State:  Connected
+14:32 [Information] (32) Server Region [workloadType : OPERATIONAL] Server Provider [provider : AWS]
+14:32 [Information] (32) Attempting to connect to the Database
+14:32 [Information] (32) Server State:  Connected
+14:32 [Information] (32) Database Connected To :SerapisMedical
+14:32 [Information] (35) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.BaseResponse`1[[SerapisMedicalAPI.Model.PatientModel.Patient, SerapisMedicalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+14:32 [Information] (35) Executed action "SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)" in 539.8762ms
+14:32 [Information] (35) Executed endpoint '"SerapisMedicalAPI.PatientController.GetPatientMedicalInformation (SerapisMedicalAPI)"'
+14:32 [Information] (35) Request finished in 565.4573ms 200 application/json; charset=utf-8
+14:39 [Information] (40) Request starting HTTP/1.1 GET http://localhost/api/Practice/5bc9bd861c9d4400001badf1  
+14:39 [Information] (40) Executing endpoint '"SerapisMedicalAPI.Controllers.PracticeController.Get (SerapisMedicalAPI)"'
+14:39 [Information] (40) Route matched with "{action = \"Get\", controller = \"Practice\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String)" on controller "SerapisMedicalAPI.Controllers.PracticeController" ("SerapisMedicalAPI").
+14:39 [Information] (40) Attempting to connect to the Database
+14:39 [Information] (40) Pool of Servers avaliable:  3
+14:39 [Information] (40) Server State:  Connected
+14:39 [Information] (40) Server Region [workloadType : OPERATIONAL] Server Provider [provider : AWS]
+14:39 [Information] (40) Attempting to connect to the Database
+14:39 [Information] (40) Server State:  Connected
+14:39 [Information] (40) Database Connected To :SerapisMedical
+14:39 [Information] (38) Executing ObjectResult, writing value of type '"SerapisMedicalAPI.Model.DoctorModel.Practice.PracticeInformation"'.
+14:39 [Information] (38) Executed action "SerapisMedicalAPI.Controllers.PracticeController.Get (SerapisMedicalAPI)" in 403.8039ms
+14:39 [Information] (38) Executed endpoint '"SerapisMedicalAPI.Controllers.PracticeController.Get (SerapisMedicalAPI)"'
+14:39 [Information] (38) Request finished in 419.497ms 200 application/json; charset=utf-8
