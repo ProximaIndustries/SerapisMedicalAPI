@@ -47,9 +47,7 @@ namespace SerapisMedicalAPI.Data
                 return new BaseResponse<Booking>()
                     {isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful};
             }
-
-            return new BaseResponse<Booking>()
-                {isSuccesful = true, data = appointment, message = "Successful", StatusCode = StatusCodes.Successful};
+            
         }
 
         public async Task<bool> AddBooking(ObjectId practiceid, AppointmentDto appointmentBooking)
