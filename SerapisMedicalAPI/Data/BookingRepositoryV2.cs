@@ -16,12 +16,14 @@ namespace SerapisMedicalAPI.Data
 {
     public class BookingRepositoryV2 :  IBookingRepositoryV2
     {
-        private readonly Context _context ;
-        public BookingRepositoryV2(Context context )
+        private readonly Context _context;
+        private readonly IPatientRepository _patientRepository;
+        public BookingRepositoryV2(Context context, IPatientRepository patientRepository)
         {
             _context = context;
+            _patientRepository = patientRepository;
         }
-    
+
 
 
         public async Task<BaseResponse<Booking>> MakeBooking(Booking appointment)
@@ -55,22 +57,80 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-        public async Task<BaseResponse<IEnumerable<Booking>>> GetAllBookings()
+        public async Task<BaseResponse<IEnumerable<BookingDTO>>> GetAllBookings()
+        {
+            var bookinglist = new List<BookingDTO>(); 
+            try
+            {
+                var bookingResult = await _context.BookingsCollection
+                    .Find(_ => true)
+                    .ToListAsync();
+
+                foreach (var booking in bookingResult)
+                {
+                    var patient = await _patientRepository.GetPatientById(booking.BookedAppointment.BookedpatientId);
+                    var bookingDto = new BookingDTO
+                    {
+                        BookingId = booking.BookingId,
+                        Patient = patient.data,
+                        PracticeId = booking.PracticeId,
+                        DoctorsId = booking.DoctorsId,
+                        BookedAppointment = booking.BookedAppointment,
+                        AppointmentDateTime = booking.AppointmentDateTime,
+                        HasSeenGP = booking.HasSeenGP,
+                        CreatedDate = booking.CreatedDate
+                    };
+                    bookinglist.Add(bookingDto);
+                }
+                
+                return  new BaseResponse<IEnumerable<BookingDTO>>
+                    {isSuccesful = true, data = bookinglist, message = "Successful", StatusCode = StatusCodes.Successful};
+            }
+            catch (Exception e)
+            {
+                Log.Information(e.ToJson());
+                return new BaseResponse<IEnumerable<BookingDTO>>()
+                    {isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful};
+            }
+        }
+
+        //This is supposed to be used Primarly by the Practice 
+        public async Task<BaseResponse<IEnumerable<Booking>>> GetBookingsByDate(string id , DateTime startDate)
         {
             try
             {
                 var result = await _context.BookingsCollection
-                    .Find(_ => true)
+                    .Find(x => x.AppointmentDateTime.Date == startDate.Date)
                     .ToListAsync();
 
+                //_patientRepository.GetPatientById(id);
+
                 return new BaseResponse<IEnumerable<Booking>>
-                    {isSuccesful = true, data = result, message = "Successful", StatusCode = StatusCodes.Successful};
+                    { isSuccesful = true, data = result, message = "Successful", StatusCode = StatusCodes.Successful };
             }
             catch (Exception e)
             {
                 Log.Information(e.ToJson());
                 return new BaseResponse<IEnumerable<Booking>>()
-                    {isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful};
+                    { isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful };
+            }
+        }
+
+        public async Task<BaseResponse<IEnumerable<Booking>>> GetBookingsByPatientId(string id)
+        {
+            try
+            {
+                var result = (await _context.BookingsCollection
+                    .FindAsync(x => x.BookedAppointment.BookedpatientId == id)).ToEnumerable();
+                
+                return new BaseResponse<IEnumerable<Booking>>
+                    { isSuccesful = true, data = result, message = "Successful", StatusCode = StatusCodes.Successful };
+            }
+            catch (Exception e)
+            {
+                Log.Information(e.ToJson());
+                return new BaseResponse<IEnumerable<Booking>>()
+                    { isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful };
             }
         }
 

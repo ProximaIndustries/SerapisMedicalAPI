@@ -45,7 +45,7 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<BaseResponse<IEnumerable<Booking>>> GetBookings()
+        public async Task<BaseResponse<IEnumerable<BookingDTO>>> GetBookings()
         {
             //rather past through a string then convert it to a DateTime object here. 
             var response = await _bookingRepositoryV2.GetAllBookings();
@@ -60,7 +60,6 @@ namespace SerapisMedicalAPI.Controllers
             Log.Warning($"Request: {appointment.ToJson()}");
             
             var response = await _bookingRepositoryV2.MakeBooking(appointment);
-            
             Log.Warning($"Response: {response.ToJson()}");
             return response;
         }

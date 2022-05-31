@@ -17,7 +17,7 @@ namespace SerapisMedicalAPI.Interfaces
         Task<bool> AddBooking(ObjectId practiceid, AppointmentDto appointmentBooking);
 
         //Read-- Get available bookings
-        Task<BaseResponse<IEnumerable<Booking>>> GetAllBookings();
+        Task<BaseResponse<IEnumerable<BookingDTO>>> GetAllBookings();
 
         //Delete-- Remove booking
         //This comes with fees, will add logic later on so leave for now
