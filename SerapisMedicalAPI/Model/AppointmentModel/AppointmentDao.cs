@@ -11,14 +11,18 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
     public class AppointmentDao
     {
         //Using int for now, need to use mongoId
-        public ObjectId BookingId { get; set; }
+        /*[BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]*/
+        public string BookingId { get; set; }
 
 
         [BsonElement("linenumber")]
         public int LineNumber { get; set; }
 
+        /*[BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]*/
         [BsonElement("patientid")]
-        public ObjectId PatientID { get; set; }
+        public string PatientID { get; set; }
 
         [BsonElement("dateandtimeofappointment")]
         public DateTime DateAndTimeOfAppointment { get; set; }
@@ -37,13 +41,15 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
 
         [BsonElement("hasbeentothispractice")]
         public bool HasBeenToThisPractice { get; set; }
-
+        
+        /*[BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]*/
         [BsonElement("doctorsId")]
-        public ObjectId DoctorsId { get; set; }
+        public string DoctorsId { get; set; }
 
-        //    [BsonElement("venue")]
-        //    public Address Venue { get; set; }
+        /*[BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]*/
         [BsonElement("practiceid")]
-        public ObjectId PracticeID { get; set; }
+        public string PracticeID { get; set; }
     }
 }

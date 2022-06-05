@@ -50,11 +50,60 @@ namespace SerapisMedicalAPI.Controllers
             return new OkObjectResult(response);
         }
         
-        [HttpGet]
-        public IEnumerable<string> defaultroute()
+        [HttpPost("sso/register")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse>>))] 
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> RegisterSSOUser([FromBody] SupabaseAuth patient)
         {
-            Log.Information("Request:");
-            return new string[] { "value1", "value2" };
+            Log.Information($"Request:{patient?.ToJson()}");
+           
+            var response = await _supabaseRepository.LoginUser(patient);
+           
+            Log.Information($"Request:{response?.ToJson()}");
+            return new OkObjectResult(response);
+        }
+        
+        [HttpPost("sso/login")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse>>))] 
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> LoginSSOUser([FromBody] SupabaseAuth patient)
+        {
+            Log.Information($"Request:{patient?.ToJson()}");
+           
+            var response = await _supabaseRepository.LoginUser(patient);
+           
+            Log.Information($"Request:{response?.ToJson()}");
+            return new OkObjectResult(response);
+        }
+        
+        [HttpPut("sso/linkUserWithPractice")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse>>))] 
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> LinkSSOUserWithPractice([FromBody] SupabaseAuth patient)
+        {
+            Log.Information($"Request:{patient?.ToJson()}");
+           
+            var response = await _supabaseRepository.LoginUser(patient);
+           
+            Log.Information($"Request:{response?.ToJson()}");
+            return new OkObjectResult(response);
+        }
+        
+        [HttpPut("sso/deLinkUserWithPractice")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse>>))] 
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
+        public async Task<IActionResult> DeLinkSSOUserWithPractice([FromBody] SupabaseAuth patient)
+        {
+            Log.Information($"Request:{patient?.ToJson()}");
+           
+            var response = await _supabaseRepository.LoginUser(patient);
+           
+            Log.Information($"Request:{response?.ToJson()}");
+            return new OkObjectResult(response);
         }
     }
 }

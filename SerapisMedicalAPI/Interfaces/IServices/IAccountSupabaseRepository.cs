@@ -13,6 +13,8 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
          
          Task<BaseResponse<Patient>> RegisterUser(Patient patient);
          Task<BaseResponse<PatientAuthResponse>> LoginUser(SupabaseAuth user);
+         Task<BaseResponse<PatientAuthResponse>> LoginSSOUser(SupabaseAuth user);
+         Task<BaseResponse<Doctor>> RegisterSSOUser(Doctor patient);
          public Patient GetUserById(string privateid);
          Task<bool> UpdateUser(Patient doctor);
     }

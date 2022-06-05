@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SerapisMedicalAPI.Model.AppointmentModel
 {
-    public class Session
+    public class AppointmentSession
     {
 
         [BsonElement("duration")]

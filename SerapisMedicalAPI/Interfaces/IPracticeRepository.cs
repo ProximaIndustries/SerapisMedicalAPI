@@ -20,17 +20,17 @@ namespace SerapisMedicalAPI
         //Get the practice dtos
         Task<IEnumerable<PracticeDto>> GetPractices(double lat, double lon, double maxDistance);
 
-        Task<PracticeInformation> GetPracticeIfDoctorWorksThere(ObjectId _id);
+        Task<PracticeInformation> GetPracticeIfDoctorWorksThere(string _id);
 
-        Task<PracticeInformation> GetPracticeById(ObjectId _id);
+        Task<PracticeInformation> GetPracticeById(string _id);
         //Get practice details (used in the patient application)
-        Task<PracticeInformation> GetPracticeDetails(ObjectId _id);
+        Task<PracticeInformation> GetPracticeDetails(string _id);
 
         //Remove practice (used in the doctors application)
-        Task<PracticeInformation> RemovePractice(ObjectId _id);
+        Task<PracticeInformation> RemovePractice(string _id);
 
         //Put edit practice information (used in the doctors application)
-        Task<PracticeInformation> EditPracticeInfo(ObjectId _id);
+        Task<PracticeInformation> EditPracticeInfo(string _id);
 
         //Create a practice --needs verification first
         //So I am going to leave it for now 

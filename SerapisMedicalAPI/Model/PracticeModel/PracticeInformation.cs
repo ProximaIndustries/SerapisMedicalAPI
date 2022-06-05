@@ -30,9 +30,11 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Practice
         [BsonDefaultValue(0.00)]
         [BsonElement("distancefrompractice")]
         public double DistanceFromPractice { get; set; }
-
+        
+        /*[BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]*/
         [BsonElement("doctoratpractice")]
-        public List<ObjectId> DoctorsAtPractice { get; set; }
+        public List<string> DoctorsAtPractice { get; set; }
 
         [BsonElement("numofpatientsinpractice")]
         public int NumOfPatientsInPractice { get; set; }

@@ -37,12 +37,12 @@ namespace SerapisMedicalAPI.Data
             throw new NotImplementedException();
         }
 
-        public Task<PracticeInformation> EditPracticeInfo(ObjectId _id)
+        public Task<PracticeInformation> EditPracticeInfo(string _id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<PracticeInformation> GetPracticeById(ObjectId _id)
+        public async Task<PracticeInformation> GetPracticeById(string _id)
         {
             var filter = Builders<PracticeInformation>.Filter.Eq(z => z.Id, _id);
             PracticeInformation _practiceinfo = new PracticeInformation();
@@ -67,7 +67,7 @@ namespace SerapisMedicalAPI.Data
             }
             return _practiceinfo;
         }
-        public async Task<PracticeInformation> GetPracticeIfDoctorWorksThere(ObjectId _id)
+        public async Task<PracticeInformation> GetPracticeIfDoctorWorksThere(string _id)
         {
             var filter = Builders<PracticeInformation>.Filter.Eq(z => z.Id, _id);
             PracticeInformation _practiceinfo = new PracticeInformation();
@@ -94,13 +94,9 @@ namespace SerapisMedicalAPI.Data
             }
             return _practiceinfo;
         }
+        
 
-        public Task<PracticeInformation> GetPracticeDetails(object _id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PracticeInformation> GetPracticeDetails(ObjectId _id)
+        public Task<PracticeInformation> GetPracticeDetails(string _id)
         {
             PracticeInformation practiceInformation = new PracticeInformation();
 
@@ -153,7 +149,7 @@ namespace SerapisMedicalAPI.Data
         }
 
 
-        public Task<PracticeInformation> RemovePractice(ObjectId _id)
+        public Task<PracticeInformation> RemovePractice(string _id)
         {
             throw new NotImplementedException();
         }

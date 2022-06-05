@@ -78,7 +78,7 @@ namespace SerapisMedicalAPI.Controllers
             if (booking == null)
                 return new NotFoundResult();
 
-            bool response = await _bookingRepository.AddBooking(p1, booking);
+            bool response = await _bookingRepository.AddBooking("p1", booking);
             Log.Information(" Booking Creation Response =>[" + response + "]"); 
             if (response == true)
             {

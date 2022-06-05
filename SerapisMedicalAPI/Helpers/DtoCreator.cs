@@ -18,7 +18,7 @@ namespace SerapisMedicalAPI.Helpers
         {
             PracticeDto newDto = new PracticeDto()
             {
-                PracticeID = practice.Id,
+                PracticeID = ObjectId.Parse(practice.Id),
                 ContactNumber = practice.ContactPractice.PracticeTelephoneNumber,
                 PracticeName = practice.PracticeName,
                 NumberOfPatientsAtPractice = practice.NumOfPatientsInPractice,

@@ -35,7 +35,7 @@ namespace SerapisMedicalAPI.Data.Supabase
         {
             try
             {
-                SupabaseService service = new SupabaseService();
+                var service = new SupabaseService();
                 var response = await service.RegisterUser(patient, _options.Value.Url,_options.Value.Key);
                 if (!response.status)
                 {
@@ -112,7 +112,17 @@ namespace SerapisMedicalAPI.Data.Supabase
                     {message = e.ToString(), status = false, data = null, StatusCode = StatusCodes.FatalError};
             }
         }
-        
+
+        public async Task<BaseResponse<PatientAuthResponse>> LoginSSOUser(SupabaseAuth user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<BaseResponse<Doctor>> RegisterSSOUser(Doctor patient)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task EditUser(Patient userwithToken)
         {
             throw new System.NotImplementedException();

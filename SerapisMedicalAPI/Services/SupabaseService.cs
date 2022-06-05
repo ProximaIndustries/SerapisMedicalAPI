@@ -21,7 +21,6 @@ namespace SerapisMedicalAPI.Services
 {
     public class SupabaseService
     {
-
         public async Task<BaseResponse<Session>> RegisterUser(Patient patient,string url, string key)
         {
             try

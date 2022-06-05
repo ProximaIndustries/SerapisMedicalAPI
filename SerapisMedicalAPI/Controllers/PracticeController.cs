@@ -39,7 +39,7 @@ namespace SerapisMedicalAPI.Controllers
         public async Task<IActionResult> Get(string id)
         {
             ObjectId parm = ObjectId.Parse(id);
-            var practice = await _practiceRepository.GetPracticeById(parm);
+            var practice = await _practiceRepository.GetPracticeById(id);
 
             if (practice == null)
                 return new NotFoundResult();

@@ -35,15 +35,15 @@ namespace SerapisMedicalAPI.Data
             {
                 AppointmentDao _appointment = new AppointmentDao
                 {
-                    BookingId = ObjectId.Parse(booking.BookingId),
+                    BookingId = booking.BookingId,
                     LineNumber = booking.LineNumber,
-                    PatientID = ObjectId.Parse(booking.PatientID),
+                    PatientID = booking.PatientID,
                     DateAndTimeOfAppointment = booking.DateAndTimeOfAppointment,
                     HasSeenGP = booking.HasSeenGP,
                     IsSerapisBooking = booking.IsSerapisBooking,
                     HasBeenToThisPractice = booking.HasBeenToThisPractice,
-                    DoctorsId = ObjectId.Parse(booking.DoctorsId),
-                    PracticeID = ObjectId.Parse(booking.PracticeID)
+                    DoctorsId = booking.DoctorsId,
+                    PracticeID = booking.PracticeID
                 };
 
 
@@ -92,15 +92,15 @@ namespace SerapisMedicalAPI.Data
                     //AUTOMAPPER REQUIRED
                     AppointmentDao _appointment = new AppointmentDao
                     {
-                        BookingId = ObjectId.Parse(booking.BookingId),
+                        BookingId = booking.BookingId,
                         LineNumber = booking.LineNumber,
-                        PatientID = ObjectId.Parse(booking.PatientID),
+                        PatientID = booking.PatientID,
                         DateAndTimeOfAppointment = booking.DateAndTimeOfAppointment,
                         HasSeenGP = booking.HasSeenGP,
                         IsSerapisBooking = booking.IsSerapisBooking,
                         HasBeenToThisPractice = booking.HasBeenToThisPractice,
-                        DoctorsId = ObjectId.Parse(booking.DoctorsId),
-                        PracticeID = ObjectId.Parse(booking.PracticeID)
+                        DoctorsId = booking.DoctorsId,
+                        PracticeID = booking.PracticeID
                     };
 
                     session.StartTransaction();

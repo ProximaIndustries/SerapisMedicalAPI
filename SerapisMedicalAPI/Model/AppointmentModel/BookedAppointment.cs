@@ -12,6 +12,6 @@ namespace SerapisMedicalAPI.Model.AppointmentModel
         public string BookedpatientId { get; set; }
 
         [BsonElement("appointmentsession")]
-        public Session AppointmentSession { get; set; } 
+        public AppointmentSession AppointmentSession { get; set; } 
     }
 }
