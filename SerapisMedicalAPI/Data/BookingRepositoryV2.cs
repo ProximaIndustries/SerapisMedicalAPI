@@ -133,6 +133,40 @@ namespace SerapisMedicalAPI.Data
                     { isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful };
             }
         }
+        public async Task<BaseResponse<IEnumerable<BookingDTO>>> GetBookingsByPracticeId(string id)
+        {
+            var bookinglist = new List<BookingDTO>(); 
+            try
+            {
+                var result = (await _context.BookingsCollection
+                    .FindAsync(x => x.PracticeId == id)).ToEnumerable();
+                
+                foreach (var booking in result)
+                {
+                    var patient = await _patientRepository.GetPatientById(booking.BookedAppointment.BookedpatientId);
+                    var bookingDto = new BookingDTO
+                    {
+                        BookingId = booking.BookingId,
+                        Patient = patient.data,
+                        PracticeId = booking.PracticeId,
+                        DoctorsId = booking.DoctorsId,
+                        BookedAppointment = booking.BookedAppointment,
+                        AppointmentDateTime = booking.AppointmentDateTime,
+                        HasSeenGP = booking.HasSeenGP,
+                        CreatedDate = booking.CreatedDate
+                    };
+                    bookinglist.Add(bookingDto);
+                }
+                return new BaseResponse<IEnumerable<BookingDTO>>
+                    { isSuccesful = true, data = bookinglist, message = "Successful", StatusCode = StatusCodes.Successful };
+            }
+            catch (Exception e)
+            {
+                Log.Information(e.ToJson());
+                return new BaseResponse<IEnumerable<BookingDTO>>()
+                    { isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful };
+            }
+        }
 
         public async Task CancelBooking(object _id)
         {

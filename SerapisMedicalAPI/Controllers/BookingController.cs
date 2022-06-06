@@ -63,7 +63,17 @@ namespace SerapisMedicalAPI.Controllers
             Log.Warning($"Response: {response.ToJson()}");
             return response;
         }
-
+        
+        // POST: api/Booking/
+        [HttpGet("{id}/practice")]
+        public async Task<BaseResponse<IEnumerable<BookingDTO>>> GetByPracticeId(string id)
+        {
+            Log.Warning($"Request: {id.ToJson()}");
+            
+            var response = await _bookingRepositoryV2.GetBookingsByPracticeId(id);
+            Log.Warning($"Response: {response.ToJson()}");
+            return response;
+        }
 
         //Use this one for booking Please (30/03/2021)
         //[HttpPatch("{id}")]
