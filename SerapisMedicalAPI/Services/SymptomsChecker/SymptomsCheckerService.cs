@@ -124,6 +124,11 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Symptoms>> GetProposedSymptoms(string gender, string age,string ids)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task GetSymptomsBySublocations()
         {
             throw new NotImplementedException();

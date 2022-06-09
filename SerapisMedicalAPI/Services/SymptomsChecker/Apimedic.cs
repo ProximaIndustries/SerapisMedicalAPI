@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
@@ -57,7 +58,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
         {
             throw new NotImplementedException();
         }
-
+        
         public async Task<IEnumerable<Symptoms>> GetAllSymptoms()
         {
             IEnumerable<Symptoms> list = null;
@@ -164,6 +165,67 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
         public Task GetSepecialistionsBasedOnDiagnosis()
         {
             throw new NotImplementedException();
+        }
+
+        
+
+
+        /// <summary>
+        /// /symptoms/proposed
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns><list type="Symptoms"></list>/returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<IEnumerable<Symptoms>> GetProposedSymptoms(string gender, string age,string id)
+        {
+            IEnumerable<Symptoms> list = null;
+            try
+            {
+                //5-2-1
+                var strings = id.Split("-").ToArray();
+                //var strings = arrStrings[0].Split(",").ToArray();
+                
+                var arr = Array.ConvertAll(strings, int.Parse);
+                
+                StringBuilder sb = new StringBuilder();
+
+                var tokenResponse = GetToken();
+                //build headers
+                Dictionary<string, string> headers = new Dictionary<string, string>();
+                //symptoms?token=
+                sb.Append(EndpointConstants.APIMEDIC_SANDBOX_BASE_ENDPOINT);
+                sb.Append("/symptoms/proposed?token=");
+                sb.Append(tokenResponse.Token);
+                sb.Append("&language=" + ConfigConstants.APILANGUAGE_EN);
+                
+                var jsonofIds = JsonConvert.SerializeObject(arr);
+                sb.Append("&symptoms=" +jsonofIds);
+                
+                sb.Append("&gender=" +gender);
+                sb.Append("&year_of_birth=" +age);
+                string url = sb.ToString();
+
+                Debug.WriteLine("URL THAT WILL BE USED " + url);
+                Log.Information("URL being Requested: "+ url);
+                
+                var responseMessage = APIConector<List<Symptoms>>.GetExternalAPIData(url, headers);
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var stringResponse = await responseMessage.Content.ReadAsStringAsync();
+                    Debug.WriteLine("Final Response message" + stringResponse);
+                    
+                    list = JsonConvert.DeserializeObject<IEnumerable<Symptoms>>(stringResponse);
+                    _logger?.LogInformation("The number of doctors being returned is: {@list} ", list);
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Host terminated unexpectedly");
+                throw ex;
+                
+            }
+            return list;
         }
     }
 }

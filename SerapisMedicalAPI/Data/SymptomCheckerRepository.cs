@@ -34,6 +34,7 @@ namespace SerapisMedicalAPI.Data
             _cassandraContext = context;
             _symptomsCheckerService = symptomsCheckerService;
             _symptomsCheckerService = apimedic;
+            //_symptomsCheckerService = symptomsCheckerService as Apimedic;
 
         }
 
