@@ -81,7 +81,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             //return cachedSymptoms;
         }
 
-        public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender ,string yob,int[] ids)
+        public Task<IEnumerable<DiagnosisResponse>> GetProposedDiagnosisBySymptoms(string gender ,string yob,int[] ids)
         {
             //Log.
             StringBuilder sb = new StringBuilder();
@@ -116,7 +116,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
                 // do something and fail
             }
             
-            return list;
+            return Task.FromResult(list);
         }
 
         public Task GetSepecialistionsBasedOnDiagnosis()

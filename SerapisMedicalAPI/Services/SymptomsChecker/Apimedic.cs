@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SerapisMedicalAPI.Helpers;
@@ -46,6 +47,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
                 catch (Exception e)
                 {
                     // Exception is in e.Message
+                    _logger.LogError(e, "Host terminated unexpectedly");
                 }
             }
 
@@ -101,9 +103,62 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             throw new NotImplementedException();
         }
 
-        public IEnumerable<DiagnosisResponse> GetProposedDiagnosisBySymptoms(string gender, string age, int[] ids)
+        /// <summary>
+        /// /diagnosis?token=eyJ0eXAiOiJKV1QiLCJhbGci...&language=de-ch&symptoms=[233]&gender=male&year_of_birth=1988
+        /// </summary>
+        /// <param name="gender"></param>
+        /// <param name="age"></param>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<IEnumerable<DiagnosisResponse>> GetProposedDiagnosisBySymptoms(string gender, string age, int[] ids)
         {
-            throw new NotImplementedException();
+            IEnumerable<DiagnosisResponse> list = null;
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+
+                var tokenResponse = GetToken();
+                //build headers
+                Dictionary<string, string> headers = new Dictionary<string, string>();
+                //symptoms?token=
+                
+                sb.Append(EndpointConstants.APIMEDIC_SANDBOX_BASE_ENDPOINT);
+                sb.Append("/diagnosis?token=");
+                sb.Append(tokenResponse.Token);
+                sb.Append("&language=" + ConfigConstants.APILANGUAGE_EN);
+                
+                var jsonofIds = JsonConvert.SerializeObject(ids);
+                sb.Append("&symptoms=" +jsonofIds);
+                
+                sb.Append("&gender=" +gender);
+                sb.Append("&year_of_birth=" +age);
+                
+                string url = sb.ToString();
+
+                Debug.WriteLine("URL THAT WILL BE USED " + url);
+                Log.Information("URL being Requested: "+ url);
+                
+                var responseMessage = APIConector<DiagnosisResponse>.GetExternalAPIData(url, headers);
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var stringResponse = await responseMessage.Content.ReadAsStringAsync();
+                    Debug.WriteLine("Final Response message" + stringResponse);
+                    
+                    list = JsonConvert.DeserializeObject<IEnumerable<DiagnosisResponse>>(stringResponse);
+                    _logger?.LogInformation("The number of doctors being returned is: {@list} ", list);
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Host terminated unexpectedly");
+                return await Task.FromResult(list);
+                //throw ex;
+
+            }
+            return list;
         }
 
         public Task GetSepecialistionsBasedOnDiagnosis()

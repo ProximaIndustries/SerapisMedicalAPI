@@ -126,6 +126,7 @@ namespace SerapisMedicalAPI.Data
                 var session = _cassandraContext.GetDatabaseSession;
                 IMapper mapper = new Mapper(session);
                 var YearOfBirth = DateTime.Today.Year - Int32.Parse(age);
+                
                 var queryId = sex + "/" + id + "/" + age;
                 string CqlQuery = $"SELECT * FROM serapismedical.diagnosis_by_symptoms WHERE diagnosis_id=\'{queryId}\'";
                 _logger.LogInformation("Prepared statement  :{0}",CqlQuery);
@@ -154,10 +155,10 @@ namespace SerapisMedicalAPI.Data
                 _logger?.LogInformation("ID: "+queryId+" was not found, calling Symptoms Checker API");
                 //5-2-1
                 var arrStrings = id.Split("/");
-                var strings = arrStrings[0].Split("-").ToArray();
+                var strings = arrStrings[0].Split(",").ToArray();
                 
                 var arr = Array.ConvertAll(strings, int.Parse);
-                var diagnosisResponse = _symptomsCheckerService.GetProposedDiagnosisBySymptoms(sex, YearOfBirth.ToString(), arr);
+                var diagnosisResponse = _symptomsCheckerService.GetProposedDiagnosisBySymptoms(sex, age, arr).Result;
            
                 //var ps = session.Prepare("UPDATE user_profiles SET birth=? WHERE key=?");
                 string CqlQuery2 = "INSERT into serapismedical.diagnosis_by_symptoms (diagnosis_id,diagnosis_description,diagnosis_count) values (?,?,?) ";
