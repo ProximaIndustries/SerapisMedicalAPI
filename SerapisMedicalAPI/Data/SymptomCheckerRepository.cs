@@ -40,21 +40,30 @@ namespace SerapisMedicalAPI.Data
 
         public async Task<IEnumerable<Symptoms>> GetAllSymptoms()
         {
+            List<Symptoms> symptomsList = new List<Symptoms>();
             var session = _cassandraContext.GetDatabaseSession;
-
             /*var rowSet = session.Execute("select * from symptoms.symptoms").AsEnumerable();
             //var rows = rowSet.AsEnumerable();
             foreach (var row in rowSet)
             {
                 Console.WriteLine("ID: "+row.GetColumn("id") + " Name: " +row.GetColumn("name") );
             }*/
-            
-            _logger?.LogInformation("Grabbing Symptoms from APIMEDIC ");
+            var rowSet = session.Execute("select * from serapismedical.symptoms");
+            //_logger?.LogInformation("Grabbing Symptoms from APIMEDIC ");
 
-
-            var listOfSymptoms = await _symptomsCheckerService.GetAllSymptoms();
-            await PopulateSymptoms(listOfSymptoms);
-            return listOfSymptoms;
+            foreach (var row in rowSet)
+            {
+                var symptom = new Symptoms()
+                {
+                    ID = row.GetValue<int>("id"),
+                    Name = row.GetValue<string>("name")
+                };
+                symptomsList.Add(symptom);
+            }
+            //var listOfSymptoms = rowSet.GetRows(); 
+                //await _symptomsCheckerService.GetAllSymptoms();
+            //await PopulateSymptoms(listOfSymptoms);
+            return symptomsList;
         }
         
 
@@ -62,13 +71,13 @@ namespace SerapisMedicalAPI.Data
         {
             var session =  _cassandraContext.GetDatabaseSession;
             
-            var rowSet = session.Execute("select * from symptoms.symptoms");
+            var rowSet = session.Execute("select * from serapismedical.symptoms");
             if (!rowSet.Any()) return new Symptoms();
             Console.WriteLine(rowSet.First().GetValue<int>("id"));
             var rows = rowSet.AsEnumerable();
             var thelist = (from cRow in rows let id = cRow.GetValue<int>("id") 
                 let name = cRow.GetValue<string>("name") 
-                select new Symptoms() {ID = id.ToString(), Name = name}).ToList();
+                select new Symptoms() {ID = id, Name = name}).ToList();
 
             return thelist[0];
         }
@@ -82,7 +91,7 @@ namespace SerapisMedicalAPI.Data
                 var preparedStatement = session.Prepare(CqlQuery);
                 foreach (var symptom in symptomsEnumerable)
                 {
-                    var boundStatement = preparedStatement.Bind(Int32.Parse(symptom.ID), symptom.Name);
+                    var boundStatement = preparedStatement.Bind(symptom.ID, symptom.Name);
                     _logger?.LogInformation("Inserting "+symptom.ID+" : "+ symptom.Name);
                     session.Execute(boundStatement);
                 }
@@ -97,7 +106,7 @@ namespace SerapisMedicalAPI.Data
                 {
                     var id2 = (cRow.GetValue<int>("id"));
                     var name  = cRow.GetValue<string>("name");
-                    thelist.Add(new Symptoms(){ID = id2.ToString(), Name = name});
+                    thelist.Add(new Symptoms(){ID = id2, Name = name});
                 }
                 _logger?.LogInformation(" Symptoms being returned is: {@thelist} ",thelist);
 

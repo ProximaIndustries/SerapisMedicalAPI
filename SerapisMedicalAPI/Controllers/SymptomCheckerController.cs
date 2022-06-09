@@ -28,11 +28,11 @@ namespace SerapisMedicalAPI.Controllers
         
         // GET: api/SymptomChecker
         [HttpGet("v1/symptoms")]
-        public Symptoms Get()
+        public async Task<IActionResult> Get()
         {
-            var result = _symptomCheckerRepository.GetSymptomById();
+            var result = await _symptomCheckerRepository.GetAllSymptoms();
 
-            return result;
+            return Ok(result);
         }
         // GET: api/SymptomChecker/v1/symptoms/5-21-13
         [HttpGet("v1/symptoms/{id}")]
