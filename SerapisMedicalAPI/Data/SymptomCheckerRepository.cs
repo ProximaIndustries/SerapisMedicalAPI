@@ -28,6 +28,7 @@ namespace SerapisMedicalAPI.Data
             CassandraContext context,
             ILogger<SymptomCheckerRepository> logger,
             ISymptomsCheckerService symptomsCheckerService
+          
         )
         {
             _logger = logger;
@@ -48,9 +49,14 @@ namespace SerapisMedicalAPI.Data
             {
                 Console.WriteLine("ID: "+row.GetColumn("id") + " Name: " +row.GetColumn("name") );
             }*/
+            IMapper _mapper = new Mapper(session);
+            
+            var query = "select * from serapismedical.symptoms";
+            var result = await  _mapper.FetchAsync<Symptoms>(query);
+            return result;
             var rowSet = session.Execute("select * from serapismedical.symptoms");
             //_logger?.LogInformation("Grabbing Symptoms from APIMEDIC ");
-
+        
             foreach (var row in rowSet)
             {
                 var symptom = new Symptoms()
