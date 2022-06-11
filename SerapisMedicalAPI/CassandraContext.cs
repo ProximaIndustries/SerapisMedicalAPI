@@ -30,7 +30,8 @@ namespace SerapisMedicalAPI
                             "UbyEl3OeSrHsmQNIJQZSKmujJ_dDKcQnmz-9XSYcxOztbIZ2fcrmqQrTmrfZ3Fmwjx-BN-lSR-cpwIf6x1gX4ZJ7sZLLieqwv6rLPDE3SDs.l,_Z86gku3aOeaIHuRPW")
                         .Build()
                         .Connect();*/
-                var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+                
+                var options = new SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
                 options.SetHostNameResolver((ipAddress) => "kbalpha.cassandra.cosmos.azure.com");
                 var  session = Cluster.Builder()
                     .WithCredentials("kbalpha", "Z9dhtf4k7QVH0c3i5iC34HnjP3zpTgIdtboBTafu6QQvuUC3NmQm5ilsXPP5ARCj6lFciMbtbn2ArntvQbdEHw==")

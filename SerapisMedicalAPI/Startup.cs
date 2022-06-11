@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cassandra.Mapping;
 using Honeycomb.OpenTelemetry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -82,12 +83,14 @@ namespace SerapisMedicalAPI
             services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
+            //services.AddTransient<IMapper>();
             
             
             //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
-            services.AddTransient<Context>();
-            services.AddTransient<CassandraContext>();
+            services.AddSingleton<Context>();
+            //services.AddTransient<CassandraContext>();
+            services.AddSingleton<CassandraContext>();
             services.AddControllers();
             services.Configure<ForwardedHeadersOptions>(options =>
             {
