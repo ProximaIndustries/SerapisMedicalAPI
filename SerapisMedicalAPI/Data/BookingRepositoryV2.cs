@@ -121,7 +121,7 @@ namespace SerapisMedicalAPI.Data
             try
             {
                 var result = (await _context.BookingsCollection
-                    .FindAsync(x => x.BookedAppointment.BookedpatientId == id)).ToEnumerable();
+                    .FindAsync(x => x.BookedAppointment.BookedpatientId == id) ).ToList();
                 
                 return new BaseResponse<IEnumerable<Booking>>
                     { isSuccesful = true, data = result, message = "Successful", StatusCode = StatusCodes.Successful };

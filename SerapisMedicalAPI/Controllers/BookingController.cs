@@ -77,13 +77,13 @@ namespace SerapisMedicalAPI.Controllers
 
         // Get: api/Booking/5/practice
         [HttpGet("{id}/patient")]
-        public async Task<BaseResponse<IEnumerable<Booking>>> GetByPatientId(string id)
+        public async Task<IActionResult> GetByPatientId(string id)
         {
             Log.Warning($"Request: {id.ToJson()}");
             
             var response = await _bookingRepositoryV2.GetBookingsByPatientId(id);
             Log.Warning($"Response: {response.ToJson()}");
-            return response;
+            return Ok(response);
         }
         
         //Use this one for booking Please (30/03/2021)
