@@ -18,10 +18,16 @@ namespace SerapisMedicalAPI.Data
     {
         private readonly Context _context;
         private readonly IPatientRepository _patientRepository;
-        public BookingRepositoryV2(Context context, IPatientRepository patientRepository)
+        private readonly IPracticeRepository _practiceRepository;
+        private readonly IDoctorRepository _doctorRepository;
+        public BookingRepositoryV2(Context context, IPatientRepository patientRepository,
+            IPracticeRepository practiceRepository,
+            IDoctorRepository doctorRepository)
         {
             _context = context;
             _patientRepository = patientRepository;
+            _practiceRepository = practiceRepository;
+            _doctorRepository = doctorRepository;
         }
 
 
@@ -116,20 +122,34 @@ namespace SerapisMedicalAPI.Data
             }
         }
 
-        public async Task<BaseResponse<IEnumerable<Booking>>> GetBookingsByPatientId(string id)
+        public async Task<BaseResponse<IEnumerable<PatientBookingDto>>> GetBookingsByPatientId(string id)
         {
+            var bookinglist = new List<PatientBookingDto>(); 
             try
             {
-                var result = (await _context.BookingsCollection
+                var results = (await _context.BookingsCollection
                     .FindAsync(x => x.BookedAppointment.BookedpatientId == id) ).ToList();
-                
-                return new BaseResponse<IEnumerable<Booking>>
-                    { isSuccesful = true, data = result, message = "Successful", StatusCode = StatusCodes.Successful };
+                foreach (var booking in results)
+                {
+                    var doctor = await _doctorRepository.GetDoctor(booking.DoctorsId);
+                    var practice = await _practiceRepository.GetPracticeById(booking.PracticeId);
+                    
+                    var bookingDto = new PatientBookingDto
+                    {
+                        BookingId = booking.BookingId,
+                        DoctorName = $"DR {doctor?.FirstName.Substring(0,1)} {doctor?.LastName}",
+                        PracticeName = $"{practice?.PracticeName}",
+                        AppointmentDateTime = booking.AppointmentDateTime,
+                    };
+                    bookinglist.Add(bookingDto);
+                }
+                return new BaseResponse<IEnumerable<PatientBookingDto>>
+                    { isSuccesful = true, data = bookinglist, message = "Successful", StatusCode = StatusCodes.Successful };
             }
             catch (Exception e)
             {
                 Log.Information(e.ToJson());
-                return new BaseResponse<IEnumerable<Booking>>()
+                return new BaseResponse<IEnumerable<PatientBookingDto>>()
                     { isSuccesful = false, data = null, message = "UnSuccessful", StatusCode = StatusCodes.UnSuccessful };
             }
         }
