@@ -135,7 +135,7 @@ namespace SerapisMedicalAPI.Data
 
             var point = GeoJson.Point(GeoJson.Geographic(lon, lat));
 
-            FieldDefinition<PracticeInformation> fieldDefinition;
+            //FieldDefinition<PracticeInformation> fieldDefinition 
 
             //THE COMMENTED CODE IS TO FILTER BY CO-ORDINATES, YOU MULTIPLY BY 1000 TO CONVERT TO KILOMETERS
 

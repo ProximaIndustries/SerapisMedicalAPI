@@ -54,22 +54,6 @@ namespace SerapisMedicalAPI.Data
             var query = "select * from serapismedical.symptoms";
             var result = await  _mapper.FetchAsync<Symptoms>(query);
             return result;
-            var rowSet = session.Execute("select * from serapismedical.symptoms");
-            //_logger?.LogInformation("Grabbing Symptoms from APIMEDIC ");
-        
-            foreach (var row in rowSet)
-            {
-                var symptom = new Symptoms()
-                {
-                    ID = row.GetValue<int>("id"),
-                    Name = row.GetValue<string>("name")
-                };
-                symptomsList.Add(symptom);
-            }
-            //var listOfSymptoms = rowSet.GetRows(); 
-                //await _symptomsCheckerService.GetAllSymptoms();
-            //await PopulateSymptoms(listOfSymptoms);
-            return symptomsList;
         }
         
 

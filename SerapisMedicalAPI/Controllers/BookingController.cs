@@ -64,7 +64,7 @@ namespace SerapisMedicalAPI.Controllers
             return response;
         }
         
-        // POST: api/Booking/
+        // Get: api/Booking/5/practice
         [HttpGet("{id}/practice")]
         public async Task<BaseResponse<IEnumerable<BookingDTO>>> GetByPracticeId(string id)
         {
@@ -75,6 +75,17 @@ namespace SerapisMedicalAPI.Controllers
             return response;
         }
 
+        // Get: api/Booking/5/practice
+        [HttpGet("{id}/patient")]
+        public async Task<BaseResponse<IEnumerable<Booking>>> GetByPatientId(string id)
+        {
+            Log.Warning($"Request: {id.ToJson()}");
+            
+            var response = await _bookingRepositoryV2.GetBookingsByPatientId(id);
+            Log.Warning($"Response: {response.ToJson()}");
+            return response;
+        }
+        
         //Use this one for booking Please (30/03/2021)
         //[HttpPatch("{id}")]
         [HttpPut]

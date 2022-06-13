@@ -130,10 +130,10 @@ namespace SerapisMedicalAPI
                 endpoints.MapControllers();
             });
 
-            app.Run(async (context) =>
+            /*app.Run(async (context) =>
             {
                 //Run DB service here
-            });
+            });*/
 
             //app.UseMvc();
         }

@@ -162,7 +162,7 @@ namespace SerapisMedicalAPI.Data
             }
             catch (Exception ex)
             {
-                Log.Error("Failed tp Create Document in PatientCollection for ID:"+user.id);
+                Log.Error("Failed tp Create Document in PatientCollection for ID:"+user.id+" Error: "+ ex);
                 return new BaseResponse<Patient>() {status = false, message = "Failed", data=user};
             }
             
@@ -181,7 +181,7 @@ namespace SerapisMedicalAPI.Data
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex.Message);
             }
             
             return new BaseResponse<Patient>{};

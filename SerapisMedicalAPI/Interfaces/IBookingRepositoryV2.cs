@@ -20,6 +20,7 @@ namespace SerapisMedicalAPI.Interfaces
         Task<BaseResponse<IEnumerable<BookingDTO>>> GetAllBookings();
 
         Task<BaseResponse<IEnumerable<BookingDTO>>> GetBookingsByPracticeId(string id);
+        Task<BaseResponse<IEnumerable<Booking>>> GetBookingsByPatientId(string id);
         
         //Delete-- Remove booking
         //This comes with fees, will add logic later on so leave for now

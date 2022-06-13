@@ -38,6 +38,7 @@ namespace SerapisMedicalAPI.Utils
             }
             catch (ArgumentException e)
             {
+                Log.Warning("ArgumentException"+e.ToString());
                 return false;
             }
 
