@@ -37,7 +37,7 @@ namespace SerapisMedicalAPI.Data
             try
             {
                 var bookingObj = new Booking(
-                    appointment.id = appointment.id,
+                    appointment.id = ObjectId.GenerateNewId().ToString(),
                     appointment.BookingId,appointment.PracticeId,
                     appointment.DoctorsId,appointment.BookedAppointment,appointment.AppointmentDateTime,appointment.HasSeenGP );
                 
