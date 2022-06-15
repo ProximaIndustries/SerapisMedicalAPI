@@ -73,7 +73,7 @@ namespace SerapisMedicalAPI
 
         public IMongoCollection<AppointmentDao> ApppointmentCollection => _database.GetCollection<AppointmentDao>("Appointments");
         public IMongoCollection<PracticeInformation> PracticeCollection => _database.GetCollection<PracticeInformation>("MedicalPractices");
-        public IMongoCollection<Booking> BookingsCollection => _database.GetCollection<Booking>("Bookings");
+        public IMongoCollection<Booking> BookingsCollection => _database.GetCollection<Booking>("Bookings2");
 
         public IMongoCollection<Patient> PatientCollection => _database.GetCollection<Patient>("Patients");
         public IMongoCollection<Patient> SMSCollection => _database.GetCollection<Patient>("SMS");
