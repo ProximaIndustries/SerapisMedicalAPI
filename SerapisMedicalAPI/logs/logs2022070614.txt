@@ -1,0 +1,16 @@
+14:04 [Information] (1) Starting web host
+14:04 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:04 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:04 [Information] (1) Hosting environment: "Development"
+14:04 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+14:04 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+14:04 [Information] (4) Request finished in 256.8912ms 200 text/html;charset=utf-8
+14:04 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+14:04 [Information] (5) Request finished in 471.3758ms 200 application/json;charset=utf-8
+14:04 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/api/Billing  
+14:04 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)"'
+14:04 [Information] (4) Route matched with "{action = \"Get\", controller = \"Billing\"}". Executing controller action with signature "System.String Get()" on controller "SerapisMedicalAPI.Controllers.BillingController" ("SerapisMedicalAPI").
+14:04 [Information] (4) Executing ObjectResult, writing value of type '"System.String"'.
+14:04 [Information] (4) Executed action "SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)" in 44.3026ms
+14:04 [Information] (4) Executed endpoint '"SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)"'
+14:04 [Information] (4) Request finished in 226.7334ms 200 text/plain; charset=utf-8

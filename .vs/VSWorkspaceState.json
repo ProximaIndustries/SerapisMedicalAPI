@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SerapisMedicalAPI",
+    "\\SerapisMedicalAPI\\Helpers"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI.sln",
+  "SelectedNode": "\\SerapisMedicalAPI\\Helpers\\ConfigConstants.cs",
   "PreviewInSolutionExplorer": false
 }
