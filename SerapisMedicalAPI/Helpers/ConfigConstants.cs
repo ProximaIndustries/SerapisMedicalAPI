@@ -49,6 +49,6 @@ namespace SerapisMedicalAPI.Helpers
 
 
         //Send Grid
-        public readonly static string SendGrid_API_KEY = "";
+        public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
     }
 }

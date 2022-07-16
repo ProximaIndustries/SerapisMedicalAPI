@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.Symptoms;
+using SerapisMedicalAPI.Services;
 using SerapisMedicalAPI.Services.SymptomsChecker;
 
 namespace SerapisMedicalAPI.Controllers
@@ -65,8 +66,11 @@ namespace SerapisMedicalAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        
+        public object Post([FromBody] EmailDto value)
         {
+            //Testing the endpoint
+            return SendGridService.SendNewsLetter(value.email).Result;
         }
 
         // PUT api/values/5
