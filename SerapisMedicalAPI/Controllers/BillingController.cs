@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SerapisMedicalAPI.Helpers;
+using SerapisMedicalAPI.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace SerapisMedicalAPI.Controllers
     [ApiController]
     public class BillingController : ControllerBase
     {
+        private readonly IBilling _iBilling;
+
+        public BillingController(IBilling iBilling)
+        {
+            _iBilling = iBilling;
+        }
+
         // GET: api/<BillingController>
         [HttpGet]
         public string Get()
@@ -28,10 +36,12 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         // POST api/<BillingController>
-        [HttpPost("newclient")]
-        public void Post([FromBody] string value)
+        [HttpPost]
+        public string PostNewClientOnBoard([FromBody] string value)
         {
-            //All the methods must be 
+            //_iBilling.OnBoardNewClient();
+
+            return value;
         }
 
         // PUT api/<BillingController>/5

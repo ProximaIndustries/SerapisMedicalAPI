@@ -46,5 +46,10 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string PayFastTestPassPhrase = "serapismedicaltest";
         public readonly static string MerchantIdTest = "10026608";
         public readonly static string MerchantKeyTest = "k86ol32slrn4y";
+
+        //Send twilio sendgrid api crednetials
+        public readonly static string Send_Grid_API_KEY = "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";
+
+
     }
 }
