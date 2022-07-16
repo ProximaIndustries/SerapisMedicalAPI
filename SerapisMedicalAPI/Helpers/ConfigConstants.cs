@@ -47,6 +47,8 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string MerchantIdTest = "10026608";
         public readonly static string MerchantKeyTest = "k86ol32slrn4y";
 
-        //Send twilio sendgrid api crednetials
+
+        //Send Grid
+        public readonly static string SendGrid_API_KEY = "";
     }
 }
