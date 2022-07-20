@@ -67,10 +67,15 @@ namespace SerapisMedicalAPI.Controllers
         // POST api/values
         [HttpPost]
         
-        public object Post([FromBody] EmailDto value)
+        public object Post([FromBody] ContactDTO value)
         {
             //Testing the endpoint
-            return SendGridService.SendNewsLetter(value.email).Result;
+            //SendGridService.NewSubcriberEmailAuthentication(value.email, "khanyisani buthelezi");
+
+            return SendGridService.AddContactEnquiry(value).Result;
+
+            //return SendGridService.AddContactEnquiry(value);
+            //return value;
         }
 
         // PUT api/values/5
