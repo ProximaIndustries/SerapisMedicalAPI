@@ -46,5 +46,10 @@ namespace SerapisMedicalAPI.Helpers
 
         //Send Grid
         public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+
+        //ICD WHO
+        public readonly static string WHO_ICD_CODE_API_SECRET = "p9lGllzBjcLCIYsSsdP/W2tqz5cbP2qt/4DKQtKcPqE=";
+
+        public readonly static string WHO_CLIENT_ICD_CODE_ID = "7aa69e87-44e1-49d2-a70a-42a9203c1118_ba87b622-bca1-4140-8154-e6c73ad9223d";
     }
 }

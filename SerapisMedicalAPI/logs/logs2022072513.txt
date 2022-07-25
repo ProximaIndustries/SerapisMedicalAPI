@@ -1,0 +1,52 @@
+13:28 [Information] (1) Starting web host
+13:28 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13:28 [Information] (1) Application started. Press Ctrl+C to shut down.
+13:28 [Information] (1) Hosting environment: "Development"
+13:28 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+13:28 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+13:28 [Information] (5) Request finished in 207.6232ms 200 text/html;charset=utf-8
+13:28 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+13:28 [Information] (7) Request starting HTTP/2.0 GET https://localhost:44371/swagger/favicon-32x32.png  
+13:28 [Information] (7) Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+13:28 [Information] (7) Request finished in 50.974ms 200 image/png
+13:28 [Information] (8) Request finished in 369.9191ms 200 application/json;charset=utf-8
+13:29 [Information] (10) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/20?id=123  
+13:29 [Information] (10) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:29 [Information] (10) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+13:29 [Information] (10) Attempting to connect to the Cassandra Cluster
+13:29 [Information] (10) Server Name:  "CosmosProd"
+13:29 [Information] (10) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+13:29 [Information] (10) Server Replica's :  ["40.112.241.114:10350"]
+13:29 [Information] (10) Session Name:  s0
+13:29 [Information] (10) Executing ObjectResult, writing value of type '"System.String"'.
+13:29 [Information] (10) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 9430.9797ms
+13:29 [Information] (10) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:29 [Information] (10) Request finished in 9546.4581ms 200 application/json; charset=utf-8
+13:29 [Information] (24) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/20?id=123  
+13:29 [Information] (24) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:29 [Information] (24) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+13:29 [Information] (24) Executing ObjectResult, writing value of type '"System.String"'.
+13:29 [Information] (24) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 16.6896ms
+13:29 [Information] (24) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:29 [Information] (24) Request finished in 23.1551ms 200 application/json; charset=utf-8
+13:30 [Information] (29) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/20?id=123  
+13:30 [Information] (29) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (29) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+13:30 [Information] (29) Executing ObjectResult, writing value of type '"System.String"'.
+13:30 [Information] (29) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 7.6604ms
+13:30 [Information] (29) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (29) Request finished in 11.6941ms 200 application/json; charset=utf-8
+13:30 [Information] (22) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/20?id=123  
+13:30 [Information] (22) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (22) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+13:30 [Information] (22) Executing ObjectResult, writing value of type '"System.String"'.
+13:30 [Information] (22) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 12.5648ms
+13:30 [Information] (22) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (22) Request finished in 15.8087ms 200 application/json; charset=utf-8
+13:30 [Information] (25) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/20?id=123  
+13:30 [Information] (25) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (25) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+13:30 [Information] (25) Executing ObjectResult, writing value of type '"System.String"'.
+13:30 [Information] (25) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 8327.3869ms
+13:30 [Information] (25) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+13:30 [Information] (25) Request finished in 8330.8675ms 200 application/json; charset=utf-8

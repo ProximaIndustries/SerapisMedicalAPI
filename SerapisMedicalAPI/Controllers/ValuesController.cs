@@ -60,7 +60,6 @@ namespace SerapisMedicalAPI.Controllers
         [HttpGet("{age}")]
         public ActionResult<string> Get(int id)
         {
-            
             return "value";
         }
 

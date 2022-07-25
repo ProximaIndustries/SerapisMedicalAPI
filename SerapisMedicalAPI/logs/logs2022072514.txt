@@ -1,0 +1,42 @@
+14:34 [Information] (1) Starting web host
+14:34 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:34 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:34 [Information] (1) Hosting environment: "Development"
+14:34 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+14:34 [Information] (10) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+14:34 [Information] (10) Request finished in 240.0587ms 200 text/html;charset=utf-8
+14:34 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+14:34 [Information] (4) Request finished in 354.2062ms 200 application/json;charset=utf-8
+14:35 [Information] (14) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/23?id=1234  
+14:35 [Information] (14) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:35 [Information] (14) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:35 [Information] (14) Attempting to connect to the Cassandra Cluster
+14:35 [Information] (14) Server Name:  "CosmosProd"
+14:35 [Information] (14) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:35 [Information] (14) Server Replica's :  ["40.112.241.114:10350"]
+14:35 [Information] (14) Session Name:  s0
+14:35 [Information] (14) Executing ObjectResult, writing value of type '"System.String"'.
+14:35 [Information] (14) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 8924.4326ms
+14:35 [Information] (14) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:35 [Information] (14) Request finished in 9065.0544ms 200 text/plain; charset=utf-8
+14:38 [Information] (1) Starting web host
+14:38 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:38 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:38 [Information] (1) Hosting environment: "Development"
+14:38 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+14:38 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+14:38 [Information] (5) Request finished in 142.4153ms 200 text/html;charset=utf-8
+14:38 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+14:38 [Information] (5) Request finished in 376.3954ms 200 application/json;charset=utf-8
+14:38 [Information] (16) Request starting HTTP/2.0 GET https://localhost:44371/api/Values/25?id=122  
+14:38 [Information] (16) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:38 [Information] (16) Route matched with "{action = \"Get\", controller = \"Values\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Get(Int32)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+14:38 [Information] (16) Attempting to connect to the Cassandra Cluster
+14:38 [Information] (16) Server Name:  "CosmosProd"
+14:38 [Information] (16) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+14:38 [Information] (16) Server Replica's :  ["40.112.241.114:10350"]
+14:38 [Information] (16) Session Name:  s0
+14:38 [Information] (16) Executing ObjectResult, writing value of type '"System.String"'.
+14:38 [Information] (16) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)" in 7646.8422ms
+14:38 [Information] (16) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Get (SerapisMedicalAPI)"'
+14:38 [Information] (16) Request finished in 7767.1343ms 200 text/plain; charset=utf-8
