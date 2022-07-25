@@ -1,0 +1,148 @@
+11:15 [Information] (1) Starting web host
+11:15 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:15 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:15 [Information] (1) Hosting environment: "Development"
+11:15 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:15 [Information] (10) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:15 [Information] (10) Request finished in 145.5863ms 200 text/html;charset=utf-8
+11:15 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:15 [Information] (4) Request finished in 284.7789ms 200 application/json;charset=utf-8
+11:16 [Information] (4) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 105
+11:16 [Information] (4) No CORS policy found for the specified request.
+11:16 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:16 [Information] (4) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:16 [Information] (4) Attempting to connect to the Cassandra Cluster
+11:16 [Information] (4) Server Name:  "CosmosProd"
+11:16 [Information] (4) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:16 [Information] (4) Server Replica's :  ["40.112.241.114:10350"]
+11:16 [Information] (4) Session Name:  s0
+11:16 [Information] (4) Executing ObjectResult, writing value of type '"System.String"'.
+11:16 [Information] (4) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 8825.0611ms
+11:16 [Information] (4) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:16 [Information] (4) Request finished in 8925.3917ms 200 text/plain; charset=utf-8
+11:33 [Information] (1) Starting web host
+11:33 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:33 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:33 [Information] (1) Hosting environment: "Development"
+11:33 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:33 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:33 [Information] (4) Request finished in 154.7652ms 200 text/html;charset=utf-8
+11:33 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:33 [Information] (7) Request finished in 291.6892ms 200 application/json;charset=utf-8
+11:35 [Information] (11) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 87
+11:35 [Information] (11) No CORS policy found for the specified request.
+11:35 [Information] (11) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:35 [Information] (11) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:35 [Information] (11) Attempting to connect to the Cassandra Cluster
+11:35 [Information] (11) Server Name:  "CosmosProd"
+11:35 [Information] (11) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:35 [Information] (11) Server Replica's :  ["40.112.241.114:10350"]
+11:35 [Information] (11) Session Name:  s0
+11:35 [Information] (11) Executing ObjectResult, writing value of type '"System.String"'.
+11:35 [Information] (11) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 9998.5919ms
+11:35 [Information] (11) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:35 [Information] (11) Request finished in 10091.791ms 200 text/plain; charset=utf-8
+11:38 [Information] (37) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 161
+11:38 [Information] (37) No CORS policy found for the specified request.
+11:38 [Information] (37) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:38 [Information] (37) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:38 [Information] (37) Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+11:38 [Information] (37) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 93.7195ms
+11:38 [Information] (37) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:38 [Information] (37) Request finished in 101.4341ms 400 application/problem+json; charset=utf-8
+11:38 [Information] (41) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 83
+11:38 [Information] (41) No CORS policy found for the specified request.
+11:38 [Information] (41) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:38 [Information] (41) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:38 [Information] (41) Executing ObjectResult, writing value of type '"System.String"'.
+11:38 [Information] (41) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 1111.1303ms
+11:38 [Information] (41) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:38 [Information] (41) Request finished in 1114.8496ms 200 text/plain; charset=utf-8
+11:39 [Information] (1) Starting web host
+11:39 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:39 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:39 [Information] (1) Hosting environment: "Development"
+11:39 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:39 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:39 [Information] (4) Request finished in 144.3233ms 200 text/html;charset=utf-8
+11:39 [Information] (7) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:39 [Information] (4) Request finished in 306.0046ms 200 application/json;charset=utf-8
+11:39 [Information] (12) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 75
+11:39 [Information] (12) No CORS policy found for the specified request.
+11:39 [Information] (12) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:39 [Information] (12) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:39 [Information] (12) Attempting to connect to the Cassandra Cluster
+11:39 [Information] (12) Server Name:  "CosmosProd"
+11:39 [Information] (12) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:39 [Information] (12) Server Replica's :  ["40.112.241.114:10350"]
+11:39 [Information] (12) Session Name:  s0
+11:40 [Information] (12) Executing ObjectResult, writing value of type '"System.String"'.
+11:40 [Information] (12) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 8962.725ms
+11:40 [Information] (12) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:40 [Information] (12) Request finished in 9066.5196ms 200 text/plain; charset=utf-8
+11:45 [Information] (47) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 75
+11:45 [Information] (47) No CORS policy found for the specified request.
+11:45 [Information] (47) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:45 [Information] (47) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:48 [Information] (1) Starting web host
+11:48 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:48 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:48 [Information] (1) Hosting environment: "Development"
+11:48 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:48 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:48 [Information] (5) Request finished in 143.431ms 200 text/html;charset=utf-8
+11:48 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:48 [Information] (7) Request finished in 277.3974ms 200 application/json;charset=utf-8
+11:48 [Information] (5) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 69
+11:48 [Information] (5) No CORS policy found for the specified request.
+11:48 [Information] (5) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:48 [Information] (5) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:48 [Information] (5) Attempting to connect to the Cassandra Cluster
+11:48 [Information] (5) Server Name:  "CosmosProd"
+11:48 [Information] (5) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:48 [Information] (5) Server Replica's :  ["40.112.241.114:10350"]
+11:48 [Information] (5) Session Name:  s0
+11:49 [Information] (5) Executing ObjectResult, writing value of type '"System.String"'.
+11:49 [Information] (5) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 48989.3059ms
+11:49 [Information] (5) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:49 [Information] (5) Request finished in 49083.7634ms 200 text/plain; charset=utf-8
+11:56 [Information] (1) Starting web host
+11:56 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:56 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:56 [Information] (1) Hosting environment: "Development"
+11:56 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:56 [Information] (6) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:56 [Information] (6) Request finished in 145.2038ms 200 text/html;charset=utf-8
+11:56 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:56 [Information] (11) Request finished in 298.0723ms 200 application/json;charset=utf-8
+11:56 [Information] (4) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 69
+11:56 [Information] (4) No CORS policy found for the specified request.
+11:56 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:56 [Information] (4) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:56 [Information] (4) Attempting to connect to the Cassandra Cluster
+11:56 [Information] (4) Server Name:  "CosmosProd"
+11:56 [Information] (4) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:56 [Information] (4) Server Replica's :  ["40.112.241.114:10350"]
+11:56 [Information] (4) Session Name:  s0
+11:57 [Information] (1) Starting web host
+11:57 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+11:57 [Information] (1) Application started. Press Ctrl+C to shut down.
+11:57 [Information] (1) Hosting environment: "Development"
+11:57 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+11:57 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+11:57 [Information] (5) Request finished in 146.1936ms 200 text/html;charset=utf-8
+11:57 [Information] (7) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+11:57 [Information] (7) Request finished in 259.9917ms 200 application/json;charset=utf-8
+11:58 [Information] (12) Request starting HTTP/2.0 POST https://localhost:44371/api/Values application/json 69
+11:58 [Information] (12) No CORS policy found for the specified request.
+11:58 [Information] (12) Executing endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:58 [Information] (12) Route matched with "{action = \"Post\", controller = \"Values\"}". Executing controller action with signature "System.Object Post(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.ValuesController" ("SerapisMedicalAPI").
+11:58 [Information] (12) Attempting to connect to the Cassandra Cluster
+11:58 [Information] (12) Server Name:  "CosmosProd"
+11:58 [Information] (12) Server Hosts:  [{ "HostId" : CSUUID("125a0885-124d-3a3a-b32c-ef2c495433ac"), "Datacenter" : "West US", "Rack" : "Rack1", "CassandraVersion" : "3.11.0", "Workloads" : [], "DseVersion" : null }]
+11:58 [Information] (12) Server Replica's :  ["40.112.241.114:10350"]
+11:58 [Information] (12) Session Name:  s0
+11:58 [Information] (12) Executing ObjectResult, writing value of type '"System.String"'.
+11:58 [Information] (12) Executed action "SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)" in 12173.8462ms
+11:58 [Information] (12) Executed endpoint '"SerapisMedicalAPI.Controllers.ValuesController.Post (SerapisMedicalAPI)"'
+11:58 [Information] (12) Request finished in 12267.9477ms 200 text/plain; charset=utf-8
