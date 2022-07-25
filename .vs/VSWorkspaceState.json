@@ -5,6 +5,6 @@
     "\\SerapisMedicalAPI\\Controllers",
     "\\SerapisMedicalAPI\\Helpers"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI.sln",
+  "SelectedNode": "\\SerapisMedicalAPI\\Controllers\\MessagingController .cs",
   "PreviewInSolutionExplorer": false
 }
