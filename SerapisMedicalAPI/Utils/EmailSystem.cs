@@ -14,7 +14,7 @@ namespace SerapisMedicalAPI.Utils
 {
     public static class EmailSystem
     {
-
+        
         public static async Task<bool> SendSMSWithClickATell(Messaging messageToSend)
         {
             const string url = "https://platform.clickatell.com/v1/message";

@@ -14,11 +14,8 @@ namespace SerapisMedicalAPI.Helpers
         //public readonly static string APIMEDIC_AUTHBASE_ENDPOINT = "https://sandbox-authservice.priaid.ch/login";
         public readonly static string APIMEDIC_BASE_ENDPOINT = "https://healthservice.priaid.ch";
         public readonly static string APIMEDIC_SANDBOX_BASE_ENDPOINT = "https://sandbox-healthservice.priaid.ch";
-
-
-        //Payfast
-        public readonly static string PAYFAST_BASE_ENDPOINT = "https://api.payfast.co.za";
-
+        
+        
         //Supabase
         public readonly static string SUPABASE_BASE_URL = "https://cgwlfswslvrkhvrrxckz.supabase.co";
         public readonly static string SUPABASE_SIGN_UP_WITH_CELL = "/auth/v1/signup";

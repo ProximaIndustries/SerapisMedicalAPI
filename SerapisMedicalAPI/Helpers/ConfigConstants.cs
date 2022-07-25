@@ -23,6 +23,9 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string LIVEPassword = "r4S2Hmb5F7Jsp6T8P";
         public readonly static string APILANGUAGE_EN = "en-gb";
         
+        
+       
+        
         //Authorization | token
         //symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGci...&language=en-gb
         
@@ -33,18 +36,5 @@ namespace SerapisMedicalAPI.Helpers
             "CREATE TABLE diagnosis_by_symptoms(diagnosis_id string PRIMARY KEY, diagnosis_description text, diagnosis_count int);";
         //                                      (diagnosis_id string, diagnosis_description text, diagnosis_count int, PRIMARY KEY (diagnosis_id))
         //                                      (userid int, name text, email text, PRIMARY KEY (userid))
-
-        //Payfast passphrase
-        public readonly static string PayFastPassPhrase = "Serapismedicalpayments2017";
-        public readonly static string MerchantId = "17085895";
-        public readonly static string MerchantKey = "etcaix981f9hz";
-
-        //Payfast test credenetials
-        public readonly static string PayFastTestPassPhrase = "serapismedicaltest";
-        public readonly static string MerchantIdTest = "10026608";
-        public readonly static string MerchantKeyTest = "k86ol32slrn4y";
-
-        //Send Grid
-        public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
     }
 }
