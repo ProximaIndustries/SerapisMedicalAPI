@@ -1,0 +1,59 @@
+10:56 [Information] (1) Starting web host
+10:56 [Fatal] (1) Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.) (Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at SerapisMedicalAPI.Program.Main(String[] args) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Program.cs:line 40
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+10:58 [Information] (1) Starting web host
+10:58 [Fatal] (1) Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: SerapisMedicalAPI.Interfaces.ISymptomCheckerRepository Lifetime: Transient ImplementationType: SerapisMedicalAPI.Data.SymptomCheckerRepository': Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'SerapisMedicalAPI.CassandraContext' while attempting to activate 'SerapisMedicalAPI.Data.SymptomCheckerRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at SerapisMedicalAPI.Program.Main(String[] args) in C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI\Program.cs:line 40
+10:59 [Information] (1) Starting web host
+10:59 [Information] (1) User profile is available. Using '"C:\Users\Bustech\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+10:59 [Information] (1) Now listening on: "http://[::]:80"
+10:59 [Information] (1) Application started. Press Ctrl+C to shut down.
+10:59 [Information] (1) Hosting environment: "Development"
+10:59 [Information] (1) Content root path: "C:\Users\Bustech\Documents\Bonga\SerapisMedicalAPI"
