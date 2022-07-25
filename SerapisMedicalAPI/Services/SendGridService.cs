@@ -17,7 +17,6 @@ namespace SerapisMedicalAPI.Services
         private static SendGridClient clientObj = new SendGridClient(ConfigConstants.SendGrid_API_KEY);
 
         #region Send grid methods
-
         public static async Task<object> AddContactEnquiry(ContactDTO dto)
         {
             var _dto = JsonConvert.SerializeObject(dto);
@@ -48,8 +47,7 @@ namespace SerapisMedicalAPI.Services
                 From = new EmailAddress("serapismedical@gmail.com", "Serapis medical Team"),
                 Subject = "Sending with Twilio SendGrid is Fun",
                 PlainTextContent = "and easy to do anywhere, even with C#",
-                HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>",
-
+                HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>"
             };
             msg.AddTo(emailAddress, "Testing sendgrid");
 
@@ -70,7 +68,6 @@ namespace SerapisMedicalAPI.Services
         {
             //convert the data to a string using the json serilizaiton method
             var data = JsonConvert.SerializeObject(_clientData);
-
 
             //The template for the new client flow
              const string templateId = "d-33686f907fea4a72934722ee5fd4ac0e";
