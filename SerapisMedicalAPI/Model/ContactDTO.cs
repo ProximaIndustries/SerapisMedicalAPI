@@ -18,6 +18,11 @@ namespace SerapisMedicalAPI.Model
     public class Contact
     {
         public string Email { get; set; }
-        public string First_name { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+
+        public string Enquiry_Topic { get; set; }
+
+        public string Message { get; set; }
     }
 }

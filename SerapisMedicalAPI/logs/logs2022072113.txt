@@ -1,0 +1,76 @@
+13:32 [Information] (24) Request starting HTTP/1.1 OPTIONS https://localhost:44371/api/Marketing/addcontact  
+13:32 [Information] (24) No CORS policy found for the specified request.
+13:32 [Information] (24) Executing endpoint '"405 HTTP Method Not Supported"'
+13:32 [Information] (24) Executed endpoint '"405 HTTP Method Not Supported"'
+13:32 [Information] (24) Request finished in 30.4575ms 405 
+13:35 [Information] (20) Request starting HTTP/1.1 OPTIONS https://localhost:44371/api/Marketing/addcontact  
+13:35 [Information] (20) No CORS policy found for the specified request.
+13:35 [Information] (20) Executing endpoint '"405 HTTP Method Not Supported"'
+13:35 [Information] (20) Executed endpoint '"405 HTTP Method Not Supported"'
+13:35 [Information] (20) Request finished in 29.4834ms 405 
+13:36 [Information] (16) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 150
+13:36 [Information] (16) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:36 [Information] (16) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:38 [Information] (1) Starting web host
+13:38 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13:38 [Information] (1) Application started. Press Ctrl+C to shut down.
+13:38 [Information] (1) Hosting environment: "Development"
+13:38 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+13:38 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+13:38 [Information] (8) Request finished in 145.0981ms 200 text/html;charset=utf-8
+13:38 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+13:38 [Information] (8) Request finished in 356.3494ms 200 application/json;charset=utf-8
+13:38 [Information] (4) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 164
+13:38 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:38 [Information] (4) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:38 [Information] (4) Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+13:38 [Information] (4) Executed action "SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)" in 82.2844ms
+13:38 [Information] (4) Executed endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:38 [Information] (4) Request finished in 179.0531ms 400 application/problem+json; charset=utf-8
+13:39 [Information] (11) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 175
+13:39 [Information] (11) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:39 [Information] (11) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:39 [Information] (11) Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+13:39 [Information] (11) Executed action "SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)" in 17.5932ms
+13:39 [Information] (11) Executed endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:39 [Information] (11) Request finished in 26.906ms 400 application/problem+json; charset=utf-8
+13:40 [Information] (18) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 237
+13:40 [Information] (18) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:40 [Information] (18) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.ContactDTO)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:45 [Information] (1) Starting web host
+13:45 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13:45 [Information] (1) Application started. Press Ctrl+C to shut down.
+13:45 [Information] (1) Hosting environment: "Development"
+13:45 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+13:45 [Information] (8) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+13:45 [Information] (8) Request finished in 148.4822ms 200 text/html;charset=utf-8
+13:45 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+13:45 [Information] (4) Request finished in 377.9444ms 200 application/json;charset=utf-8
+13:45 [Information] (11) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 151
+13:45 [Information] (11) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:45 [Information] (11) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.Contact)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:45 [Information] (11) Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+13:45 [Information] (11) Executed action "SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)" in 146.4526ms
+13:45 [Information] (11) Executed endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:45 [Information] (11) Request finished in 248.8259ms 400 application/problem+json; charset=utf-8
+13:45 [Information] (4) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 150
+13:45 [Information] (4) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:45 [Information] (4) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.Contact)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:47 [Information] (4) Executed action "SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)" in 93248.3519ms
+13:47 [Information] (4) Executed endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:47 [Information] (4) Request finished in 93257.6657ms 200 
+13:48 [Information] (28) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 158
+13:48 [Information] (28) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:48 [Information] (28) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.Contact)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").
+13:51 [Information] (1) Starting web host
+13:51 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+13:51 [Information] (1) Application started. Press Ctrl+C to shut down.
+13:51 [Information] (1) Hosting environment: "Development"
+13:51 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+13:51 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+13:51 [Information] (4) Request finished in 140.6082ms 200 text/html;charset=utf-8
+13:51 [Information] (7) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+13:51 [Information] (7) Request finished in 366.1348ms 200 application/json;charset=utf-8
+13:51 [Information] (13) Request starting HTTP/1.1 POST https://localhost:44371/api/Marketing/addcontact application/json 158
+13:51 [Information] (13) Executing endpoint '"SerapisMedicalAPI.Controllers.MarketingController.PostContact (SerapisMedicalAPI)"'
+13:51 [Information] (13) Route matched with "{action = \"PostContact\", controller = \"Marketing\"}". Executing controller action with signature "Void PostContact(SerapisMedicalAPI.Model.Contact)" on controller "SerapisMedicalAPI.Controllers.MarketingController" ("SerapisMedicalAPI").

@@ -84,6 +84,7 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             services.AddTransient<IBilling, BillingRepository>();
+            services.AddTransient<IMarketing, MarketingRepository>();
             //services.AddTransient<IMapper>();
             
             
