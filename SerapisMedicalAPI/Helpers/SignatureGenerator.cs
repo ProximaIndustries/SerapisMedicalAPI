@@ -40,7 +40,6 @@ namespace SerapisMedicalAPI.Helpers
                 data.Add(prop.Name + "=" + prop.GetValue(dto).ToString());
             }
 
-
             //Check the pass phrase
             if (passPhrase != null)
             {
@@ -87,9 +86,7 @@ namespace SerapisMedicalAPI.Helpers
             {
                 return "Not generated";
             }
-            
         }
     }
-
     //Connect to the payfast api
 }

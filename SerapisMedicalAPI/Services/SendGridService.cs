@@ -29,10 +29,7 @@ namespace SerapisMedicalAPI.Services
                                                             urlPath: "marketing/contacts"
                                                             );
 
-
-
                 return "Status code:" + response.StatusCode;
-
             }
             catch (Exception ex)
             {

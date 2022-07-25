@@ -23,9 +23,6 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string LIVEPassword = "r4S2Hmb5F7Jsp6T8P";
         public readonly static string APILANGUAGE_EN = "en-gb";
         
-        
-       
-        
         //Authorization | token
         //symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGci...&language=en-gb
         
@@ -46,7 +43,6 @@ namespace SerapisMedicalAPI.Helpers
         public readonly static string PayFastTestPassPhrase = "serapismedicaltest";
         public readonly static string MerchantIdTest = "10026608";
         public readonly static string MerchantKeyTest = "k86ol32slrn4y";
-
 
         //Send Grid
         public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");

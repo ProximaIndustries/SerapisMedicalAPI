@@ -8,7 +8,6 @@ namespace SerapisMedicalAPI.Interfaces
 {
     public interface IMarketing
     {
-        
         Task<object> AddContactToSendGridDatabase(Contact dto);
 
         Task SendNewLetterToClients(IList<string> emailAddresses);
