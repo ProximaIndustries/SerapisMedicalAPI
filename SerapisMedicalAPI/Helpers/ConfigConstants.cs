@@ -46,6 +46,8 @@ namespace SerapisMedicalAPI.Helpers
 
         //Send Grid
         public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        public readonly static string Template_ID = "d-33686f907fea4a72934722ee5fd4ac0e";
+        public readonly static string Template_Welcom_ID = "5ba3697b-2303-4379-99ee-e9e2a877df75";
 
         //Paystack
         public readonly static string PayStack_Base_URL = " https://api.paystack.co/";

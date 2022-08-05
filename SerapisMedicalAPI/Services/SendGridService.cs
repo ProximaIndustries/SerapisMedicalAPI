@@ -65,32 +65,16 @@ namespace SerapisMedicalAPI.Services
         {
             //convert the data to a string using the json serilizaiton method
             var data = JsonConvert.SerializeObject(_clientData);
-
-            //The template for the new client flow
-             const string templateId = "d-33686f907fea4a72934722ee5fd4ac0e";
-
-            //call the local private method to update a new template
-            var response = CreateEmailTemplate(templateId, data, $"templates/{templateId}/ versions");
-
-            //Temp code
-            if (!response.Result.IsSuccessStatusCode)
-            {
-                //call the send email method
-                await SendEmailAsync(_email);
-
-                //do some logging
-            }
-            else
-            {
-                //log and alert developer
-            }
         }
 
         #endregion
 
-        //return a template
-        private async static Task<Response> CreateEmailTemplate(string _templateId, string _data, string _urlPath)
+        //edit the template varaibles using the data object passed
+        //Data must be a model that matches the one from sendgrid
+        public async static Task<Response> GenerateWelcomeEmail(string _data)
         {
+            string _urlPath = $"templates/{ConfigConstants.Template_ID}/versions/{ConfigConstants.Template_Welcom_ID}";
+
             var response = await clientObj.RequestAsync(method: BaseClient.Method.PATCH, 
                                                    requestBody: _data, 
                                                    urlPath: _urlPath
