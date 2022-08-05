@@ -23,6 +23,7 @@ using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using SerapisMedicalAPI.Model.PracticeModel;
+using SerapisMedicalAPI.Services;
 using SerapisMedicalAPI.Services.SymptomsChecker;
 using Swashbuckle.AspNetCore.Swagger;
 

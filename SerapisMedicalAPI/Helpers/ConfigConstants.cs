@@ -46,5 +46,11 @@ namespace SerapisMedicalAPI.Helpers
 
         //Send Grid
         public readonly static string SendGrid_API_KEY = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+
+        //Paystack
+        public readonly static string PayStack_Base_URL = " https://api.paystack.co/";
+        public readonly static string Paystack_Secret_Test = "sk_test_136949ba29ab78ae2b9922ed36d6c36009554a3b";
+        public readonly static string Paystack_Public_Key = "pk_test_826d84267e550b8967527bf5f794ad24da0f1744";
+        public readonly static string Paystack_Test_Amount = "100";
     }
 }

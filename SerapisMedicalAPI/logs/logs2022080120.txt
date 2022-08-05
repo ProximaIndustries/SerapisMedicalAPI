@@ -1,0 +1,19 @@
+20:46 [Information] (1) Starting web host
+20:46 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:47 [Information] (1) Application started. Press Ctrl+C to shut down.
+20:47 [Information] (1) Hosting environment: "Development"
+20:47 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+20:47 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+20:47 [Information] (4) Request finished in 151.9262ms 200 text/html;charset=utf-8
+20:47 [Information] (6) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+20:47 [Information] (9) Request starting HTTP/2.0 GET https://localhost:44371/swagger/favicon-32x32.png  
+20:47 [Information] (9) Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+20:47 [Information] (9) Request finished in 88.8971ms 200 image/png
+20:47 [Information] (6) Request finished in 455.9492ms 200 application/json;charset=utf-8
+20:52 [Information] (13) Request starting HTTP/2.0 GET https://localhost:44371/api/Billing  
+20:52 [Information] (13) Executing endpoint '"SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)"'
+20:52 [Information] (13) Route matched with "{action = \"Get\", controller = \"Billing\"}". Executing controller action with signature "System.Object Get()" on controller "SerapisMedicalAPI.Controllers.BillingController" ("SerapisMedicalAPI").
+20:52 [Information] (13) Executing ObjectResult, writing value of type '"System.Net.Http.HttpResponseMessage"'.
+20:52 [Information] (13) Executed action "SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)" in 25918.8583ms
+20:52 [Information] (13) Executed endpoint '"SerapisMedicalAPI.Controllers.BillingController.Get (SerapisMedicalAPI)"'
+20:52 [Information] (13) Request finished in 26081.5121ms 200 application/json; charset=utf-8

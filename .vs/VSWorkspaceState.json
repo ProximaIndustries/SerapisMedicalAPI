@@ -3,8 +3,10 @@
     "",
     "\\SerapisMedicalAPI",
     "\\SerapisMedicalAPI\\Controllers",
-    "\\SerapisMedicalAPI\\Helpers"
+    "\\SerapisMedicalAPI\\Helpers",
+    "\\SerapisMedicalAPI\\Model",
+    "\\SerapisMedicalAPI\\Model\\Paystake"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI\\Controllers\\MessagingController .cs",
+  "SelectedNode": "\\SerapisMedicalAPI\\Model\\Paystake\\ClientDTO.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SerapisMedicalAPI.Helpers;
 using SerapisMedicalAPI.Interfaces;
+using SerapisMedicalAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace SerapisMedicalAPI.Controllers
 
         // GET: api/<BillingController>
         [HttpGet]
-        public string Get()
+        public object Get()
         {
-            return SignatureGenerator.GenerateApiSignature();
+            return _iBilling.StartSubPlan().Result;
         }
 
         // GET api/<BillingController>/5
@@ -37,9 +38,10 @@ namespace SerapisMedicalAPI.Controllers
 
         // POST api/<BillingController>
         [HttpPost]
-        public string PostNewClientOnBoard([FromBody] string value)
+        public object PostNewClientOnBoard([FromBody] string value)
         {
             //_iBilling.OnBoardNewClient();
+            _iBilling.StartSubPlan();
 
             return value;
         }
