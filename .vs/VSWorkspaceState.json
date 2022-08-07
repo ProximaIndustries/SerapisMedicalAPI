@@ -7,6 +7,6 @@
     "\\SerapisMedicalAPI\\Model",
     "\\SerapisMedicalAPI\\Model\\Paystake"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI\\Model\\Paystake\\ClientDTO.cs",
+  "SelectedNode": "\\SerapisMedicalAPI\\Controllers\\BillingController.cs",
   "PreviewInSolutionExplorer": false
 }
