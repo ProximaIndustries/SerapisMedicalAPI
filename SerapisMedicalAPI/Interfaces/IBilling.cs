@@ -7,6 +7,8 @@ namespace SerapisMedicalAPI.Interfaces
 {
     public interface IBilling
     {
-        void OnBoardNewClient();
+        Task<object> CancelSubPlan();
+
+        Task<object> StartSubPlan();
     }
 }

@@ -30,7 +30,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Symptoms> GetInstanceAllSymptoms()
+        public async Task<IEnumerable<Symptoms>> GetInstanceAllSymptoms()
         {
             IEnumerable<Symptoms> list = null;
             try
@@ -52,10 +52,8 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    var stringResponse = responseMessage.Content.ReadAsStringAsync()
-                        .ConfigureAwait(false)
-                        .GetAwaiter()
-                        .GetResult();
+                    var stringResponse = await responseMessage.Content.ReadAsStringAsync();
+                        
                     Debug.WriteLine("Final Response message" + stringResponse);
                     
                     list = JsonConvert.DeserializeObject<IEnumerable<Symptoms>>(stringResponse);
@@ -77,7 +75,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
         public async Task<IEnumerable<Symptoms>> GetAllSymptoms()
         {
-            return GetInstanceAllSymptoms();
+            return await GetInstanceAllSymptoms();
             //return cachedSymptoms;
         }
 

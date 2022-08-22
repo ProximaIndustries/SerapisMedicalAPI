@@ -54,7 +54,7 @@ namespace SerapisMedicalAPI.Services.SymptomsChecker
 
             return new SymptomToken();
         }
-        public IEnumerable<Symptoms> GetInstanceAllSymptoms()
+        public Task<IEnumerable<Symptoms>> GetInstanceAllSymptoms()
         {
             throw new NotImplementedException();
         }

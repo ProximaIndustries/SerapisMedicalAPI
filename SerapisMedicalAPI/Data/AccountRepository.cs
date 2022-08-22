@@ -151,7 +151,7 @@ namespace SerapisMedicalAPI.Data
                 replacement: userwithToken);
         }
 
-        public BaseResponse<Patient> AddAccount(Patient user)
+        public BaseResponse<Patient> AddPatientAccount(Patient user)
         {
             try
             {
@@ -167,6 +167,24 @@ namespace SerapisMedicalAPI.Data
             }
             
             return new BaseResponse<Patient>{status = true, message = "Success", data=user};;
+           
+        }
+        public async Task<BaseResponse<Doctor>> AddDoctorAccount(Doctor user)
+        {
+            try
+            {
+                await _context
+                    .DoctorCollection
+                    .InsertOneAsync(user);
+                Log.Information("Created Document in DoctorCollection for ID: "+user.id);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed tp Create Document in PatientCollection for ID:"+user.id+" Error: "+ ex);
+                return new BaseResponse<Doctor>() {status = false, message = "Failed", data=user};
+            }
+            
+            return new BaseResponse<Doctor>{status = true, message = "Success", data=user};;
            
         }
         
@@ -191,7 +209,7 @@ namespace SerapisMedicalAPI.Data
        
         public async Task<BaseResponse<Patient>> GetUserById(string privateid)
         {
-            Patient _patient = new Patient();
+            var _patient = new Patient();
             //_patient.id = ObjectId.Parse(privateid);
             var filter = Builders<Patient>.Filter.Eq(user => user.SocialID, privateid);
             try
@@ -200,6 +218,27 @@ namespace SerapisMedicalAPI.Data
 
                 var SinglePatient = response.FirstOrDefault();
                 return new BaseResponse<Patient>{data = SinglePatient};
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return null;
+        }
+        
+        public async Task<BaseResponse<Doctor>> GetPractionerById(string privateid)
+        {
+            
+            //_patient.id = ObjectId.Parse(privateid);
+            var filter = Builders<Doctor>.Filter.Eq(user => user.User.AuthId, privateid);
+            try
+            {
+                var response = await _context.DoctorCollection.FindAsync(filter);
+
+                var single = response.FirstOrDefault();
+                return new BaseResponse<Doctor>{data = single};
                 
             }
             catch (Exception ex)

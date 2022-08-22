@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cassandra.Mapping;
+using Google.Apis.Http;
 using Honeycomb.OpenTelemetry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
+using SerapisMedicalAPI.Data.Appwrite;
 using SerapisMedicalAPI.Data.Base;
 using SerapisMedicalAPI.Data.Supabase;
 using SerapisMedicalAPI.Helpers.Config;
@@ -23,8 +25,11 @@ using SerapisMedicalAPI.Model;
 using SerapisMedicalAPI.Model.DoctorModel.Practice;
 using SerapisMedicalAPI.Model.PatientModel;
 using SerapisMedicalAPI.Model.PracticeModel;
+using SerapisMedicalAPI.Services;
 using SerapisMedicalAPI.Services.SymptomsChecker;
+using SerapisMedicalAPI.Utils;
 using Swashbuckle.AspNetCore.Swagger;
+using IHttpClientFactory = System.Net.Http.IHttpClientFactory;
 
 namespace SerapisMedicalAPI
 {
@@ -71,6 +76,7 @@ namespace SerapisMedicalAPI
             });
             
             
+            services.AddHttpClient();
             //Transients
             services.AddTransient<IDoctorRepository, DoctorRepository>();
             services.AddTransient<IPracticeRepository, PracticeRepository>();
@@ -82,16 +88,19 @@ namespace SerapisMedicalAPI
             services.AddTransient<IMessagingRepository, MessagingRepository>();
             services.AddTransient<ISymptomCheckerRepository, SymptomCheckerRepository>();
             services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
-            services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
+            //services.AddTransient<IAccountSupabaseRepository, AccountSupabaseRepository>();
             services.AddTransient<IBilling, BillingRepository>();
             services.AddTransient<IMarketing, MarketingRepository>();
+            services.AddTransient<IAccountAppwriteRepository, AccountAppwriteRepository>();
+            services.AddTransient<IAppWriteService, AppWriteService>();
+            services.AddTransient<IApiConnector, ApiConnector>();
             //services.AddTransient<IMapper>();
             
-            
+
             //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
             services.AddSingleton<Context>();
-            //services.AddTransient<CassandraContext>();
+            services.AddSingleton<AppWriteConnectionManager>();
             services.AddSingleton<CassandraContext>();
             services.AddControllers();
             services.Configure<ForwardedHeadersOptions>(options =>

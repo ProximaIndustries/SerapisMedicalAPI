@@ -10,6 +10,9 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
     {
         [BsonElement("healthid")]
         public string HealthId { get; set; }
+        
+        [BsonElement("authid")]
+        public string AuthId { get; set; }
 
         [BsonElement("password")]
         public string Password { get; set; }
@@ -25,5 +28,8 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
 
         [BsonElement("hasbeenvalidated")]
         public bool HasbeenValidated { get; set; }
+        
+        [BsonElement("phone")]
+        public string Phone { get; set; }
     }
 }

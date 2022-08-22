@@ -9,12 +9,14 @@ namespace SerapisMedicalAPI.Data
 {
     public class BillingRepository : IBilling
     {
-        //Sets up a new client for booking flow
-        public void OnBoardNewClient()
+        public Task<object> CancelSubPlan()
         {
-            //send an email to the client and wait 
+            throw new NotImplementedException();
+        }
 
-            SendGridService.AuthenticateUserEmail();
+        public async Task<object> StartSubPlan()
+        {
+            return "Start the sub plan";
         }
     }
 }
