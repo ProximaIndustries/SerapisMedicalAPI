@@ -2,9 +2,9 @@
 
 namespace SerapisMedicalAPI.Model.PatientModel
 {
-    public class PatientAuthResponse
+    public class PatientAuthResponse<TObject> where TObject : class 
     {
-        public Patient PatientData { get; set; }
+        public TObject Data { get; set; }
         public Session SupabaseData { get; set; }
         public string Otp { get; set; }
     }

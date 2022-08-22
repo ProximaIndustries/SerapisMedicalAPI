@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Appwrite" Version="0.3.0-alpha01" />
     <PackageReference Include="CassandraCSharpDriver" Version="3.17.1" />
     <PackageReference Include="DnsClient" Version="1.6.0" />
     <PackageReference Include="Google.Cloud.Firestore" Version="2.5.0" />

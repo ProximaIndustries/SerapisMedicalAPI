@@ -2,6 +2,8 @@ using System.Net.Http;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Text;
+using Appwrite;
 
 namespace SerapisMedicalAPI.Services
 {
@@ -23,26 +26,7 @@ namespace SerapisMedicalAPI.Services
         }
         //Need to create a mapping for responses
         private static Stopwatch timer = new Stopwatch();
-
-        public bool Connector(ref object _object, string _url, string _data)
-        {
-            using (HttpClient _httpClient = new HttpClient())
-            {
-                var client = new HttpClient();
-                var json = JsonConvert.SerializeObject(_object);
-
-                HttpContent content = new StringContent(json);
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                var response = client.PostAsync(_url, content); //add your requesturi as a string
-                _httpClient.Dispose();
-
-                client.Dispose();
-            }
-
-            return false;
-        }
-
+        [Obsolete]
         public static HttpResponseMessage GetExternalAPIData(string endpoint, Dictionary<string, string> headers)
         {
             var query = endpoint;
@@ -125,39 +109,18 @@ namespace SerapisMedicalAPI.Services
                 return message;
             }
         }
-
-        /*public async Task<IRestResponse>MakeHttpRequestWithRestSharp(object requestModel, string baseAddress, string requestUri, RestSharp.Method method, Dictionary<string, string> headers = null)
-        {
-            try
-            {
-                var client = new RestClient(baseAddress);
-                var request = new RestRequest(requestUri, method);
-                var requestBody = JsonConvert.SerializeObject(requestModel);
-                request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
-
-                if (headers != null)
-                {
-                    foreach (KeyValuePair<string, string> header in headers)
-                    {
-                        request.AddHeader(header.Key, header.Value);
-                    }
-                }
-
-                return await client.ExecuteAsync(request);
-            }
-            catch (Exception ex)
-            {
-
-                Log.Error("MakeHttpRequestWithRestSharp", ex.ToString());
-                return null;
-            }
-        }*/
+        
     }
 
     public class ApiConnector : IApiConnector
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
+        private HttpClient http;
+        private readonly Dictionary<string, string> headers;
+        private readonly Dictionary<string, string> config;
+        private string endPoint = "http://178.62.113.15/v1";
+        private bool selfSigned = false;
         private HttpClient _httpClient;
 
 
@@ -203,11 +166,130 @@ namespace SerapisMedicalAPI.Services
                 throw ex;
             }
         }
+        
+        public async Task<HttpResponseMessage> AppWriteRequest(string method, string path, Dictionary<string, string> headers, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                http = _httpClientFactory.CreateClient();
+
+                bool methodGet = "GET".Equals(method, StringComparison.InvariantCultureIgnoreCase);
+
+                string queryString = methodGet ? "?" + parameters.ToQueryString() : string.Empty;
+
+                HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), endPoint + path + queryString);
+
+                if ("multipart/form-data".Equals(headers["content-type"], StringComparison.InvariantCultureIgnoreCase))
+                {
+                    MultipartFormDataContent form = new MultipartFormDataContent();
+
+                    foreach (var parameter in parameters)
+                    {
+                        if (parameter.Key == "file")
+                        {
+                            FileInfo fi = parameters["file"] as FileInfo;
+
+                            var file = File.ReadAllBytes(fi.FullName);
+
+                            form.Add(new ByteArrayContent(file, 0, file.Length), "file", fi.Name);
+                        }
+                        else if (parameter.Value is IEnumerable<object>)
+                        {
+                            List<object> list = new List<object>((IEnumerable<object>) parameter.Value);
+                            for (int index = 0; index < list.Count; index++)
+                            {
+                                form.Add(new StringContent(list[index].ToString()), $"{parameter.Key}[{index}]");
+                            }
+                        }
+                        else
+                        {
+                            form.Add(new StringContent(parameter.Value.ToString()), parameter.Key);
+                        }
+                    }
+                    request.Content = form;
+
+                }
+                else if (!methodGet)
+                {
+                    string body = parameters.ToJson();
+
+                    request.Content = new StringContent(body, Encoding.UTF8, "application/json");
+                }
+
+                foreach (var header in headers)
+                {
+                    if (header.Key.Equals("content-type", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(header.Value));
+                    }
+                    else
+                    {
+                        if (http.DefaultRequestHeaders.Contains(header.Key)) {
+                            http.DefaultRequestHeaders.Remove(header.Key);
+                        }
+                        http.DefaultRequestHeaders.Add(header.Key, header.Value);
+                    }
+                }
+
+                foreach (var header in headers)
+                {
+                    if (header.Key.Equals("content-type", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(header.Value));
+                    }
+                    else
+                    {
+                        if (request.Headers.Contains(header.Key)) {
+                            request.Headers.Remove(header.Key);
+                        }
+                        request.Headers.Add(header.Key, header.Value);
+                    }
+                }
+                try
+                {
+                    var httpResponseMessage = await http.SendAsync(request);
+                    var code = (int) httpResponseMessage.StatusCode;
+                    var response = await httpResponseMessage.Content.ReadAsStringAsync();
+
+                    if (code >= 400) {
+                        var message = response.ToString();
+                        var isJson = httpResponseMessage.Content.Headers.GetValues("Content-Type").FirstOrDefault().Contains("application/json");
+
+                        if (isJson) {
+                            message = (JObject.Parse(message))["message"].ToString();
+                        }
+
+                        throw new AppwriteException(message, code, response.ToString());
+                    }
+
+                    return httpResponseMessage;
+                }
+                catch (Exception e)
+                {
+                    throw new AppwriteException(e.Message, e);
+                }
+            }
+            catch (AppwriteException ex)
+            {
+                Debug.WriteLine("Appwrite Exception: "+ex);
+                throw;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
     }
 
 
     public interface IApiConnector
     {
         Task<HttpResponseMessage> MakeHttpRequest(object request, string baseAddress, string requestUri, HttpMethod method, Dictionary<string, string> headers = null);
+
+        Task<HttpResponseMessage> AppWriteRequest(string method, string path, Dictionary<string, string> headers, Dictionary<string, object> parameters);
     }
+    
+    
 }

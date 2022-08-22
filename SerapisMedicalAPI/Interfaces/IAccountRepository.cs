@@ -13,7 +13,7 @@ namespace SerapisMedicalAPI.Interfaces
         Task<IEnumerable<Patient>> GetAllRegisteredUsers();
         Task EditUser(Patient userwithToken);
 
-        BaseResponse<Patient> AddAccount(Patient user);
+        BaseResponse<Patient> AddPatientAccount(Patient user);
         Task<BaseResponse<Patient>> AddAccountAsync(Patient user);
 
         Task RegisterSocialUser(Patient patient);
@@ -21,6 +21,7 @@ namespace SerapisMedicalAPI.Interfaces
         Task<Patient> SocialLogin(string socialid, string firstname, string lastname);
 
         //Gets the doctors profile (Both patient and doctor have access to this method) 
+        Task<BaseResponse<Doctor>> GetPractionerById(string privateid);
         Task<BaseResponse<Patient>> GetUserById(string privateid);
 
         //Delete-- Doctor from platform (doctor app uses this method)
