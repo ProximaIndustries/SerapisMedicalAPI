@@ -38,7 +38,7 @@ namespace SerapisMedicalAPI.Controllers
             return new OkObjectResult(response);
         }
 
-        [HttpPost("supabase/login/{authId}")]
+        [HttpGet("supabase/login/{authId}")]
         [ProducesResponseType((int) HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse<Patient>>>))]
         [ProducesResponseType((int) HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
         [ProducesResponseType((int) HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
