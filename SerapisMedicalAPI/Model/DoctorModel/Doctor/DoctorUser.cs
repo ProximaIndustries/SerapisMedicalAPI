@@ -11,7 +11,7 @@ namespace SerapisMedicalAPI.Model.DoctorModel.Doctor
         [BsonElement("healthid")]
         public string HealthId { get; set; }
         
-        [BsonElement("authid")]
+        [BsonElement("authId")]
         public string AuthId { get; set; }
 
         [BsonElement("password")]

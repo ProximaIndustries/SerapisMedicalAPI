@@ -26,7 +26,8 @@ namespace SerapisMedicalAPI
         
         
         public const string OtherConnectionString = "mongodb+srv://KhanyiTheGreat:Langelihle1!@cluster0-i3gjx.azure.mongodb.net/SerapisMedical?retryWrites=true";
-        public const string ConnectionString = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
+        public const string ConnectionString1 = "mongodb+srv://Bonga:Langelihle1!@cluster0.bkjo1.mongodb.net/SerapisMedical?retryWrites=true&w=majority";
+        public const string ConnectionString = "mongodb+srv://dbuser:pinetownEngineers1@cluster0.2sdsglx.mongodb.net/?retryWrites=true&w=majority";
 
         public const string ClickATell_APIKEY = "CGAmhjXETkq4ZP7DVPkxQQ==";
         public const string ClickATell_APIID = "ff8080817764737801776b66883b1230";								
@@ -66,7 +67,7 @@ namespace SerapisMedicalAPI
 
 
         public IMongoClient MongoClient;
-        public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("MedicalProfessionals");
+        public IMongoCollection<Doctor> DoctorCollection => _database.GetCollection<Doctor>("Users");
         
         //lambda way to do it
         //public IMongoCollection<AppointmentDao> BookingsCollection => _database.GetCollection<AppointmentDao>("PatientBookings");

@@ -19,11 +19,13 @@ namespace SerapisMedicalAPI.Controllers
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IAccountSupabaseRepository _supabaseRepository;
+        private readonly IDoctorRepository _doctorRepository;
 
-        public AuthController(IAccountSupabaseRepository supabaseRepository, IAccountRepository accountRepository)
+        public AuthController(IAccountSupabaseRepository supabaseRepository, IAccountRepository accountRepository, IDoctorRepository doctorRepository)
         {
             _supabaseRepository = supabaseRepository;
             _accountRepository = accountRepository;
+            _doctorRepository = doctorRepository;
         }
 
         [HttpPost("supabase/register")]
@@ -42,10 +44,11 @@ namespace SerapisMedicalAPI.Controllers
         [ProducesResponseType((int) HttpStatusCode.OK, Type = typeof(Task<BaseResponse<PatientAuthResponse<Patient>>>))]
         [ProducesResponseType((int) HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
         [ProducesResponseType((int) HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
-        public async Task<IActionResult> LoginUser([FromBody] string authId)
+        public async Task<IActionResult> LoginUser( string authId)
         {
             Log.Information("Request:{request}", authId);
-            var response = await _accountRepository.GetPractionerById(authId);
+            var response1 = await _doctorRepository.GetAllDoctor();
+            var response = await _doctorRepository.GetDoctor(authId);
             var encrypt = EncryptService.EncryptPlainTextToCipherText(response.ToJson());
             var decrypt = EncryptService.DecryptCipherTextToPlainText(encrypt);
             Log.Information(encrypt);
@@ -68,16 +71,16 @@ namespace SerapisMedicalAPI.Controllers
             return new OkObjectResult(response);
         }
 
-        [HttpPost("sso/login")]
+        [HttpGet("sso/login/{authId}")]
         [ProducesResponseType((int) HttpStatusCode.OK, Type = typeof(AppWriteSession))]
         [ProducesResponseType((int) HttpStatusCode.InternalServerError, Type = typeof(ErrorResponse))]
         [ProducesResponseType((int) HttpStatusCode.BadRequest, Type = typeof(ErrorResponse))]
-        public async Task<IActionResult> LoginSSOUser([FromBody] SupabaseAuth user)
+        public async Task<IActionResult> LoginSSOUser( string authId)
         {
             //var response  = await _appWriteRepository.LoginUser(user);
-            Log.Information($"Request:{user?.ToJson()}");
+            Log.Information($"Request:{authId}");
 
-            var response = await _supabaseRepository.LoginSSOUser(user);
+            var response = await _doctorRepository.GetDoctor(authId);
 
             Log.Information($"Request:{response?.ToJson()}");
             return new OkObjectResult(response);

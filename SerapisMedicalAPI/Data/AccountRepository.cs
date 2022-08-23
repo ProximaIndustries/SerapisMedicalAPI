@@ -235,9 +235,11 @@ namespace SerapisMedicalAPI.Data
             var filter = Builders<Doctor>.Filter.Eq(user => user.User.AuthId, privateid);
             try
             {
-                var response = await _context.DoctorCollection.FindAsync(filter);
+                var response =  await _context.DoctorCollection
+                    .Find(filter)
+                    .FirstOrDefaultAsync();;
 
-                var single = response.FirstOrDefault();
+                var single = response;//.FirstOrDefault();
                 return new BaseResponse<Doctor>{data = single};
                 
             }
