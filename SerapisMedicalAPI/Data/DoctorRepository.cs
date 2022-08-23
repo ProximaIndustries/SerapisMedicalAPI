@@ -84,7 +84,7 @@ namespace SerapisMedicalAPI.Data
                 timer.Start();
                 ObjectId Id = GetId(privateid);
                 var result = await _context.DoctorCollection
-                    .Find(doctor => doctor.id == privateid)
+                    .Find(doctor => doctor.User.AuthId == privateid)
                     .FirstOrDefaultAsync();
                 timer.Stop();
                 _logger?.LogInformation("The Response Time of MongoDriver call took [ " + timer.ElapsedMilliseconds + "ms" + " ]");
