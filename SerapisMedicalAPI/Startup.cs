@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
 using Cassandra.Mapping;
 using Google.Apis.Http;
 using Honeycomb.OpenTelemetry;
@@ -58,7 +59,14 @@ namespace SerapisMedicalAPI
                     .AllowAnyHeader()
                     .AllowCredentials());
             });*/
-            
+
+            //All things BlobStorage
+
+            services.AddSingleton( IServiceProvider => new BlobServiceClient(connectionString: Configuration.GetValue<string>(key: "AzureBlobStorageConnectionString")));
+
+            services.AddScoped<IBlobStorage, BlobService>();
+
+
 
             services.AddScoped(c =>
                 c.GetService<IMongoClient>().StartSession());
