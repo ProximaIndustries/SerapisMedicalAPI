@@ -23,7 +23,6 @@ namespace SerapisMedicalAPI.Controllers
     {
         private readonly IBlobStorage _uploadService;
 
-
         public BlobUploadController(IBlobStorage uploadService)
         {
             _uploadService = uploadService; 
@@ -47,8 +46,6 @@ namespace SerapisMedicalAPI.Controllers
             return contentType;
         }
 
-
-
         [HttpGet(template: "list")]
         public async Task<IActionResult> ListBlobsAsync([FromQuery]string containerID)
         {
@@ -57,8 +54,6 @@ namespace SerapisMedicalAPI.Controllers
             //function to be defined in interface
             return Ok(await _uploadService.ListBlobsAsync(containerID));
         }
-
-
 
         [HttpPost]
         [Route (template: "upload")]
@@ -71,10 +66,6 @@ namespace SerapisMedicalAPI.Controllers
             string body = await reader.ReadToEndAsync();
 
             await _uploadService.UploadAsync(containerID, body);
-
-            //add content type!!!!
-
-            
 
         }
         

@@ -90,9 +90,7 @@ namespace SerapisMedicalAPI.Services
             await using var memoryStream = new MemoryStream(bytes);
 
             return await blobClient.UploadAsync(memoryStream);
-                //(patientInfo);
 
-            //return response;
         }
     }
 }
