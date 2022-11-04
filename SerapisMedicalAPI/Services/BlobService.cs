@@ -50,9 +50,7 @@ namespace SerapisMedicalAPI.Services
             BlobClient blobClient = containerClient.GetBlobClient(blobID);
             var blobDownloadInfo = await blobClient.OpenReadAsync();
 
-
             return blobDownloadInfo;
-
         }
 
         public async Task<BlobProperties> GetBlobProperties(string blobID, string ContainerID)
@@ -63,20 +61,16 @@ namespace SerapisMedicalAPI.Services
             var properties = blobClient.GetProperties();
 
             return properties;  
-
         }
 
         public async Task<IEnumerable<string>> ListBlobsAsync(string containerID)
         {
             var containerClient = _blobServiceClient.GetBlobContainerClient(containerID);
-
             var items = new List<string>();
-
             await foreach (var blobItem in containerClient.GetBlobsAsync())
             {
                 items.Add(blobItem.Name);
             }
-
             return items; 
         }
 
@@ -92,8 +86,6 @@ namespace SerapisMedicalAPI.Services
             var blobClient = containerclient.GetBlobClient(containerID);
 
             var bytes = Encoding.UTF8.GetBytes(patientInfo);
-
-           
 
             await using var memoryStream = new MemoryStream(bytes);
 
