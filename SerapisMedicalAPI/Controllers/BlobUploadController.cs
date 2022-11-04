@@ -46,7 +46,6 @@ namespace SerapisMedicalAPI.Controllers
             return Ok(await _uploadService.ListBlobsAsync());
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -54,16 +53,12 @@ namespace SerapisMedicalAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route (template: "upload")]
-
         public async Task UploadAsync(string FileName)
         {
             using var reader = new StreamReader(HttpContext.Request.Body);
-
             string body = await reader.ReadToEndAsync();
-
             var response = await _uploadService.UploadAsync(body, FileName);
             //return body;
-
         }
         
         [HttpDelete]
