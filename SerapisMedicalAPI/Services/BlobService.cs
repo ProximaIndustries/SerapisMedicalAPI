@@ -21,6 +21,8 @@ using SendGrid.Helpers.Mail;
 using MongoDB.Bson;
 using Google.Cloud.Firestore.V1;
 using System.Threading;
+using EllipticCurve.Utils;
+using System.ComponentModel;
 
 namespace SerapisMedicalAPI.Services
 { 
@@ -35,25 +37,38 @@ namespace SerapisMedicalAPI.Services
         }
 
 
-        public async Task DeleteBlobAsync(string blobName)
+        public async Task DeleteBlobAsync(string blobID, string containerID)
         {
-            var containerClient = _blobServiceClient.GetBlobContainerClient("medicaldocuments");
-            var blobClient = containerClient.GetBlobClient(blobName);
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerID);
+            var blobClient = containerClient.GetBlobClient(blobID);
             await blobClient.DeleteIfExistsAsync();
         }
 
-        public async Task<Stream> GetBlobAsync(string blobName)
+        public async Task<Stream> GetBlobAsync(string blobID, string containerID)
         {
-            var containerClient = _blobServiceClient.GetBlobContainerClient("medicaldocuments");
-            BlobClient blobClient = containerClient.GetBlobClient(blobName);
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerID);
+            BlobClient blobClient = containerClient.GetBlobClient(blobID);
             var blobDownloadInfo = await blobClient.OpenReadAsync();
 
+
             return blobDownloadInfo;
+
         }
 
-        public async Task<IEnumerable<string>> ListBlobsAsync()
+        public async Task<BlobProperties> GetBlobProperties(string blobID, string ContainerID)
         {
-            var containerClient = _blobServiceClient.GetBlobContainerClient("medicaldocuments");
+            var containerClient = _blobServiceClient.GetBlobContainerClient(ContainerID);
+            BlobClient blobClient = containerClient.GetBlobClient(blobID);
+
+            var properties = blobClient.GetProperties();
+
+            return properties;  
+
+        }
+
+        public async Task<IEnumerable<string>> ListBlobsAsync(string containerID)
+        {
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerID);
 
             var items = new List<string>();
 
@@ -65,24 +80,27 @@ namespace SerapisMedicalAPI.Services
             return items; 
         }
 
-        public async Task<Task<Response<BlobContentInfo>>> UploadAsync(string blob, string FileName)
+        public async Task<Response<BlobContentInfo>> UploadAsync(string containerID, string patientInfo)
         {
-            // Create new upload response object that we can return to the requesting method
+            // Create new container for 
+            var containerclient = _blobServiceClient.GetBlobContainerClient(containerID);
+
+            containerclient.CreateIfNotExists();
+
+            //figure out what we use for  BlobName!!!
+
+            var blobClient = containerclient.GetBlobClient(containerID);
+
+            var bytes = Encoding.UTF8.GetBytes(patientInfo);
+
            
 
-            // container client
-            var containerclient = _blobServiceClient.GetBlobContainerClient("medicaldocuments");
-            //await container.CreateAsync();
-           
-                // Get a reference to the blob just uploaded from the API in a container from configuration settings
-            var blobClient = containerclient.GetBlobClient(FileName);
+            await using var memoryStream = new MemoryStream(bytes);
 
-            using (var response = blobClient.UploadAsync(blob))
-            {
-                return response;
-            }
- 
+            return await blobClient.UploadAsync(memoryStream);
+                //(patientInfo);
 
+            //return response;
         }
     }
 }
