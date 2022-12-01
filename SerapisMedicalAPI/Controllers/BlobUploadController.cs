@@ -23,49 +23,50 @@ namespace SerapisMedicalAPI.Controllers
     {
         private readonly IBlobStorage _uploadService;
 
-
         public BlobUploadController(IBlobStorage uploadService)
         {
             _uploadService = uploadService; 
         }
 
-        [HttpGet("{blobName}")]
-        public async Task<Stream> GetBlobAsync(string blobName)
+        [HttpGet("blob")]
+        public async Task<byte[]> GetBlobAsync([FromQuery] string blobID, [FromQuery] string containerID)
         {
             //function to be defined in interface
-            var data = await _uploadService.GetBlobAsync(blobName);
-            return data;
+            return await _uploadService.GetBlobAsync(blobID,containerID);
         }
 
-
-
-        [HttpGet(template:"list")]
-        public async Task<IActionResult> ListBlobsAsync()
+        [HttpGet("blobProperties")]
+        public async Task<String> GetBlobProperties([FromQuery] string blobID, [FromQuery] string containerID)
         {
             //function to be defined in interface
-            return Ok(await _uploadService.ListBlobsAsync());
+            var data = await _uploadService.GetBlobProperties(blobID, containerID);
+
+            var contentType = data.ContentType;
+            return contentType;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="FileName"></param>
-        /// <returns></returns>
+        [HttpGet(template: "list")]
+        public async Task<IActionResult> ListBlobsAsync([FromQuery]string containerID)
+        {
+
+            //function to be defined in interface
+            return Ok(await _uploadService.ListBlobsAsync(containerID));
+        }
+
         [HttpPost]
         [Route (template: "upload")]
-        public async Task UploadAsync(string FileName)
+
+        public async Task UploadAsync([FromQuery] string containerID, [FromBody] StorageObject storageObject)
         {
-            using var reader = new StreamReader(HttpContext.Request.Body);
-            string body = await reader.ReadToEndAsync();
-            var response = await _uploadService.UploadAsync(body, FileName);
-            //return body;
+            await _uploadService.UploadAsync(containerID, storageObject);
+
         }
         
         [HttpDelete]
-        public async Task<IActionResult> DeleteFile(string blobName)
+        public async Task<IActionResult> DeleteFile([FromQuery] string blobID, [FromQuery] string containerID)
         {
             //function to be defined in interface
-            await _uploadService.DeleteBlobAsync(blobName);
+            await _uploadService.DeleteBlobAsync(blobID,containerID);
             return Ok();
         }
        
