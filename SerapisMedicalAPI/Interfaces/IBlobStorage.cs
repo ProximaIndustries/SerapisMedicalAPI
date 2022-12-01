@@ -15,12 +15,12 @@ namespace SerapisMedicalAPI.Interfaces
 {
     public interface IBlobStorage
     {
-        public Task<Stream> GetBlobAsync(string blobID, string containerID);
+        public Task<byte[]> GetBlobAsync(string blobID, string containerID);
 
         public Task<IEnumerable<string>> ListBlobsAsync(string containerID);
 
         public Task DeleteBlobAsync(string blobID, string containerID);
-        public Task<Response<BlobContentInfo>> UploadAsync(string containerID, string patientInfo);
+        public Task<Response<BlobContentInfo>> UploadAsync(string containerID, StorageObject patientInfo);
 
         public Task<BlobProperties> GetBlobProperties(string blobID, string containerID);
     }

@@ -29,11 +29,10 @@ namespace SerapisMedicalAPI.Controllers
         }
 
         [HttpGet("blob")]
-        public async Task<Stream> GetBlobAsync([FromQuery] string blobID, [FromQuery] string containerID)
+        public async Task<byte[]> GetBlobAsync([FromQuery] string blobID, [FromQuery] string containerID)
         {
             //function to be defined in interface
-            var data = await _uploadService.GetBlobAsync(blobID,containerID);
-            return data;
+            return await _uploadService.GetBlobAsync(blobID,containerID);
         }
 
         [HttpGet("blobProperties")]
@@ -50,7 +49,6 @@ namespace SerapisMedicalAPI.Controllers
         public async Task<IActionResult> ListBlobsAsync([FromQuery]string containerID)
         {
 
-           
             //function to be defined in interface
             return Ok(await _uploadService.ListBlobsAsync(containerID));
         }
@@ -58,14 +56,9 @@ namespace SerapisMedicalAPI.Controllers
         [HttpPost]
         [Route (template: "upload")]
 
-        public async Task UploadAsync([FromQuery] string containerID)
+        public async Task UploadAsync([FromQuery] string containerID, [FromBody] StorageObject storageObject)
         {
-            using var reader = new StreamReader(HttpContext.Request.Body);
-
-
-            string body = await reader.ReadToEndAsync();
-
-            await _uploadService.UploadAsync(containerID, body);
+            await _uploadService.UploadAsync(containerID, storageObject);
 
         }
         

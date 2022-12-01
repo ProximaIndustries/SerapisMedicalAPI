@@ -3,34 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
-using Cassandra.Mapping;
-using Google.Apis.Http;
-using Honeycomb.OpenTelemetry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using SerapisMedicalAPI.Data;
 using SerapisMedicalAPI.Data.Appwrite;
-using SerapisMedicalAPI.Data.Base;
 using SerapisMedicalAPI.Data.Supabase;
 using SerapisMedicalAPI.Helpers.Config;
 using SerapisMedicalAPI.Interfaces;
 using SerapisMedicalAPI.Model;
-using SerapisMedicalAPI.Model.DoctorModel.Practice;
-using SerapisMedicalAPI.Model.PatientModel;
-using SerapisMedicalAPI.Model.PracticeModel;
 using SerapisMedicalAPI.Services;
 using SerapisMedicalAPI.Services.SymptomsChecker;
 using SerapisMedicalAPI.Utils;
-using Swashbuckle.AspNetCore.Swagger;
-using IHttpClientFactory = System.Net.Http.IHttpClientFactory;
 
 namespace SerapisMedicalAPI
 {
@@ -51,25 +39,9 @@ namespace SerapisMedicalAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            /*services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
-            });*/
-
-            //All things BlobStorage
-
-            services.AddSingleton( IServiceProvider => new BlobServiceClient(connectionString: Configuration.GetValue<string>(key: "AzureBlobStorageConnectionString")));
-
-            services.AddScoped<IBlobStorage, BlobService>();
 
 
-
-            services.AddScoped(c =>
-                c.GetService<IMongoClient>().StartSession());
+           
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.Configure<Settings>(options =>
@@ -103,7 +75,16 @@ namespace SerapisMedicalAPI
             services.AddTransient<IAppWriteService, AppWriteService>();
             services.AddTransient<IApiConnector, ApiConnector>();
             //services.AddTransient<IMapper>();
-            
+            //All things BlobStorage
+
+            services.AddSingleton( IServiceProvider => new BlobServiceClient(connectionString: Configuration.GetValue<string>(key: "AzureBlobStorageConnectionString")));
+
+            services.AddScoped<IBlobStorage, BlobService>();
+
+
+
+            services.AddScoped(c =>
+                c.GetService<IMongoClient>().StartSession());
 
             //Singletons
             services.AddSingleton<ISymptomsCheckerService, SymptomsCheckerService>();
