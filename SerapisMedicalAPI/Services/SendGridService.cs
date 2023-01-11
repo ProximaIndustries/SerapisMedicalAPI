@@ -12,6 +12,7 @@ using SerapisMedicalAPI.Model;
 
 namespace SerapisMedicalAPI.Services
 {
+    //TODO delete these useless files
     public static class SendGridService
     {
         private static SendGridClient clientObj = new SendGridClient(ConfigConstants.SendGrid_API_KEY);
