@@ -5,8 +5,9 @@
     "\\SerapisMedicalAPI\\Controllers",
     "\\SerapisMedicalAPI\\Helpers",
     "\\SerapisMedicalAPI\\Model",
-    "\\SerapisMedicalAPI\\Model\\Paystake"
+    "\\SerapisMedicalAPI\\Model\\Paystake",
+    "\\SerapisMedicalAPI\\Services"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI\\Controllers\\BillingController.cs",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
