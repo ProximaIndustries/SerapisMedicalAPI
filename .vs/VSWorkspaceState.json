@@ -2,16 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\SerapisMedicalAPI",
-    "\\SerapisMedicalAPI\\Data",
-    "\\SerapisMedicalAPI\\Data\\Supabase",
-    "\\SerapisMedicalAPI\\Enums",
+    "\\SerapisMedicalAPI\\Controllers",
     "\\SerapisMedicalAPI\\Helpers",
-    "\\SerapisMedicalAPI\\Helpers\\Config",
-    "\\SerapisMedicalAPI\\Helpers\\Validations",
-    "\\SerapisMedicalAPI\\Interfaces",
-    "\\SerapisMedicalAPI\\logs",
-    "\\SerapisMedicalAPI\\Model"
+    "\\SerapisMedicalAPI\\Model",
+    "\\SerapisMedicalAPI\\Model\\Paystake",
+    "\\SerapisMedicalAPI\\Services"
   ],
-  "SelectedNode": "\\SerapisMedicalAPI\\Services",
+  "SelectedNode": "\\SerapisMedicalAPI.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,25 @@
+14:09 [Information] (1) Starting web host
+14:09 [Information] (1) User profile is available. Using '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+14:09 [Information] (1) Creating key {8bc5cf0a-6eca-4a51-a37d-e04669b184f1} with creation date 2023-01-11 12:09:39Z, activation date 2023-01-11 12:09:39Z, and expiration date 2023-04-11 12:09:39Z.
+14:09 [Information] (1) Writing data to file '"C:\Users\Khanyisani Buthelezi\AppData\Local\ASP.NET\DataProtection-Keys\key-8bc5cf0a-6eca-4a51-a37d-e04669b184f1.xml"'.
+14:09 [Information] (1) Application started. Press Ctrl+C to shut down.
+14:09 [Information] (1) Hosting environment: "Development"
+14:09 [Information] (1) Content root path: "D:\Saas\Serapis Medical\Serapis Medical Api\SerapisMedicalAPI"
+14:09 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+14:09 [Information] (4) Request starting HTTP/2.0 GET https://localhost:44371/swagger/index.html  
+14:09 [Information] (5) Request finished in 226.7841ms 200 text/html;charset=utf-8
+14:09 [Information] (4) Request finished in 226.2872ms 200 text/html;charset=utf-8
+14:09 [Information] (10) Request starting HTTP/2.0 GET https://localhost:44371/swagger/swagger-ui.css  
+14:09 [Information] (5) Request starting HTTP/2.0 GET https://localhost:44371/swagger/swagger-ui-bundle.js  
+14:09 [Information] (9) Request starting HTTP/2.0 GET https://localhost:44371/swagger/swagger-ui-standalone-preset.js  
+14:09 [Information] (12) Sending file. Request path: '"/swagger-ui.css"'. Physical path: '"N/A"'
+14:09 [Information] (15) Sending file. Request path: '"/swagger-ui-standalone-preset.js"'. Physical path: '"N/A"'
+14:09 [Information] (14) Sending file. Request path: '"/swagger-ui-bundle.js"'. Physical path: '"N/A"'
+14:09 [Information] (14) Request finished in 90.8825ms 200 application/javascript
+14:09 [Information] (12) Request finished in 106.6212ms 200 text/css
+14:09 [Information] (15) Request finished in 86.2138ms 200 application/javascript
+14:09 [Information] (12) Request starting HTTP/2.0 GET https://localhost:44371/swagger/v1/swagger.json  
+14:09 [Information] (15) Request starting HTTP/2.0 GET https://localhost:44371/swagger/favicon-32x32.png  
+14:09 [Information] (15) Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+14:09 [Information] (15) Request finished in 6.242ms 200 image/png
+14:09 [Information] (12) Request finished in 649.6057ms 200 application/json;charset=utf-8
